@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mpvc add "$(du -a ~/Media/videos/ | cut -f2- | grep -vE "\.vtt$|\.srt$|\.jpg$|\.png$|\.txt$|\.aria2$|\.part$" | dmenu -i -l 46)" #--input-file=/home/user/.config/mpv/fifo
+

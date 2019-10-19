@@ -1,0 +1,8 @@
+#!/bin/sh
+
+reload-cover-repeat
+sleep 10s && reload-cover-repeat
+sleep 20s && reload-cover-repeat
+sleep 30s && reload-cover-repeat
+sleep 40s && reload-cover-repeat
+sleep 50s && reload-cover-repeat

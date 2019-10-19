@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#get input, run it and rectmove in i3
+
+i3-msg "exec $(ls -1 $(echo $PATH | sed 's/:/ /g') | grep -v "^$" | grep -v ':' | dmenu); exec rectmove"
+
+#todo: clickable/scrollable dmenu or alternative

@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ "$1" = "on" -o "$1" = "off" ]; then arg="$1"; else arg="toggle"; fi
+
+if [ "$arg" = "on" ] || [ "$arg" = "toggle" -a -z "$(xrandr -q | grep VGA-1 | sed 's/VGA-1 //' | grep "[0-9]")" ] 
+then xrandr --verbose --output VGA-1 --auto --left-of LVDS-1 #echo switching on
+else xrandr --verbose --output VGA-1 --auto --off #echo switching off
+fi
+
+.fehbg && xsetwacom set 13 MapToOutput LVDS-1 && xsetwacom set 14 MapToOutput LVDS-1

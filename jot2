@@ -1,0 +1,18 @@
+#!/bin/bash
+
+GTD_DIR='/home/user/doc/productivity/brainstorming/jot'
+
+if [ $# -gt 0 ]
+then
+	if [ -f doc/productivity/brainstorming/jot/$1.txt ] #if theres a jot list by name $1
+		then vim $GTD_DIR/$1 #open it
+	else #otherwise
+		echo "`echo $2 | cut 
+		
+
+
+[[ $# -eq 0 ]] && echo Incorrect usage. The syntax is jot [list name] \(text\). Example: \"mylist stuff\" adds \"stuff\" to the file $GTD_DIR/mylist.txt "mylist" opens the file $GTD_DIR/mylist.txt
+[[ $# -eq 1 ]] && vim $GTD_DIR/$1.txt +
+[[ $# -gt 1 ]] && echo "`echo $@ | cut -d ' ' -f2-`" >> $GTD_DIR/$1.txt
+
+

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+GTD_DIR='/home/user/doc/productivity/brainstorming/jot'
+#echo $1 | grep '\.'
+
+if [ $# -eq 0 ] 
+	then echo Incorrect usage. The syntax is jot [list name] \(text\). Example: \"mylist stuff\" adds \"stuff\" to the file $GTD_DIR/mylist.txt "mylist" opens the file $GTD_DIR/mylist.txt
+
+elif [ $# -eq 1 ]; then
+	if [ -n "$(echo $1 | grep '\.')" ] ; then 
+		$EDITOR $GTD_DIR/$1 +
+	else 
+		$EDITOR $GTD_DIR/$1.txt +
+	fi
+else 
+	echo "$@" | cut -d ' ' -f2- >> $GTD_DIR/$1.txt
+	if [ -n "$(echo $1 | grep '\.')" ] ; then 
+		echo "$@" | cut -d ' ' -f2- >> $GTD_DIR/$1
+	else 
+		echo "$@" | cut -d ' ' -f2- >> $GTD_DIR/$1.txt
+	fi
+fi
+
+

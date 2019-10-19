@@ -1,0 +1,2 @@
+#!/bin/sh
+ffmpeg -i /home/user/Media/music/"$(mpc status | sed q)".m4a /home/user/.scripts/output/cover.jpg -y 2>/dev/null

@@ -1,0 +1,18 @@
+#!/bin/sh
+#make windows floating and draw them to correct size and location with the mouse
+
+#take input
+input="$(xrectsel)"
+
+size="$(echo $input | cut -d "+" -f1 | sed 's/x/ /')"
+pos="$(echo $input | cut -d "+" -f2) px  $(echo $input | cut -d "+" -f3) px"
+
+
+#make it floating
+i3-msg floating enable &>/dev/null
+
+#resize correctly
+i3-msg resize set $size &>/dev/null
+
+#move to correct geometry
+i3-msg move absolute position "$pos" &>/dev/null

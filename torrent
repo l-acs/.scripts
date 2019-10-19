@@ -1,0 +1,8 @@
+#!/bin/bash
+log='/home/user/.scripts/output/torrent.log'
+rm $log
+movies_dir='/home/user/Media/videos/movies'
+magnet_file='/home/user/Media/videos/lists/magnets2.txt'
+cd $movies_dir
+nordvpn connect >> $log && aria2c --seed-time=0 -i "$magnet_file" >> $log 
+#add autocomment all lines at end

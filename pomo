@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# if the args are cancel: killall sleep and exit (whether or not killall sleep succeeded)
+[[ $@ = "cancel" ]] && ( killall sleep || true ) &&  exit
+
+
+# if the args are stop: find and kill the process, and exit (whether or not there were any such processes)
+#[[ $@ = "stop" ]] && ( kill `ps -v | grep "vlc" | grep "ringtone" | cut -d " " -f1` || true ) && exit 
+#[[ $@ = "stop" ]] && ( kill `ps aux | grep vlc | grep ringtone | cut -c -7 | cut -d " "  -f 3-5` || true ) && exit
+[[ $@ = "stop" ]] && ( kill `ps aux | grep vlc | grep ringtone | cut -d " " -f 9` || true ) && exit
+
+#pomodoro method
+echo Starting timer at `date +%-I:%M\ %p`
+
+if [ -n "$1" -a -z "$(echo $1 | grep "[a-zA-Z]")" ]
+then arg="$1m"
+else arg="$1"
+fi
+#if there's an argument, pass it to sleep
+(set +m; [[ -n $arg ]] && sleep $arg && vlc /home/user/.scripts/ringtone.webm 2>/dev/null &)
+
+#else use 25 minutes
+(set +m; [[ -z $arg ]] && sleep 25m && vlc /home/user/.scripts/ringtone.webm 2>/dev/null &)
+
