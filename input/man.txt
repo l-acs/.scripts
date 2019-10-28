@@ -694,7 +694,6 @@ addwstr (3x)         - add a string of wide characters to a curses window and...
 adjtime (3)          - correct the time to synchronize the system clock
 adjtime_config (5)   - information about hardware clock setting and drift factor
 adjtimex (2)         - tune kernel clock
-adjtimex (3)         - tune kernel clock
 admin (1p)           - create and administer SCCS files (DEVELOPMENT)
 ADMISSION_SYNTAX (3ssl) - Accessors and settors for ADMISSION_SYNTAX
 ADMISSION_SYNTAX_free (3ssl) - ASN1 object utilities
@@ -1064,6 +1063,8 @@ asn1Coding (1)       - ASN.1 DER encoder
 asn1Decoding (1)     - ASN.1 DER decoder
 asn1parse (1ssl)     - ASN.1 parsing tool
 asn1Parser (1)       - ASN.1 syntax tree generator for libtasn1
+aspell (1)           - interactive spell checker
+aspell-import (1)    - import old personal dictionaries into GNU Aspell
 asprintf (3)         - print to allocated string
 ASRange_free (3ssl)  - ASN1 object utilities
 ASRange_new (3ssl)   - ASN1 object utilities
@@ -1783,6 +1784,7 @@ bottom_panel (3x)    - panel stack extension for curses
 box (3x)             - create curses borders, horizontal and vertical lines
 box_set (3x)         - create curses borders or lines using complex character...
 bpf (2)              - perform a command on an extended BPF map or program
+brctl (8)            - ethernet bridge administration
 break (1p)           - exit from for, while, or until loop
 break (2)            - unimplemented system calls
 bridge (8)           - show / manipulate bridge addresses and devices
@@ -1839,6 +1841,7 @@ BUF_reverse (3ssl)   - simple character array structure
 BUILDINFO (5)        - Makepkg package build information file
 bunzip2 (1)          - a block-sorting file compressor, v1.0.8
 busctl (1)           - Introspect the bus
+bwrap (1)            - container setup utility
 byteorder (3)        - convert values between host and network byte order
 byteorder (3bsd)     - byte order operations
 bytes (3perl)        - Perl pragma to expose the individual bytes of characters
@@ -3549,6 +3552,198 @@ dn_expand (3)        - resolver routines
 dngettext (3)        - translate message and choose plural form
 dnsdomainname (1)    - show DNS domain name
 dnssec-trust-anchors.d (5) - DNSSEC trust anchor configuration files
+docker (1)           - Docker image and container command line interface
+docker-attach (1)    - Attach local standard input, output, and error streams...
+docker-build (1)     - Build an image from a Dockerfile
+docker-builder (1)   - Manage builds
+docker-builder-build (1) - Build an image from a Dockerfile
+docker-builder-prune (1) - Remove build cache
+docker-checkpoint (1) - Manage checkpoints
+docker-checkpoint-create (1) - Create a checkpoint from a running container
+docker-checkpoint-ls (1) - List checkpoints for a container
+docker-checkpoint-rm (1) - Remove a checkpoint
+docker-commit (1)    - Create a new image from a container's changes
+docker-config (1)    - Manage Docker configs
+docker-config-create (1) - Create a config from a file or STDIN
+docker-config-inspect (1) - Display detailed information on one or more configs
+docker-config-json (5) - Default Docker configuration file
+docker-config-ls (1) - List configs
+docker-config-rm (1) - Remove one or more configs
+docker-container (1) - Manage containers
+docker-container-attach (1) - Attach local standard input, output, and error ...
+docker-container-commit (1) - Create a new image from a container's changes
+docker-container-cp (1) - Copy files/folders between a container and the loca...
+docker-container-create (1) - Create a new container
+docker-container-diff (1) - Inspect changes to files or directories on a cont...
+docker-container-exec (1) - Run a command in a running container
+docker-container-export (1) - Export a container's filesystem as a tar archive
+docker-container-inspect (1) - Display detailed information on one or more co...
+docker-container-kill (1) - Kill one or more running containers
+docker-container-logs (1) - Fetch the logs of a container
+docker-container-ls (1) - List containers
+docker-container-pause (1) - Pause all processes within one or more containers
+docker-container-port (1) - List port mappings or a specific mapping for the ...
+docker-container-prune (1) - Remove all stopped containers
+docker-container-rename (1) - Rename a container
+docker-container-restart (1) - Restart one or more containers
+docker-container-rm (1) - Remove one or more containers
+docker-container-run (1) - Run a command in a new container
+docker-container-start (1) - Start one or more stopped containers
+docker-container-stats (1) - Display a live stream of container(s) resource u...
+docker-container-stop (1) - Stop one or more running containers
+docker-container-top (1) - Display the running processes of a container
+docker-container-unpause (1) - Unpause all processes within one or more conta...
+docker-container-update (1) - Update configuration of one or more containers
+docker-container-wait (1) - Block until one or more containers stop, then pri...
+docker-context (1)   - Manage contexts
+docker-context-create (1) - Create a context
+docker-context-export (1) - Export a context to a tar or kubeconfig file
+docker-context-import (1) - Import a context from a tar or zip file
+docker-context-inspect (1) - Display detailed information on one or more cont...
+docker-context-ls (1) - List contexts
+docker-context-rm (1) - Remove one or more contexts
+docker-context-update (1) - Update a context
+docker-context-use (1) - Set the current docker context
+docker-cp (1)        - Copy files/folders between a container and the local f...
+docker-create (1)    - Create a new container
+docker-deploy (1)    - Deploy a new stack or update an existing stack
+docker-diff (1)      - Inspect changes to files or directories on a container...
+docker-engine (1)    - Manage the docker engine
+docker-engine-activate (1) - Activate Enterprise Edition
+docker-engine-check (1) - Check for available engine updates
+docker-engine-update (1) - Update a local engine
+docker-events (1)    - Get real time events from the server
+docker-exec (1)      - Run a command in a running container
+docker-export (1)    - Export a container's filesystem as a tar archive
+docker-history (1)   - Show the history of an image
+docker-image (1)     - Manage images
+docker-image-build (1) - Build an image from a Dockerfile
+docker-image-history (1) - Show the history of an image
+docker-image-import (1) - Import the contents from a tarball to create a file...
+docker-image-inspect (1) - Display detailed information on one or more images
+docker-image-load (1) - Load an image from a tar archive or STDIN
+docker-image-ls (1)  - List images
+docker-image-prune (1) - Remove unused images
+docker-image-pull (1) - Pull an image or a repository from a registry
+docker-image-push (1) - Push an image or a repository to a registry
+docker-image-rm (1)  - Remove one or more images
+docker-image-save (1) - Save one or more images to a tar archive (streamed to...
+docker-image-tag (1) - Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+docker-images (1)    - List images
+docker-import (1)    - Import the contents from a tarball to create a filesys...
+docker-info (1)      - Display system-wide information
+docker-inspect (1)   - Return low-level information on Docker objects
+docker-kill (1)      - Kill one or more running containers
+docker-load (1)      - Load an image from a tar archive or STDIN
+docker-login (1)     - Log in to a Docker registry
+docker-logout (1)    - Log out from a Docker registry
+docker-logs (1)      - Fetch the logs of a container
+docker-manifest (1)  - Manage Docker image manifests and manifest lists
+docker-manifest-annotate (1) - Add additional information to a local image ma...
+docker-manifest-create (1) - Create a local manifest list for annotating and ...
+docker-manifest-inspect (1) - Display an image manifest, or manifest list
+docker-manifest-push (1) - Push a manifest list to a repository
+docker-network (1)   - Manage networks
+docker-network-connect (1) - Connect a container to a network
+docker-network-create (1) - Create a network
+docker-network-disconnect (1) - Disconnect a container from a network
+docker-network-inspect (1) - Display detailed information on one or more netw...
+docker-network-ls (1) - List networks
+docker-network-prune (1) - Remove all unused networks
+docker-network-rm (1) - Remove one or more networks
+docker-node (1)      - Manage Swarm nodes
+docker-node-demote (1) - Demote one or more nodes from manager in the swarm
+docker-node-inspect (1) - Display detailed information on one or more nodes
+docker-node-ls (1)   - List nodes in the swarm
+docker-node-promote (1) - Promote one or more nodes to manager in the swarm
+docker-node-ps (1)   - List tasks running on one or more nodes, defaults to c...
+docker-node-rm (1)   - Remove one or more nodes from the swarm
+docker-node-update (1) - Update a node
+docker-pause (1)     - Pause all processes within one or more containers
+docker-plugin (1)    - Manage plugins
+docker-plugin-create (1) - Create a plugin from a rootfs and configuration. P...
+docker-plugin-disable (1) - Disable a plugin
+docker-plugin-enable (1) - Enable a plugin
+docker-plugin-inspect (1) - Display detailed information on one or more plugins
+docker-plugin-install (1) - Install a plugin
+docker-plugin-ls (1) - List plugins
+docker-plugin-push (1) - Push a plugin to a registry
+docker-plugin-rm (1) - Remove one or more plugins
+docker-plugin-set (1) - Change settings for a plugin
+docker-plugin-upgrade (1) - Upgrade an existing plugin
+docker-port (1)      - List port mappings or a specific mapping for the conta...
+docker-ps (1)        - List containers
+docker-pull (1)      - Pull an image or a repository from a registry
+docker-push (1)      - Push an image or a repository to a registry
+docker-rename (1)    - Rename a container
+docker-restart (1)   - Restart one or more containers
+docker-rm (1)        - Remove one or more containers
+docker-rmi (1)       - Remove one or more images
+docker-run (1)       - Run a command in a new container
+docker-save (1)      - Save one or more images to a tar archive (streamed to ...
+docker-search (1)    - Search the Docker Hub for images
+docker-secret (1)    - Manage Docker secrets
+docker-secret-create (1) - Create a secret from a file or STDIN as content
+docker-secret-inspect (1) - Display detailed information on one or more secrets
+docker-secret-ls (1) - List secrets
+docker-secret-rm (1) - Remove one or more secrets
+docker-service (1)   - Manage services
+docker-service-create (1) - Create a new service
+docker-service-inspect (1) - Display detailed information on one or more serv...
+docker-service-logs (1) - Fetch the logs of a service or task
+docker-service-ls (1) - List services
+docker-service-ps (1) - List the tasks of one or more services
+docker-service-rm (1) - Remove one or more services
+docker-service-rollback (1) - Revert changes to a service's configuration
+docker-service-scale (1) - Scale one or multiple replicated services
+docker-service-update (1) - Update a service
+docker-stack (1)     - Manage Docker stacks
+docker-stack-deploy (1) - Deploy a new stack or update an existing stack
+docker-stack-ls (1)  - List stacks
+docker-stack-ps (1)  - List the tasks in the stack
+docker-stack-rm (1)  - Remove one or more stacks
+docker-stack-services (1) - List the services in the stack
+docker-start (1)     - Start one or more stopped containers
+docker-stats (1)     - Display a live stream of container(s) resource usage s...
+docker-stop (1)      - Stop one or more running containers
+docker-swarm (1)     - Manage Swarm
+docker-swarm-ca (1)  - Display and rotate the root CA
+docker-swarm-init (1) - Initialize a swarm
+docker-swarm-join (1) - Join a swarm as a node and/or manager
+docker-swarm-join-token (1) - Manage join tokens
+docker-swarm-leave (1) - Leave the swarm
+docker-swarm-unlock (1) - Unlock swarm
+docker-swarm-unlock-key (1) - Manage the unlock key
+docker-swarm-update (1) - Update the swarm
+docker-system (1)    - Manage Docker
+docker-system-df (1) - Show docker disk usage
+docker-system-events (1) - Get real time events from the server
+docker-system-info (1) - Display system-wide information
+docker-system-prune (1) - Remove unused data
+docker-tag (1)       - Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+docker-top (1)       - Display the running processes of a container
+docker-trust (1)     - Manage trust on Docker images
+docker-trust-inspect (1) - Return low-level information about keys and signat...
+docker-trust-key (1) - Manage keys for signing Docker images
+docker-trust-key-generate (1) - Generate and load a signing key-pair
+docker-trust-key-load (1) - Load a private key file for signing
+docker-trust-revoke (1) - Remove trust for an image
+docker-trust-sign (1) - Sign an image
+docker-trust-signer (1) - Manage entities who can sign Docker images
+docker-trust-signer-add (1) - Add a signer
+docker-trust-signer-remove (1) - Remove a signer
+docker-unpause (1)   - Unpause all processes within one or more containers
+docker-update (1)    - Update configuration of one or more containers
+docker-version (1)   - Show the Docker version information
+docker-volume (1)    - Manage volumes
+docker-volume-create (1) - Create a volume
+docker-volume-inspect (1) - Display detailed information on one or more volumes
+docker-volume-ls (1) - List volumes
+docker-volume-prune (1) - Remove all unused local volumes
+docker-volume-rm (1) - Remove one or more volumes
+docker-wait (1)      - Block until one or more containers stop, then print th...
+dockerd (8)          - Enable daemon mode
+Dockerfile (5)       - automate the steps of creating a Docker image
 DoesBackingStore (3) - screen information functions and macros
 DoesSaveUnders (3)   - screen information functions and macros
 dosfsck (8)          - check and repair MS-DOS filesystems
@@ -3948,6 +4143,8 @@ tc-ematch (8)        - extended matches for use with "basic" or "flow" filters
 enc (1ssl)           - symmetric cipher routines
 enc2xs (1perl)       - - Perl Encode Module Generator
 encguess (1perl)     - guess character encodings of files
+enchant-2 (1)        - a spellchecker
+enchant-lsmod-2 (1)  - list provider and dictionary information
 Encode (3perl)       - character encodings in Perl
 Encode::Alias (3perl) - alias definitions to encodings
 Encode::Byte (3perl) - Single Byte Encodings
@@ -4221,7 +4418,6 @@ urxvt-eval (1)       - evaluate arbitrary perl code using actions
 eval (1p)            - construct command by concatenating arguments
 evdev-joystick (1)   - joystick calibration program
 eventfd (2)          - create a file descriptor for event notification
-eventfd (3)          - create a file descriptor for event notification
 eventfd2 (2)         - create a file descriptor for event notification
 eventfd_read (3)     - create a file descriptor for event notification
 eventfd_write (3)    - create a file descriptor for event notification
@@ -5602,7 +5798,6 @@ fuser (1p)           - list process IDs of all processes that have one or mor...
 fusermount (1)       - mount and unmount FUSE filesystems
 futex (2)            - fast user-space locking
 futex (7)            - fast user-space locking
-futimens (2)         - change file timestamps with nanosecond precision
 futimens (3)         - change file timestamps with nanosecond precision
 futimens (3p)        - set file access and modification times
 futimes (3)          - change file timestamps
@@ -5870,7 +6065,6 @@ getresgid32 (2)      - get real, effective and saved user/group IDs
 getresuid (2)        - get real, effective and saved user/group IDs
 getresuid32 (2)      - get real, effective and saved user/group IDs
 getrlimit (2)        - get/set resource limits
-getrlimit (3)        - get/set resource limits
 getrlimit (3p)       - control maximum resource consumption
 getrpcbyname (3)     - get RPC entry
 getrpcbyname_r (3)   - get RPC entry (reentrant)
@@ -5881,7 +6075,6 @@ getrpcent_r (3)      - get RPC entry (reentrant)
 getrpcport (3)       - get RPC port number
 getrpcport (3t)      - get RPC port number
 getrusage (2)        - get resource usage
-getrusage (3)        - get resource usage
 getrusage (3p)       - get information about resource utilization
 gets (3)             - get a string from standard input (DEPRECATED)
 gets (3p)            - get a string from a stdin stream
@@ -7505,6 +7698,13 @@ gsm_explode (3)      - GSM 06.10 supplementary functions for testing
 gsm_option (3)       - customizing the GSM 06.10 implementation
 gsm_print (3)        - GSM 06.10 supplementary function for debugging
 gsnd (1)             - Run ghostscript (PostScript and PDF engine) without di...
+gst-device-monitor-1.0 (1) - Simple command line testing tool for GStreamer d...
+gst-discoverer-1.0 (1) - Display file metadata and stream information
+gst-inspect-1.0 (1)  - print info about a GStreamer plugin or element
+gst-launch-1.0 (1)   - build and run a GStreamer pipeline
+gst-play-1.0 (1)     - Simple command line playback testing tool
+gst-stats-1.0 (1)    - print info gathered from a GStreamer log file
+gst-typefind-1.0 (1) - print Media type of file
 gtester (1)          - test running utility
 gtester-report (1)   - test report formatting utility
 gtf (1)              - calculate VESA GTF mode lines
@@ -7618,6 +7818,8 @@ hpftodit (1)         - create font description files for use with groff -Tlj4
 hpsa (4)             - HP Smart Array SCSI driver
 hsearch (3)          - hash table management
 hsearch_r (3)        - hash table management
+hspell (1)           - Hebrew spellchecker
+hspell (3)           - Hebrew spellchecker (C API)
 hstrerror (3)        - get network host entry
 tc-htb (8)           - Hierarchy Token Bucket
 htobe16 (3)          - convert values between host and big-/little-endian byt...
@@ -8093,7 +8295,6 @@ io_submit (2)        - submit asynchronous I/O blocks for processing
 ioctl (2)            - control device
 ioctl (3p)           - control a STREAMS device (STREAMS)
 ioctl_console (2)    - ioctls for console terminal and virtual consoles
-ioctl_console (4)    - ioctls for console terminal and virtual consoles
 ioctl_fat (2)        - manipulating the FAT filesystem
 ioctl_ficlone (2)    - share some the data of one file with another file
 ioctl_ficlonerange (2) - share some the data of one file with another file
@@ -8103,7 +8304,6 @@ ioctl_iflags (2)     - ioctl() operations for inode flags
 ioctl_list (2)       - list of ioctl calls in Linux/i386 kernel
 ioctl_ns (2)         - ioctl() operations for Linux namespaces
 ioctl_tty (2)        - ioctls for terminals and serial lines
-ioctl_tty (4)        - ioctls for terminals and serial lines
 ioctl_userfaultfd (2) - create a file descriptor for handling page faults in ...
 ioctl_xfs_fsbulkstat (2) - query information for a batch of XFS inodes
 ioctl_xfs_fscounts (2) - query XFS summary counter information
@@ -8578,7 +8778,6 @@ killpg (3p)          - send a signal to a process group
 killwchar (3x)       - curses environment query routines
 kinit (1)            - obtain and cache Kerberos ticket-granting ticket
 klist (1)            - list cached Kerberos tickets
-klogctl (2)          - read and/or clear kernel message ring buffer; set cons...
 klogctl (3)          - read and/or clear kernel message ring buffer; set cons...
 kmem (4)             - system memory, kernel memory and system ports
 kmod (8)             - Program to manage Linux Kernel modules
@@ -9601,6 +9800,7 @@ libunwind-dynamic (3) - - libunwind-support for runtime-generated code
 libunwind-ia64 (3)   - - IA-64-specific support in libunwind
 libunwind-ptrace (3) - - ptrace() support in libunwind
 libunwind-setjmp (3) - - libunwind-based non-local gotos
+libutempter (3)      - utempter interface
 libuv (1)            - libuv documentation
 libwacom-list-local-devices (1) - utility to list tablet devices
 xdot (3)             - parsing and deparsing of xdot operations
@@ -10208,7 +10408,6 @@ mlockall (3p)        - lock/unlock the address space of a process (REALTIME)
 mm2gv (1)            - Matrix Market-DOT converters
 mmafm (1)            - creates AFM font metrics for multiple master fonts
 mmap (2)             - map or unmap files or devices into memory
-mmap (3)             - map or unmap files or devices into memory
 mmap (3p)            - map pages of memory
 mmap2 (2)            - map files or devices into memory
 mmap64 (3)           - map or unmap files or devices into memory
@@ -10281,10 +10480,8 @@ mq_open (2)          - open a message queue
 mq_open (3)          - open a message queue
 mq_open (3p)         - open a message queue (REALTIME)
 mq_overview (7)      - overview of POSIX message queues
-mq_receive (2)       - receive a message from a message queue
 mq_receive (3)       - receive a message from a message queue
 mq_receive (3p)      - receive a message from a message queue (REALTIME)
-mq_send (2)          - send a message to a message queue
 mq_send (3)          - send a message to a message queue
 mq_send (3p)         - send a message to a message queue (REALTIME)
 mq_setattr (3)       - get/set message queue attributes
@@ -10696,12 +10893,10 @@ nstat (8)            - network statistics tools.
 ntohl (3)            - convert values between host and network byte order
 ntohl (3p)           - convert values between host and network byte order
 ntohs (3)            - convert values between host and network byte order
-ntp_adjtime (2)      - tune kernel clock
 ntp_adjtime (3)      - tune kernel clock
 ntp_gettime (3)      - get time parameters (NTP daemon interface)
 ntp_gettimex (3)     - get time parameters (NTP daemon interface)
 null (4)             - data sink
-numa (5)             - overview of Non-Uniform Memory Architecture
 numa (7)             - overview of Non-Uniform Memory Architecture
 numa_maps (5)        - overview of Non-Uniform Memory Architecture
 numcodes (3x)        - curses terminfo global variables
@@ -12245,6 +12440,7 @@ precedence (7)       - C operator precedence and order of evaluation
 preconv (1)          - convert encoding of input files to something GNU troff...
 prefresh (3x)        - create and display curses pads
 prepmx (1)           - preprocessor for PMX, easy music typesetting program
+prezip-bin (1)       - prefix zip delta word list compressor/decompressor
 prime (1ssl)         - compute prime numbers
 printafm (1)         - Print the metrics from a Postscript font in AFM format...
 printenv (1)         - print all or part of environment
@@ -12325,6 +12521,7 @@ psl (1)              - Explore the Public Suffix List
 psl-make-dafsa (1)   - generate a compact and optimized DAFSA from a Public S...
 pslatex (1)          - utility to typeset LaTeX files using PostScript fonts
 pslog (1)            - report current logs path of a process
+pspell-config (1)    - prints information about a libpspell installation
 pstore.conf (5)      - PStore configuration file
 pstore.conf.d (5)    - PStore configuration file
 pstree (1)           - display a tree of processes
@@ -12893,6 +13090,10 @@ roff2pdf (1)         - transform roff code into pdf mode
 roff2ps (1)          - transform roff code into ps mode
 roff2text (1)        - transform roff code into text mode
 roff2x (1)           - transform roff code into x mode
+rofi (1)             - A window switcher, application launcher, ssh dialog an...
+rofi-sensible-terminal (1) - launches $TERMINAL with fallbacks
+rofi-theme (5)       - Rofi theme format files
+rofi-theme-selector (1) - Preview and apply themes for rofi
 RootWindow (3)       - Display macros and functions
 RootWindowOfScreen (3) - screen information functions and macros
 round (3)            - round to nearest integer, away from zero
@@ -13067,6 +13268,24 @@ rtstat (8)           - unified linux network statistics
 rubibtex (1)         - make a bibliography for (La)TeX using Russian letters ...
 rumakeindex (1)      - process a LaTeX index using Russian Cyrillic characters
 run-parts (8)        - run scripts or programs in a directory
+run-with-aspell (1)  - script to help use GNU Aspell as an ispell replacement
+runc (8)             - Open Container Initiative runtime
+runc-checkpoint (8)  - (unknown subject)
+runc-create (8)      - (unknown subject)
+runc-delete (8)      - (unknown subject)
+runc-events (8)      - (unknown subject)
+runc-exec (8)        - (unknown subject)
+runc-kill (8)        - (unknown subject)
+runc-list (8)        - (unknown subject)
+runc-pause (8)       - (unknown subject)
+runc-ps (8)          - (unknown subject)
+runc-restore (8)     - (unknown subject)
+runc-resume (8)      - (unknown subject)
+runc-run (8)         - (unknown subject)
+runc-spec (8)        - (unknown subject)
+runc-start (8)       - (unknown subject)
+runc-state (8)       - (unknown subject)
+runc-update (8)      - (unknown subject)
 runcon (1)           - run command with specified security context
 runlevel (8)         - Print previous and current SysV runlevel
 runuser (1)          - run a command with substitute user and group ID
@@ -13744,7 +13963,6 @@ seed48_r (3)         - generate uniformly distributed pseudo-random numbers r...
 seekdir (3)          - set the position of the next readdir() call in the dir...
 seekdir (3p)         - set the position of a directory stream
 select (2)           - synchronous I/O multiplexing
-select (3)           - synchronous I/O multiplexing
 select (3p)          - synchronous I/O multiplexing
 select_tut (2)       - synchronous I/O multiplexing
 urxvt-selection (1)  - more intelligent selection (enabled by default)
@@ -14056,7 +14274,6 @@ sigaction (3p)       - examine and change a signal action
 sigaddset (3)        - POSIX signal set operations
 sigaddset (3p)       - add a signal to a signal set
 sigaltstack (2)      - set and/or get signal stack context
-sigaltstack (3)      - set and/or get signal stack context
 sigaltstack (3p)     - set and get signal alternate stack context
 sigandset (3)        - POSIX signal set operations
 sigblock (3)         - BSD signal API
@@ -14885,6 +15102,7 @@ SSLv23_server_method (3ssl) - create a new SSL_CTX object as framework for TL...
 SSLv3_client_method (3ssl) - create a new SSL_CTX object as framework for TLS...
 SSLv3_method (3ssl)  - create a new SSL_CTX object as framework for TLS/SSL o...
 SSLv3_server_method (3ssl) - create a new SSL_CTX object as framework for TLS...
+st (1)               - simple terminal
 st (4)               - SCSI tape device
 STAILQ_FOREACH_FROM (3bsd) - implementations of singly-linked lists, singly-l...
 STAILQ_FOREACH_FROM_SAFE (3bsd) - implementations of singly-linked lists, sin...
@@ -15573,6 +15791,7 @@ sudoreplay (8)       - replay sudo session logs
 suffixes (7)         - list of file suffixes
 sulogin (8)          - single-user login
 sum (1)              - checksum and count the blocks in a file
+surf (1)             - simple webkit-based browser
 svc_destroy (3)      - library routines for remote procedure calls
 svc_freeargs (3)     - library routines for remote procedure calls
 svc_getargs (3)      - library routines for remote procedure calls
@@ -16377,6 +16596,7 @@ tmpfs (5)            - a virtual memory filesystem
 tmpnam (3)           - create a name for a temporary file
 tmpnam (3p)          - create a name for a temporary file
 tmpnam_r (3)         - create a name for a temporary file
+tmux (1)             - terminal multiplexer
 toascii (3)          - convert character to ASCII
 toascii (3p)         - translate an integer to a 7-bit ASCII character
 toast (1)            - GSM 06.10 lossy sound compression
@@ -16882,13 +17102,17 @@ USERNOTICE_new (3ssl) - ASN1 object utilities
 users (1)            - print the user names of users currently logged in to t...
 usleep (3)           - suspend execution for microsecond intervals
 ustat (2)            - get filesystem statistics
+utempter (3)         - utempter interface
+utempter_add_record (3) - utempter interface
+utempter_remove_added_record (3) - utempter interface
+utempter_remove_record (3) - utempter interface
+utempter_set_helper (3) - utempter interface
 utf8 (3perl)         - Perl pragma to enable/disable UTF-8 (or UTF-EBCDIC) in...
 utf8 (7)             - an ASCII compatible multibyte Unicode encoding
 utime (2)            - change file last access and modification times
 utime (3p)           - set file access and modification times
 utime.h (0p)         - access and modification times structure
 utimensat (2)        - change file timestamps with nanosecond precision
-utimensat (3)        - change file timestamps with nanosecond precision
 utimensat (3p)       - set file access and modification times relative to dir...
 utimes (2)           - change file last access and modification times
 utmp (5)             - login records
@@ -17014,6 +17238,10 @@ vm86old (2)          - enter virtual 8086 mode
 vmsish (3perl)       - Perl pragma to control VMS-specific language features
 vmsplice (2)         - splice user pages to/from a pipe
 vmstat (8)           - Report virtual memory statistics
+voikkogc (1)         - test program for Voikko grammar checker
+voikkohyphenate (1)  - test program for Voikko hyphenator
+voikkospell (1)      - test program for Voikko spell checker
+voikkovfstc (1)      - compiler for Varissuo finite state transducers
 volume_key (8)       - work with volume encryption secrets and escrow packets
 vpddecode (8)        - VPD structure decoder
 vpnc (8)             - client for Cisco VPN3000 Concentrator, IOS and PIX
@@ -17264,6 +17492,7 @@ wmemset (3p)         - set wide characters in memory
 wmouse_trafo (3x)    - mouse interface through curses
 wmove (3x)           - move curses window cursor
 wnoutrefresh (3x)    - refresh curses windows and lines
+word-list-compress (1) - word list compressor/decompressor for GNU Aspell
 wordexp (3)          - perform word expansion like a posix-shell
 wordexp (3p)         - perform word expansions
 wordexp.h (0p)       - word-expansion types
@@ -20786,6 +21015,7 @@ XPoint (3)           - draw points and points structure
 XPointInRegion (3)   - determine if regions are empty or equal
 XPolygonRegion (3)   - generate regions
 XProcessInternalConnection (3) - handle Xlib internal connections
+xprop (1)            - property displayer for X
 XPropertyEvent (3)   - PropertyNotify event structure
 xprt_register (3)    - library routines for remote procedure calls
 xprt_unregister (3)  - library routines for remote procedure calls

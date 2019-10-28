@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #echo -e "today\ntomorrow\nmonday\ntuesday\nwednesday\nthursday\nfriday\nsaturday\nsunday" | dmenu
-INPUT=$(cat .scripts/days.txt | dmenu) 
+INPUT=$(cat .scripts/input/days.txt | dmenu) 
 td="/home/user/.scripts/td"
 
 

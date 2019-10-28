@@ -1,0 +1,15 @@
+#!/bin/bash
+echo -e ".TL\nl-acs' i3 keybindings\n\n.LP\n" > /home/user/.scripts/output/i3-cfg.ms
+i=1
+while [ $i -lt 370 ]; do 
+#if the line at i is empty, the line at i+1 is a comment, and the line at i+2 is a keybinding	
+	if [ -z "$(sed -n "$i"p .config/i3/config)" -a -n "$(sed -n "$(($i+1))"p .config/i3/config | grep "^#")" -a -n "$(sed -n "$(($i+2))"p .config/i3/config | grep -v "^#" | grep 'bindsym')" ]
+	then
+		echo -n '.B "' >> /home/user/.scripts/output/i3-cfg.ms
+		echo -n "$(sed -n "$(($i+2))"p .config/i3/config | sed 's/bindsym //' | sed "s/ /\"\n.LP\n/")" >> /home/user/.scripts/output/i3-cfg.ms
+		echo -n '  \*-  ' >> /home/user/.scripts/output/i3-cfg.ms	
+		sed -n "$(($i+1))"p .config/i3/config | sed 's/^#//' >> /home/user/.scripts/output/i3-cfg.ms
+		echo >> /home/user/.scripts/output/i3-cfg.ms
+	fi
+	i=$((i+1))
+done

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+selection="$(xsel | grep -v '^\ No newline at end of selection')"
+if [ -z "$selection" ]; then exit; fi
+
+options='echo cat ls vim firefox run'
+rofi_options=""
+
+#for i in $options; do echo $i; done
+for i in $options; do rofi_options="$i\n$rofi_options"; done
+
+
+#if selection is a file, open it in default application
+if [ -f "$selection" ]; then xdg-open "$selection" & disown && exit; fi
+
+#if selection is a directory, open it in a terminal
+if [ -d "$selection" ]; then "$TERMINAL" -cd "$(cd $selection && pwd)" & disown && exit; fi
+
+
+action="$(echo -e "$rofi_options" | rofi -dmenu)"
+#echo "$action"
+if [ "$action" = 'run' ]
+then 
+	exec "$selection"
+else 
+	"$action" "$selection" & disown
+fi

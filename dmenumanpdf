@@ -1,4 +1,4 @@
 #!/bin/sh
 
-man -Tpdf "$(cat /home/user/.scripts/input/man.txt | dmenu -l 20 | cut -d " " -f 1)" > /home/user/.scripts/output/man.pdf && zathura /home/user/.scripts/output/man.pdf
+man -Tpdf "$(cat /home/user/.scripts/input/man.txt | dmenu -l 20 | cut -d " " -f 1)" > /home/user/.scripts/output/man.pdf #&& zathura /home/user/.scripts/output/man.pdf
 #man -Tpdf "$(cat /home/user/.scripts/input/man.txt | dmenu -l 20 | cut -d " " -f 1)" | zathura - 

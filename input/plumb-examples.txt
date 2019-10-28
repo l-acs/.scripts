@@ -1,0 +1,9 @@
+https://chat.science.mcgill.ca/home
+whoami
+
+td
+jot jot
+/home/user/.scripts/input/plumb-examples.txt
+$EDITOR
+/home/user/doc/productivity/days/
+

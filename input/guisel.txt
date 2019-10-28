@@ -1,0 +1,8 @@
+acme
+firefox
+gpick
+urxvt -e ncmpcpp
+urxvt -e neomutt
+urxvt -e vim
+xournalpp
+zathura
