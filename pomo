@@ -5,20 +5,25 @@
 
 
 # if the args are stop: find and kill the process, and exit (whether or not there were any such processes)
-#[[ $@ = "stop" ]] && ( kill `ps -v | grep "vlc" | grep "ringtone" | cut -d " " -f1` || true ) && exit 
-#[[ $@ = "stop" ]] && ( kill `ps aux | grep vlc | grep ringtone | cut -c -7 | cut -d " "  -f 3-5` || true ) && exit
-[[ $@ = "stop" ]] && ( kill `ps aux | grep vlc | grep ringtone | cut -d " " -f 9` || true ) && exit
+[[ $@ = "stop" ]] && ( kill "$(ps aux | grep mpv | grep ringtone | tr -s [:blank:] | cut -d " " -f2)" 2>/dev/null || true ) && exit
 
 #pomodoro method
-echo Starting timer at `date +%-I:%M\ %p`
 
+#if there's an argument and no letter (i.e. time unit) is specified, use minutes
 if [ -n "$1" -a -z "$(echo $1 | grep "[a-zA-Z]")" ]
 then arg="$1m"
 else arg="$1"
 fi
+
+date_readable="$(echo "$arg" | sed 's/s/ seconds/' | sed 's/m/ minutes/' | sed 's/h/ hours/')"
+
+[ -n "$arg" ] && echo Starting timer from `date +%-I:%M\ %p` until "$(date -d "$date_readable" +%-I:%M\ %p)"
+
+[ -z "$arg" ] && echo Starting timer from `date +%-I:%M\ %p` until "$(date -d "25 minutes" +%-I:%M\ %p)"
+
 #if there's an argument, pass it to sleep
-(set +m; [[ -n $arg ]] && sleep $arg && vlc /home/user/.scripts/ringtone.webm 2>/dev/null &)
+(set +m; [[ -n $arg ]] && sleep $arg && mpv --force-window --loop-playlist=inf /home/user/.scripts/input/ringtone.webm &>/dev/null &)
 
 #else use 25 minutes
-(set +m; [[ -z $arg ]] && sleep 25m && vlc /home/user/.scripts/ringtone.webm 2>/dev/null &)
+(set +m; [[ -z $arg ]] && sleep 25m && mpv --force-window --loop-playlist=inf /home/user/.scripts/input/ringtone.webm &>/dev/null &)
 

@@ -1,27 +1,58 @@
 #!/bin/bash
 
 selection="$(xsel | grep -v '^\ No newline at end of selection')"
-if [ -z "$selection" ]; then exit; fi
+primsel_log="/home/user/.scripts/output/primsel.log"
+#if prim sel empty, use the clipboard
+[ -z "$selection" ] && selection="$(xsel -b | grep -v '^\ No newline at end of selection')"
 
-options='echo cat ls vim firefox run'
-rofi_options=""
+#if the argument is --dmenu, or if both primsel and and clipboard empty, pipe logged primary selections as input
+if echo "$@" | grep -q "dmenu" || [ -z "$selection" ]; then
+	selection="$(sort -r "$primsel_log" | dmenu -i -p "Select input")"
+fi
+
+#if it's still empty, empty primary sel and exit with error
+if [ -z "$selection" ]; then xsel -pc && exit 1; fi
+
+
+#if the active window is urxvt and the script was called via a keybinding, try running plumb from the terminal (for local paths)
+[ "$(xdotool getactivewindow getwindowname)" = "urxvt" ] && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p Return && exit
+
+options='man snarf feh clone locate td jot zathura vim mpv gvim surf firefox run'
+dmenu_options=""
 
 #for i in $options; do echo $i; done
-for i in $options; do rofi_options="$i\n$rofi_options"; done
+for i in $options; do dmenu_options="$i\n$dmenu_options"; done
 
 
-#if selection is a file, open it in default application
-if [ -f "$selection" ]; then xdg-open "$selection" & disown && exit; fi
+#if selection is a file: open it in default application, clear prim sel, and exit
+if [ -f "$selection" ]; then xdg-open "$selection" & disown && xsel -pc && exit; fi
 
-#if selection is a directory, open it in a terminal
-if [ -d "$selection" ]; then "$TERMINAL" -cd "$(cd $selection && pwd)" & disown && exit; fi
+#if selection is a directory: open it in a terminal, clear prim sel, and exit
+if [ -d "$selection" ]; then "$TERMINAL" -cd "$(cd "$selection" && pwd)" & disown && xsel -pc && exit; fi
 
 
-action="$(echo -e "$rofi_options" | rofi -dmenu)"
-#echo "$action"
+action="$(echo -e "$dmenu_options" | dmenu -i -p 'Choose an action')"
+
+#if nothing is selected, clear prim sel and exit
+[ -z "$action" ] && xsel -pc && exit 1
+
 if [ "$action" = 'run' ]
 then 
-	exec "$selection"
+	$selection
+elif [ "$action" = 'snarf' ] 
+then 
+	xsel -o | xsel -bi
+
+elif [ "$action" = 'man' ] 
+then 
+	man -Tpdf "$selection" | zathura - #> /home/user/.scripts/output/man.pdf
+
+elif [ "$action" = 'clone' ]
+then
+	(cd /home/user/.programs/ ; git clone "$selection")
+
 else 
-	"$action" "$selection" & disown
+	$action $selection & disown
 fi
+
+xsel -pc

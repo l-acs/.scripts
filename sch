@@ -9,7 +9,7 @@ date_flags=""
 ls $old_todos/*.txt | while read file; do echo -e "`grep -e "^>" -e "^\?" $file`\n" >> $compiled_location/compiled_tasks.txt; done
 
 #remove blank lines (lines containing start_of_lineend_of_line) and switch > to -
-sed '/^$/d' "$compiled_location/compiled_tasks.txt" | sed 's/^>/-/g' > "$compiled_location/formatted_tasks.txt"
+sed '/^$/d' "$compiled_location/compiled_tasks.txt" | sed '/^> /d' > "$compiled_location/formatted_tasks.txt"
 
 #if the arguments are simply "ls", output aforementioned todos and quit
 [[ $@ = "ls" ]] && cat "$compiled_location/formatted_tasks.txt" && rm "$compiled_location/formatted_tasks.txt" "$compiled_location/compiled_tasks.txt" && exit

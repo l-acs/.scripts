@@ -11,8 +11,8 @@ xmodmap -e "keycode  48 = Down apostrophe Down apostrophe"
 
 
 
-#tilde to semicolon
-xmodmap -e "keycode 49 = semicolon grave semicolon grave"
+#tilde to semicolon; grave to double quote
+xmodmap -e "keycode 49 = semicolon quotedbl semicolon quotedbl"
 
 #1-0 swapped
 xmodmap -e "keycode 10 = exclam 1 exclam 1"

@@ -1,24 +1,96 @@
-#!/bin/sh
+#!/bin/bash
 
-GTD_DIR='/home/user/doc/productivity/brainstorming/jot'
-#echo $1 | grep '\.'
+#TODO: rewrite such that non-hyphen, non-question-mark punctuation is stripped from filenames
+#a command line annotation system
+#usage:
+# 1: jot -n file.ext	#create file.ext in specified jot location
+# 2: jot -n file		#create file.txt in specified jot location
 
-if [ $# -eq 0 ] 
-	then echo Incorrect usage. The syntax is jot [list name] \(text\). Example: \"mylist stuff\" adds \"stuff\" to the file $GTD_DIR/mylist.txt "mylist" opens the file $GTD_DIR/mylist.txt
+# 3: jot		#open location/jot.txt
+# 4: jot list.ext	#if location/list.ext is a file, open it
+# 5: jot list		#if location/list.txt is a file, open it
 
-elif [ $# -eq 1 ]; then
-	if [ -n "$(echo $1 | grep '\.')" ] ; then 
-		$EDITOR $GTD_DIR/$1 +
-	else 
-		$EDITOR $GTD_DIR/$1.txt +
+
+
+# 6: jot list.ext text as arguments	#if location/list.ext is a file, add 'text as arguments' to it
+# 7: jot list text as arguments	#if location/list.txt is a file, add 'text as arguments' to it
+# 8: jot text as arguments		#if location/text and location/text.txt (i.e. $1 or $1.txt) are not files, add 'text as arguments' to location/jot.txt
+
+#this script could be POSIX compliant, except the string indexing used to get all but the first argument
+
+loc=/home/user/doc/jot
+arguments="${*:2}"
+ed=gvim
+echo "$@" | grep -q '\-v' && ed=vim && arguments="$(echo "$arguments" | sed 's/-v //' | sed 's/-v//')" #if there's a -v flag, remove it from $arguments and set the editor to vim
+[ "$1" = '\-v' ] && shift 1 && echo success #doesn't work
+#echo $1 $@ $#
+#echo $ed
+#echo $arguments
+
+
+#case 1 & 2:
+if [ "$1" = "-n" ]
+then 
+	#check if $arguments have an extension
+	if echo "$arguments" | grep -qE '\.|/'
+	then
+		#case 1: should this open it, too?
+		touch "$loc/$arguments"; $ed "$loc/$arguments"; exit
+	else
+		#case 2: should this open it, too?
+		touch "$loc/$arguments.txt"; $ed "$loc/$arguments.txt"; exit
 	fi
-else 
-	echo "$@" | cut -d ' ' -f2- >> $GTD_DIR/$1.txt
-	if [ -n "$(echo $1 | grep '\.')" ] ; then 
-		echo "$@" | cut -d ' ' -f2- >> $GTD_DIR/$1
-	else 
-		echo "$@" | cut -d ' ' -f2- >> $GTD_DIR/$1.txt
-	fi
+
 fi
+
+
+
+#case 3
+if [ $# -eq 0 ]
+then
+	$ed "$loc/jot.txt"; exit
+fi
+
+#case 6: should this use the -e flag or a compliant equivalent thereof?
+if [ -e "$loc/$1" -a -n "$arguments" ]     #shellcheck says to make this [ cond1 ] && [ cond2 ] because "-a is not well defined"
+then
+	echo "$arguments" >> "$loc/$1"; exit
+fi
+
+
+#case 7: should this use the -e flag or a compliant equivalent thereof?
+if [ -e "$loc/$1.txt" -a -n "$arguments" ]	#shellcheck says to make this [ cond1 ] && [ cond2 ] because "-a is not well defined"
+then
+	echo "$arguments" >> "$loc/$1.txt"; exit
+fi
+
+#case 4
+if [ -e "$loc/$1" ]
+then
+	$ed "$loc/$1"; exit
+fi
+
+#case 5
+if [ -e "$loc/$1.txt" ]
+then
+	$ed "$loc/$1.txt"; exit
+fi
+
+
+
+
+#case 8
+echo "$@" | sed 's/-v //' | sed 's/-v//' >> "$loc/jot.txt"
+
+
+
+
+
+
+
+
+
+
+
 
 

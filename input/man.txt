@@ -5,18 +5,24 @@ Socket (3perl)       - networking constants and support functions
 ldap.conf (5)        - LDAP configuration file/environment variables
 cowsay (1)           - configurable speaking/thinking cow (and a bit more)
 anacrontab (5)       - configuration file for Anacron
+odbc.ini (5)         - unixODBC data sources configuration
+odbcinst.ini (5)     - An unixODBC drivers configuration
+updatedb.conf (5)    - a configuration file for updatedb(8)
 30-systemd-environment-d-generator (8) - Load variables specified by environm...
 as (1)               - the portable GNU assembler.
 BC (3x)              - direct curses interface to the terminfo capability dat...
 tc-bpf (8)           - BPF programmable classifier and actions for ingress/eg...
-bpf-helpers (7)      - list of eBPF helper functions
+Bytes (3o)           - Byte sequence operations.
 CORE (3perl)         - Namespace for Perl's core routines
 CPAN (3perl)         - query, download and build perl modules from CPAN sites
-cdt (3)              - container data types
+Complex (3o)         - Complex numbers.
 Compose (5)          - X client mappings for multi-key input sequences
+Config (3o)          - System configuration
 Config (3perl)       - access Perl configuration information
 DB (3perl)           - programmatic interface to the Perl debugging API
 DES_crypt (3ssl)     - DES encryption
+Digest (3o)          - MD5 message digest.
+Digest (3perl)       - Modules that calculate message digests
 Encode::MIME::Name (3perl) - - internally used by Encode
 Env (3perl)          - perl module that imports environment variables as scal...
 Errno (3perl)        - System errno constants
@@ -31,8 +37,11 @@ ffi (3)              - Foreign Function Interface
 Fcntl (3perl)        - load the C Fcntl.h defines
 fluidsynth (1)       - a SoundFont synthesizer
 gdbm (3)             - The GNU database manager. Includes dbm and ndbm compat...
+GET (1p)             - Simple command line user agent
+Gc (3o)              - Memory management control and statistics; finalised va...
 Git (3pm)            - Perl interface to the Git version control system
 gnupg (7)            - The GNU Privacy Guard suite of programs
+HEAD (1p)            - Simple command line user agent
 __gnu_pbds::detail::pat_trie_base__CIter (3) - Const iterator.
 LIST_EMPTY (3)       - implementations of singly-linked lists, singly-linked ...
 LIST_EMPTY (3bsd)    - implementations of singly-linked lists, singly-linked ...
@@ -58,16 +67,21 @@ LIST_NEXT (3)        - implementations of singly-linked lists, singly-linked ...
 LIST_NEXT (3bsd)     - implementations of singly-linked lists, singly-linked ...
 LIST_REMOVE (3)      - implementations of singly-linked lists, singly-linked ...
 LIST_REMOVE (3bsd)   - implementations of singly-linked lists, singly-linked ...
+List (3o)            - List operations.
 MD5 (3ssl)           - MD2, MD4, and MD5 hash functions
 mpd (1)              - A daemon for playing music
 NAN (3)              - floating-point constants
 NEXT (3perl)         - Provide a pseudo-class NEXT (et al) that allows method...
+neofetch (1)         - A fast, highly customizable system info script
 PAM (8)              - Pluggable Authentication Modules for Linux
 PC (3x)              - direct curses interface to the terminfo capability dat...
 pcre2unicode (3)     - Perl-compatible regular expressions (revised API)
-pcre2 (3)            - Perl-compatible regular expressions (revised API)
+pcre2_callout_enumerate (3) - Perl-compatible regular expressions (revised API)
+Printf (3o)          - Formatted output functions.
+Queue (3o)           - First-in first-out queues.
 RAND (7ssl)          - the OpenSSL random generator
 rpcsec_gss (3t)      - "GSS-API based authentication for RPC"
+Random (3o)          - Pseudo-random number generators (PRNG).
 SD_BUS_ERROR_MAP (3) - Additional sd-dbus error mappings
 simple-mtpfs (1)     - filesystem driver for MTP based devices
 SLIST_EMPTY (3)      - implementations of singly-linked lists, singly-linked ...
@@ -123,8 +137,13 @@ STAILQ_REMOVE (3bsd) - implementations of singly-linked lists, singly-linked ...
 STAILQ_REMOVE_HEAD (3) - implementations of singly-linked lists, singly-linke...
 STAILQ_REMOVE_HEAD (3bsd) - implementations of singly-linked lists, singly-li...
 Safe (3perl)         - Compile and execute code in restricted compartments
+Scanf (3o)           - Formatted input functions.
+Seq (3o)             - Functional Iterators
 __gnu_pbds::detail::synth_access_traits (3) - Synthetic element access traits.
+Set (3o)             - Sets over ordered types.
 __gnu_pbds::detail::binary_heap_const... (3) - Const point-type iterator.
+Stream (3o)          - Streams and parsers.
+String (3o)          - String operations.
 TAILQ_CONCAT (3)     - implementations of singly-linked lists, singly-linked ...
 TAILQ_CONCAT (3bsd)  - implementations of singly-linked lists, singly-linked ...
 TAILQ_EMPTY (3)      - implementations of singly-linked lists, singly-linked ...
@@ -161,10 +180,14 @@ TAILQ_REMOVE (3)     - implementations of singly-linked lists, singly-linked ...
 TAILQ_REMOVE (3bsd)  - implementations of singly-linked lists, singly-linked ...
 TAILQ_SWAP (3)       - implementations of singly-linked lists, singly-linked ...
 TAILQ_SWAP (3bsd)    - implementations of singly-linked lists, singly-linked ...
+Terminfo (3o)        - Basic interface to the terminfo database
 Test (3perl)         - provides a simple framework for writing test scripts
+Thread (3o)          - Lightweight threads for Posix 1003.1c and Win32.
 Thread (3perl)       - Manipulate threads in Perl (for old code only)
 URI (3pm)            - Uniform Resource Identifiers (absolute and relative)
 utf-8 (7)            - an ASCII compatible multibyte Unicode encoding
+Unix (3o)            - Interface to the Unix system.
+Warnings (3o)        - Warning definitions
 wget (1)             - The non-interactive network downloader.
 Xcursor (3)          - Cursor management library
 XCompose (3)         - X client mappings for multi-key input sequences
@@ -175,9 +198,8 @@ Xrandr (3)           - X Resize, Rotate and Reflection extension.
 mailx (1)            - send and receive Internet mail
 _Exit (2)            - terminate the calling process
 _Exit (3p)           - terminate a process
-std::linear_congruential_engine (3) - A model of a linear congruential random...
-__after_morecore_hook (3) - malloc debugging variables
 std::mersenne_twister_engine (3) - (unknown subject)
+__after_morecore_hook (3) - malloc debugging variables
 __clone2 (2)         - create a child process
 std::__detail::_Local_const_iterator (3) - local const_iterators
 abi::__forced_unwind (3) - Thrown as part of forced unwinding.
@@ -555,21 +577,22 @@ __ppc_set_ppr_very_low (3) - Set the Program Priority Register
 __ppc_yield (3)      - Hint the processor to release shared resources
 __realloc_hook (3)   - malloc debugging variables
 __setfpucw (3)       - set FPU control word on i386 architecture (obsolete)
-std::independent_bits_engine (3) - (unknown subject)
+std::__detail::_Equality (3) - (unknown subject)
 std::__detector (3)  - Implementation of the detection idiom (negative case).
-std::binary_function (3) - (unknown subject)
+std::pointer_to_binary_function (3) - One of the adaptors for function pointers.
 std::regex_iterator (3) - (unknown subject)
-std::experimental::ostream_joiner (3) - Output iterator that inserts a delimi...
+std::ostream_iterator (3) - Provides output iterator semantics for streams.
+std::map (3)         - A standard container made up of (key, value) pairs, wh...
 std::__detail::_Hashtable_traits (3) - (unknown subject)
 std::_Enable_special_members (3) - A mixin helper to conditionally enable or ...
 std::_Enable_copy_move (3) - A mixin helper to conditionally enable or disabl...
 std::iterator (3)    - Common iterator class.
 std::wbuffer_convert (3) - Buffer conversions.
-std::_Hashtable (3)  - (unknown subject)
-_exit (2)            - terminate the calling process
-std::__codecvt_abstract_base (3) - Common base for codecvt functions.
-_flushlbf (3)        - interfaces to stdio FILE structure
 std::__detail::_Equal_helper (3) - (unknown subject)
+_exit (2)            - terminate the calling process
+std::codecvt (3)     - Primary class template codecvt.
+_flushlbf (3)        - interfaces to stdio FILE structure
+std::unordered_map (3) - A standard container composed of unique keys (contai...
 std::conditional (3) - Define a member typedef type to one of two argument ty...
 std::_Mu (3)         - (unknown subject)
 _llseek (2)          - reposition read/write file offset
@@ -578,8 +601,8 @@ _nc_free_and_exit (3x) - curses memory-leak checking
 _nc_free_tinfo (3x)  - curses memory-leak checking
 _nc_freeall (3x)     - curses memory-leak checking
 _nc_tracebits (3x)   - curses debugging routines
-std::__debug::unordered_map (3) - Class std::unordered_map with safety/checki...
 std::_Deque_iterator (3) - A deque::iterator.
+std::priority_queue (3) - A standard container automatically sorting its cont...
 _syscall (2)         - invoking a system call without library support (OBSOLETE)
 _sysctl (2)          - read/write system parameters
 TIFFmemory (3tiff)   - memory management-related functions for use with TIFF ...
@@ -595,12 +618,13 @@ _tracechtype2 (3x)   - curses debugging routines
 _tracedump (3x)      - curses debugging routines
 _tracef (3x)         - curses debugging routines
 _tracemouse (3x)     - curses debugging routines
+std::ostringstream (3) - Controlling output for std::string.
 std::__detail::_Executor (3) - Takes a regex and an input string and does the...
 _U_dyn_cancel (3)    - - cancel unwind-info for dynamically generated code
 _U_dyn_register (3)  - - register unwind-info for dynamically generated code
 std::wstring_convert (3) - String conversions.
 glslc (1)            - A command-line GLSL/HLSL to SPIR-V compiler with Clang...
-a52dec (1)           - decode ATSC A/52 audio streams
+a2x (1)              - A toolchain manager for AsciiDoc (converts Asciidoc te...
 a64l (3)             - convert between long and base-64
 a64l (3p)            - convert between a 32-bit integer and a radix-64 ASCII ...
 abort (3)            - cause abnormal process termination
@@ -672,7 +696,6 @@ acosl (3)            - arc cosine function
 acosl (3p)           - arc cosine functions
 acs_map (3x)         - curses terminfo global variables
 tc-actions (8)       - independently defined actions in tc
-acyclic (1)          - make directed graph acyclic
 add_key (2)          - add a key to the kernel's key management facility
 add_wch (3x)         - add a complex character and rendition to a curses wind...
 add_wchnstr (3x)     - add an array of complex characters (and attributes) to...
@@ -686,7 +709,7 @@ addmntent (3)        - get filesystem descriptor file entry
 addnstr (3x)         - add a string of characters to a curses window and adva...
 addnwstr (3x)        - add a string of wide characters to a curses window and...
 addpart (8)          - tell the kernel about the existence of a partition
-addr2line (1)        - convert addresses into file names and line numbers.
+addr2line (1)        - convert addresses into file names and line numbers
 address_families (7) - socket address families (domains)
 addseverity (3)      - introduce new severity classes
 addstr (3x)          - add a string of characters to a curses window and adva...
@@ -792,6 +815,7 @@ amixer (1)           - command-line mixer for ALSA soundcard driver
 amstex (1)           - structured text formatting and typesetting
 anacron (8)          - runs commands periodically
 animate (1)          - animates an image or image sequence on any X server.
+anki (1)             - flexible, intelligent flashcard program
 AnyDBM_File (3perl)  - provide framework for multiple DBMs
 aplay (1)            - command-line sound recorder and player for ALSA soundc...
 aplaymidi (1)        - play Standard MIDI Files
@@ -903,6 +927,9 @@ ares_set_sortlist (3) - Initialize an ares_channel sortlist configuration
 ares_strerror (3)    - Get the description of an ares library error code
 ares_timeout (3)     - return maximum time to wait
 ares_version (3)     - Get the version number of the library
+Arg (3o)             - Parsing of command line arguments.
+Arg_helper (3o)      - Decipher command line arguments of the form <value> | ...
+Arg_helper.Make (3o) - no description
 argz (3)             - functions to handle an argz list
 argz_add (3)         - functions to handle an argz list
 argz_add_sep (3)     - functions to handle an argz list
@@ -929,8 +956,11 @@ arping (8)           - send ARP REQUEST to a neighbour host
 arptables-nft (8)    - ARP table administration (nft-based)
 arptables-nft-restore (8) - Restore ARP Tables (nft-based)
 arptables-nft-save (8) - dump arptables rules to stdout (nft-based)
+Array (3o)           - no description
+ArrayLabels (3o)     - no description
 asa (1p)             - interpret carriage-control characters
 ascii (7)            - ASCII character set encoded in octal, decimal, and hex...
+asciidoc (1)         - converts an AsciiDoc text file to HTML or DocBook
 asctime (3)          - transform date and time to broken-down time or ASCII
 asctime (3p)         - convert date and time to a string
 asctime_r (3)        - transform date and time to broken-down time or ASCII
@@ -1074,6 +1104,39 @@ assert.h (0p)        - verify program assertion
 assert_perror (3)    - test errnum and abort
 assume_default_colors (3x) - use terminal's default colors
 assume_default_colors_sp (3x) - curses screen-pointer extension
+Ast_helper (3o)      - Helpers to produce Parsetree fragments
+Ast_helper.Attr (3o) - Attributes
+Ast_helper.Cf (3o)   - Class fields
+Ast_helper.Ci (3o)   - Classes
+Ast_helper.Cl (3o)   - Class expressions
+Ast_helper.Const (3o) - no description
+Ast_helper.Csig (3o) - Class signatures
+Ast_helper.Cstr (3o) - Class structures
+Ast_helper.Ctf (3o)  - Class type fields
+Ast_helper.Cty (3o)  - Class type expressions
+Ast_helper.Exp (3o)  - Expressions
+Ast_helper.Incl (3o) - Includes
+Ast_helper.Mb (3o)   - Module bindings
+Ast_helper.Md (3o)   - Module declarations
+Ast_helper.Mod (3o)  - Module expressions
+Ast_helper.Ms (3o)   - Module substitutions
+Ast_helper.Mtd (3o)  - Module type declarations
+Ast_helper.Mty (3o)  - Module type expressions
+Ast_helper.Of (3o)   - Object fields
+Ast_helper.Opn (3o)  - Opens
+Ast_helper.Pat (3o)  - Patterns
+Ast_helper.Rf (3o)   - Row fields
+Ast_helper.Sig (3o)  - Signature items
+Ast_helper.Str (3o)  - Structure items
+Ast_helper.Te (3o)   - Type extensions
+Ast_helper.Typ (3o)  - Type expressions
+Ast_helper.Type (3o) - Type declarations
+Ast_helper.Val (3o)  - Value declarations
+Ast_helper.Vb (3o)   - Value bindings
+Ast_invariants (3o)  - Check AST invariants
+Ast_iterator (3o)    - Ast_iterator.iterator enables AST inspection using ope...
+Ast_mapper (3o)      - The interface of a -ppx rewriter
+Asttypes (3o)        - Auxiliary AST types used by parsetree and typedtree.
 asymmetric-key (7)   - Kernel key type for holding asymmetric keys
 ASYNC_block_pause (3ssl) - asynchronous job management functions
 ASYNC_cleanup_thread (3ssl) - asynchronous job management functions
@@ -1120,6 +1183,7 @@ attr (1)             - extended attributes on XFS filesystem objects
 attr_get (3)         - get the value of a user attribute of a filesystem object
 attr_get (3x)        - curses character and window attribute control routines
 attr_getf (3)        - get the value of a user attribute of a filesystem object
+Attr_helper (3o)     - Helpers for attributes
 attr_list (3)        - list the names of the user attributes of a filesystem ...
 attr_list_by_handle (3) - file handle operations
 attr_listf (3)       - list the names of the user attributes of a filesystem ...
@@ -1296,6 +1360,7 @@ B::Op_private (3perl) - OP op_private flag definitions
 B::Showlex (3perl)   - Show lexical variables used in functions or files
 B::Terse (3perl)     - Walk Perl syntax tree, printing terse info about ops
 B::Xref (3perl)      - Generates cross reference reports for Perl programs
+backend (7)          - cups backend transmission interfaces
 urxvt-background (1) - manage terminal background
 backtrace (3)        - support for application self-debugging
 backtrace_symbols (3) - support for application self-debugging
@@ -1318,10 +1383,10 @@ batch (1p)           - schedule commands to be executed in a batch queue
 baudrate (3x)        - curses environment query routines
 baudrate_sp (3x)     - curses screen-pointer extension
 bbox (1)             - prints out the bounding box of a rawppm or rawpbm image
+bc (1)               - An arbitrary precision calculator language
 bc (1p)              - arbitrary-precision arithmetic language
 bccmd (1)            - Utility for the CSR BCCMD interface
 bcmp (3)             - compare byte sequences
-bcomps (1)           - biconnected components filter for graphs
 bcopy (3)            - copy byte sequence
 bdflush (2)          - start, flush, or tune buffer-dirty-flush daemon
 bdftopcf (1)         - convert X font from Bitmap Distribution Format to Port...
@@ -1384,12 +1449,18 @@ BF_encrypt (3ssl)    - Blowfish encryption
 BF_ofb64_encrypt (3ssl) - Blowfish encryption
 BF_options (3ssl)    - Blowfish encryption
 BF_set_key (3ssl)    - Blowfish encryption
-tc-bfifo (8)         - Packet limited First In, First Out queue
+tc-pfifo (8)         - Packet limited First In, First Out queue
 bg (1p)              - run jobs in the background
 bg5conv (1)          - convert a TeX document in Big 5 encoding into `preproc...
 bibtex (1)           - make a bibliography for (La)TeX
 bibtex8 (1)          - 8-bit Big BibTeX
 bibtexu (1)          - UTF-8 Big BibTeX
+Bigarray (3o)        - Large, multi-dimensional, numerical arrays.
+Bigarray.Array0 (3o) - Zero-dimensional arrays.
+Bigarray.Array1 (3o) - One-dimensional arrays.
+Bigarray.Array2 (3o) - Two-dimensional arrays.
+Bigarray.Array3 (3o) - Three-dimensional arrays.
+Bigarray.Genarray (3o) - no description
 bigint (3perl)       - Transparent BigInteger support for Perl
 bignum (3perl)       - Transparent BigNumber support for Perl
 bigrat (3perl)       - Transparent BigNumber/BigRational support for Perl
@@ -1771,6 +1842,7 @@ BN_value_one (3ssl)  - BIGNUM assignment operations
 BN_with_flags (3ssl) - copy BIGNUMs
 BN_zero (3ssl)       - BIGNUM assignment operations
 bond2team (1)        - Converts bonding configuration to team
+Bool (3o)            - Boolean values.
 boolcodes (3x)       - curses terminfo global variables
 boolfnames (3x)      - curses terminfo global variables
 boolnames (3x)       - curses terminfo global variables
@@ -1838,18 +1910,22 @@ BUF_MEM_grow_clean (3ssl) - simple character array structure
 BUF_MEM_new (3ssl)   - simple character array structure
 BUF_MEM_new_ex (3ssl) - simple character array structure
 BUF_reverse (3ssl)   - simple character array structure
+Buffer (3o)          - Extensible buffers.
+Build_path_prefix_map (3o) - Rewrite paths for reproducible builds
 BUILDINFO (5)        - Makepkg package build information file
+Builtin_attributes (3o) - Support for some of the builtin attributes
 bunzip2 (1)          - a block-sorting file compressor, v1.0.8
 busctl (1)           - Introspect the bus
 bwrap (1)            - container setup utility
 byteorder (3)        - convert values between host and network byte order
 byteorder (3bsd)     - byte order operations
 bytes (3perl)        - Perl pragma to expose the individual bytes of characters
+BytesLabels (3o)     - Byte sequence operations.
 bzcat (1)            - decompresses files to stdout
 bzero (3)            - zero a byte string
 bzip2 (1)            - a block-sorting file compressor, v1.0.8
 bzip2recover (1)     - recovers data from damaged bzip2 files
-c++filt (1)          - Demangle C++ and Java symbols.
+c++filt (1)          - demangle C++ and Java symbols
 C++Intro (3)         - Introduction to the GNU libstdc++ man pages
 c99 (1p)             - compile standard C programs
 c_rehash (1ssl)      - Create symbolic links to files named by the hash values
@@ -1884,11 +1960,52 @@ cacosl (3p)          - complex arc cosine functions
 tc-cake (8)          - Common Applications Kept Enhanced (CAKE)
 cal (1)              - display a calendar
 cal (1p)             - print a calendar
+Callback (3o)        - Registering OCaml values with the C runtime.
 calloc (3)           - allocate and free dynamic memory
 calloc (3p)          - a memory allocator
 callrpc (3)          - library routines for remote procedure calls
+CamlinternalFormat (3o) - no description
+CamlinternalFormatBasics (3o) - no description
+CamlinternalLazy (3o) - Run-time support for lazy values.
+CamlinternalMenhirLib (3o) - no description
+CamlinternalMenhirLib.Convert (3o) - no description
+CamlinternalMenhirLib.Convert.Simplified (3o) - no description
+CamlinternalMenhirLib.Engine (3o) - no description
+CamlinternalMenhirLib.Engine.Make (3o) - no description
+CamlinternalMenhirLib.EngineTypes (3o) - no description
+CamlinternalMenhirLib.EngineTypes.ENGINE (3o) - no description
+CamlinternalMenhirLib.EngineTypes.INC... (3o) - no description
+CamlinternalMenhirLib.EngineTypes.MON... (3o) - no description
+CamlinternalMenhirLib.EngineTypes.TABLE (3o) - no description
+CamlinternalMenhirLib.EngineTypes.TAB... (3o) - no description
+CamlinternalMenhirLib.ErrorReports (3o) - no description
+CamlinternalMenhirLib.General (3o) - no description
+CamlinternalMenhirLib.IncrementalEngine (3o) - no description
+CamlinternalMenhirLib.IncrementalEngi... (3o) - no description
+CamlinternalMenhirLib.IncrementalEngi... (3o) - no description
+CamlinternalMenhirLib.IncrementalEngi... (3o) - no description
+CamlinternalMenhirLib.IncrementalEngi... (3o) - no description
+CamlinternalMenhirLib.InfiniteArray (3o) - no description
+CamlinternalMenhirLib.InspectionTable... (3o) - no description
+CamlinternalMenhirLib.InspectionTable... (3o) - no description
+CamlinternalMenhirLib.InspectionTable... (3o) - no description
+CamlinternalMenhirLib.InspectionTable... (3o) - no description
+CamlinternalMenhirLib.InspectionTable... (3o) - no description
+CamlinternalMenhirLib.LinearizedArray (3o) - no description
+CamlinternalMenhirLib.PackedIntArray (3o) - no description
+CamlinternalMenhirLib.Printers (3o) - no description
+CamlinternalMenhirLib.Printers.Make (3o) - no description
+CamlinternalMenhirLib.RowDisplacement (3o) - no description
+CamlinternalMenhirLib.StaticVersion (3o) - no description
+CamlinternalMenhirLib.TableFormat (3o) - no description
+CamlinternalMenhirLib.TableFormat.TABLES (3o) - no description
+CamlinternalMenhirLib.TableInterpreter (3o) - no description
+CamlinternalMenhirLib.TableInterprete... (3o) - no description
+CamlinternalMod (3o) - Run-time support for recursive modules.
+CamlinternalOO (3o)  - Run-time support for objects and classes.
 can_change_color (3x) - curses color manipulation routines
 can_change_color_sp (3x) - curses screen-pointer extension
+cancel (1)           - cancel jobs
 canonicalize_file_name (3) - return the canonicalized absolute pathname
 cap_clear (3)        - capability data object manipulation
 cap_clear_flag (3)   - capability data object manipulation
@@ -1904,13 +2021,20 @@ cap_get_bound (3)    - capability manipulation on processes
 cap_get_fd (3)       - capability manipulation on files
 cap_get_file (3)     - capability manipulation on files
 cap_get_flag (3)     - capability data object manipulation
+cap_get_mode (3)     - capability manipulation on processes
 cap_get_pid (3)      - capability manipulation on processes
 cap_get_proc (3)     - capability manipulation on processes
+cap_get_secbits (3)  - capability manipulation on processes
 cap_init (3)         - capability data object storage management
+cap_mode_name (3)    - capability manipulation on processes
 cap_set_fd (3)       - capability manipulation on files
 cap_set_file (3)     - capability manipulation on files
 cap_set_flag (3)     - capability data object manipulation
+cap_set_mode (3)     - capability manipulation on processes
 cap_set_proc (3)     - capability manipulation on processes
+cap_set_secbits (3)  - capability manipulation on processes
+cap_setgroups (3)    - capability manipulation on processes
+cap_setuid (3)       - capability manipulation on processes
 cap_size (3)         - capability state external representation translation
 cap_to_name (3)      - capability state textual representation translation
 cap_to_text (3)      - capability state textual representation translation
@@ -1924,7 +2048,7 @@ capng_clear (3)      - clear chosen capabilities set
 capng_fill (3)       - fill chosen capabilities set
 capng_get_caps_fd (3) - (unknown subject)
 capng_get_caps_process (3) - get the capabilities from a process
-capng_have_capabilities (3) - general check for capabilities
+capng_have_capabilities (3) - check for capabilities
 capng_have_capability (3) - check for specific capability
 capng_lock (3)       - lock the current process capabilities settings
 capng_name_to_capability (3) - convert capability text to integer
@@ -1985,7 +2109,7 @@ cbrtl (3)            - cube root function
 tc-cbs (8)           - Credit Based Shaper (CBS) Qdisc
 cciss (4)            - HP Smart Array block driver
 ccmake (1)           - CMake Curses Dialog Command-Line Reference
-ccomps (1)           - connected components filter for graphs
+Ccomp (3o)           - Compiling C files and building C libraries
 ccos (3)             - complex cosine function
 ccos (3p)            - complex cosine functions
 ccosf (3)            - complex cosine function
@@ -2041,12 +2165,12 @@ cfsetospeed (3)      - get and set terminal attributes, line control, get and...
 cfsetospeed (3p)     - set output baud rate
 cfsetspeed (3)       - get and set terminal attributes, line control, get and...
 cgdisk (8)           - Curses-based GUID partition table (GPT) manipulator
-cgraph (3)           - abstract graph library
 tc-cgroup (8)        - control group based traffic control filter
 cgroup_namespaces (7) - overview of Linux cgroup namespaces
 cgroups (7)          - Linux control groups
 chacl (1)            - change the access control list of a file or directory
 chage (1)            - change user password expiry information
+Char (3o)            - Character operations.
 charmap (5)          - character set description file
 charnames (3perl)    - access to Unicode character names and named character ...
 charsets (7)         - character set standards and internationalization
@@ -2098,12 +2222,12 @@ CIRCLEQ_INSERT_BEFORE (3) - implementations of singly-linked lists, singly-li...
 CIRCLEQ_INSERT_HEAD (3) - implementations of singly-linked lists, singly-link...
 CIRCLEQ_INSERT_TAIL (3) - implementations of singly-linked lists, singly-link...
 CIRCLEQ_REMOVE (3)   - implementations of singly-linked lists, singly-linked ...
-circo (1)            - filter for circular layout of graphs
 cisco-decrypt (1)    - decrypts an obfuscated Cisco vpn client pre-shared key
 cjpeg (1)            - compress an image file to a JPEG file
 cksum (1)            - checksum and count the bytes in a file
 cksum (1p)           - write file checksums and sizes
 Class::Struct (3perl) - declare struct-like datatypes as Perl classes
+classes.conf (5)     - class configuration file for cups
 clear (1)            - clear the terminal screen
 clear (3x)           - clear all or part of a curses window
 clearenv (3)         - clear the environment
@@ -2111,6 +2235,10 @@ clearerr (3)         - check and reset stream status
 clearerr (3p)        - clear indicators on a stream
 clearerr_unlocked (3) - nonlocking stdio functions
 clearok (3x)         - curses output options
+Clflags (3o)         - Command line flags
+Clflags.Compiler_pass (3o) - no description
+Clflags.Float_arg_helper (3o) - Optimization parameters represented as floats...
+Clflags.Int_arg_helper (3o) - Optimization parameters represented as ints ind...
 ClientWhitePointOfCCC (3) - Color Conversion Context macros
 urxvt-clipboard-osc (1) - implement the clipboard operating system command se...
 clj (1)              - runners to invoke the Clojure compiler
@@ -2161,6 +2289,7 @@ clogl (3)            - natural logarithm of a complex number
 clojure (1)          - runners to invoke the Clojure compiler
 clone (2)            - create a child process
 clone2 (2)           - create a child process
+clone3 (2)           - create a child process
 close (2)            - close a file descriptor
 close (3p)           - close a file descriptor
 closedir (3)         - close a directory
@@ -2171,7 +2300,7 @@ closelog (3p)        - control system log
 openproc (3)         - initialize process information from /proc/
 clrtobot (3x)        - clear all or part of a curses window
 clrtoeol (3x)        - clear all or part of a curses window
-cluster (1)          - find clusters in a graph and augment the graph with th...
+clusterdb (1)        - cluster a PostgreSQL database
 cmake (1)            - CMake Command-Line Reference
 cmake-buildsystem (7) - CMake Buildsystem Reference
 cmake-commands (7)   - CMake Language Command Reference
@@ -2270,6 +2399,7 @@ comm (1p)            - select or reject lines common to two files
 command (1p)         - execute a simple command
 compare (1)          - mathematically and visually annotate the difference be...
 compile_et (1)       - error table compiler
+Compiler_libs (3o)   - (unknown subject)
 complex (7)          - basics of complex mathematics
 complex.h (0p)       - complex arithmetic
 composite (1)        - overlaps one image over another.
@@ -2277,8 +2407,7 @@ compress (1p)        - compress data
 Compress::Raw::Bzip2 (3perl) - Low-Level Interface to bzip2 compression library
 Compress::Raw::Zlib (3perl) - Low-Level Interface to zlib compression library
 Compress::Zlib (3perl) - Interface to zlib compression library
-compton (1)          - a compositor for X11
-compton-trans (1)    - an opacity setter tool
+Condition (3o)       - Condition variables to synchronize between threads.
 CONF_modules_finish (3ssl) - OpenSSL configuration cleanup functions
 CONF_modules_free (3ssl) - OpenSSL configuration cleanup functions
 CONF_modules_load (3ssl) - OpenSSL configuration functions
@@ -2301,6 +2430,8 @@ connect (2)          - initiate a connection on a socket
 connect (3p)         - connect a socket
 ConnectionNumber (3) - Display macros and functions
 tc-connmark (8)      - netfilter connmark retriever action
+Consistbl (3o)       - Consistency tables: for checking consistency of module...
+Consistbl.Make (3o)  - no description
 console_codes (4)    - Linux console escape and control sequences
 console_ioctl (4)    - ioctls for console terminal and virtual consoles
 constant (3perl)     - Perl pragma to declare constants
@@ -2404,6 +2535,8 @@ creall (3)           - get real part of a complex number
 creat (2)            - open and possibly create a file
 creat (3p)           - create a new file or rewrite an existing one
 create_module (2)    - create a loadable module entry
+createdb (1)         - create a new PostgreSQL database
+createuser (1)       - define a new PostgreSQL user account
 credentials (7)      - process identifiers
 crl (1ssl)           - CRL utility
 crl2pkcs7 (1ssl)     - Create a PKCS#7 structure from a CRL and certificates
@@ -2530,6 +2663,28 @@ ctwill (1)           - (unknown subject)
 ctwill-refsort (1)   - (unknown subject)
 ctwill-twinx (1)     - (unknown subject)
 ctype.h (0p)         - character types
+cups (1)             - a standards-based, open source printing system
+cups-browsed (8)     - A daemon for browsing the Bonjour broadcasts of shared...
+cups-browsed.conf (5) - server configuration file for cups-browsed
+cups-config (1)      - get cups api, compiler, directory, and link information.
+cups-deviced (8)     - cupsd helper programs (deprecated)
+cups-driverd (8)     - cupsd helper programs (deprecated)
+cups-exec (8)        - cupsd helper programs (deprecated)
+cups-files.conf (5)  - file and directory configuration file for cups
+cups-lpd (8)         - receive print jobs and report printer status to lpd cl...
+cups-snmp (8)        - cups snmp backend (deprecated)
+cups-snmp.conf (5)   - snmp configuration file for cups (deprecated)
+cupsaccept (8)       - accept/reject jobs sent to a destination
+cupsctl (8)          - configure cupsd.conf options
+cupsd (8)            - cups scheduler
+cupsd-helper (8)     - cupsd helper programs (deprecated)
+cupsd-logs (5)       - cupsd log files (access_log, error_log, and page_log)
+cupsd.conf (5)       - server configuration file for cups
+cupsdisable (8)      - stop/start printers and classes
+cupsenable (8)       - stop/start printers and classes
+cupsfilter (8)       - convert a file to another format using cups filters (d...
+cupsreject (8)       - accept/reject jobs sent to a destination
+cupstestppd (1)      - test conformance of ppd files
 cur_term (3x)        - curses terminfo global variables
 curl (1)             - transfer a URL
 curl-config (1)      - Get information about a libcurl installation
@@ -2587,6 +2742,7 @@ curl_multi_socket_all (3) - reads/writes available data
 curl_multi_strerror (3) - return string describing error code
 curl_multi_timeout (3) - how long to wait for action before proceeding
 curl_multi_wait (3)  - polls on all easy handles in a multi handle
+curl_multi_wakeup (3) - wakes up a sleeping curl_multi_poll call
 curl_share_cleanup (3) - Clean up a shared object
 curl_share_init (3)  - Create a shared object
 curl_share_setopt (3) - Set options for a shared object
@@ -2669,6 +2825,7 @@ CURLINFO_TOTAL_TIME (3) - get total time of previous transfer
 CURLINFO_TOTAL_TIME_T (3) - get total time of previous transfer in microseconds
 CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE (3) - chunk length threshold for pipelining
 CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE (3) - size threshold for pipelining penalty
+CURLMOPT_MAX_CONCURRENT_STREAMS (3) - set max concurrent streams for http2
 CURLMOPT_MAX_HOST_CONNECTIONS (3) - set max number of connections to a single...
 CURLMOPT_MAX_PIPELINE_LENGTH (3) - maximum number of requests in a pipeline
 CURLMOPT_MAX_TOTAL_CONNECTIONS (3) - max simultaneously open connections
@@ -2931,8 +3088,8 @@ CURLOPT_TLS13_CIPHERS (3) - specify ciphers suites to use for TLS 1.3
 CURLOPT_TLSAUTH_PASSWORD (3) - password to use for TLS authentication
 CURLOPT_TLSAUTH_TYPE (3) - set TLS authentication methods
 CURLOPT_TLSAUTH_USERNAME (3) - user name to use for TLS authentication
-CURLOPT_TRAILERDATA (3) - (unknown subject)
-CURLOPT_TRAILERFUNCTION (3) - (unknown subject)
+CURLOPT_TRAILERDATA (3) - Custom pointer passed to the trailing headers callback
+CURLOPT_TRAILERFUNCTION (3) - Set callback for sending trailing headers
 CURLOPT_TRANSFER_ENCODING (3) - ask for HTTP Transfer Encoding
 CURLOPT_TRANSFERTEXT (3) - request a text based transfer for FTP
 CURLOPT_UNIX_SOCKET_PATH (3) - set Unix domain socket
@@ -3026,13 +3183,14 @@ custom_ext_free_cb (3ssl) - custom TLS extension handling
 custom_ext_parse_cb (3ssl) - custom TLS extension handling
 cut (1)              - remove sections from each line of files
 cut (1p)             - cut out selected fields of each line of a file
-vlc (1)              - the VLC media player
 cvt (1)              - calculate VESA CVT mode lines
 cvtsudoers (1)       - convert between sudoers file formats
 Cwd (3perl)          - get pathname of current working directory
 cweave (1)           - (unknown subject)
 cweb (1)             - (unknown subject)
 cwebp (1)            - compress an image file to a WebP file
+cwm (1)              - a lightweight and efficient window manager for X11
+cwmrc (5)            - calm window manager configuration file
 cxpm (1)             - Check an XPM (X PixMap) file, versions XPM 1, 2, or 3.
 cxref (1p)           - generate a C-language program cross-reference table (D...
 d2i_ACCESS_DESCRIPTION (3ssl) - convert objects from/to ASN.1/DER representation
@@ -3286,7 +3444,7 @@ dbus-send (1)        - Send a message to a message bus
 dbus-test-tool (1)   - D-Bus traffic generator and test tool
 dbus-update-activation-environment (1) - update environment used for D-Bus se...
 dbus-uuidgen (1)     - Utility to generate UUIDs
-dcadec (1)           - decode DTS Coherent Acoustics audio streams
+dc (1)               - an arbitrary precision calculator
 dcgettext (3)        - translate message
 dcngettext (3)       - translate message and choose plural form
 dconf (1)            - Simple tool for manipulating a dconf database
@@ -3341,6 +3499,8 @@ delscreen (3x)       - curses screen initialization and manipulation routines
 delta (1p)           - make a delta (change) to an SCCS file (DEVELOPMENT)
 xapian-delve (1)     - Inspect the contents of a Xapian database
 delwin (3x)          - create curses windows
+Depend (3o)          - Module dependencies.
+Depend.String (3o)   - no description
 depmod (8)           - Generate modules.dep and map files.
 depmod.d (5)         - Configuration directory for depmod
 deprecate (3perl)    - Perl pragma for deprecating the inclusion of a module ...
@@ -3394,6 +3554,7 @@ devlink-port (8)     - devlink port configuration
 devlink-region (8)   - devlink address region access
 devlink-resource (8) - devlink device resource configuration
 devlink-sb (8)       - devlink shared buffer configuration
+devlink-trap (8)     - devlink trap configuration
 devnag (1)           - Devanagari for TeX preprocessor
 deweb (1)            - strips away C & CWEB commands from CWEB sources
 df (1)               - report file system disk space usage
@@ -3474,10 +3635,8 @@ diagnostics (3perl)  - produce verbose warning diagnostics
 diff (1)             - (unknown subject)
 diff (1p)            - compare two files
 diff3 (1)            - (unknown subject)
-diffimg (1)          - Calculates intersection between two images
 difftime (3)         - calculate time difference
 difftime (3p)        - compute the difference between two calendar time values
-Digest (3perl)       - Modules that calculate message digests
 Digest::base (3perl) - Digest base class
 Digest::file (3perl) - Calculate digests of files
 Digest::HMAC (3pm)   - Keyed-Hashing for Message Authentication
@@ -3487,7 +3646,6 @@ Digest::MD5 (3perl)  - Perl interface to the MD5 Algorithm
 Digest::SHA (3perl)  - Perl extension for SHA-1/224/256/384/512
 Digest::SHA1 (3pm)   - Perl interface to the SHA-1 algorithm
 urxvt-digital-clock (1) - display a digital clock overlay
-dijkstra (1)         - single-source distance filter for Graphviz
 dir (1)              - list directory contents
 dir_colors (5)       - configuration file for dircolors(1)
 dircolors (1)        - color setup for ls
@@ -3538,8 +3696,8 @@ dlopen (3)           - open and close a shared object
 dlopen (3p)          - open a symbol table handle
 dlsym (3)            - obtain address of a symbol in a shared object or execu...
 dlsym (3p)           - get the address of a symbol from a symbol table handle
+dltest (1)           - A simple library symbol test
 dlvsym (3)           - obtain address of a symbol in a shared object or execu...
-dmenu (1)            - dynamic menu
 dmesg (1)            - print or control the kernel ring buffer
 dmevent_tool (8)     - A utility used to load a DSO into dmeventd and (un)reg...
 dmeventd (8)         - Device-mapper event daemon
@@ -3744,13 +3902,13 @@ docker-volume-rm (1) - Remove one or more volumes
 docker-wait (1)      - Block until one or more containers stop, then print th...
 dockerd (8)          - Enable daemon mode
 Dockerfile (5)       - automate the steps of creating a Docker image
+Docstrings (3o)      - Documentation comments
+Docstrings.WithMenhir (3o) - no description
 DoesBackingStore (3) - screen information functions and macros
 DoesSaveUnders (3)   - screen information functions and macros
 dosfsck (8)          - check and repair MS-DOS filesystems
 dosfslabel (8)       - set or get MS-DOS filesystem label
-dot (1)              - filter for drawing directed graphs
 dot (1p)             - execute commands in the current environment
-dotty (1)            - A Customizable Graph Editor
 doupdate (3x)        - refresh curses windows and lines
 doupdate_sp (3x)     - curses screen-pointer extension
 ldns-dpa (1)         - DNS Packet Analyzer. Analyze DNS packets in ip trace f...
@@ -3772,6 +3930,7 @@ drem (3)             - floating-point remainder function
 dremf (3)            - floating-point remainder function
 dreml (3)            - floating-point remainder function
 drill (1)            - get (debug) information out of DNS(SEC)
+driverless (1)       - PPD generator utility for driverless printing
 drm (7)              - Direct Rendering Manager
 drm-gem (7)          - DRM Memory Management
 drm-kms (7)          - Kernel Mode-Setting
@@ -3781,6 +3940,8 @@ drm-ttm (7)          - DRM Memory Management
 drmAvailable (3)     - determine whether a DRM kernel driver has been loaded
 drmHandleEvent (3)   - read and process pending DRM events
 drmModeGetResources (3) - retrieve current display configuration information
+dropdb (1)           - remove a PostgreSQL database
+dropuser (1)         - remove a PostgreSQL user account
 tc-drr (8)           - deficit round robin scheduler
 dsa (1ssl)           - DSA key processing
 DSA_bits (3ssl)      - get DSA signature size, key bits or security bits
@@ -3870,7 +4031,6 @@ DTLSv1_client_method (3ssl) - create a new SSL_CTX object as framework for TL...
 DTLSv1_listen (3ssl) - Statelessly listen for incoming connections
 DTLSv1_method (3ssl) - create a new SSL_CTX object as framework for TLS/SSL o...
 DTLSv1_server_method (3ssl) - create a new SSL_CTX object as framework for TL...
-dtsdec (1)           - decode DTS Coherent Acoustics audio streams
 du (1)               - estimate file space usage
 du (1p)              - estimate file space usage
 dumpe2fs (8)         - dump ext2/ext3/ext4 filesystem information
@@ -3922,6 +4082,7 @@ dvitype (1)          - translate a dvi file for humans
 dwebp (1)            - decompress a WebP file to an image file
 DynaLoader (3perl)   - Dynamically load C libraries into Perl code
 dynamic_field_info (3x) - retrieve field characteristics
+Dynlink (3o)         - Dynamic loading of .cmo, .cma and .cmxs files.
 dysize (3)           - get number of days for a given year
 e2freefrag (8)       - report free space fragmentation information
 e2fsck (8)           - check a Linux ext2/ext3/ext4 file system
@@ -4096,12 +4257,12 @@ ECPKParameters_print (3ssl) - Functions for decoding and encoding ASN1 repres...
 ECPKParameters_print_fp (3ssl) - Functions for decoding and encoding ASN1 rep...
 ecvt (3)             - convert a floating-point number to a string
 ecvt_r (3)           - convert a floating-point number to a string
+ed (1)               - line-oriented text editor
 ed (1p)              - edit text
 Ed25519 (7ssl)       - EVP_PKEY Ed25519 and Ed448 support
 ed2k-link (1)        - calculate/check CRC32, MD5, SHA1, GOST, TTH, BTIH or o...
 Ed448 (7ssl)         - EVP_PKEY Ed25519 and Ed448 support
 edata (3)            - end of program segments
-edgepaint (1)        - edge coloring to disambiguate crossing edges
 EDIPARTYNAME_free (3ssl) - ASN1 object utilities
 EDIPARTYNAME_new (3ssl) - ASN1 object utilities
 edit (1)             - text editor
@@ -4113,7 +4274,7 @@ edonr512-hash (1)    - calculate/check CRC32, MD5, SHA1, GOST, TTH, BTIH or o...
 egrep (1)            - print lines that match patterns
 eject (1)            - eject removable media
 el (3)               - line editor, history and tokenization functions
-el_resize (3)        - line editor, history and tokenization functions
+tok_winit (3)        - line editor, history and tokenization functions
 el_deletestr (3)     - line editor, history and tokenization functions
 el_end (3)           - line editor, history and tokenization functions
 el_get (3)           - line editor, history and tokenization functions
@@ -4126,6 +4287,7 @@ el_line (3)          - line editor, history and tokenization functions
 el_parse (3)         - line editor, history and tokenization functions
 el_push (3)          - line editor, history and tokenization functions
 el_reset (3)         - line editor, history and tokenization functions
+el_resize (3)        - line editor, history and tokenization functions
 el_set (3)           - line editor, history and tokenization functions
 el_source (3)        - line editor, history and tokenization functions
 el_wdeletestr (3)    - line editor, history and tokenization functions
@@ -4138,8 +4300,8 @@ el_wparse (3)        - line editor, history and tokenization functions
 el_wpush (3)         - line editor, history and tokenization functions
 el_wset (3)          - line editor, history and tokenization functions
 elf (5)              - format of Executable and Linking Format (ELF) files
-elfedit (1)          - Update ELF header and program property of ELF files.
-tc-ematch (8)        - extended matches for use with "basic" or "flow" filters
+elfedit (1)          - update ELF header and program property of ELF files
+tc-ematch (8)        - extended matches for use with "basic", "cgroup" or "fl...
 enc (1ssl)           - symmetric cipher routines
 enc2xs (1perl)       - - Perl Encode Module Generator
 encguess (1perl)     - guess character encodings of files
@@ -4162,6 +4324,7 @@ Encode::JP::H2Z (3perl) - - internally used by Encode::JP::2022_JP*
 Encode::JP::JIS7 (3perl) - - internally used by Encode::JP
 Encode::KR (3perl)   - Korean Encodings
 Encode::KR::2022_KR (3perl) - - internally used by Encode::KR
+Encode::Locale (3pm) - Determine the locale encoding
 Encode::MIME::Header (3perl) - - MIME encoding for an unstructured email header
 Encode::PerlIO (3perl) - - a detailed document on Encode and PerlIO
 Encode::Supported (3perl) - - Encodings supported by Encode
@@ -4314,6 +4477,20 @@ envz_get (3)         - environment string support
 envz_merge (3)       - environment string support
 envz_remove (3)      - environment string support
 envz_strip (3)       - environment string support
+Ephemeron (3o)       - Ephemerons and weak hash table
+Ephemeron.GenHashTable (3o) - no description
+Ephemeron.GenHashTable.MakeSeeded (3o) - Functor building an implementation o...
+Ephemeron.K1 (3o)    - no description
+Ephemeron.K1.Make (3o) - Functor building an implementation of a weak hash table
+Ephemeron.K1.MakeSeeded (3o) - Functor building an implementation of a weak h...
+Ephemeron.K2 (3o)    - no description
+Ephemeron.K2.Make (3o) - Functor building an implementation of a weak hash table
+Ephemeron.K2.MakeSeeded (3o) - Functor building an implementation of a weak h...
+Ephemeron.Kn (3o)    - no description
+Ephemeron.Kn.Make (3o) - Functor building an implementation of a weak hash table
+Ephemeron.Kn.MakeSeeded (3o) - Functor building an implementation of a weak h...
+Ephemeron.S (3o)     - The output signature of the functor Ephemeron.K1.Make ...
+Ephemeron.SeededS (3o) - The output signature of the functor Ephemeron.K1.Mak...
 epoll (7)            - I/O event notification facility
 epoll_create (2)     - open an epoll file descriptor
 epoll_create1 (2)    - open an epoll file descriptor
@@ -4417,11 +4594,14 @@ ev (3)               - a high performance full-featured event loop written in C
 urxvt-eval (1)       - evaluate arbitrary perl code using actions
 eval (1p)            - construct command by concatenating arguments
 evdev-joystick (1)   - joystick calibration program
+Event (3o)           - First-class synchronous communication.
 eventfd (2)          - create a file descriptor for event notification
 eventfd2 (2)         - create a file descriptor for event notification
 eventfd_read (3)     - create a file descriptor for event notification
 eventfd_write (3)    - create a file descriptor for event notification
 EventMaskOfScreen (3) - screen information functions and macros
+eview (1)            - easy Vim, edit a file with Vim and setup for modeless ...
+evim (1)             - easy Vim, edit a file with Vim and setup for modeless ...
 evp (7ssl)           - high-level cryptographic functions
 EVP_aes (3ssl)       - EVP AES cipher
 EVP_aes_128_cbc (3ssl) - EVP AES cipher
@@ -5034,7 +5214,6 @@ Exporter (3perl)     - Implements default import method for modules
 Exporter::Heavy (3perl) - Exporter guts
 expr (1)             - evaluate expressions
 expr (1p)            - evaluate arguments as an expression
-expr (3)             - c-like expression library
 ext2 (5)             - the second extended file system
 ext3 (5)             - the third extended file system
 ext4 (5)             - the fourth extended file system
@@ -5047,10 +5226,6 @@ extended_pair_content (3x) - curses color manipulation routines
 extended_pair_content_sp (3x) - curses screen-pointer extension
 extended_slk_color (3x) - curses soft label routines
 extended_slk_color_sp (3x) - curses screen-pointer extension
-extract_a52 (1)      - extract ATSC A/52 audio from a MPEG stream.
-extract_dca (1)      - extract DTS Coherent Acoustics audio from a MPEG stream.
-extract_dts (1)      - extract DTS Coherent Acoustics audio from a MPEG stream.
-extract_mpeg2 (1)    - extract MPEG video streams from a multiplexed stream.
 extractbb (1)        - extract bounding box information from graphics files
 ExtUtils::CBuilder (3perl) - Compile and link C code for Perl modules
 ExtUtils::CBuilder::Platform::Windows (3perl) - Builder class for Windows pla...
@@ -5403,7 +5578,6 @@ fdopen (3)           - stream open functions
 fdopen (3p)          - associate a stream with a file descriptor
 fdopendir (3)        - open a directory
 fdopendir (3p)       - open directory associated with file descriptor
-fdp (1)              - filter for drawing undirected graphs
 feature (3perl)      - Perl pragma to enable new features
 feature_test_macros (7) - feature test macros
 feclearexcept (3)    - floating-point rounding and exception handling
@@ -5533,6 +5707,7 @@ File::Fetch (3perl)  - A generic file fetching mechanism
 File::Find (3perl)   - Traverse a directory tree.
 File::Glob (3perl)   - Perl extension for BSD glob routine
 File::GlobMapper (3perl) - Extend File Glob to Allow Input and Output Files
+File::Listing (3pm)  - parse directory listing
 File::Path (3perl)   - Create or remove directory trees
 File::Remove (3pm)   - Remove files and directories
 File::Spec (3perl)   - portably perform operations on file names
@@ -5553,12 +5728,14 @@ filecap (8)          - a program to see capabilities
 filefrag (8)         - report on file fragmentation
 filefuncs (3am)      - provide some file related functionality to gawk
 FileHandle (3perl)   - supply object methods for filehandles
+Filename (3o)        - Operations on file names.
 fileno (3)           - check and reset stream status
 fileno (3p)          - map a stream pointer to a file descriptor
 fileno_unlocked (3)  - nonlocking stdio functions
 filesystems (5)      - Linux filesystem types: ext, ext2, ext3, ext4, hpfs, i...
 filetest (3perl)     - Perl pragma to control the filetest permission operators
 filter (3x)          - miscellaneous curses utility routines
+filter (7)           - cups file conversion filter interface
 Filter::Simple (3perl) - Simplified source filtering
 Filter::Util::Call (3perl) - Perl Source Filter Utility Module
 filter_sp (3x)       - curses screen-pointer extension
@@ -5575,12 +5752,16 @@ finit_module (2)     - load a kernel module
 finite (3)           - BSD floating-point classification functions
 finitef (3)          - BSD floating-point classification functions
 finitel (3)          - BSD floating-point classification functions
+fix-qdf (1)          - repair PDF files in QDF form after editing
 fixparts (8)         - MBR partition table repair utility
 flac (1)             - Free Lossless Audio Codec
 flash (3x)           - curses bell and screen flash routines
 flash_sp (3x)        - curses screen-pointer extension
 flex (1)             - the fast lexical analyser generator
 flistxattr (2)       - list extended attribute names
+Float (3o)           - Floating-point arithmetic
+Float.Array (3o)     - no description
+Float.ArrayLabels (3o) - no description
 float.h (0p)         - floating types
 flock (1)            - manage locks from shell scripts
 flock (2)            - apply or remove an advisory lock on an open file
@@ -5629,6 +5810,7 @@ fold (1)             - wrap each input line to fit in specified width
 fold (1p)            - filter for folding lines
 fontinst (1)         - utility to run TeX as fontinst
 fonts-conf (5)       - Font configuration files
+foomatic-rip (1)     - Universal print filter/RIP wrapper
 fopen (3)            - stream open functions
 fopen (3p)           - open a stream
 fopencookie (3)      - opening a custom stream
@@ -5669,6 +5851,7 @@ form_term (3x)       - set hooks for automatic invocation by applications
 form_userptr (3x)    - associate application data with a form item
 form_variables (3x)  - form system global variables
 form_win (3x)        - make and break form window and subwindow associations
+Format (3o)          - Pretty-printing.
 fort77 (1p)          - FORTRAN compiler (FORTRAN)
 fparseln (3bsd)      - return the next logical line from a stream
 fpathconf (3)        - get configuration values for files
@@ -5692,6 +5875,7 @@ fputws (3)           - write a wide-character string to a FILE stream
 fputws (3p)          - put a wide-character string on a stream
 fputws_unlocked (3)  - nonlocking stdio functions
 tc-fq (8)            - Fair Queue traffic policing
+frame-test-x11 (1)   - Report touch frame events from X.org input devices
 fread (3)            - binary stream input/output
 fread (3p)           - binary input
 fread_unlocked (3)   - nonlocking stdio functions
@@ -5788,6 +5972,7 @@ ftw (3)              - file tree walk
 ftw (3p)             - traverse (walk) a file tree
 ftw.h (0p)           - file tree traversal
 full (4)             - always full device
+Fun (3o)             - Function manipulation.
 funlockfile (3)      - lock FILE for stdio
 funlockfile (3p)     - stdio locking functions
 funzip (1)           - filter for extracting from a ZIP archive in a pipe
@@ -5826,8 +6011,8 @@ gammaf (3)           - (logarithm of the) gamma function
 gammal (3)           - (logarithm of the) gamma function
 gapplication (1)     - D-Bus application launcher
 gawk (1)             - pattern scanning and processing language
-gc (1)               - count graph components
 gc (3)               - Garbage collecting malloc replacement
+gcalccmd (1)         - a console calculator
 gcc (1)              - GNU project C and C++ compiler
 gcov (1)             - coverage testing tool
 gcov-dump (1)        - offline gcda and gcno profile dump tool
@@ -5843,7 +6028,9 @@ gdiffmk (1)          - mark differences between groff/nroff/troff files
 gdisk (8)            - Interactive GUID partition table (GPT) manipulator
 gdk-pixbuf-csource (1) - C code generation utility for GdkPixbuf images
 gdk-pixbuf-query-loaders (1) - GdkPixbuf loader registration utility
-gdtclft (3tcl)       - render images in various bitmap formats (GD, GD2, GIF,...
+gedit (1)            - text editor for the GNOME Desktop
+geistest (1)         - test operation of the GEIS API
+geisview (1)         - view operation of the GEIS API
 GEN_SESSION_CB (3ssl) - manipulate generation of SSL session IDs (server only)
 genbrk (1)           - Compiles ICU break iteration rules source files into b...
 gencat (1p)          - generate a formatted message catalog
@@ -5851,6 +6038,7 @@ genccode (8)         - generate C or platform specific assembly code from an ...
 gencfu (1)           - Generates Unicode Confusable data files
 gencmn (8)           - generate an ICU memory-mappable data file
 gencnval (1)         - compile the converters aliases file
+gendesk (1)          - generate .desktop files based on commandline arguments...
 gendict (1)          - Compiles word list into ICU string trie dictionary
 gendsa (1ssl)        - generate a DSA private key from a set of parameters
 GENERAL_NAME_dup (3ssl) - ASN1 object utilities
@@ -5862,6 +6050,7 @@ GENERAL_SUBTREE_free (3ssl) - ASN1 object utilities
 GENERAL_SUBTREE_new (3ssl) - ASN1 object utilities
 genl (8)             - generic netlink utility frontend
 genl-ctrl-list (8)   - List available kernel-side Generic Netlink families
+Genlex (3o)          - A generic lexical analyzer.
 genpkey (1ssl)       - generate a private key
 genrb (1)            - compile a resource bundle
 genrsa (1ssl)        - generate an RSA private key
@@ -6285,6 +6474,7 @@ git-show (1)         - Show various types of objects
 git-show-branch (1)  - Show branches and their commits
 git-show-index (1)   - Show packed archive index
 git-show-ref (1)     - List references in a local repository
+git-sparse-checkout (1) - Initialize and modify the sparse-checkout configura...
 git-stage (1)        - Add file contents to the staging area
 git-stash (1)        - Stash the changes in a dirty working directory away
 git-status (1)       - Show the working tree status
@@ -6326,7 +6516,7 @@ gitnamespaces (7)    - Git namespaces
 gitremote-helpers (7) - Helper programs to interact with remote repositories
 gitrepository-layout (5) - Git Repository Layout
 gitrevisions (7)     - Specifying revisions and ranges for Git
-gitsubmodules (7)    - mounting one repository inside another
+gitsubmodules (7)    - Mounting one repository inside another
 gittutorial (7)      - A tutorial introduction to Git
 gittutorial-2 (7)    - A tutorial introduction to Git: part two
 gitweb (1)           - Git web interface (web frontend to Git repositories)
@@ -6344,10 +6534,10 @@ glob (3p)            - generate pathnames matching a pattern
 glob (7)             - globbing pathnames
 glob.h (0p)          - pathname pattern-matching types
 globfree (3)         - find pathnames matching a pattern, free memory from gl...
-gml2gv (1)           - GML-DOT converters
 gmtime (3)           - transform date and time to broken-down time or ASCII
 gmtime (3p)          - convert a time value to a broken-down UTC time
 gmtime_r (3)         - transform date and time to broken-down time or ASCII
+gnome-calculator (1) - a desktop calculator
 gnu_dev_major (3)    - manage a device number
 gnu_dev_makedev (3)  - manage a device number
 gnu_dev_minor (3)    - manage a device number
@@ -7469,7 +7659,8 @@ gnutls_x509_trust_list_verify_crt (3) - API function
 gnutls_x509_trust_list_verify_crt2 (3) - API function
 gnutls_x509_trust_list_verify_named_crt (3) - API function
 gobject-query (1)    - display a tree of types
-gost-hash (1)        - calculate/check CRC32, MD5, SHA1, GOST, TTH, BTIH or o...
+gost12-256-hash (1)  - calculate/check CRC32, MD5, SHA1, GOST, TTH, BTIH or o...
+gost12-512-hash (1)  - calculate/check CRC32, MD5, SHA1, GOST, TTH, BTIH or o...
 gpasswd (1)          - administer /etc/group and /etc/gshadow
 gperl (1)            - groff preprocessor for Perl parts in roff files
 gpg (1)              - OpenPGP encryption and signing tool
@@ -7491,11 +7682,13 @@ gpm (8)              - a cut and paste utility and mouse server for virtual c...
 gpm-root (1)         - a default handler for gpm, used to draw menus on the r...
 gpm-types (7)        - pointer types (mice, tablets, etc.) managed by gpm.
 gprof (1)            - display call graph profile data
+grail-test-3-1 (1)   - dump grail v3 events
+grail-test-atomic (1) - dump grail v3 atomic gesture events
+grail-test-edge (1)  - test edge swipes
+grail-test-propagation (1) - test driver tool for gesture accept/reject
 grantpt (3)          - grant access to the slave pseudoterminal
 grantpt (3p)         - grant access to the slave pseudo-terminal device
 grap2graph (1)       - convert a GRAP diagram into a cropped image
-graphml2gv (1)       - GRAPHML-DOT converter
-graphviz (7)         - rich set of graph drawing tools
 grep (1)             - print lines that match patterns
 grep (1p)            - search a file for a pattern
 gresource (1)        - GResource tool
@@ -7721,28 +7914,10 @@ gtk3-widget-factory (1) - Demonstrate GTK+ widgets
 gtty (2)             - unimplemented system calls
 guile (1)            - The GNU Project Extension Language
 gunzip (1)           - compress or expand files
-gv (3guile)          - graph manipulation in guile
-gv (3lua)            - graph manipulation in lua
-gv (3ocaml)          - graph manipulation in ocaml
-gv (3perl)           - graph manipulation in perl
-gv (3python)         - graph manipulation in python
-gv (3r)              - graph manipulation in R
-gv (3sharp)          - graph manipulation in sharp
-gv (3tcl)            - graph manipulation in tcl
-gv2gml (1)           - GML-DOT converters
-gv2gxl (1)           - GXL-GV converters
-gvc (3)              - Graphviz context library
-gvcolor (1)          - flow colors through a ranked digraph
-gvedit (1)           - simple graph editor and viewer
-gvgen (1)            - generate graphs
-gvmap (1)            - find clusters and create a geographical map highlighti...
-gvmap.sh (1)         - pipeline for running gvmap
-gvpack (1)           - merge and pack disjoint graphs
-gvpr (1)             - graph pattern scanning and processing language
-gvpr (3)             - library for graph filtering
+gview (1)            - Vi IMproved, a programmer's text editor
+gvim (1)             - Vi IMproved, a programmer's text editor
+gvimdiff (1)         - edit two, three or four versions of a file with Vim an...
 gxditview (1)        - display groff intermediate output files
-gxl2dot (1)          - GXL-GV converters
-gxl2gv (1)           - GXL-GV converters
 gzexe (1)            - compress executable files in place
 gzip (1)             - compress or expand files
 h2ph (1perl)         - convert .h C header files to .ph Perl header files
@@ -7767,6 +7942,13 @@ hash (1p)            - remember or report utility locations
 hash (3)             - hash database access method
 Hash::Util (3perl)   - A selection of general-utility hash subroutines
 Hash::Util::FieldHash (3perl) - Support for Inside-Out Classes
+Hashtbl (3o)         - Hash tables and hash functions.
+Hashtbl.HashedType (3o) - The input signature of the functor Hashtbl.Make.
+Hashtbl.Make (3o)    - Functor building an implementation of the hashtable st...
+Hashtbl.MakeSeeded (3o) - Functor building an implementation of the hashtable...
+Hashtbl.S (3o)       - The output signature of the functor Hashtbl.Make.
+Hashtbl.SeededHashedType (3o) - The input signature of the functor Hashtbl.Ma...
+Hashtbl.SeededS (3o) - The output signature of the functor Hashtbl.MakeSeeded.
 hasmntopt (3)        - get filesystem descriptor file entry
 hbf2gf (1)           - convert a CJK bitmap font into subfonts usable by TeX ...
 hcreate (3)          - hash table management
@@ -7822,6 +8004,14 @@ hspell (1)           - Hebrew spellchecker
 hspell (3)           - Hebrew spellchecker (C API)
 hstrerror (3)        - get network host entry
 tc-htb (8)           - Hierarchy Token Bucket
+HTML::Entities (3pm) - Encode or decode strings with HTML entities
+HTML::Filter (3pm)   - Filter HTML text through the parser
+HTML::HeadParser (3pm) - Parse <HEAD> section of a HTML document
+HTML::LinkExtor (3pm) - Extract links from an HTML document
+HTML::Parser (3pm)   - HTML parser class
+HTML::PullParser (3pm) - Alternative HTML::Parser interface
+HTML::Tagset (3pm)   - data tables useful in parsing HTML
+HTML::TokeParser (3pm) - Alternative HTML::Parser interface
 htobe16 (3)          - convert values between host and big-/little-endian byt...
 htobe32 (3)          - convert values between host and big-/little-endian byt...
 htobe64 (3)          - convert values between host and big-/little-endian byt...
@@ -7831,6 +8021,22 @@ htole64 (3)          - convert values between host and big-/little-endian byt...
 htonl (3)            - convert values between host and network byte order
 htonl (3p)           - convert values between host and network byte order
 htons (3)            - convert values between host and network byte order
+HTTP::Config (3pm)   - Configuration for request and response objects
+HTTP::Cookies (3pm)  - HTTP cookie jars
+HTTP::Cookies::Microsoft (3pm) - Access to Microsoft cookies files
+HTTP::Cookies::Netscape (3pm) - Access to Netscape cookies files
+HTTP::Daemon (3pm)   - a simple http server class
+HTTP::Date (3pm)     - HTTP::Date - date conversion routines
+HTTP::Headers (3pm)  - Class encapsulating HTTP Message headers
+HTTP::Headers::Auth (3pm) - (unknown subject)
+HTTP::Headers::ETag (3pm) - (unknown subject)
+HTTP::Headers::Util (3pm) - Header value parsing utility functions
+HTTP::Message (3pm)  - HTTP style message (base class)
+HTTP::Negotiate (3pm) - choose a variant to serve
+HTTP::Request (3pm)  - HTTP style request message
+HTTP::Request::Common (3pm) - Construct common HTTP::Request objects
+HTTP::Response (3pm) - HTTP style response message
+HTTP::Status (3pm)   - HTTP Status code processing
 HTTP::Tiny (3perl)   - A small, simple, correct HTTP/1.1 client
 HUGE_VAL (3)         - floating-point constants
 HUGE_VALF (3)        - floating-point constants
@@ -8066,7 +8272,6 @@ i3-sensible-pager (1) - launches $PAGER with fallbacks
 i3-sensible-terminal (1) - launches $TERMINAL with fallbacks
 i386 (8)             - change reported architecture in new program environmen...
 i3bar (1)            - xcb-based status- and workspace-bar
-i3status (1)         - Generates a status line for i3bar, dzen2, xmobar or le...
 icmp (7)             - Linux IPv4 ICMP kernel module.
 iconv (1)            - convert text from one character encoding to another
 iconv (1p)           - codeset conversion
@@ -8083,6 +8288,21 @@ icupkg (8)           - extract or modify an ICU .dat archive
 id (1)               - print real and effective user and group IDs
 id (1p)              - return user identity
 idcok (3x)           - curses output options
+Identifiable (3o)    - Uniform interface for common data structures over vari...
+Identifiable.Make (3o) - no description
+Identifiable.Map (3o) - no description
+Identifiable.Map.T (3o) - no description
+Identifiable.Pair (3o) - no description
+Identifiable.S (3o)  - no description
+Identifiable.S.Map (3o) - no description
+Identifiable.S.Set (3o) - no description
+Identifiable.S.T (3o) - no description
+Identifiable.S.Tbl (3o) - no description
+Identifiable.Set (3o) - no description
+Identifiable.Set.T (3o) - no description
+Identifiable.Tbl (3o) - no description
+Identifiable.Tbl.T (3o) - no description
+Identifiable.Thing (3o) - no description
 identify (1)         - describes the format and characteristics of one or mor...
 idle (2)             - make process 0 idle
 idlok (3x)           - curses output options
@@ -8235,9 +8455,18 @@ install-info (1)     - update info/dir entries
 instmodsh (1perl)    - A shell to examine installed modules
 instr (3x)           - get a string of characters from a curses window
 insw (2)             - port I/O
+Int (3o)             - Integer values.
+Int32 (3o)           - 32-bit integers.
+Int64 (3o)           - 64-bit integers.
+Int_replace_polymorphic_compare (3o) - no description
 integer (3perl)      - Perl pragma to use integer arithmetic instead of float...
 integritysetup (8)   - manage dm-integrity (block level integrity) volumes
 Internals (3perl)    - Reserved special namespace for internals related funct...
+intltool-extract (8) - generate header files which can be read by gettext
+intltool-merge (8)   - merge translated strings into various types of file
+intltool-prepare (8) - Prepare software to make use of intltool
+intltool-update (8)  - updates PO template file and merge translations with it
+intltoolize (8)      - copy intltool related files to software package
 intrflush (3x)       - curses input options
 intrflush_sp (3x)    - curses screen-pointer extension
 intro (1)            - introduction to user commands
@@ -8265,6 +8494,7 @@ IO::Compress::Zip (3perl) - Write zip files/buffers
 IO::Dir (3perl)      - supply object methods for directory handles
 IO::File (3perl)     - supply object methods for filehandles
 IO::Handle (3perl)   - supply object methods for I/O handles
+IO::HTML (3pm)       - Open an HTML file with automatic charset detection
 IO::InnerFile (3pm)  - define a file inside another file
 IO::Lines (3pm)      - IO:: interface for reading/writing an array of lines
 IO::Pipe (3perl)     - supply object methods for pipes
@@ -8305,6 +8535,8 @@ ioctl_list (2)       - list of ioctl calls in Linux/i386 kernel
 ioctl_ns (2)         - ioctl() operations for Linux namespaces
 ioctl_tty (2)        - ioctls for terminals and serial lines
 ioctl_userfaultfd (2) - create a file descriptor for handling page faults in ...
+ioctl_xfs_ag_geometry (2) - query XFS allocation group geometry information
+ioctl_xfs_bulkstat (2) - query information for a batch of XFS inodes
 ioctl_xfs_fsbulkstat (2) - query information for a batch of XFS inodes
 ioctl_xfs_fscounts (2) - query XFS summary counter information
 ioctl_xfs_fsgetxattr (2) - query information for an open file
@@ -8313,6 +8545,7 @@ ioctl_xfs_fsop_geometry (2) - report XFS filesystem layout and features
 ioctl_xfs_getbmapx (2) - query extent information for an open file
 ioctl_xfs_getresblks (2) - query and set XFS free space reservation information
 ioctl_xfs_goingdown (2) - shut down an XFS filesystem
+ioctl_xfs_inumbers (2) - query allocation information for groups of XFS inodes
 ioctl_xfs_scrub_metadata (2) - check XFS filesystem metadata
 ionice (1)           - set or get process I/O scheduling class and priority
 ioperm (2)           - set port input/output permissions
@@ -8346,6 +8579,7 @@ ip-vrf (8)           - run a command against a vrf
 ip-xfrm (8)          - transform configuration
 ip6tables (8)        - administration tool for IPv4/IPv6 packet filtering and...
 ip6tables-restore (8) - Restore IPv6 Tables
+ip6tables-restore-translate (8) - translation tool to migrate from iptables t...
 ip6tables-save (8)   - dump iptables rules
 ip6tables-translate (8) - translation tool to migrate from ip6tables to nftables
 IPAddressChoice_free (3ssl) - ASN1 object utilities
@@ -8370,6 +8604,12 @@ ipcrm (1)            - remove certain IPC resources
 ipcrm (1p)           - remove an XSI message queue, semaphore set, or shared ...
 ipcs (1)             - show information on IPC facilities
 ipcs (1p)            - report XSI interprocess communication facilities status
+ippevepcl (7)        - pcl and postscript print commands for ippeveprinter
+ippeveps (7)         - pcl and postscript print commands for ippeveprinter
+ippeveprinter (1)    - an ipp everywhere printer application for cups
+ippfind (1)          - find internet printing protocol printers
+ipptool (1)          - perform internet printing protocol requests
+ipptoolfile (5)      - ipptool file format
 ipq_create_handle (3) - create and destroy libipq handles.
 ipq_destroy_handle (3) - create and destroy libipq handles.
 ipq_errstr (3)       - libipq error handling routines
@@ -8383,6 +8623,7 @@ ipq_set_verdict (3)  - issue verdict and optionally modified packet to kernel
 iptables (8)         - administration tool for IPv4/IPv6 packet filtering and...
 iptables-extensions (8) - list of extensions in the standard iptables distrib...
 iptables-restore (8) - Restore IP Tables
+iptables-restore-translate (8) - translation tool to migrate from iptables to...
 iptables-save (8)    - dump iptables rules
 iptables-translate (8) - translation tool to migrate from iptables to nftables
 iptables-xml (1)     - Convert iptables-save format to XML
@@ -8525,6 +8766,7 @@ IsPrivateKeypadKey (3) - keysym classification macros
 ispunct (3)          - character classification functions
 ispunct (3p)         - test for a punctuation character
 ispunct_l (3)        - character classification functions
+isql (1)             - unixODBC command-line interactive SQL tool
 isspace (3)          - character classification functions
 isspace (3p)         - test for a white-space character
 isspace_l (3)        - character classification functions
@@ -8578,6 +8820,7 @@ item_term (3x)       - set hooks for automatic invocation by applications
 item_userptr (3x)    - associate application data with a menu item
 item_value (3x)      - set and get menu item values
 item_visible (3x)    - check visibility of a menu item
+iusql (1)            - unixODBC command-line interactive SQL tool
 iw (8)               - show / manipulate wireless devices and their configura...
 j0 (3)               - Bessel functions of the first kind
 j0 (3p)              - Bessel functions of the first kind
@@ -8609,18 +8852,28 @@ jackrec (1)          - JACK toolkit client for recording audio
 jackstart (1)        - JACK Audio Connection Kit sound server
 jaotc-openjdk13 (1)  - The Java static compiler that produces native code for...
 jar-openjdk13 (1)    - create an archive for classes and resources, and manip...
+jar-openjdk11 (1)    - Manipulates Java Archive (JAR) files.
 jarsigner-openjdk13 (1) - sign and verify Java Archive (JAR) files
+jarsigner-openjdk11 (1) - Signs and verifies Java Archive (JAR) files.
 jasper (1)           - File format converter specialized in JPEG-2000 encoding
 java-openjdk13 (1)   - launch a Java application
+java-openjdk11 (1)   - Launches a Java application.
 javac-openjdk13 (1)  - read Java declarations and compile them into class files
+javac-openjdk11 (1)  - Reads Java class and interface definitions and compile...
 javadoc-openjdk13 (1) - generate HTML pages of API documentation from Java so...
+javadoc-openjdk11 (1) - Generates HTML pages of API documentation from Java s...
 javap-openjdk13 (1)  - disassemble one or more class files
+javap-openjdk11 (1)  - Disassembles one or more class files.
 jbig2dec (1)         - File format converter specialized in JBIG2 decoding
 jcmd-openjdk13 (1)   - send diagnostic command requests to a running Java Vir...
+jcmd-openjdk11 (1)   - Sends diagnostic command requests to a running Java Vi...
 jconsole-openjdk13 (1) - start a graphical console to monitor and manage Java...
+jconsole-openjdk11 (1) - Starts a graphical console that lets you monitor and...
 jdb-openjdk13 (1)    - find and fix bugs in Java platform programs
+jdb-openjdk11 (1)    - Finds and fixes bugs in Java platform programs.
 jdeprscan-openjdk13 (1) - static analysis tool that scans a jar file (or some...
 jdeps-openjdk13 (1)  - launch the Java class dependency analyzer
+jdeps-openjdk11 (1)  - Java class dependency analyzer.
 jfr-openjdk13 (1)    - parse and print Flight Recorder files
 jfs_debugfs (8)      - shell-type JFS file system editor
 jfs_fsck (8)         - initiate replay of the JFS transaction log, and check ...
@@ -8630,13 +8883,17 @@ jfs_mkfs (8)         - create a JFS formatted partition
 jfs_tune (8)         - adjust tunable file system parameters on JFS
 jhsdb-openjdk13 (1)  - attach to a Java process or launch a postmortem debugg...
 jinfo-openjdk13 (1)  - generate Java configuration information for a specifie...
+jinfo-openjdk11 (1)  - Generates configuration information. This command is e...
 jiv (1)              - Image display utility
 jjs-openjdk13 (1)    - command-line tool to invoke the Nashorn engine
+jjs-openjdk11 (1)    - Invokes the Nashorn engine.
 jlink-openjdk13 (1)  - assemble and optimize a set of modules and their depen...
 jmap-openjdk13 (1)   - print details of a specified process
+jmap-openjdk11 (1)   - Prints shared object memory maps or heap memory detail...
 jmod-openjdk13 (1)   - create JMOD files and list the content of existing JMO...
 jn (3)               - Bessel functions of the first kind
 jnf (3)              - Bessel functions of the first kind
+jng (5)              - JPEG Network Graphics (JNG) sub-format
 jnl (3)              - Bessel functions of the first kind
 jobs (1p)            - display status of jobs in the current session
 join (1)             - join lines of two files on a common field
@@ -8651,10 +8908,12 @@ journald.conf.d (5)  - Journal service configuration files
 jpegtran (1)         - lossless transformation of JPEG files
 jpgicc (1)           - little cms ICC profile applier for JPEG.
 jps-openjdk13 (1)    - list the instrumented JVMs on the target system
+jps-openjdk11 (1)    - Lists the instrumented Java Virtual Machines (JVMs) on...
 jrand48 (3)          - generate uniformly distributed pseudo-random numbers
 jrand48 (3p)         - generate a uniformly distributed pseudo-random long si...
 jrand48_r (3)        - generate uniformly distributed pseudo-random numbers r...
 jrunscript-openjdk13 (1) - run a command-line script shell that supports inte...
+jrunscript-openjdk11 (1) - Runs a command-line script shell that supports int...
 jscal (1)            - joystick calibration and remapping program
 jscal-restore (1)    - restores joystick calibration
 jscal-store (1)      - stores joystick calibration
@@ -8665,8 +8924,11 @@ JSON::PP (3perl)     - JSON::XS compatible pure-Perl module.
 JSON::PP::Boolean (3perl) - dummy module providing JSON::PP::Boolean
 json_pp (1perl)      - JSON::PP command utility
 jstack-openjdk13 (1) - print Java stack traces of Java threads for a specifie...
+jstack-openjdk11 (1) - Prints Java thread stack traces for a Java process, co...
 jstat-openjdk13 (1)  - monitor JVM statistics
+jstat-openjdk11 (1)  - Monitors Java Virtual Machine (JVM) statistics. This c...
 jstatd-openjdk13 (1) - monitor the creation and termination of instrumented J...
+jstatd-openjdk11 (1) - Monitors Java Virtual Machines (JVMs) and enables remo...
 jstest (1)           - joystick test program
 k5identity (5)       - Kerberos V5 client principal selection rules
 k5login (5)          - Kerberos V5 acl file for host access
@@ -8764,6 +9026,7 @@ keyok_sp (3x)        - curses screen-pointer extension
 keypad (3x)          - curses input options
 urxvt-keysym-list (1) - implement the "list" keysym expansion.
 keytool-openjdk13 (1) - a key and certificate management utility
+keytool-openjdk11 (1) - Manages a keystore (database) of cryptographic keys, ...
 keyutils (7)         - in-kernel key management utilities
 kill (1)             - terminate a process
 kill (1p)            - terminate or signal processes
@@ -8783,6 +9046,7 @@ kmem (4)             - system memory, kernel memory and system ports
 kmod (8)             - Program to manage Linux Kernel modules
 koi8-r (7)           - Russian character set encoded in octal, decimal, and h...
 koi8-u (7)           - Ukrainian character set encoded in octal, decimal, and...
+koi8rxterm (1)       - X terminal emulator for KOI8-R environments
 kpasswd (1)          - change a user's Kerberos password
 kprop (8)            - propagate a Kerberos V5 principal database to a replic...
 kpropd (8)           - Kerberos V5 replica KDC update server
@@ -8806,7 +9070,6 @@ kvno (1)             - print key version numbers of Kerberos principals
 l2ping (1)           - Send L2CAP echo request and receive answer
 l64a (3)             - convert between long and base-64
 l64a (3p)            - convert a 32-bit integer to a radix-64 ASCII string
-lab_gamut (3)        - data library for default color labeling
 labs (3)             - compute the absolute value of an integer
 labs (3p)            - return a long integer absolute value
 lacheck (1)          - A consistency checker for LaTeX documents.
@@ -8826,6 +9089,7 @@ latin6 (7)           - ISO 8859-10 character set encoded in octal, decimal, a...
 latin7 (7)           - ISO 8859-13 character set encoded in octal, decimal, a...
 latin8 (7)           - ISO 8859-14 character set encoded in octal, decimal, a...
 latin9 (7)           - ISO 8859-15 character set encoded in octal, decimal, a...
+Lazy (3o)            - Deferred computations.
 lber-decode (3)      - OpenLDAP LBER simplified Basic Encoding Rules library ...
 lber-encode (3)      - OpenLDAP LBER simplified Basic Encoding Rules library ...
 lber-types (3)       - OpenLDAP LBER types and allocation functions
@@ -9503,15 +9767,16 @@ le64dec (3bsd)       - byte order operations
 le64enc (3bsd)       - byte order operations
 le64toh (3)          - convert values between host and big-/little-endian byt...
 leaveok (3x)         - curses output options
-lefty (1)            - A Programmable Graphics Editor
 legacy_coding (3x)   - override locale-encoding checks
-lein (1)             - Automate Clojure projects
+lemonbar (1)         - Featherweight lemon-scented bar
 less (1)             - opposite of more
 less (3perl)         - perl pragma to request less of something
 lessecho (1)         - expand metacharacters
 lesskey (1)          - specify key bindings for less
 lex (1p)             - generate programs for lexical tasks (DEVELOPMENT)
+Lexer (3o)           - The lexical analyzer
 lexgrog (1)          - parse header information in man pages
+Lexing (3o)          - The run-time library for lexers generated by ocamllex.
 lfind (3)            - linear search of an array
 lfind (3p)           - find entry in a linear search table
 lgamma (3)           - log gamma function
@@ -9567,7 +9832,8 @@ libinput (1)         - tool to interface with libinput
 libinput (4)         - libinput-based X.Org input driver
 libinput-debug-events (1) - debug helper for libinput
 libinput-debug-gui (1) - visual debug helper for libinput
-libinput-list-devices (1) - list local devices as recognized by libinput
+libinput-debug-tablet (1) - debug and visualize tablet axes
+libinput-list-devices (1) - list local devices as recognized by libinput and ...
 libinput-measure (1) - measure properties of devices
 libinput-measure-fuzz (1) - measure absolute axis fuzz
 libinput-measure-touch-size (1) - measure touch size and orientation of devices
@@ -9581,6 +9847,7 @@ libinput-replay (1)  - replay kernel events from a recording
 libipq (3)           - iptables userspace packet queuing library.
 libmagic (3)         - Magic number recognition library
 libmikmod-config (1) - script to get information about the installed version ...
+libmng (3)           - Multiple-image Network Graphics (MNG) Reference Librar...
 libnet-functions.h (3) - (unknown subject)
 libnet-macros.h (3)  - (unknown subject)
 libnet.h (3)         - (unknown subject)
@@ -9592,12 +9859,11 @@ libnss_mymachines.so.2 (8) - Provide hostname resolution for local container ...
 libnss_resolve.so.2 (8) - Provide hostname resolution via systemd-resolved.se...
 libnss_systemd.so.2 (8) - Provide UNIX user and group name resolution for dyn...
 libopenjp2 (3)       - a library for reading and writing JPEG2000 image files.
-pack (3)             - support for connected components
-pathplan (3)         - finds and smooths shortest paths
 libpipeline (3)      - pipeline manipulation library
 libpng (3)           - Portable Network Graphics (PNG) Reference Library 1.6.37
 libpngpf (3)         - Portable Network Graphics (PNG) Reference Library 1.6....
 libpsl (3)           - Public Suffix List library functions
+libpsx (3)           - POSIX semantics for system calls
 libsensors (3)       - publicly accessible functions provided by the sensors ...
 libsmbclient (7)     - An extension library for browsers and that can be used...
 libssh2_agent_connect (3) - connect to an ssh-agent
@@ -9773,24 +10039,6 @@ libssh2_userauth_publickey_frommemory (3) - authenticate a session with a pub...
 libssh2_version (3)  - return the libssh2 version number
 libswresample (3)    - audio resampling library
 libswscale (3)       - video scaling and pixel format conversion library
-libtar_hash_add (3)  - hash table routines
-libtar_hash_del (3)  - hash table routines
-libtar_hash_free (3) - hash table routines
-libtar_hash_getkey (3) - hash table routines
-libtar_hash_new (3)  - hash table routines
-libtar_hash_next (3) - hash table routines
-libtar_hash_prev (3) - hash table routines
-libtar_hash_search (3) - hash table routines
-libtar_list_add (3)  - linked list routines
-libtar_list_add_str (3) - linked list routines
-libtar_list_del (3)  - linked list routines
-libtar_list_dup (3)  - linked list routines
-libtar_list_free (3) - linked list routines
-libtar_list_merge (3) - linked list routines
-libtar_list_new (3)  - linked list routines
-libtar_list_next (3) - linked list routines
-libtar_list_prev (3) - linked list routines
-libtar_list_search (3) - linked list routines
 libtiff (3tiff)      - introduction to libtiff, a library for reading and wri...
 libtool (1)          - manual page for libtool 2.4.6.42-b88ce
 libtoolize (1)       - manual page for libtoolize 2.4.6.42-b88ce
@@ -9803,13 +10051,15 @@ libunwind-setjmp (3) - - libunwind-based non-local gotos
 libutempter (3)      - utempter interface
 libuv (1)            - libuv documentation
 libwacom-list-local-devices (1) - utility to list tablet devices
-xdot (3)             - parsing and deparsing of xdot operations
+libwww::lwpcook (3pm) - The libwww-perl cookbook
+libwww::lwptut (3pm) - - An LWP Tutorial
 libxml (3)           - library used to parse XML files
 libxslt (3)          - library used to do XSL transformations on XML documents
 libzip (3)           - library for manipulating zip archives
 limits.conf (5)      - configuration file for the pam_limits module
 limits.h (0p)        - implementation-defined constants
 LINES (3x)           - curses global variables
+lingot (1)           - accurate and easy to use musical instrument tuner
 link (1)             - call the link function to create a link to a file
 link (1p)            - calllink() function
 link (2)             - make a new name for a file
@@ -9831,6 +10081,7 @@ LIST_PREV (3bsd)     - implementations of singly-linked lists, singly-linked ...
 LIST_SWAP (3bsd)     - implementations of singly-linked lists, singly-linked ...
 listen (2)           - listen for connections on a socket
 listen (3p)          - listen for socket connections and limit the queue of i...
+ListLabels (3o)      - no description
 listxattr (2)        - list extended attribute names
 lj4_font (5)         - groff fonts for use with devlj4
 lkbib (1)            - search bibliographic databases
@@ -9850,8 +10101,9 @@ llroundl (3)         - round to nearest integer
 llseek (2)           - reposition read/write file offset
 ln (1)               - make links between files
 ln (1p)              - link files
-lneato (1)           - A Customizable Graph Editor
 lnstat (8)           - unified linux network statistics
+Load_path (3o)       - Management of include directories.
+Load_path.Dir (3o)   - no description
 loader.conf (5)      - Configuration file for systemd-boot
 loadkeys (1)         - load keyboard translation tables
 loadunimap (8)       - load the kernel unicode-to-font mapping table
@@ -9877,6 +10129,8 @@ localtime (3)        - transform date and time to broken-down time or ASCII
 localtime (3p)       - convert a time value to a broken-down local time
 localtime (5)        - Local timezone configuration file
 localtime_r (3)      - transform date and time to broken-down time or ASCII
+locate (1)           - find files by name
+Location (3o)        - Source code locations (ranges of positions), used in p...
 lock (2)             - unimplemented system calls
 lockf (3)            - apply, test or remove a POSIX lock on an open file
 lockf (3p)           - record locking on files
@@ -9917,6 +10171,7 @@ logrotate (8)        - rotates, compresses, and mails system logs
 logrotate.conf (5)   - rotates, compresses, and mails system logs
 logsave (8)          - save the output of a command in a logfile
 logwtmp (3)          - append an entry to the wtmp file
+Longident (3o)       - Long identifiers, used in parsetree.
 longjmp (3)          - performing a nonlocal goto
 longjmp (3p)         - non-local goto
 longname (3x)        - curses environment query routines
@@ -9927,8 +10182,26 @@ lookup_dcookie (2)   - return a directory entry's path
 loop (4)             - loop devices
 loop-control (4)     - loop devices
 losetup (8)          - set up and control loop devices
+lou_allround (1)     - Test every capability of the liblouis library
+lou_checkhyphens (1) - Check the accuracy of hyphenation in liblouis Braille ...
+lou_checktable (1)   - Test a liblouis Braille translation table
+lou_checkyaml (1)    - A tool to check Braille tests defined in a YAML file
+lou_debug (1)        - A debugger for liblouis Braille translation tables
+lou_tableinfo (1)    - A tool to query meta data from a liblouis Braille tran...
+lou_trace (1)        - A tool to list all the rules that were used for a Brai...
+lou_translate (1)    - A Braille translator for large scale testing of liblou...
+lp (1)               - print files
 lp (1p)              - send files to a printer
 lp (4)               - line printer devices
+lpadmin (8)          - configure cups printers and classes
+lpc (8)              - line printer control program (deprecated)
+lpinfo (8)           - show available devices or drivers (deprecated)
+lpmove (8)           - move a job or all jobs to a new destination
+lpoptions (1)        - display or set printer options and defaults
+lpq (1)              - show printer queue status
+lpr (1)              - print files
+lprm (1)             - cancel print jobs
+lpstat (1)           - print cups status information
 lrand48 (3)          - generate uniformly distributed pseudo-random numbers
 lrand48 (3p)         - generate uniformly distributed pseudo-random non-negat...
 lrand48_r (3)        - generate uniformly distributed pseudo-random numbers r...
@@ -9968,6 +10241,7 @@ lua (1)              - Lua interpreter
 lua5.2 (1)           - Lua interpreter
 luac (1)             - Lua compiler
 luac5.2 (1)          - Lua compiler
+luit (1)             - Locale and ISO 2022 support for Unicode terminals
 lutimes (3)          - change file timestamps
 lvchange (8)         - Change the attributes of logical volume(s)
 lvconvert (8)        - Change logical volume layout
@@ -10000,6 +10274,20 @@ lvrename (8)         - Rename a logical volume
 lvresize (8)         - Resize a logical volume
 lvs (8)              - Display information about logical volumes
 lvscan (8)           - List all logical volumes in all volume groups
+LWP (3pm)            - The World-Wide Web library for Perl
+lwp-download (1p)    - Fetch large files from the web
+lwp-dump (1p)        - See what headers and content is returned for a URL
+lwp-mirror (1p)      - Simple mirror utility
+lwp-request (1p)     - Simple command line user agent
+LWP::Authen::Ntlm (3pm) - Library for enabling NTLM authentication (Microsoft...
+LWP::ConnCache (3pm) - Connection cache manager
+LWP::Debug (3pm)     - deprecated
+LWP::MediaTypes (3pm) - guess media type for a file or a URL
+LWP::MemberMixin (3pm) - Member access mixin class
+LWP::Protocol (3pm)  - Base class for LWP protocols
+LWP::RobotUA (3pm)   - a class for well-behaved Web robots
+LWP::Simple (3pm)    - simple procedural interface to LWP
+LWP::UserAgent (3pm) - Web user agent class
 lz4 (1)              - lz4, unlz4, lz4cat - Compress or decompress .lz4 files
 lz4c (1)             - lz4, unlz4, lz4cat - Compress or decompress .lz4 files
 lz4cat (1)           - lz4, unlz4, lz4cat - Compress or decompress .lz4 files
@@ -10150,6 +10438,7 @@ Mail::Server (3pm)   - Base class for email servers in MailBox
 Mail::Util (3pm)     - mail utility functions
 mailaddr (7)         - mail addressing description
 mailcap (4)          - metamail capabilities file
+mailto.conf (5)      - configuration file for cups email notifier
 MailTools (3pm)      - bundle of ancient email modules
 mailx (1p)           - process messages
 major (3)            - manage a device number
@@ -10175,15 +10464,21 @@ malloc_stats (3)     - print memory allocation statistics
 malloc_trim (3)      - release free memory from the heap
 malloc_usable_size (3) - obtain size of block of memory allocated from heap
 mallopt (3)          - set memory allocation parameters
-man (1)              - an interface to the on-line reference manuals
+man (1)              - an interface to the system reference manuals
 man (1p)             - display system documentation
 man (7)              - macros to format man pages
 man-pages (7)        - conventions for writing Linux man pages
+man-recode (1)       - convert manual pages to another encoding
 manconv (1)          - convert manual page from one encoding to another
 mandb (8)            - create or update the manual page index caches
 manpath (1)          - determine search path for manual pages
 manpath (5)          - format of the /etc/man_db.conf file
+Map (3o)             - Association tables over ordered types.
+Map.Make (3o)        - Functor building an implementation of the map structur...
+Map.OrderedType (3o) - Input signature of the functor Map.Make.
+Map.S (3o)           - Output signature of the functor Map.Make.
 mapscrn (8)          - load screen output mapping table
+Marshal (3o)         - Marshaling of data structures.
 tc-matchall (8)      - traffic control filter that matches every packet
 urxvt-matcher (1)    - match strings in terminal output and change their rend...
 math.h (0p)          - mathematical declarations
@@ -10229,6 +10524,7 @@ MD2 (3ssl)           - MD2, MD4, and MD5 hash functions
 MD2_Final (3ssl)     - MD2, MD4, and MD5 hash functions
 MD2_Init (3ssl)      - MD2, MD4, and MD5 hash functions
 MD2_Update (3ssl)    - MD2, MD4, and MD5 hash functions
+md2html (1)          - convert Markdown to HTML
 MD4 (3ssl)           - MD2, MD4, and MD5 hash functions
 MD4_Final (3ssl)     - MD2, MD4, and MD5 hash functions
 MD4_Init (3ssl)      - MD2, MD4, and MD5 hash functions
@@ -10313,7 +10609,6 @@ MenuPopup (3)        - map a pop-up
 mergesort (3bsd)     - sort functions
 mesg (1)             - display (or do not display) messages from other users
 mesg (1p)            - permit or deny messages
-meson (1)            - a high productivity build system
 meta (3x)            - curses input options
 metaflac (1)         - program to list, add, remove, or edit metadata in one ...
 mev (1)              - a program to report mouse events
@@ -10322,15 +10617,30 @@ mf-nowin (1)         - Metafont, a language for font and logo design
 mft (1)              - translate Metafont or MetaPost code to TeX code for pr...
 migrate_pages (2)    - move all pages in a process to another set of nodes
 mii-tool (8)         - view, manipulate media-independent interface status
+mime.convs (5)       - mime type conversion file for cups (deprecated)
+mime.types (5)       - mime type description file for cups
 MIME::Base64 (3perl) - Encoding and decoding of base64 strings
 MIME::QuotedPrint (3perl) - Encoding and decoding of quoted-printable strings
 MIME::Type (3pm)     - description of one MIME type
 MIME::Types (3pm)    - Definition of MIME types
 MinCmapsOfScreen (3) - screen information functions and macros
 mincore (2)          - determine whether pages are resident in memory
-mingle (1)           - fast edge bundling
 minor (3)            - manage a device number
 tc-mirred (8)        - mirror/redirect action
+Misc (3o)            - Miscellaneous useful types and functions
+Misc.Color (3o)      - no description
+Misc.EnvLazy (3o)    - no description
+Misc.Error_style (3o) - no description
+Misc.Int_literal_converter (3o) - no description
+Misc.LongString (3o) - no description
+Misc.Stdlib (3o)     - no description
+Misc.Stdlib.Array (3o) - no description
+Misc.Stdlib.List (3o) - no description
+Misc.Stdlib.Option (3o) - no description
+Misc.Stdlib.String (3o) - no description
+Misc.Stdlib.String.Map (3o) - no description
+Misc.Stdlib.String.Set (3o) - no description
+Misc.Stdlib.String.Tbl (3o) - no description
 misc_conv (3)        - text based conversation function
 mitem_current (3x)   - set and get current_menu_item
 mitem_name (3x)      - get menu item name and description fields
@@ -10400,12 +10710,12 @@ mktexpk (1)          - create a PK file for a font
 mktextfm (1)         - create a TFM file for a font
 mktime (3)           - transform date and time to broken-down time or ASCII
 mktime (3p)          - convert broken-down time into time since the Epoch
+mlocate.db (5)       - a mlocate database
 mlock (2)            - lock and unlock memory
 mlock (3p)           - lock or unlock a range of process address space (REALT...
 mlock2 (2)           - lock and unlock memory
 mlockall (2)         - lock and unlock memory
 mlockall (3p)        - lock/unlock the address space of a process (REALTIME)
-mm2gv (1)            - Matrix Market-DOT converters
 mmafm (1)            - creates AFM font metrics for multiple master fonts
 mmap (2)             - map or unmap files or devices into memory
 mmap (3p)            - map pages of memory
@@ -10414,6 +10724,7 @@ mmap64 (3)           - map or unmap files or devices into memory
 mmdf_neomutt (5)     - Multi-channel Memorandum Distribution Facility mailbox...
 mmpfb (1)            - creates single-master fonts from multiple master fonts
 mmroff (1)           - cross-reference preprocessor for GNU roff mm macro pac...
+mng (5)              - Multiple-image Network Graphics (MNG) format
 modesetting (4)      - video driver for framebuffer device
 modf (3)             - extract signed integral and fractional values from flo...
 modf (3p)            - decompose a floating-point number
@@ -10440,10 +10751,27 @@ monetary.h (0p)      - monetary types
 montage (1)          - create a composite image by combining several separate...
 more (1)             - file perusal filter for crt viewing
 more (1p)            - display files on a page-by-page basis
+MoreLabels (3o)      - Extra labeled libraries.
+MoreLabels.Hashtbl (3o) - no description
+MoreLabels.Hashtbl.HashedType (3o) - no description
+MoreLabels.Hashtbl.Make (3o) - no description
+MoreLabels.Hashtbl.MakeSeeded (3o) - no description
+MoreLabels.Hashtbl.S (3o) - no description
+MoreLabels.Hashtbl.SeededHashedType (3o) - no description
+MoreLabels.Hashtbl.SeededS (3o) - no description
+MoreLabels.Map (3o)  - no description
+MoreLabels.Map.Make (3o) - no description
+MoreLabels.Map.OrderedType (3o) - no description
+MoreLabels.Map.S (3o) - no description
+MoreLabels.Set (3o)  - no description
+MoreLabels.Set.Make (3o) - no description
+MoreLabels.Set.OrderedType (3o) - no description
+MoreLabels.Set.S (3o) - no description
 motd (5)             - message of the day
 mount (2)            - mount filesystem
 mount (8)            - mount a filesystem
-mount.cifs (8)       - mount using the Common Internet File System (CIFS)
+mount.cifs (8)       - (unknown subject)
+mount.smb3 (8)       - (unknown subject)
 mount_namespaces (7) - overview of Linux mount namespaces
 mountpoint (1)       - see if a directory or file is a mountpoint
 mouse-test (1)       - a tool for determining mouse type and device it's atta...
@@ -10458,7 +10786,6 @@ move_pages (2)       - move individual pages of a process to another node
 move_panel (3x)      - panel stack extension for curses
 mpc (1)              - mpc Documentation
 mpd.conf (5)         - Music Player Daemon configuration file
-mpeg2dec (1)         - decode MPEG and MPEG2 video streams
 mpg123 (1)           - play audio MPEG 1.0/2.0/2.5 stream (layers 1, 2 and 3)
 tc-mpls (8)          - mpls manipulation module
 mpool (3)            - shared memory buffer pool
@@ -10541,6 +10868,7 @@ munlockall (3p)      - unlock the address space of a process
 munmap (2)           - map or unmap files or devices into memory
 munmap (3p)          - unmap pages of memory
 muntrace (3)         - malloc tracing
+Mutex (3o)           - Locks for mutual exclusion.
 mv (1)               - move (rename) files
 mv (1p)              - move files
 mvadd_wch (3x)       - add a complex character and rendition to a curses wind...
@@ -10628,6 +10956,7 @@ mvwscanw (3x)        - convert formatted input from a curses window
 mvwvline (3x)        - create curses borders, horizontal and vertical lines
 mvwvline_set (3x)    - create curses borders or lines using complex character...
 mw (1)               - mutt-wizard - autoconfigure email accounts for neomutt...
+mysql_config (1)     - get compile options for compiling clients
 NAME_CONSTRAINTS_free (3ssl) - ASN1 object utilities
 NAME_CONSTRAINTS_new (3ssl) - ASN1 object utilities
 name_to_handle_at (2) - obtain handle for a pathname and open file via a handle
@@ -10655,6 +10984,7 @@ nanosleep (3p)       - high resolution sleep
 napms (3x)           - low-level curses routines
 napms_sp (3x)        - curses screen-pointer extension
 tc-nat (8)           - stateless native address translation action
+Nativeint (3o)       - Processor-native integers.
 ncmpcpp (1)          - An ncurses Music Player Daemon (MPD) client.
 ncurses (3x)         - CRT screen handling and optimization package
 ncursesw6-config (1) - helper script for ncurses libraries
@@ -10695,7 +11025,6 @@ nearbyint (3)        - round to nearest integer
 nearbyint (3p)       - floating-point rounding functions
 nearbyintf (3)       - round to nearest integer
 nearbyintl (3)       - round to nearest integer
-neato (1)            - filter for drawing undirected graphs
 neomutt (1)          - The NeoMutt Mail User Agent (MUA)
 neomuttrc (5)        - Configuration file for the NeoMutt Mail User Agent (MUA)
 neqn (1)             - format equations for ASCII output
@@ -10706,6 +11035,10 @@ Net::Config (3perl)  - Local configuration data for libnet
 Net::Domain (3perl)  - Attempt to evaluate the current host's internet name a...
 Net::FTP (3perl)     - FTP Client class
 Net::hostent (3perl) - by-name interface to Perl's built-in gethost*() functions
+Net::HTTP (3pm)      - Low-level HTTP connection (client)
+Net::HTTP::Methods (3pm) - Methods shared by Net::HTTP and Net::HTTPS
+Net::HTTP::NB (3pm)  - Non-blocking HTTP client
+Net::HTTPS (3pm)     - Low-level HTTP over SSL/TLS connection (client)
 Net::netent (3perl)  - by-name interface to Perl's built-in getnet*() functions
 Net::Netrc (3perl)   - OO interface to users netrc file
 Net::NNTP (3perl)    - NNTP Client class
@@ -10844,7 +11177,6 @@ nologin (5)          - prevent unprivileged users from logging into the system
 nologin (8)          - politely refuse a login
 nonl (3x)            - curses output options
 nonl_sp (3x)         - curses screen-pointer extension
-nop (1)              - pretty-print graph file
 noqiflush (3x)       - curses input options
 noqiflush_sp (3x)    - curses screen-pointer extension
 noraw (3x)           - curses input options
@@ -10852,6 +11184,7 @@ noraw_sp (3x)        - curses screen-pointer extension
 nordvpn (1)          - command-line interface of the NordVPN service
 NOTICEREF_free (3ssl) - ASN1 object utilities
 NOTICEREF_new (3ssl) - ASN1 object utilities
+notifier (7)         - cups notification interface
 notimeout (3x)       - curses input options
 notmuch (1)          - thread-based email index, search, and tagging
 notmuch-address (1)  - output addresses from matching messages
@@ -10899,6 +11232,11 @@ ntp_gettimex (3)     - get time parameters (NTP daemon interface)
 null (4)             - data sink
 numa (7)             - overview of Non-Uniform Memory Architecture
 numa_maps (5)        - overview of Non-Uniform Memory Architecture
+Numbers (3o)         - Modules about numbers, some of which satisfy Identifia...
+Numbers.Float (3o)   - no description
+Numbers.Int (3o)     - no description
+Numbers.Int16 (3o)   - no description
+Numbers.Int8 (3o)    - no description
 numcodes (3x)        - curses terminfo global variables
 numfmt (1)           - Convert numbers from/to human-readable strings
 numfnames (3x)       - curses terminfo global variables
@@ -10907,6 +11245,9 @@ strnvis (3bsd)       - visually encode characters
 O (3perl)            - Generic interface to Perl Compiler backends
 o2i_SCT (3ssl)       - decode and encode Signed Certificate Timestamp lists i...
 o2i_SCT_LIST (3ssl)  - decode and encode Signed Certificate Timestamp lists i...
+Obj (3o)             - Operations on internal representations of values.
+Obj.Ephemeron (3o)   - no description
+Obj.Extension_constructor (3o) - no description
 OBJ_cleanup (3ssl)   - ASN1 object utility functions
 OBJ_cmp (3ssl)       - ASN1 object utility functions
 OBJ_create (3ssl)    - ASN1 object utility functions
@@ -10923,8 +11264,25 @@ OBJ_sn2nid (3ssl)    - ASN1 object utility functions
 OBJ_txt2nid (3ssl)   - ASN1 object utility functions
 OBJ_txt2obj (3ssl)   - ASN1 object utility functions
 objcopy (1)          - copy and translate object files
-objdump (1)          - display information from object files.
+objdump (1)          - display information from object files
 Object::Realize::Later (3pm) - Delayed creation of objects
+ocaml (1)            - The OCaml interactive toplevel
+Ocaml_operators (3o) - Precedence level and associativity of operators
+ocamlbuild (1)       - The OCaml project compilation tool
+ocamlc (1)           - The OCaml bytecode compiler
+ocamlc.opt (1)       - The OCaml bytecode compiler
+ocamlcp (1)          - The OCaml profiling compilers
+ocamldebug (1)       - the OCaml source-level replay debugger.
+ocamldep (1)         - Dependency generator for OCaml
+ocamldoc (1)         - The OCaml documentation generator
+ocamllex (1)         - The OCaml lexer generator
+ocamlmktop (1)       - Building custom toplevel systems
+ocamlopt (1)         - The OCaml native-code compiler
+ocamlopt.opt (1)     - The OCaml native-code compiler
+ocamloptp (1)        - The OCaml profiling compilers
+ocamlprof (1)        - The OCaml profiler
+ocamlrun (1)         - The OCaml bytecode interpreter
+ocamlyacc (1)        - The OCaml parser generator
 ocsp (1ssl)          - Online Certificate Status Protocol utility
 OCSP_basic_add1_nonce (3ssl) - OCSP nonce functions
 OCSP_basic_sign (3ssl) - OCSP response functions
@@ -11003,6 +11361,8 @@ OCSP_SINGLERESP_free (3ssl) - ASN1 object utilities
 OCSP_SINGLERESP_new (3ssl) - ASN1 object utilities
 od (1)               - dump files in octal and other formats
 od (1p)              - dump files in various formats
+odbc_config (1)      - get compile options for compiling unixODBC client
+odbcinst (1)         - An unixODBC tool for manipulating configuration files
 ODBM_File (3perl)    - Tied access to odbm files
 odvicopy (1)         - produce modified copy of DVI file
 odvitype (1)         - translate a dvi file for humans
@@ -11016,6 +11376,7 @@ oldstat (2)          - get file status
 olduname (2)         - get name and information about current kernel
 omxregister-bellagio (1) - register OpenMAX/Bellagio components
 on_exit (3)          - register a function to be called at normal process ter...
+Oo (3o)              - Operations on objects
 Opcode (3perl)       - Disable named opcodes when compiling perl code
 open (2)             - open and possibly create a file
 open (3p)            - open file relative to directory file descriptor
@@ -11157,6 +11518,7 @@ optarg (3)           - Parse command-line options
 optarg (3p)          - options parsing variables
 opterr (3)           - Parse command-line options
 optind (3)           - Parse command-line options
+Option (3o)          - Option values.
 urxvt-option-popup (1) - option menu (enabled by default)
 optopt (3)           - Parse command-line options
 opus_ctlvalues (3)   - (unknown subject)
@@ -11177,7 +11539,6 @@ opus_repacketizer (3) - The repacketizer can be used to merge multiple Opus p...
 opus_types.h (3)     - Opus reference implementation types.
 ordchr (3am)         - convert characters to strings and vice versa
 os-release (5)       - Operating system identification
-osage (1)            - filter for drawing clustered graphs
 ospeed (3x)          - direct curses interface to the terminfo capability dat...
 ossl_store (7ssl)    - Store retrieval functions
 ossl_store-file (7ssl) - The store 'file' scheme loader
@@ -11278,8 +11639,10 @@ ownership (8)        - Compaq ownership tag retriever
 p11-kit (8)          - Tool for operating on configured PKCS#11 modules
 pacat (1)            - Play back or record raw or encoded audio streams on a ...
 pack200-openjdk13 (1) - transform a Java Archive (JAR) file into a compressed...
+pack200-openjdk11 (1) - Packages a JAR file into a compressed pack200 file fo...
 packet (7)           - packet interface on device level
 pacman (8)           - package manager utility
+pacman-conf (8)      - query pacman's configuration file
 pacman-key (8)       - manage pacman's list of trusted keys
 pacman.conf (5)      - pacman package manager configuration file
 pacmd (1)            - Reconfigure a PulseAudio sound server during runtime
@@ -11366,6 +11729,7 @@ pam_tally2 (8)       - The login counter (tallying) module
 pam_time (8)         - PAM module for time control access
 pam_timestamp (8)    - Authenticate using cached successful authentication at...
 pam_timestamp_check (8) - Check to see if the default timestamp is valid
+pam_tty_audit (8)    - Enable or disable TTY auditing for specified users
 pam_umask (8)        - PAM module to set the file mode creation mask
 pam_unix (8)         - Module for traditional password authentication
 pam_verror (3)       - display error messages to the user
@@ -11405,7 +11769,13 @@ Params::Util (3pm)   - Simple, compact and correct param-checking functions
 parec (1)            - Play back or record raw or encoded audio streams on a ...
 parecord (1)         - Play back or record raw or encoded audio streams on a ...
 parent (3perl)       - Establish an ISA relationship with base classes at com...
+Parse (3o)           - Entry points in the parser
 Parse::CPAN::Meta (3perl) - Parse META.yml and META.json CPAN metadata files
+Parser (3o)          - no description
+Parser.Incremental (3o) - no description
+Parser.MenhirInterpreter (3o) - no description
+Parsetree (3o)       - Abstract syntax tree produced by parsing
+Parsing (3o)         - The run-time library for parsers generated by ocamlyacc.
 parted (8)           - a partition manipulation program
 partprobe (8)        - inform the OS of partition table changes
 partx (8)            - tell the kernel about the presence and numbering of on...
@@ -11420,7 +11790,6 @@ paste (1p)           - merge corresponding or subsequent lines of files
 pasuspender (1)      - Temporarily suspend PulseAudio
 patch (1)            - apply a diff file to an original
 patch (1p)           - apply changes to files
-patchwork (1)        - filter for drawing clustered graphs as treemaps
 patgen (1)           - generate patterns for TeX hyphenation
 path_resolution (7)  - how a pathname is resolved to a file
 path_to_fshandle (3) - file handle operations
@@ -11554,8 +11923,8 @@ pcre16_refcount (3)  - Perl-compatible regular expressions
 pcre16_study (3)     - Perl-compatible regular expressions
 pcre16_utf16_to_host_byte_order (3) - Perl-compatible regular expressions
 pcre16_version (3)   - Perl-compatible regular expressions
+pcre2 (3)            - Perl-compatible regular expressions (revised API)
 pcre2-config (1)     - program to return PCRE2 configuration
-pcre2_callout_enumerate (3) - Perl-compatible regular expressions (revised API)
 pcre2_code_copy (3)  - Perl-compatible regular expressions (revised API)
 pcre2_code_copy_with_tables (3) - Perl-compatible regular expressions (revise...
 pcre2_code_free (3)  - Perl-compatible regular expressions (revised API)
@@ -11574,6 +11943,7 @@ pcre2_general_context_create (3) - Perl-compatible regular expressions (revis...
 pcre2_general_context_free (3) - Perl-compatible regular expressions (revised...
 pcre2_get_error_message (3) - Perl-compatible regular expressions (revised API)
 pcre2_get_mark (3)   - Perl-compatible regular expressions (revised API)
+pcre2_get_match_data_size (3) - Perl-compatible regular expressions (revised ...
 pcre2_get_ovector_count (3) - Perl-compatible regular expressions (revised API)
 pcre2_get_ovector_pointer (3) - Perl-compatible regular expressions (revised ...
 pcre2_get_startchar (3) - Perl-compatible regular expressions (revised API)
@@ -11584,6 +11954,7 @@ pcre2_jit_stack_assign (3) - Perl-compatible regular expressions (revised API)
 pcre2_jit_stack_create (3) - Perl-compatible regular expressions (revised API)
 pcre2_jit_stack_free (3) - Perl-compatible regular expressions (revised API)
 pcre2_maketables (3) - Perl-compatible regular expressions (revised API)
+pcre2_maketables_free (3) - Perl-compatible regular expressions (revised API)
 pcre2_match (3)      - Perl-compatible regular expressions (revised API)
 pcre2_match_context_copy (3) - Perl-compatible regular expressions (revised API)
 pcre2_match_context_create (3) - Perl-compatible regular expressions (revised...
@@ -11905,6 +12276,7 @@ perl5280delta (1perl) - what is new for perl v5.28.0
 perl5281delta (1perl) - what is new for perl v5.28.1
 perl5282delta (1perl) - what is new for perl v5.28.2
 perl5300delta (1perl) - what is new for perl v5.30.0
+perl5301delta (1perl) - what is new for perl v5.30.1
 perl561delta (1perl) - what's new for perl v5.6.1
 perl56delta (1perl)  - what's new for perl v5.6.0
 perl581delta (1perl) - what is new for perl v5.8.1
@@ -11941,7 +12313,7 @@ perldbmfilter (1perl) - Perl DBM Filters
 perldebguts (1perl)  - Guts of Perl debugging
 perldebtut (1perl)   - Perl debugging tutorial
 perldebug (1perl)    - Perl debugging
-perldelta (1perl)    - what is new for perl v5.30.0
+perldelta (1perl)    - what is new for perl v5.30.1
 perldeprecation (1perl) - list Perl deprecations
 perldiag (1perl)     - various Perl diagnostics
 perldoc (1perl)      - Look up Perl documentation in Pod format.
@@ -12073,16 +12445,25 @@ perlxstypemap (1perl) - Perl XS C/Perl type mapping
 perror (3)           - print a system error message
 perror (3p)          - write error messages to standard error
 personality (2)      - set the process execution domain
+Pervasives (3o)      - no description
+Pervasives.LargeFile (3o) - no description
 pf2afm (1)           - Make an AFM file from Postscript (PFB/PFA/PFM) font fi...
 pfb2pfa (1)          - convert a type1 pfb file (binary MSDOS) into a pfa (AS...
 pfbtopfa (1)         - Convert Postscript .pfb fonts to .pfa format using gho...
 pfbtops (1)          - translate Printer Font Binary files to PostScript ASCII
 tc-pfifo_fast (8)    - three-band first in, first out queue
+pg_config (1)        - retrieve information about the installed version of Po...
+pg_dump (1)          - extract a PostgreSQL database into a script file or ot...
+pg_dumpall (1)       - extract a PostgreSQL database cluster into a script file
+pg_isready (1)       - check the connection status of a PostgreSQL server
+pg_restore (1)       - restore a PostgreSQL database from an archive file cre...
 pgpewrap_neomutt (1) - NeoMutt command line munging tool
 pgrep (1)            - look up or signal processes based on name and other at...
 phys (2)             - unimplemented system calls
 pic (1)              - compile pictures for troff or TeX
 pic2graph (1)        - convert a PIC diagram into a cropped image
+picom (1)            - a compositor for X11
+picom-trans (1)      - an opacity setter tool
 piconv (1perl)       - - iconv(1), reinvented in perl
 pid_namespaces (7)   - overview of Linux PID namespaces
 pidfd_open (2)       - obtain a file descriptor that refers to a process
@@ -12236,7 +12617,6 @@ pkg.m4 (7)           - autoconf macros for using pkgconf
 PKGBUILD (5)         - Arch Linux package build description file
 pkgconf (1)          - a system for configuring build dependency information
 pkgdata (1)          - package data for use by ICU
-pkgdelta (8)         - package delta generation utility
 pkill (1)            - look up or signal processes based on name and other at...
 pktogf (1)           - convert packed font files to generic font files
 pkttyagent (1)       - Textual authentication helper
@@ -12410,6 +12790,7 @@ posix_trace_trygetnext_event (3p) - retrieve a trace event (TRACING)
 posix_typed_mem_get_info (3p) - query typed memory information (ADVANCED REAL...
 posix_typed_mem_open (3p) - open a typed memory object (ADVANCED REALTIME)
 posixoptions (7)     - optional parts of the POSIX standard
+POST (1p)            - Simple command line user agent
 post_form (3x)       - write or erase forms from associated subwindows
 post_menu (3x)       - write or erase menus from associated subwindows
 potrace (1)          - transform bitmaps into vector graphics.
@@ -12421,9 +12802,17 @@ pow10l (3)           - base-10 power functions
 poweroff (8)         - Halt, power-off or reboot the machine
 powf (3)             - power functions
 powl (3)             - power functions
+Pparse (3o)          - Driver for the parser and external preprocessors.
+ppdc (1)             - cups ppd compiler (deprecated)
+ppdcfile (5)         - cups ppd compiler source file format (deprecated)
+ppdhtml (1)          - cups html summary generator (deprecated)
+ppdi (1)             - import ppd files (deprecated)
+ppdmerge (1)         - merge ppd files (deprecated)
+ppdpo (1)            - ppd message catalog generator (deprecated)
 ppltotf (1)          - Create Japanese p font metric (JFM)
 ppm2tiff (1)         - create a TIFF file from PPM, PGM and PBM image files
 ppoll (2)            - wait for some event on a file descriptor
+Pprintast (3o)       - Pretty-printers for Parsetree
 pr (1)               - convert text files for printing
 pr (1p)              - print files
 pr29_4 (3)           - API function
@@ -12443,7 +12832,11 @@ prepmx (1)           - preprocessor for PMX, easy music typesetting program
 prezip-bin (1)       - prefix zip delta word list compressor/decompressor
 prime (1ssl)         - compute prime numbers
 printafm (1)         - Print the metrics from a Postscript font in AFM format...
+Printast (3o)        - Raw printer for Parsetree
 printenv (1)         - print all or part of environment
+printers.conf (5)    - printer configuration file for cups
+Printexc (3o)        - Facilities for printing exceptions and inspecting curr...
+Printexc.Slot (3o)   - no description
 printf (1)           - format and print data
 printf (1p)          - write formatted output
 printf (3)           - formatted output conversion
@@ -12478,6 +12871,7 @@ PROFESSION_INFOS (3ssl) - Accessors and settors for ADMISSION_SYNTAX
 PROFESSION_INFOS_free (3ssl) - ASN1 object utilities
 PROFESSION_INFOS_new (3ssl) - ASN1 object utilities
 profil (3)           - execution time profile
+Profile (3o)         - Compiler performance recording
 program_invocation_name (3) - obtain name used to invoke calling program
 program_invocation_short_name (3) - obtain name used to invoke calling program
 projects (5)         - persistent project root definition
@@ -12492,7 +12886,6 @@ PROXY_POLICY_free (3ssl) - ASN1 object utilities
 PROXY_POLICY_new (3ssl) - ASN1 object utilities
 prs (1p)             - print an SCCS file (DEVELOPMENT)
 prtstat (1)          - print statistics of a process
-prune (1)            - Prune directed graphs
 ps (1)               - report a snapshot of the current processes.
 ps (1p)              - report process status
 ps2ascii (1)         - Ghostscript translator from PostScript or PDF to ASCII
@@ -12522,9 +12915,14 @@ psl-make-dafsa (1)   - generate a compact and optimized DAFSA from a Public S...
 pslatex (1)          - utility to typeset LaTeX files using PostScript fonts
 pslog (1)            - report current logs path of a process
 pspell-config (1)    - prints information about a libpspell installation
+psql (1)             - PostgreSQL interactive terminal
 pstore.conf (5)      - PStore configuration file
 pstore.conf.d (5)    - PStore configuration file
 pstree (1)           - display a tree of processes
+psx_register (3)     - POSIX semantics for system calls
+psx_syscall (3)      - POSIX semantics for system calls
+psx_syscall3 (3)     - POSIX semantics for system calls
+psx_syscall6 (3)     - POSIX semantics for system calls
 ptar (1perl)         - a tar-like program written in perl
 ptardiff (1perl)     - program that diffs an extracted archive against an une...
 ptargrep (1perl)     - Apply pattern matching to the contents of files in a t...
@@ -12768,11 +13166,13 @@ pwrite64 (2)         - read from or write to a file descriptor at a given offset
 pwritev (2)          - read or write data into multiple buffers
 pwritev2 (2)         - read or write data into multiple buffers
 pwunconv (8)         - convert to and from shadow passwords and groups
+pygeis (1)           - test operation of the GEIS API Python bindings
 python (1)           - an interpreted, interactive, object-oriented programmi...
+python-distro (1)    - Linux Distribution - a Linux OS platform information API
 python2 (1)          - an interpreted, interactive, object-oriented programmi...
 python2.7 (1)        - an interpreted, interactive, object-oriented programmi...
 python3 (1)          - an interpreted, interactive, object-oriented programmi...
-python3.7 (1)        - an interpreted, interactive, object-oriented programmi...
+python3.8 (1)        - an interpreted, interactive, object-oriented programmi...
 qalter (1p)          - alter batch job
 qdel (1p)            - delete batch jobs
 qecvt (3)            - convert a floating-point number to a string
@@ -12786,6 +13186,7 @@ qiflush_sp (3x)      - curses screen-pointer extension
 QLength (3)          - Display macros and functions
 qmove (1p)           - move batch jobs
 qmsg (1p)            - send message to batch jobs
+qpdf (1)             - PDF transformation software
 qrerun (1p)          - rerun batch jobs
 qrls (1p)            - release batch jobs
 qselect (1p)         - select batch jobs
@@ -12800,7 +13201,6 @@ quest (1)            - Xapian command line search tool
 queue (3)            - implementations of singly-linked lists, singly-linked ...
 queue (3bsd)         - implementations of singly-linked lists, singly-linked ...
 quotactl (2)         - manipulate disk quotas
-qutebrowser (1)      - a keyboard-driven, vim-like browser based on PyQt5.
 qv4l2 (1)            - A test bench application for video4linux devices
 qvidcap (1)          - A v4l2 video capture viewer
 R (1)                - a language for data analysis and graphics
@@ -12861,8 +13261,10 @@ random (3)           - random number generator
 random (3p)          - generate pseudo-random number
 random (4)           - kernel random number source devices
 random (7)           - overview of interfaces for obtaining randomness
+Random.State (3o)    - no description
 random_r (3)         - reentrant random number generator
-ranlib (1)           - generate index to archive.
+ranger (1)           - visual file manager
+ranlib (1)           - generate an index to an archive
 rarp (8)             - manipulate the system RARP table
 rarpd (8)            - answer RARP REQUESTs
 raw (3x)             - curses input options
@@ -12896,6 +13298,7 @@ RB_RIGHT (3bsd)      - implementations of splay and red-black trees
 RB_ROOT (3bsd)       - implementations of splay and red-black trees
 RC4 (3ssl)           - RC4 encryption
 RC4_set_key (3ssl)   - RC4 encryption
+rc_keymap (5)        - toml file describing remote control keymap
 rcmd (3)             - routines for returning a stream to a remote command
 rcmd_af (3)          - routines for returning a stream to a remote command
 rcp (1)              - Remote copy
@@ -12921,7 +13324,7 @@ readdir (3)          - read a directory
 readdir (3am)        - directory input parser for gawk
 readdir (3p)         - read a directory
 readdir_r (3)        - read a directory
-readelf (1)          - Displays information about ELF files.
+readelf (1)          - display information about ELF files
 reader.conf (5)      - configuration file for pcscd readers' drivers
 readfile (3am)       - return the entire contents of a file as a string
 urxvt-readline (1)   - improve readline editing (enabled by default)
@@ -12957,6 +13360,7 @@ recvfrom (3p)        - receive a message from a socket
 recvmmsg (2)         - receive multiple messages on a socket
 recvmsg (2)          - receive a message from a socket
 recvmsg (3p)         - receive a message from a socket
+red (1)              - line-oriented text editor
 tc-red (8)           - Random Early Detection
 redrawwin (3x)       - refresh curses windows and lines
 refer (1)            - preprocess bibliographic references for groff
@@ -12971,6 +13375,7 @@ regexec (3)          - POSIX regex functions
 regfree (3)          - POSIX regex functions
 registerrpc (3)      - library routines for remote procedure calls
 rehash (1ssl)        - Create symbolic links to files named by the hash values
+reindexdb (1)        - reindex a PostgreSQL database
 reiserfsck (8)       - The checking tool for the ReiserFS filesystem.
 reiserfstune (8)     - The tunning tool for the ReiserFS filesystem.
 remainder (3)        - floating-point remainder function
@@ -13024,6 +13429,7 @@ reset_shell_mode (3x) - low-level curses routines
 reset_shell_mode_sp (3x) - curses screen-pointer extension
 resetty (3x)         - low-level curses routines
 resetty_sp (3x)      - curses screen-pointer extension
+resize (1)           - set environment and terminal settings to current xterm...
 resize2fs (8)        - ext2/ext3/ext4 file system resizer
 resize_reiserfs (8)  - resizer tool for the ReiserFS filesystem
 resize_term (3x)     - change the curses terminal size
@@ -13043,6 +13449,7 @@ resolver (5)         - resolver configuration file
 restart_syscall (2)  - restart a system call after interruption by a stop signal
 restartterm (3x)     - curses interfaces to terminfo database
 restartterm_sp (3x)  - curses screen-pointer extension
+Result (3o)          - Result values.
 return (1p)          - return from a function or dot script
 rev (1)              - reverse lines characterwise
 revoutput (3am)      - Reverse output strings sample extension
@@ -13054,7 +13461,10 @@ rewinddir (3p)       - reset the position of a directory stream to the beginn...
 rexec (3)            - return stream to a remote command
 rexec_af (3)         - return stream to a remote command
 rfkill (8)           - tool for enabling and disabling wireless devices
+rgview (1)           - Vi IMproved, a programmer's text editor
+rgvim (1)            - Vi IMproved, a programmer's text editor
 rhash (1)            - calculate/check CRC32, MD5, SHA1, GOST, TTH, BTIH or o...
+rifle (1)            - ranger's file opener
 rindex (3)           - locate character in string
 rint (3)             - round to nearest integer
 rint (3p)            - round-to-nearest integral value
@@ -13078,8 +13488,11 @@ rmdir (1p)           - remove directories
 rmdir (2)            - delete a directory
 rmdir (3p)           - remove a directory
 rmic-openjdk13 (1)   - generate stub and skeleton class files using the Java ...
+rmic-openjdk11 (1)   - Generates stub, skeleton, and tie classes for remote o...
 rmid-openjdk13 (1)   - start the activation system daemon that enables object...
+rmid-openjdk11 (1)   - Starts the activation system daemon that enables objec...
 rmiregistry-openjdk13 (1) - create and start a remote object registry on the ...
+rmiregistry-openjdk11 (1) - Starts a remote object registry on the specified ...
 rmmod (8)            - Simple program to remove a module from the Linux Kernel
 rmt (8)              - remote magnetic tape server
 rnano (1)            - a restricted nano
@@ -13245,6 +13658,8 @@ Rscript (1)          - front end for scripting with R
 rsh (1)              - Remote shell client
 rshd (8)             - Remote shell server
 rsvg-convert (1)     - turn SVG files into raster images.
+rsync (1)            - a fast, versatile, remote (and local) file-copying tool
+rsyncd.conf (5)      - configuration file for rsync in daemon mode
 rt_sigaction (2)     - examine and change a signal action
 rt_sigpending (2)    - examine pending signals
 rt_sigprocmask (2)   - examine and change blocked signals
@@ -13326,8 +13741,8 @@ scandir (3p)         - scan a directory
 scandirat (3)        - scan a directory for matching entries
 scanf (3)            - input format conversion
 scanf (3p)           - convert formatted input
+Scanf.Scanning (3o)  - no description
 scanw (3x)           - convert formatted input from a curses window
-sccmap (1)           - extract strongly connected components of directed graphs
 sccs (1p)            - front end for the SCCS subsystem (DEVELOPMENT)
 scdaemon (1)         - Smartcard daemon for the GnuPG system
 sched (7)            - overview of CPU scheduling
@@ -13731,6 +14146,7 @@ sd_event_source_get_description (3) - Set or retrieve descriptive names of ev...
 sd_event_source_get_destroy_callback (3) - Define the callback function for r...
 sd_event_source_get_enabled (3) - Enable or disable event sources
 sd_event_source_get_event (3) - Retrieve the event loop of an event source
+sd_event_source_get_floating (3) - Set or retrieve 'floating' state of event ...
 sd_event_source_get_inotify_mask (3) - Add an "inotify" file system inode eve...
 sd_event_source_get_io_events (3) - Add an I/O event source to an event loop
 sd_event_source_get_io_fd (3) - Add an I/O event source to an event loop
@@ -13747,6 +14163,7 @@ sd_event_source_ref (3) - Increase or decrease event source reference counters
 sd_event_source_set_description (3) - Set or retrieve descriptive names of ev...
 sd_event_source_set_destroy_callback (3) - Define the callback function for r...
 sd_event_source_set_enabled (3) - Enable or disable event sources
+sd_event_source_set_floating (3) - Set or retrieve 'floating' state of event ...
 sd_event_source_set_io_events (3) - Add an I/O event source to an event loop
 sd_event_source_set_io_fd (3) - Add an I/O event source to an event loop
 sd_event_source_set_io_fd_own (3) - Add an I/O event source to an event loop
@@ -14018,10 +14435,14 @@ sensors.conf (5)     - libsensors configuration file
 sensors3.conf (5)    - libsensors configuration file
 seq (1)              - print a sequence of numbers
 serialver-openjdk13 (1) - return the f[CB]serialVersionUIDf[R] for one or mor...
+serialver-openjdk11 (1) - Returns the serial version UID for specified classes.
 ServerVendor (3)     - Display macros and functions
 services (5)         - Internet network services list
 sess_id (1ssl)       - SSL/TLS session handling utility
 set (1p)             - set or unset options and positional parameters
+Set.Make (3o)        - Functor building an implementation of the set structur...
+Set.OrderedType (3o) - Input signature of the functor Set.Make.
+Set.S (3o)           - Output signature of the functor Set.Make.
 set_aumessage_mode (3) - Sets the message mode
 set_current_field (3x) - set and get form page number
 set_current_item (3x) - set and get current_menu_item
@@ -14202,7 +14623,6 @@ setxkbmap (1)        - set the keyboard using the X Keyboard Extension
 tc-sfb (8)           - Stochastic Fair Blue
 sfconvert (1)        - convert audio files
 sfdisk (8)           - display or manipulate a disk partition table
-sfdp (1)             - filter for drawing large undirected graphs
 sfinfo (1)           - display information about audio files
 tc-sfq (8)           - Stochastic Fairness Queueing
 sftp (1)             - secure file transfer program
@@ -14354,7 +14774,7 @@ sinhf (3)            - hyperbolic sine function
 sinhl (3)            - hyperbolic sine function
 sinl (3)             - sine function
 sinl (3p)            - sine function
-size (1)             - list section sizes and total size.
+size (1)             - list section sizes and total size of binary files
 sjisconv (1)         - convert a TeX document in SJIS encoding into `preproce...
 sk98lin (4)          - Marvell/SysKonnect Gigabit Ethernet driver v6.21
 sk_TYPE_deep_copy (3ssl) - stack container
@@ -14438,10 +14858,12 @@ slogin (1)           - OpenSSH SSH client (remote login program)
 slsh (1)             - Interpreter for S-Lang scripts
 SM2 (7ssl)           - Chinese SM2 signature and encryption algorithm support
 smartpqi (4)         - Microsemi Smart Family SCSI driver
+smb2-quota (1)       - Userspace helper to display quota information for the ...
 smbcacls (1)         - Set or get ACLs on an NT file or directory names
 smbclient (1)        - ftp-like client to access SMB/CIFS resources on servers
 smbcquotas (1)       - Set or get QUOTAs of NTFS 5 shares
 smbget (1)           - wget-like utility for download files over SMB
+smbinfo (1)          - Userspace helper to display SMB-specific file informat...
 smbspool (8)         - send a print file to an SMB printer
 smbtar (1)           - shell script for backing up SMB/CIFS shares directly t...
 smbtree (1)          - A text based smb network browser
@@ -14478,9 +14900,13 @@ sort (1)             - sort lines of text files
 sort (1p)            - sort, merge, or sequence check text files
 sort (3perl)         - perl pragma to control sort() behaviour
 SP (3x)              - curses terminfo global variables
+Spacetime (3o)       - Profiling of a program's space behaviour over time.
+Spacetime.Series (3o) - no description
+Spacetime.Snapshot (3o) - no description
 spawn.h (0p)         - spawn (ADVANCED REALTIME)
 speaker-test (1)     - command-line speaker test tone generator for ALSA
 speed (1ssl)         - test library performance
+speedtest-cli (1)    - Command line interface for testing internet bandwidth ...
 speexdec (1)         - The reference implementation speex decoder.
 speexenc (1)         - The reference implementation speex encoder.
 spkac (1ssl)         - SPKAC printing and generating utility
@@ -15102,8 +15528,8 @@ SSLv23_server_method (3ssl) - create a new SSL_CTX object as framework for TL...
 SSLv3_client_method (3ssl) - create a new SSL_CTX object as framework for TLS...
 SSLv3_method (3ssl)  - create a new SSL_CTX object as framework for TLS/SSL o...
 SSLv3_server_method (3ssl) - create a new SSL_CTX object as framework for TLS...
-st (1)               - simple terminal
 st (4)               - SCSI tape device
+Stack (3o)           - Last-in first-out stacks.
 STAILQ_FOREACH_FROM (3bsd) - implementations of singly-linked lists, singly-l...
 STAILQ_FOREACH_FROM_SAFE (3bsd) - implementations of singly-linked lists, sin...
 STAILQ_FOREACH_SAFE (3bsd) - implementations of singly-linked lists, singly-l...
@@ -15134,6 +15560,7 @@ std::__allocated_ptr (3) - (unknown subject)
 std::__atomic_base (3) - (unknown subject)
 std::__atomic_flag_base (3) - Base type for atomic_flag.
 std::__basic_future (3) - (unknown subject)
+std::__codecvt_abstract_base (3) - Common base for codecvt functions.
 std::__ctype_abstract_base (3) - (unknown subject)
 std::__debug (3)     - GNU debug code, replaces standard behavior with debug ...
 std::__debug::bitset (3) - (unknown subject)
@@ -15144,6 +15571,7 @@ std::__debug::map (3) - Class std::map with safety/checking/debug instrumenta...
 std::__debug::multimap (3) - Class std::multimap with safety/checking/debug i...
 std::__debug::multiset (3) - Class std::multiset with safety/checking/debug i...
 std::__debug::set (3) - Class std::set with safety/checking/debug instrumenta...
+std::__debug::unordered_map (3) - Class std::unordered_map with safety/checki...
 std::__debug::unordered_multimap (3) - Class std::unordered_multimap with saf...
 std::__debug::unordered_multiset (3) - Class std::unordered_multiset with saf...
 std::__debug::unordered_set (3) - Class std::unordered_set with safety/checki...
@@ -15151,7 +15579,6 @@ std::__debug::vector (3) - (unknown subject)
 std::__detail (3)    - Implementation details not part of the namespace std i...
 std::__detail::_Compiler (3) - (unknown subject)
 std::__detail::_Default_ranged_hash (3) - Default ranged hash function H. In ...
-std::__detail::_Equality (3) - (unknown subject)
 std::__detail::_Equality_base (3) - (unknown subject)
 std::__detail::_Hash_code_base (3) - (unknown subject)
 std::__detail::_Hash_node (3) - (unknown subject)
@@ -15218,6 +15645,7 @@ std::_Fwd_list_const_iterator (3) - (unknown subject)
 std::_Fwd_list_iterator (3) - (unknown subject)
 std::_Fwd_list_node (3) - (unknown subject)
 std::_Fwd_list_node_base (3) - A helper basic node class for forward_list. Th...
+std::_Hashtable (3)  - (unknown subject)
 std::_List_base (3)  - (unknown subject)
 std::_List_const_iterator (3) - (unknown subject)
 std::_List_iterator (3) - (unknown subject)
@@ -15274,6 +15702,7 @@ std::basic_stringstream (3) - Controlling input and output for std::string.
 std::bernoulli_distribution (3) - A Bernoulli random number distribution.
 std::bernoulli_distribution_param_type (3) - (unknown subject)
 std::bidirectional_iterator_tag (3) - Bidirectional iterators support a super...
+std::binary_function (3) - (unknown subject)
 std::binary_negate (3) - (unknown subject)
 std::binder1st (3)   - (unknown subject)
 std::binder2nd (3)   - (unknown subject)
@@ -15293,7 +15722,6 @@ std::chrono::duration (3) - (unknown subject)
 std::chrono::duration_values (3) - (unknown subject)
 std::chrono::time_point (3) - (unknown subject)
 std::chrono::treat_as_floating_point (3) - (unknown subject)
-std::codecvt (3)     - Primary class template codecvt.
 std::codecvt_base (3) - Empty base class for codecvt facet [22.2.1.5].
 std::codecvt_byname (3) - class codecvt_byname [22.2.1.6].
 std::collate (3)     - (unknown subject)
@@ -15330,6 +15758,7 @@ std::experimental::basic_string_view (3) - (unknown subject)
 std::experimental::filesystem::path (3) - A filesystem path.
 std::experimental::filesystem::path_i... (3) - An iterator for the components...
 std::experimental::optional (3) - (unknown subject)
+std::experimental::ostream_joiner (3) - Output iterator that inserts a delimi...
 std::experimental::propagate_const (3) - (unknown subject)
 std::exponential_distribution (3) - (unknown subject)
 std::exponential_distribution_param_type (3) - (unknown subject)
@@ -15357,6 +15786,7 @@ std::gslice_array (3) - (unknown subject)
 std::has_virtual_destructor (3) - (unknown subject)
 std::hash (3)        - (unknown subject)
 std::ifstream (3)    - (unknown subject)
+std::independent_bits_engine (3) - (unknown subject)
 std::indirect_array (3) - (unknown subject)
 std::initializer_list (3) - (unknown subject)
 std::input_iterator_tag (3) - Marking input iterators.
@@ -15437,6 +15867,7 @@ std::istringstream (3) - Controlling input for std::string.
 std::length_error (3) - (unknown subject)
 std::less (3)        - (unknown subject)
 std::less_equal (3)  - (unknown subject)
+std::linear_congruential_engine (3) - A model of a linear congruential random...
 std::list (3)        - (unknown subject)
 std::locale (3)      - Container class for localization functionality.
 std::locale_facet (3) - Localization functionality base class.
@@ -15450,7 +15881,6 @@ std::lognormal_distribution (3) - (unknown subject)
 std::lognormal_distribution_param_type (3) - (unknown subject)
 std::make_signed (3) - (unknown subject)
 std::make_unsigned (3) - (unknown subject)
-std::map (3)         - A standard container made up of (key, value) pairs, wh...
 std::mask_array (3)  - (unknown subject)
 std::match_results (3) - (unknown subject)
 std::messages (3)    - (unknown subject)
@@ -15483,9 +15913,7 @@ std::numpunct_byname (3) - (unknown subject)
 std::ofstream (3)    - (unknown subject)
 std::once_flag (3)   - once_flag
 std::ostream (3)     - (unknown subject)
-std::ostream_iterator (3) - Provides output iterator semantics for streams.
 std::ostreambuf_iterator (3) - (unknown subject)
-std::ostringstream (3) - Controlling output for std::string.
 std::out_of_range (3) - (unknown subject)
 std::output_iterator_tag (3) - Marking output iterators.
 std::overflow_error (3) - (unknown subject)
@@ -15497,12 +15925,10 @@ std::piecewise_linear_distribution (3) - (unknown subject)
 std::piecewise_linear_distribution_pa... (3) - (unknown subject)
 std::placeholders (3) - ISO C++11 entities sub-namespace for functional.
 std::plus (3)        - (unknown subject)
-std::pointer_to_binary_function (3) - One of the adaptors for function pointers.
 std::pointer_to_unary_function (3) - (unknown subject)
 std::pointer_traits (3) - (unknown subject)
 std::poisson_distribution (3) - (unknown subject)
 std::poisson_distribution_param_type (3) - (unknown subject)
-std::priority_queue (3) - A standard container automatically sorting its cont...
 std::promise (3)     - (unknown subject)
 std::queue (3)       - (unknown subject)
 std::random_access_iterator_tag (3) - Random-access iterators support a super...
@@ -15587,7 +16013,6 @@ std::uniform_real_distribution (3) - (unknown subject)
 std::uniform_real_distribution_param_... (3) - (unknown subject)
 std::unique_lock (3) - (unknown subject)
 std::unique_ptr (3)  - (unknown subject)
-std::unordered_map (3) - A standard container composed of unique keys (contai...
 std::unordered_multimap (3) - A standard container composed of equivalent key...
 std::unordered_multiset (3) - A standard container composed of equivalent key...
 std::unordered_set (3) - A standard container composed of unique keys (contai...
@@ -15623,10 +16048,70 @@ stdint.h (0p)        - integer types
 stdio (3)            - standard input/output library functions
 stdio.h (0p)         - standard buffered input/output
 stdio_ext (3)        - interfaces to stdio FILE structure
+StdLabels (3o)       - Standard labeled libraries.
+StdLabels.Array (3o) - no description
+StdLabels.Bytes (3o) - no description
+StdLabels.List (3o)  - no description
+StdLabels.String (3o) - no description
+Stdlib (3o)          - The OCaml Standard library.
+Stdlib.Arg (3o)      - no description
+Stdlib.Array (3o)    - no description
+Stdlib.ArrayLabels (3o) - no description
+Stdlib.Bigarray (3o) - no description
+Stdlib.Bool (3o)     - no description
+Stdlib.Buffer (3o)   - no description
+Stdlib.Bytes (3o)    - no description
+Stdlib.BytesLabels (3o) - no description
+Stdlib.Callback (3o) - no description
+Stdlib.Char (3o)     - no description
+Stdlib.Complex (3o)  - no description
+Stdlib.Digest (3o)   - no description
+Stdlib.Ephemeron (3o) - no description
+Stdlib.Filename (3o) - no description
+Stdlib.Float (3o)    - no description
+Stdlib.Format (3o)   - no description
+Stdlib.Fun (3o)      - no description
+Stdlib.Gc (3o)       - no description
+Stdlib.Genlex (3o)   - no description
 stdlib.h (0p)        - standard library definitions
+Stdlib.Hashtbl (3o)  - no description
+Stdlib.Int (3o)      - no description
+Stdlib.Int32 (3o)    - no description
+Stdlib.Int64 (3o)    - no description
+Stdlib.LargeFile (3o) - Operations on large files.
+Stdlib.Lazy (3o)     - no description
+Stdlib.Lexing (3o)   - no description
+Stdlib.List (3o)     - no description
+Stdlib.ListLabels (3o) - no description
+Stdlib.Map (3o)      - no description
+Stdlib.Marshal (3o)  - no description
+Stdlib.MoreLabels (3o) - no description
+Stdlib.Nativeint (3o) - no description
+Stdlib.Obj (3o)      - no description
+Stdlib.Oo (3o)       - no description
+Stdlib.Option (3o)   - no description
+Stdlib.Parsing (3o)  - no description
+Stdlib.Pervasives (3o) - no description
+Stdlib.Printexc (3o) - no description
+Stdlib.Printf (3o)   - no description
+Stdlib.Queue (3o)    - no description
+Stdlib.Random (3o)   - no description
+Stdlib.Result (3o)   - no description
+Stdlib.Scanf (3o)    - no description
+Stdlib.Seq (3o)      - no description
+Stdlib.Set (3o)      - no description
+Stdlib.Spacetime (3o) - no description
+Stdlib.Stack (3o)    - no description
+Stdlib.StdLabels (3o) - no description
+Stdlib.Stream (3o)   - no description
+Stdlib.String (3o)   - no description
+Stdlib.StringLabels (3o) - no description
+Stdlib.Sys (3o)      - no description
+Stdlib.Uchar (3o)    - no description
+Stdlib.Unit (3o)     - no description
+Stdlib.Weak (3o)     - no description
 stdout (3)           - standard I/O streams
 stdscr (3x)          - curses global variables
-stest (1)            - filter a list of files by properties
 stime (2)            - set time
 stoken (1)           - software token for cryptographic authentication
 stoken-gui (1)       - GTK+ software token
@@ -15636,6 +16121,7 @@ stpcpy (3)           - copy a string returning a pointer to its end
 stpcpy (3p)          - copy a string and return a pointer to the end of the r...
 stpncpy (3)          - copy a fixed-size string, returning a pointer to its end
 stpncpy (3p)         - copy fixed length string, returning a pointer to the a...
+Str (3o)             - Regular expressions and high-level string processing
 strcasecmp (3)       - compare two strings ignoring case
 strcasecmp (3p)      - case-insensitive string comparisons
 strcasestr (3)       - locate a substring
@@ -15675,6 +16161,7 @@ strict (3perl)       - Perl pragma to restrict unsafe constructs
 string (3)           - string operations
 string.h (0p)        - string operations
 String::ShellQuote (3pm) - quote strings for passing through the shell
+StringLabels (3o)    - String operations.
 stringlist (3bsd)    - stringlist manipulation functions
 stringprep (3)       - API function
 stringprep_4i (3)    - API function
@@ -15692,10 +16179,10 @@ stringprep_utf8_nfkc_normalize (3) - API function
 stringprep_utf8_to_locale (3) - API function
 stringprep_utf8_to_ucs4 (3) - API function
 stringprep_utf8_to_unichar (3) - API function
-strings (1)          - print the strings of printable characters in files.
+strings (1)          - print the sequences of printable characters in files
 strings (1p)         - find printable strings in files
 strings.h (0p)       - string operations
-strip (1)            - Discard symbols from object files.
+strip (1)            - discard symbols and other data from object files
 strip (1p)           - remove unnecessary information from strippable files (...
 strlcat (3bsd)       - size-bounded string copying and concatenation
 strlcpy (3bsd)       - size-bounded string copying and concatenation
@@ -15718,6 +16205,10 @@ strnlen (3)          - determine the length of a fixed-size string
 strnlen (3p)         - get length of fixed size string
 strnstr (3bsd)       - locate a substring in a string
 strnunvis (3bsd)     - decode a visual representation of characters
+Strongly_connected_components (3o) - Kosaraju's algorithm for strongly connec...
+Strongly_connected_components.Make (3o) - no description
+Strongly_connected_components.S (3o) - no description
+Strongly_connected_components.S.Id (3o) - no description
 stropts.h (0p)       - STREAMS interface (STREAMS)
 strpbrk (3)          - search a string for any of a set of bytes
 strpbrk (3p)         - scan a string for a byte
@@ -15778,6 +16269,7 @@ subgid (5)           - the subordinate gid file
 subpad (3x)          - create and display curses pads
 subpage_prot (2)     - define a subpage protection for an address range
 subs (3perl)         - Perl pragma to predeclare subroutine names
+subscriptions.conf (5) - subscription configuration file for cups
 subuid (5)           - the subordinate uid file
 subwin (3x)          - create curses windows
 sudo (8)             - execute a command as another user
@@ -15847,6 +16339,8 @@ syncfs (2)           - commit filesystem caches to disk
 syncok (3x)          - create curses windows
 synctex (1)          - command line client tool to support the Synchronize Te...
 synctex (5)          - Synchronize TeXnology help file
+Syntaxerr (3o)       - Auxiliary type for reporting syntax errors
+Sys (3o)             - System interface.
 sys_ipc.h (0p)       - XSI interprocess communication access structure
 sys_mman.h (0p)      - memory management declarations
 sys_msg.h (0p)       - XSI message queue structures
@@ -15967,7 +16461,7 @@ systemd-machined (8) - Virtual machine and container registration manager
 systemd-machined.service (8) - Virtual machine and container registration man...
 systemd-makefs (8)   - Creating and growing file systems on demand
 systemd-makefs@.service (8) - Creating and growing file systems on demand
-systemd-makeswap@.service (8) - Creating and growing file systems on demand
+systemd-mkswap@.service (8) - Creating and growing file systems on demand
 systemd-modules-load (8) - Load kernel modules at boot
 systemd-modules-load.service (8) - Load kernel modules at boot
 systemd-mount (1)    - Establish and destroy transient mount or auto-mount po...
@@ -16088,7 +16582,7 @@ t1lint (1)           - check a PostScript Type 1 font for correctness
 t1rawafm (1)         - produce raw AFM metrics from a PostScript Type 1 font
 t1reencode (1)       - re-encode a PostScript Type 1 font
 t1testpage (1)       - create a PostScript proof for a Type 1 font
-urxvt-tabbed (1)     - tabbed interface to urxvt
+tabbed (1)           - generic tabbed interface
 tabs (1)             - set tabs on a terminal
 tabs (1p)            - set terminal tabs
 TABSIZE (3x)         - curses global variables
@@ -16163,36 +16657,15 @@ tc-taprio (8)        - Time Aware Priority Shaper
 tar (1)              - an archiving utility
 tar (5)              - format of tape archive files
 tar.h (0p)           - extended tar definitions
-tar_append_eof (3)   - append data to tar archives
-tar_append_file (3)  - append data to tar archives
-tar_append_regfile (3) - append data to tar archives
-tar_append_tree (3)  - high-level tar archive manipulation functions
-tar_block_read (3)   - macros to call read and write functions for the correc...
-tar_block_write (3)  - macros to call read and write functions for the correc...
-tar_close (3)        - access a tar archive via a handle
-tar_extract_all (3)  - high-level tar archive manipulation functions
-tar_extract_blockdev (3) - extract files from a tar archive
-tar_extract_chardev (3) - extract files from a tar archive
-tar_extract_dir (3)  - extract files from a tar archive
-tar_extract_fifo (3) - extract files from a tar archive
-tar_extract_file (3) - extract files from a tar archive
-tar_extract_glob (3) - high-level tar archive manipulation functions
-tar_extract_hardlink (3) - extract files from a tar archive
-tar_extract_regfile (3) - extract files from a tar archive
-tar_extract_symlink (3) - extract files from a tar archive
-tar_fd (3)           - access a tar archive via a handle
-tar_fdopen (3)       - access a tar archive via a handle
-tar_open (3)         - access a tar archive via a handle
-tar_set_file_perms (3) - extract files from a tar archive
-tar_skip_regfile (3) - extract files from a tar archive
+Targetint (3o)       - Target processor-native integers.
 taskset (1)          - set or retrieve a process's CPU affinity
 tc-tbf (8)           - Token Bucket Filter
 tbl (1)              - format tables for troff
 tc (8)               - show / manipulate traffic control settings
+tc-bfifo (8)         - Packet limited First In, First Out queue
 tc-cbq (8)           - Class Based Queueing
 tc-fq_codel (8)      - Fair Queuing (FQ) with Controlled Delay (CoDel)
 tc-hfsc (7)          - Hierarchical Fair Service Curve
-tc-pfifo (8)         - Packet limited First In, First Out queue
 tc-route (8)         - route traffic control filter
 tc-stab (8)          - Generic size table manipulations
 tc-tcindex (8)       - traffic control index filter
@@ -16212,7 +16685,6 @@ tcgetpgrp (3)        - get and set terminal foreground process group
 tcgetpgrp (3p)       - get the foreground process group ID
 tcgetsid (3)         - get session ID
 tcgetsid (3p)        - get the process group ID for the session leader for th...
-tcldot (3tcl)        - graph manipulation in tcl
 tcp (7)              - TCP protocol
 tcsendbreak (3)      - get and set terminal attributes, line control, get and...
 tcsendbreak (3p)     - send a break for a specific duration
@@ -16373,38 +16845,6 @@ tgetstr_sp (3x)      - curses screen-pointer extension
 tgkill (2)           - send a signal to a thread
 tgmath.h (0p)        - type-generic macros
 tgoto (3x)           - direct curses interface to the terminfo capability dat...
-th_finish (3)        - set fields of a tar file header
-th_get_crc (3)       - extract individual fields of a tar header
-th_get_devmajor (3)  - extract individual fields of a tar header
-th_get_devminor (3)  - extract individual fields of a tar header
-th_get_gid (3)       - extract individual fields of a tar header
-th_get_linkname (3)  - extract individual fields of a tar header
-th_get_mode (3)      - extract individual fields of a tar header
-th_get_mtime (3)     - extract individual fields of a tar header
-th_get_pathname (3)  - extract individual fields of a tar header
-th_get_size (3)      - extract individual fields of a tar header
-th_get_uid (3)       - extract individual fields of a tar header
-TH_ISBLK (3)         - extract individual fields of a tar header
-TH_ISCHR (3)         - extract individual fields of a tar header
-TH_ISDIR (3)         - extract individual fields of a tar header
-TH_ISFIFO (3)        - extract individual fields of a tar header
-TH_ISLNK (3)         - extract individual fields of a tar header
-TH_ISLONGLINK (3)    - extract individual fields of a tar header
-TH_ISLONGNAME (3)    - extract individual fields of a tar header
-TH_ISREG (3)         - extract individual fields of a tar header
-TH_ISSYM (3)         - extract individual fields of a tar header
-th_print (3)         - print out information about a tar file header
-th_print_long_ls (3) - print out information about a tar file header
-th_read (3)          - read and write a file header block from a tar archive
-th_set_device (3)    - set fields of a tar file header
-th_set_from_stat (3) - set fields of a tar file header
-th_set_group (3)     - set fields of a tar file header
-th_set_link (3)      - set fields of a tar file header
-th_set_mode (3)      - set fields of a tar file header
-th_set_path (3)      - set fields of a tar file header
-th_set_type (3)      - set fields of a tar file header
-th_set_user (3)      - set fields of a tar file header
-th_write (3)         - read and write a file header block from a tar archive
 thin_check (8)       - validates thin provisioning metadata on a device or file
 thin_delta (8)       - Print the differences in the mappings between two thin...
 thin_dump (8)        - dump thin provisioning metadata from device or file to...
@@ -16418,6 +16858,7 @@ Thread::Queue (3perl) - Thread-safe queues
 Thread::Semaphore (3perl) - Thread-safe semaphores
 threads (3perl)      - Perl interpreter-based threads
 threads::shared (3perl) - Perl extension for sharing data structures between ...
+ThreadUnix (3o)      - Thread-compatible system calls.
 tic (1m)             - the terminfo entry-description compiler
 tie (1)              - merge or apply WEB change files
 Tie::Array (3perl)   - base class for tied arrays
@@ -16607,7 +17048,6 @@ tok_line (3)         - line editor, history and tokenization functions
 tok_reset (3)        - line editor, history and tokenization functions
 tok_str (3)          - line editor, history and tokenization functions
 tok_wend (3)         - line editor, history and tokenization functions
-tok_winit (3)        - line editor, history and tokenization functions
 tok_wline (3)        - line editor, history and tokenization functions
 tok_wreset (3)       - line editor, history and tokenization functions
 tok_wstr (3)         - line editor, history and tokenization functions
@@ -16649,7 +17089,6 @@ trace (3x)           - curses debugging routines
 trace.h (0p)         - tracing
 tracepath (8)        - traces path to a network host discovering MTU along th...
 trap (1p)            - trap signals
-tred (1)             - transitive reduction filter for directed graphs
 tree (1)             - list contents of directories in a tree-like format.
 tree (3bsd)          - implementations of splay and red-black trees
 trietool (1)         - trie manipulation tool
@@ -16667,6 +17106,7 @@ truncf (3)           - round to integer, toward zero
 truncf (3p)          - round to truncated integer value
 truncl (3)           - round to integer, toward zero
 trust (1)            - Tool for operating on the trust policy store
+Try::Tiny (3pm)      - Minimal try/catch with proper preservation of $@
 ts (1ssl)            - Time Stamping Authority tool (client/server)
 ts.conf (5)          - Configuration file for tslib, controlling touch screen...
 TS_ACCURACY_dup (3ssl) - ASN1 object utilities
@@ -16746,7 +17186,6 @@ twalk (3)            - manage a binary search tree
 twalk (3p)           - traverse a binary search tree
 twalk_r (3)          - manage a binary search tree
 twolame (1)          - an optimised MPEG Audio Layer 2 (MP2) encoder
-twopi (1)            - filter for radial layouts of graphs
 type (1p)            - write a description of command type
 TYPE_ALNUM (3x)      - form system global variables
 TYPE_ALPHA (3x)      - form system global variables
@@ -16757,13 +17196,13 @@ TYPE_NUMERIC (3x)    - form system global variables
 TYPE_REGEXP (3x)     - form system global variables
 typeahead (3x)       - curses input options
 typeahead_sp (3x)    - curses screen-pointer extension
-typespeed (6)        - Test your typing speed and get your fingers' CPS.
 tzfile (5)           - timezone information
 tzname (3)           - initialize time conversion information
 tzset (3p)           - set timezone conversion information
 tzselect (8)         - select a timezone
 tzset (3)            - initialize time conversion information
 ualarm (3)           - schedule signal after given number of microseconds
+Uchar (3o)           - Unicode characters.
 uchardet (1)         - universalchardet (Universal Charset Detector)
 uconv (1)            - convert data from one encoding to another
 ucs2any (1)          - generate BDF fonts containing subsets of ISO 10646-1 c...
@@ -16937,7 +17376,6 @@ unctrl_sp (3x)       - curses screen-pointer extension
 undocumented (3)     - undocumented library functions
 unexpand (1)         - convert spaces to tabs
 unexpand (1p)        - convert spaces to tabs
-unflatten (1)        - adjust directed graphs to improve layout aspect ratio
 unfocus_current_field (3x) - set and get form page number
 unget (1p)           - undo a previous get of an SCCS file (DEVELOPMENT)
 unget_wch (3x)       - get (or push back) a wide character from curses termin...
@@ -16969,11 +17407,17 @@ unimplemented (2)    - unimplemented system calls
 uniq (1)             - report or omit repeated lines
 uniq (1p)            - report or filter out repeated lines in a file
 unistd.h (0p)        - standard symbolic constants and types
+Unit (3o)            - Unit values.
+units (1)            - unit conversion and calculation program
 units (7)            - decimal and binary prefixes
 UNIVERSAL (3perl)    - base class for ALL classes (blessed references)
 unix (7)             - sockets for local interprocess communication
+Unix.LargeFile (3o)  - File operations on large files.
 unix_chkpwd (8)      - Helper binary that verifies the password of the curren...
 unix_update (8)      - Helper binary that updates the password of a given user
+UnixLabels (3o)      - Interface to the Unix system.
+UnixLabels.LargeFile (3o) - File operations on large files.
+unixODBC (7)         - An ODBC implementation for Unix
 unlink (1)           - call the unlink function to remove the specified file
 unlink (1p)          - call theunlink() function
 unlink (2)           - delete a name and possibly the file it refers to
@@ -16985,6 +17429,7 @@ unlockpt (3p)        - unlock a pseudo-terminal master/slave pair
 unlz4 (1)            - lz4, unlz4, lz4cat - Compress or decompress .lz4 files
 unlzma (1)           - Compress or decompress .xz and .lzma files
 unpack200-openjdk13 (1) - transform a packed file into a JAR file for web dep...
+unpack200-openjdk11 (1) - Transforms a packed file produced by pack200(1) int...
 unpost_form (3x)     - write or erase forms from associated subwindows
 unpost_menu (3x)     - write or erase menus from associated subwindows
 unset (1p)           - unset values and attributes of variables and functions
@@ -17030,6 +17475,7 @@ update-desktop-database (1) - Build cache database of MIME types handled by d...
 update-mime-database (1) - a program to build the Shared MIME-Info database c...
 update_panels (3x)   - panel stack extension for curses
 update_panels_sp (3x) - curses screen-pointer extension
+updatedb (8)         - update a database for mlocate
 updmap (1)           - manage TeX font maps, per-user
 updmap-sys (1)       - manage TeX font maps, system-wide
 updmap.cfg (5)       - configuration of font mapping/inclusion for dvips and ...
@@ -17056,6 +17502,7 @@ urn (7)              - uniform resource identifier (URI), including a URL or URN
 urxvt (7)            - (unknown subject)
 urxvt-extensions (1) - briefly list urxvt perl extensions
 urxvt-selection-popup (1) - (unknown subject)
+urxvt-tabbed (1)     - tabbed interface to urxvt
 urxvt-xim-onthespot (1) - implement XIM "on-the-spot" behaviour
 urxvtc (1)           - control the urxvtd daemon
 urxvtd (1)           - urxvt terminal daemon
@@ -17142,6 +17589,7 @@ uuidgen (1)          - create a new UUID value
 uuidparse (1)        - a utility to parse unique identifiers
 uustat (1p)          - uucp status enquiry and job control
 uux (1p)             - remote command execution
+uxterm (1)           - X terminal emulator for Unicode (UTF-8) environments
 v4l2-compliance (1)  - An application to test video4linux drivers
 v4l2-ctl (1)         - An application to control video4linux drivers
 va_arg (3)           - variable argument lists
@@ -17149,16 +17597,9 @@ va_arg (3p)          - handle variable argument list
 va_copy (3)          - variable argument lists
 va_end (3)           - variable argument lists
 va_start (3)         - variable argument lists
+vacuumdb (1)         - garbage-collect and analyze a PostgreSQL database
 val (1p)             - validate SCCS files (DEVELOPMENT)
-vala-gen-introspect (1) - generate a GI file for GObject and glib based packages
-vala-gen-introspect-0.46 (1) - generate a GI file for GObject and glib based ...
-valac (1)            - compiler that translates Vala source code into C sourc...
-valac-0.46 (1)       - compiler that translates Vala source code into C sourc...
-valadoc (1)          - Vala Documentation Tool
-valadoc-0.46 (1)     - Vala Documentation Tool
 valloc (3)           - allocate aligned memory
-vapigen (1)          - generate a Vala API
-vapigen-0.46 (1)     - generate a Vala API
 vars (3perl)         - Perl pragma to predeclare global variable names
 vasprintf (3)        - print to allocated string
 vconsole.conf (5)    - Configuration file for the virtual console
@@ -17222,13 +17663,11 @@ view (1)             - screen oriented (visual) display editor based on ex
 vigr (8)             - edit the password or group file
 vim (1)              - Vi IMproved, a programmer's text editor
 vimdiff (1)          - edit two, three or four versions of a file with Vim an...
-vimdot (1)           - Combined text editor and dot viewer
 vimtutor (1)         - the Vim tutor
 vipw (8)             - edit the password or group file
 vis (3bsd)           - visually encode characters
 VisualOfCCC (3)      - Color Conversion Context macros
 visudo (8)           - edit the sudoers file
-vlc-wrapper (1)      - a wrapper to drop privileges with VLC
 vline (3x)           - create curses borders, horizontal and vertical lines
 vline_set (3x)       - create curses borders or lines using complex character...
 vlna (1)             - adds tilde after each non-syllabic preposition
@@ -17404,6 +17843,9 @@ wcwidth (3p)         - number of column positions of a wide-character code
 wdctl (8)            - show hardware watchdog status
 wdelch (3x)          - delete character under the cursor in a curses window
 wdeleteln (3x)       - delete and insert lines in a curses window
+Weak (3o)            - Arrays of weak pointers and hash sets of weak pointers.
+Weak.Make (3o)       - Functor building an implementation of the weak hash se...
+Weak.S (3o)          - The output signature of the functor Weak.Make.
 weave (1)            - translate WEB to TeX
 webpinfo (1)         - print out the chunk level structure of WebP files alon...
 webpmux (1)          - create animated WebP files from non-animated WebP imag...
@@ -17434,6 +17876,8 @@ whline_set (3x)      - create curses borders or lines using complex character...
 who (1)              - show who is logged on
 who (1p)             - display who is on the system
 whoami (1)           - print effective userid
+whois (1)            - client for the whois directory service
+whois.conf (5)       - alternative WHOIS servers list for whois client
 WidthMMOfScreen (3)  - screen information functions and macros
 WidthOfScreen (3)    - screen information functions and macros
 wildmidi (1)         - example player for libWildMidi
@@ -17533,6 +17977,8 @@ wvline (3x)          - create curses borders, horizontal and vertical lines
 wvline_set (3x)      - create curses borders or lines using complex character...
 wvtag (1)            - metadata utility for wavpack files
 wvunpack (1)         - decodes wavpack encoded files
+WWW::RobotRules (3pm) - database of robots.txt-derived permissions
+WWW::RobotRules::AnyDBM_File (3pm) - Persistent RobotRules
 x25 (7)              - ITU-T X.25 / ISO-8208 protocol interface.
 X25519 (7ssl)        - EVP_PKEY X25519 and X448 support
 X448 (7ssl)          - EVP_PKEY X25519 and X448 support
@@ -20444,6 +20890,7 @@ XDisplayMotionBufferSize (3) - send events and pointer motion history structure
 XDisplayName (3)     - default error handlers
 XDisplayOfIM (3)     - open, close, and obtain input method information
 XDisplayOfOM (3)     - open output methods
+xdotool (1)          - command-line X11 automation tool
 xdr (3)              - library routines for external data representation
 xdr_accepted_reply (3) - library routines for remote procedure calls
 xdr_array (3)        - library routines for external data representation
@@ -20669,6 +21116,7 @@ XGrabPointer (3)     - grab the pointer
 XGrabServer (3)      - grab the server
 XGraphicsExposeEvent (3) - GraphicsExpose and NoExpose event structures
 XGravityEvent (3)    - GravityNotify event structure
+xhost (1)            - server access control program for X
 XHostAddress (3)     - control host access and host control structure
 XIBarrierReleasePointer (3) - allow pointer movement across a pointer barrier
 XIBarrierReleasePointers (3) - allow pointer movement across a pointer barrier
@@ -20701,6 +21149,7 @@ XineramaQueryVersion (3) - API for Xinerama extension to X11 Protocol
 xinit (1)            - X Window System initializer
 XInitImage (3)       - image utilities
 XInitThreads (3)     - multi-threading support
+xinput (1)           - utility to configure and test X input devices
 XInsertModifiermapEntry (3) - manipulate keyboard encoding and keyboard encod...
 XInstallColormap (3) - control colormaps
 XInternalConnectionNumbers (3) - handle Xlib internal connections
@@ -20985,6 +21434,13 @@ XmbufGetVersion (3)  - X multibuffering functions
 XmbufGetWindowAttributes (3) - X multibuffering functions
 XmbufQueryExtension (3) - X multibuffering functions
 xml2-config (1)      - script to get information about the installed version ...
+XML::Parser (3pm)    - A perl module for parsing XML documents
+XML::Parser::Expat (3pm) - Lowlevel access to James Clark's expat XML parser
+XML::Parser::Style::Debug (3pm) - Debug style for XML::Parser
+XML::Parser::Style::Objects (3pm) - Objects styler parser
+XML::Parser::Style::Stream (3pm) - Stream style for XML::Parser
+XML::Parser::Style::Subs (3pm) - glue for handling element callbacks
+XML::Parser::Style::Tree (3pm) - Tree style parser
 xmlcatalog (1)       - Command line tool to parse and manipulate XML or SGML ...
 xmllint (1)          - command line XML tool
 XModifierKeymap (3)  - manipulate keyboard encoding and keyboard encoding str...
@@ -21332,6 +21788,7 @@ XtDisplayInitialize (3) - initialize, open, or close a display
 XtDisplayOfObject (3) - obtain window information about a widget
 XtDisplayStringConversionWarning (3) - issue a conversion warning message
 XtDisplayToApplicationContext (3) - obtain an application context
+xterm (1)            - terminal emulator for X
 XtError (3)          - low-level error handlers
 XtErrorMsg (3)       - high-level error handlers
 XTestCompareCurrentCursorWithWindow (3) - XTest extension functions
@@ -21776,6 +22233,7 @@ zipsplit (1)         - split a zipfile into smaller zipfiles
 ziptool (1)          - modify zip archives
 zless (1)            - file perusal filter for crt viewing of compressed text
 zlib (3)             - compression/decompression library
+zlib-flate (1)       - raw zlib compression program
 zmore (1)            - file perusal filter for crt viewing of compressed text
 zmq (7)              - 0MQ lightweight messaging kernel
 zmq_atomic_counter_dec (3) - decrement an atomic counter
@@ -21849,8 +22307,41 @@ zos-remote.conf (5)  - the audisp-racf plugin configuration file
 zramctl (8)          - set up and control zram devices
 zresample (1)        - resample and change sample format of audio files
 zretune (1)          - resample an audio file in order to change its pitch
+zsh (1)              - the Z shell
+zshall (1)           - the Z shell meta-man page
+zshbuiltins (1)      - zsh built-in commands
+zshcalsys (1)        - zsh calendar system
+zshcompctl (1)       - zsh programmable completion
+zshcompsys (1)       - zsh completion system
+zshcompwid (1)       - zsh completion widgets
+zshcontrib (1)       - user contributions to zsh
+zshexpn (1)          - zsh expansion and substitution
+zshmisc (1)          - everything and then some
+zshmodules (1)       - zsh loadable modules
+zshoptions (1)       - zsh options
+zshparam (1)         - zsh parameters
+zshroadmap (1)       - informal introduction to the zsh manual The Zsh Manual...
+zshtcpsys (1)        - zsh tcp system
+zshzftpsys (1)       - zftp function front-end
+zshzle (1)           - zsh command line editor
 zsoelim (1)          - satisfy .so requests in roff input
 zstd (1)             - zstd, zstdmt, unzstd, zstdcat - Compress or decompress...
 zstdcat (1)          - zstd, zstdmt, unzstd, zstdcat - Compress or decompress...
 zstdgrep (1)         - print lines matching a pattern in zstandard-compressed...
 zstdless (1)         - view zstandard-compressed files
+atomx (1)            - manage X atoms on a window
+chwb (1)             - change window borders
+chwso (1)            - change window stacking order
+ignw (1)             - ignore window
+killw (1)            - kill windows
+lsw (1)              - list child windows
+mapw (1)             - map or unmap window
+pfw (1)              - print focused window
+slw (1)              - select window interactively
+wattr (1)            - get window attributes
+wmp (1)              - warp mouse cursor
+wmutils (1)          - window manipulation utilities
+wmv (1)              - move windows
+wrs (1)              - resize windows
+wtf (1)              - transfer window focus
+wtp (1)              - teleport window (absolutely)

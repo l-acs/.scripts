@@ -1,11 +1,12 @@
 #!/bin/sh
 
 #echo -e "today\ntomorrow\nmonday\ntuesday\nwednesday\nthursday\nfriday\nsaturday\nsunday" | dmenu
-INPUT=$(cat .scripts/input/days.txt | dmenu) 
-td="/home/user/.scripts/td"
+INPUT=$(cat .scripts/input/days.txt | rofi -dmenu -p 'Select a day') 
+
 
 
 #if the input is one character long, allow numbers 0-9 to correspond to the dates listsed in days. text, where 0-7 represents the days of the week (0 and 7 are both sunday) and 8 and 9 represent today and tomorrow, respectively
 [ "${#INPUT}" -eq 1 ] && INPUT="$(sed $(echo $INPUT | sed 's/0/7/')'q;d' .scripts/days.txt)"
 
-urxvt -e $td $INPUT &
+#urxvt -e td $INPUT &
+[ -n "$INPUT" ] && td $INPUT &

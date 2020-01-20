@@ -1,5 +1,5 @@
 #!/bin/sh
 #if there isn't already a dropdown terminal, make one
-[ -z "$(ps -aux | grep urxvt | grep dropdown)" ]  &&  i3-sensible-terminal -name "dropdown" &
+[ -z "$(ps -aux | grep urxvt | grep dropdown)" ]  &&  i3-sensible-terminal -name "dropdown" -e tmux &
 
 

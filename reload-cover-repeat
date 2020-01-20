@@ -1,7 +1,0 @@
-#!/bin/sh
-
-ffmpeg -i /home/user/Media/music/"$(mpc status | sed q)".m4a /home/user/.scripts/output/cover.jpg -y 
-sleep 2s && ffmpeg -i /home/user/Media/music/"$(mpc status | sed q)".m4a /home/user/.scripts/output/cover.jpg -y 
-sleep 4s && ffmpeg -i /home/user/Media/music/"$(mpc status | sed q)".m4a /home/user/.scripts/output/cover.jpg -y 
-sleep 6s && ffmpeg -i /home/user/Media/music/"$(mpc status | sed q)".m4a /home/user/.scripts/output/cover.jpg -y 
-sleep 8s && ffmpeg -i /home/user/Media/music/"$(mpc status | sed q)".m4a /home/user/.scripts/output/cover.jpg -y 
