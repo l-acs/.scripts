@@ -1,0 +1,3 @@
+#!/bin/bash
+
+.scripts/cwm/tile select $(echo -e "left\nright" | dmenu)
