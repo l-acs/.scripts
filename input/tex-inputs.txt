@@ -1,0 +1,40 @@
+\begin{itemize}
+	\item
+\end{itemize}
+
+
+
+\begin{enumerate}
+	\item
+\end{enumerate}
+
+
+\begin{table}[h!]
+	\begin{tabular}{}
+
+	\end{tabular}
+\end{table}
+
+
+
+\title{}
+\author{}
+\date{}
+\maketitle
+
+
+\textipa{}
+
+\textit{}
+
+\textbf{}
+
+\underline{}
+
+\textsc{}
+
+\section
+
+\subsection
+
+\subsubsection

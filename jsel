@@ -1,0 +1,4 @@
+#!/bin/sh
+
+input="$(ls /home/user/doc/jot/ | sed 's/.txt//' | rofi -dmenu -p 'Enter a note')"
+[ -n "$input" ] && jot $input

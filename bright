@@ -1,0 +1,36 @@
+#!/bin/sh
+
+#takes one mandatory argument: up, down or a number between 0 and 1
+#takes one optional argument: the monitor name. 
+
+if [ $# = 0 ]; then 
+	exit
+
+elif [  $# = 1 ]; then #no monitor argument
+	monitor=$(xrandr -q | grep " connected" | cut -f1 -d ' ')
+	arg=$1
+
+else #care about monitor
+	monitor=$1
+	arg=$2
+fi
+
+current=$(for i in $monitor; do xrandr --verbose | grep $i -A 5 | tail -n 1 | cut -f2 -d ' '; done)
+	
+
+
+if [ "$arg" = '+' ]; then
+	[ $(echo "$monitor" | wc -w) -gt 1 ] && monitor="VGA-1" && current="$(echo $current | cut -f2 -d ' ')" #if there are two monitors, only use VGA-1
+	[ "$(echo "$current < 1" | bc)" -eq 1 ] && xrandr --output "$monitor" --brightness $(echo "$current + 0.1" | bc)
+
+elif [ "$arg" = '-' ]; then
+	[ $(echo "$monitor" | wc -w) -gt 1 ] && monitor="VGA-1" && current="$(echo $current | cut -f2 -d ' ')" #if there are two monitors, only use VGA-1
+	[ "$(echo "$current > 0.1" | bc)" -eq 1 ]  && xrandr --output "$monitor" --brightness $(echo "$current - 0.1" | bc)
+
+else
+	for i in $monitor 
+	do	
+		[ "$(echo "$arg <= 1" | bc)" -eq 1 ] && [ "$(echo "$arg >= 0.1" | bc)" -eq 1 ] && xrandr --output "$i" --brightness "$arg"
+	done
+fi
+

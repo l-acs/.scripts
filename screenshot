@@ -1,0 +1,15 @@
+#!/bin/sh
+
+input=$(xrectsel)
+size=$(echo $input  | cut -f1 -d '+')
+loc=$(echo $input  | cut -f2- -d '+')
+#echo $loc
+
+#newloc="$(echo $loc | cut -f1 -d '+')+$(($(echo $loc | cut -f2 -d '+') + 50))"
+#echo $newloc
+if [ -n "$1" ]; then
+	arg="$1"
+else
+	arg="/home/user/.scripts/output/screenshot.png"
+fi
+ffmpeg -y -s $size -f x11grab -i :0.0+$newloc "$arg" 2> /dev/null

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+Date() {
+	echo -n "$(date "+%A, %B %-d, %Y - %I:%M%P")"
+}
+
+
+
+while true; do
+	echo "%{F#0000FF} %{B#242424} %{r} $(Date)       "
+	sleep 1
+done

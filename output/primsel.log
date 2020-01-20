@@ -1,0 +1,76 @@
+possible
+.scripts/output/primsel.log
+ounts
+output
+x200t%
+grep for flags bash
+root         388  0.0  0.1   6488  3928 ?        Ss   09:12   0:00 login -- user
+vim .scripts/plumb
+.scripts/screenshot
+.scripts/.archive/flags.txt
+.scripts/jot
+#if the argument is --dmenu, pipe logged primary selections as input
+echo "$@" | grep -q "dmenu" && selection="$(sort -r "$primsel_log" | dmenu -p "Select input")"
+  https://www.shellcheck.net/wiki/SC2164 -- Use 'cd ... || exit' or 'cd ... |...
+$selection
+disown
+	$action "$selection" & disown
+.scripts/.pomotty
+program
+selection
+requests
+deleted.
+selections
+file
+#trap "logme" EXIT #and remove duplicates from file without sorting it...
+	[ -n "$current_sel" ] && echo "$current_sel" >> "$logfile"
+current_sel
+logme
+tCache/Version 14/Records/F1502836F31E573D8DA72EB1D96C7249A83EF7EE/Resource/BFD1360AA6C39A7A71A53AF0D6A8FADBF1DB92F4
+ache/Version 14/Records/F1502836F31E573D8DA72EB1D96C7249A83EF7EE/Resource/BFD1360AA6C39A7A71A53AF0D6A8FADBF1DB92F4
+sleep
+printme
+whoami
+ echo te
+echo tes
+proj
+.scripts/plumb
+trap
+shell
+Use cron because it is a better and more standard practice. At least if this is something that will regularly run (not just something you patched together in a minute). cron is a cleaner and more standard way. It's also better because it runs the shell detached from a terminal - no problem with accidental termination and dependencies on other processes.
+in all, for resources it doesn't matter.
+
+.scripts/logprimsel.sh
+c
+https://www.shellcheck.net/wiki/SC2094
+|
+cat -n "$logfile" | sort -rn | sort -uk2 | sort -nk1 | cut -f2- > "$logfile"' E
+-rn
+sort
+ 
+this
+shareimprove this answ
+negligible
+Regarding the resources: CPU: Both processes sleep - when they sleep, they do not waste CPU. cron wakes up more frequently to check on things, but it does that anyway (no more for your process). And this is negligible load, most daemons wake up occasionally. Memory: You probably have cron running regardless of this process, so this is no overhead at all. However, cron will only start the shell when the script is called, whereas your script remains loaded in memory (a bash process with environment - a few kilobytes, unless you are loading everything in shell variables).
+cat -n "$logfile" | sort -rn | sort -uk2 | sort -nk1 | cut -f2- > "$logfile"
+$logfile
+with
+environment
+whereas
+resources
+script
+ry (a bash process with environment - a few kilobytes, unless you are loading ev
+bably have cron running regardless of this process, so this is no overhead at all. However, cron will only start the shell when the script is called, whereas your script remains loaded in memory (a bash process with environment - a few kilobytes, unless you are loading everything in shell variables).
+regardless
+laundry
+mming Languages
+rogramming Languages and Paradigms
+Assignment 2
+COMP 302
+02 Prog
+xsel
+x200t% vim .scr
+lucas-sahar-a1.log  lucas-sahar-a1.tex
+one.pdf
+lucas-sahar-a1.tex
+lucas-sahar-a1.pdf

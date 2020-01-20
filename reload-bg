@@ -1,0 +1,3 @@
+#!/bin/sh
+file="$(find Media/music/ -wholename "*$(mpc status | sed q | sed 's/[]()[]/\\&/g' | sed 's|/|*|g')*" | sed q)"
+[ -f "$file" ] && ffmpeg -i "$file" /home/user/.scripts/output/cover.jpg -y 2>/dev/null && feh --bg-scale '/home/user/.scripts/output/cover.jpg'

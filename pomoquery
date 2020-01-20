@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#pomoresults="$(ps aux | grep pomo)"
+sleepresults="$(ps aux | grep sleep | grep -v grep | tr -s ' ')"
+
+#length="$(echo "$sleepresults" | tr -s ' ' | cut -d ' ' -f12 | sed 's/s$/ seconds/' | sed 's/h$/ hours/' | sed 's/m$/ minutes/')"
+#starttime="$(echo "$sleepresults" | tr -s ' ' | cut -d ' ' -f9)"
+#
+#endtime="$(date -d "$start")"
+
+#todo: for each element in length and its corresponding item
+
+#echo "$endtime"
+#echo "$length"
+
+
+
+#try 2
+
+while read i; do
+	end="$(date -d "$(echo $i | cut -d ' ' -f9) $(echo $i | cut -d ' ' -f12 | sed 's/s$/ seconds/' | sed 's/h$/ hours/' | sed 's/m$/ minutes/')" +%-I:%M\ %p)"
+	start="$(echo $i | cut -d ' ' -f9)"
+	echo "You have a timer set at $start and ending at $end"
+	date -d "$end" +%s
+	echo "( `date -d "$end" +%s` - `date +%s`) / (24)" | bc -l
+
+
+
+
+
+done < <(ps aux | grep sleep | grep -v grep | tr -s ' ')
+
+
+#idea keep pomo log with time left announced every minute

@@ -1,0 +1,24 @@
+#!/bin/sh
+search="duckduckgo.com/?q="
+bookmarks="/home/user/.surf/bookmarks-nicknames.txt"
+engines="/home/user/.surf/engines-nicknames.txt"
+
+#prompt user with dmenu for input, reading from a list of prefered sites and their nicknames
+selection=$(sed '/^#/d' "$bookmarks" | dmenu -i -p 'Enter a URL or a search term')
+
+
+
+
+#if there is an input and it contains a URL, open it. 
+if echo "$selection" | grep -q '\.'; then
+	surf "$(echo "$selection" | tr -s "[:blank:]" ' ' | cut -f2 -d ' ')"
+
+#otherwise use the term as a search query
+elif [ -n "$selection" ]; then
+
+	#if the first word of the selection is among a user's listed search engines, use that URL for search
+	patternmatch="$(cat "$engines" | tr -s "[:blank:]" ' ' | grep "^$(echo "$selection" | cut -f1 -d ' ') ")"
+	[ -n "$patternmatch" ] && search="$(echo "$patternmatch" | cut -f2 -d ' ')" && selection="$(echo "$selection" | cut -f2- -d ' ')"
+	
+	surf "$search$selection" 2>/dev/null
+fi
