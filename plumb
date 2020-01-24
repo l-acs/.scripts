@@ -1,40 +1,63 @@
 #!/bin/bash
 
 selection="$(xsel | grep -v '^\ No newline at end of selection')"
-primsel_log="/home/user/.scripts/output/primsel.log"
+logfile="/home/user/.scripts/output/primsel.log"
+search="duckduckgo.com/?q="
+bookmarks="/home/user/.surf/bookmarks-nicknames.txt"
+engines="/home/user/.surf/engines-nicknames.txt"
+
+remove_duplicates(){
+	#deletes all but latest instance of duplicates in logfile
+	cat -n "$logfile" | sort -rn | sort -uk2 | sort -nk1 | cut -f2- > tmpfile && mv tmpfile "$logfile"
+}
+
+
+leave(){
+	[ -n "$selection" ] && echo "$selection" >> "$logfile"
+	xsel -pc 
+	remove_duplicates
+
+}
+
+
+
 #if prim sel empty, use the clipboard
 [ -z "$selection" ] && selection="$(xsel -b | grep -v '^\ No newline at end of selection')"
 
 #if the argument is --dmenu, or if both primsel and and clipboard empty, pipe logged primary selections as input
 if echo "$@" | grep -q "dmenu" || [ -z "$selection" ]; then
-	selection="$(sort -r "$primsel_log" | dmenu -i -p "Select input")"
+	selection="$(sort -r "$logfile" | dmenu -i -p "Select input")"
 fi
 
 #if it's still empty, empty primary sel and exit with error
-if [ -z "$selection" ]; then xsel -pc && exit 1; fi
+if [ -z "$selection" ]; then
+	leave
+	exit 1
+fi
 
 
 #if the active window is urxvt and the script was called via a keybinding, try running plumb from the terminal (for local paths)
 [ "$(xdotool getactivewindow getwindowname)" = "urxvt" ] && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p Return && exit
 
-options='man snarf feh clone locate td jot zathura vim mpv gvim surf firefox run'
+options='man search snarf feh clone locate td jot zathura vim vdl-sub mpv gvim surf firefox run'
 dmenu_options=""
 
 #for i in $options; do echo $i; done
 for i in $options; do dmenu_options="$i\n$dmenu_options"; done
+dmenu_options=$dmenu_options$(cat "$engines" | cut -f1)
 
+#if selection is a file: open it in default application, log and clear prim sel, and exit
+if [ -f "$selection" ]; then xdg-open "$selection" & disown && leave && exit; fi
 
-#if selection is a file: open it in default application, clear prim sel, and exit
-if [ -f "$selection" ]; then xdg-open "$selection" & disown && xsel -pc && exit; fi
-
-#if selection is a directory: open it in a terminal, clear prim sel, and exit
-if [ -d "$selection" ]; then "$TERMINAL" -cd "$(cd "$selection" && pwd)" & disown && xsel -pc && exit; fi
+#if selection is a directory: open it in a terminal, log and clear prim sel, and exit
+if [ -d "$selection" ]; then "$TERMINAL" -cd "$(cd "$selection" && pwd)" & disown && leave && exit; fi
 
 
 action="$(echo -e "$dmenu_options" | dmenu -i -p 'Choose an action')"
+patternmatch="$(cat "$engines" | tr -s "[:blank:]" ' ' | grep "^$(echo "$action" | cut -f1 -d ' ') ")"
 
 #if nothing is selected, clear prim sel and exit
-[ -z "$action" ] && xsel -pc && exit 1
+[ -z "$action" ] && leave  && exit 1
 
 if [ "$action" = 'run' ]
 then 
@@ -51,8 +74,20 @@ elif [ "$action" = 'clone' ]
 then
 	(cd /home/user/.programs/ ; git clone "$selection")
 
+elif [ "$action" = 'vdl-sub' ]
+then
+	source ~/.bashrc
+	vdl-sub "$selection"
+
+elif [ -n "$patternmatch" ] || [ "$action" = 'search' ]
+then
+	#if the first word of the selection is among a user's listed search engines, use that URL for search
+	[ -n "$patternmatch" ] && search="$(echo "$patternmatch" | cut -f2 -d ' ')"
+	
+	surf "$search$selection" 2>/dev/null
+
 else 
 	$action $selection & disown
 fi
 
-xsel -pc
+leave
