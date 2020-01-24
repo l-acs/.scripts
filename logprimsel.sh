@@ -26,13 +26,16 @@ logme
 #trap "logme" EXIT #and remove duplicates from file without sorting it...
 trap 'logme && remove_duplicates' EXIT
 
-while sleep "$cleanup_time"; do remove_duplicates; done &
+while true; do
+	sleep "$cleanup_time"
+	remove_duplicates
+done &
 
-while sleep "$log_time"; do
+while true; do 
+	sleep "$log_time"
 	if [ "$current_sel" != "$(xsel -o)" ]; then
 		logme
 	fi
-
 done 
 
 
