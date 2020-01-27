@@ -5,6 +5,6 @@ movies_dir='/home/user/Media/videos/movies'
 magnet_file='/home/user/.scripts/input/magnets.txt'
 cd $movies_dir
 nordvpn connect >> $log && aria2c --seed-time=0 -i "$magnet_file" >> $log 
-#add autocomment all lines at end
+add autocomment all lines at end
 sed -i 's/^[A-z]/#&/' "$magnet_file"
 nordvpn disconnect >> $log
