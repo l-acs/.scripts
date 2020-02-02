@@ -1,4 +1,17 @@
 #!/bin/sh
+jot_dir=/home/user/doc/jot/
+rel_path=""
+browse(){
+	input="$(cd "$jot_dir$rel_path" && ls -p \
+		| sed -e 's/.txt//' -e '/^\.$/d' -e 's|^\./||' | sort \
+		| dmenu -p 'Enter a note')"
 
-input="$(ls /home/user/doc/jot/ | sed 's/.txt//' | rofi -dmenu -p 'Enter a note')"
-[ -n "$input" ] && jot $input
+	if [ -n "$input" ]; then 
+		[ "$input" = '..' ] && input='../' #for ease of use
+		[ -d "$jot_dir$rel_path$input" ] && rel_path="$rel_path$input" && browse ||
+		jot "$rel_path$input" 
+	else
+		exit 1
+	fi
+}
+browse

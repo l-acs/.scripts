@@ -14,7 +14,7 @@ remove_duplicates(){
 
 leave(){
 	[ -n "$selection" ] && echo "$selection" >> "$logfile"
-	xsel -pc 
+	[ "$action" = 'snarf' ] || xsel -pc 
 	remove_duplicates
 
 }
@@ -32,6 +32,7 @@ fi
 #if it's still empty, empty primary sel and exit with error
 if [ -z "$selection" ]; then
 	leave
+	echo "$selection" | xsel -pi
 	exit 1
 fi
 
@@ -64,7 +65,7 @@ then
 	$selection
 elif [ "$action" = 'snarf' ] 
 then 
-	xsel -o | xsel -bi
+	echo "$selection" | xsel -bi
 
 elif [ "$action" = 'man' ] 
 then 
