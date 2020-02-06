@@ -20,7 +20,7 @@
 
 loc=/home/user/doc/jot
 arguments="${*:2}"
-ed=gvim
+ed=emacs
 echo "$@" | grep -q '\-v' && ed=vim && arguments="$(echo "$arguments" | sed 's/-v //' | sed 's/-v//')" #if there's a -v flag, remove it from $arguments and set the editor to vim
 [ "$1" = '\-v' ] && shift 1 && echo success #doesn't work
 #echo $1 $@ $#
@@ -35,10 +35,12 @@ then
 	if echo "$arguments" | grep -qE '\.|/'
 	then
 		#case 1: should this open it, too?
-		touch "$loc/$arguments"; $ed "$loc/$arguments"; exit
+		touch "$loc/$arguments"; $ed "$loc/$arguments" &>/dev/null & disown
+		exit
 	else
 		#case 2: should this open it, too?
-		touch "$loc/$arguments.txt"; $ed "$loc/$arguments.txt"; exit
+		touch "$loc/$arguments.txt"; $ed "$loc/$arguments.txt" &>/dev/null & disown
+		 exit
 	fi
 
 fi
@@ -48,7 +50,8 @@ fi
 #case 3
 if [ $# -eq 0 ]
 then
-	$ed "$loc/jot.txt"; exit
+	$ed "$loc/jot.txt" &>/dev/null & disown
+	exit
 fi
 
 #case 6: should this use the -e flag or a compliant equivalent thereof?
@@ -67,13 +70,15 @@ fi
 #case 4
 if [ -e "$loc/$1" ]
 then
-	$ed "$loc/$1"; exit
+	$ed "$loc/$1" &>/dev/null & disown
+	exit
 fi
 
 #case 5
 if [ -e "$loc/$1.txt" ]
 then
-	$ed "$loc/$1.txt"; exit
+	$ed "$loc/$1.txt" &>/dev/null & disown
+	exit
 fi
 
 

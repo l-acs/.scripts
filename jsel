@@ -1,17 +1,48 @@
 #!/bin/sh
 jot_dir=/home/user/doc/jot/
 rel_path=""
+flags=""
 browse(){
 	input="$(cd "$jot_dir$rel_path" && ls -p \
-		| sed -e 's/.txt//' -e '/^\.$/d' -e 's|^\./||' | sort \
+		| sed -e 's/.txt//' -e '/^\.$/d' -e '/#/d' -e '/~/d' -e 's|^\./||' | sort \
 		| dmenu -p 'Enter a note')"
 
 	if [ -n "$input" ]; then 
 		[ "$input" = '..' ] && input='../' #for ease of use
-		[ -d "$jot_dir$rel_path$input" ] && rel_path="$rel_path$input" && browse ||
-		jot "$rel_path$input" 
+		if [ -d "$jot_dir$rel_path$input" ]; then
+			rel_path="$rel_path$input" && browse 
+		else
+		    if  [ " $input" = "$(echo " $input" | grep -o ' \-.$')" ] ; then #if input is only a flag
+			#echo flag case 1
+			flags="$(echo " $input" | grep -o '\-.$')"
+			#echo "the flags are $flags"
+			browse
+		    elif echo "$input" | grep -q '\-.'; then #it has flags and more
+			echo flag case 2
+			#flags=$(echo "$input" | grep -o '\-.')
+			flags="$flags$(echo "$input" | grep -o '\-.')"
+			input="$(echo "$input" | sed 's/-. //')"
+			#echo "the flags are $flags"
+			#printf '\'"$flags $rel_path$input"
+			#echo jot "$flags" "$rel_path$input"
+			jot "$flags" "$rel_path$input"
+		    else
+			#echo flag case 3			
+			#jot $flags "$rel_path$input" 
+			#printf '\'"$flags $rel_path$input"
+			if [ -n "$flags" ]; then
+			    #echo "the flags are $flags"
+			    #echo jot "$flags" "$rel_path$input"
+			    jot "$flags" "$rel_path$input"
+			else
+			    #echo jot "$rel_path$input"
+			    jot "$rel_path$input"
+			fi
+		    fi
+		fi
 	else
 		exit 1
 	fi
 }
 browse
+
