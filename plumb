@@ -48,7 +48,7 @@ for i in $options; do dmenu_options="$i\n$dmenu_options"; done
 dmenu_options=$dmenu_options$(cat "$engines" | cut -f1)
 
 #if selection is a file: open it in default application, log and clear prim sel, and exit
-if [ -f "$selection" ]; then xdg-open "$selection" & disown && leave && exit; fi
+if [ -f "$selection" ]; then xdg-open "$selection" &>/dev/null & disown && leave && exit; fi
 
 #if selection is a directory: open it in a terminal, log and clear prim sel, and exit
 if [ -d "$selection" ]; then "$TERMINAL" -cd "$(cd "$selection" && pwd)" & disown && leave && exit; fi
