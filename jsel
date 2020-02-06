@@ -13,29 +13,18 @@ browse(){
 			rel_path="$rel_path$input" && browse 
 		else
 		    if  [ " $input" = "$(echo " $input" | grep -o ' \-.$')" ] ; then #if input is only a flag
-			#echo flag case 1
 			flags="$(echo " $input" | grep -o '\-.$')"
-			#echo "the flags are $flags"
 			browse
+
 		    elif echo "$input" | grep -q '\-.'; then #it has flags and more
 			echo flag case 2
-			#flags=$(echo "$input" | grep -o '\-.')
 			flags="$flags$(echo "$input" | grep -o '\-.')"
 			input="$(echo "$input" | sed 's/-. //')"
-			#echo "the flags are $flags"
-			#printf '\'"$flags $rel_path$input"
-			#echo jot "$flags" "$rel_path$input"
 			jot "$flags" "$rel_path$input"
 		    else
-			#echo flag case 3			
-			#jot $flags "$rel_path$input" 
-			#printf '\'"$flags $rel_path$input"
 			if [ -n "$flags" ]; then
-			    #echo "the flags are $flags"
-			    #echo jot "$flags" "$rel_path$input"
 			    jot "$flags" "$rel_path$input"
 			else
-			    #echo jot "$rel_path$input"
 			    jot "$rel_path$input"
 			fi
 		    fi
@@ -46,3 +35,4 @@ browse(){
 }
 browse
 
+#to do: fix behavior with filenames ocntaining dashes
