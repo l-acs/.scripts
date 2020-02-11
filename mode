@@ -1,0 +1,29 @@
+#!/bin/dash
+
+#ASSUMES NO OTHER KEYS WILL SHARE THESE BINDINGS
+
+#binding_loc='^".scripts/clickbait"'
+pc_binding="Alt + b:1"
+tab_binding="b:3"
+file="$HOME/.xbindkeysrc"
+#echo $tab_binding $pc_binding $file $*
+tablet(){
+
+    sed -i "s/$pc_binding/$tab_binding/" "$file" &&
+	killall xbindkeys &&
+	xbindkeys --poll-rc
+
+
+ }
+
+comp(){
+
+    sed -i "s/$tab_binding/$pc_binding/" "$file" &&
+	killall xbindkeys &&
+	xbindkeys --poll-rc
+
+
+ }
+
+[ "$*" = tablet ] && tablet
+[ "$*" = comp ] && comp
