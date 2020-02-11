@@ -2,7 +2,7 @@
 jot_dir=/home/user/doc/jot/
 rel_path=""
 flags=""
-browse(){
+dmenubrowse(){
 	input="$(cd "$jot_dir$rel_path" && ls -p \
 		| sed -e 's/.txt//' -e '/^\.$/d' -e '/#/d' -e '/~/d' -e 's|^\./||' | sort \
 		| dmenu -p 'Enter a note')"
@@ -10,11 +10,11 @@ browse(){
 	if [ -n "$input" ]; then 
 		[ "$input" = '..' ] && input='../' #for ease of use
 		if [ -d "$jot_dir$rel_path$input" ]; then
-			rel_path="$rel_path$input" && browse 
+			rel_path="$rel_path$input" && dmenubrowse 
 		else
 		    if  [ " $input" = "$(echo " $input" | grep -o ' \-.$')" ] ; then #if input is only a flag
 			flags="$(echo " $input" | grep -o '\-.$')"
-			browse
+			dmenubrowse
 
 		    elif echo "$input" | grep -q '\-.'; then #it has flags and more
 			echo flag case 2
@@ -33,6 +33,6 @@ browse(){
 		exit 1
 	fi
 }
-browse
+dmenubrowse
 
 #to do: fix behavior with filenames ocntaining dashes
