@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 #logs primary selection for retroactive plumbing
 #should the delimeter be something other than a newline? sometimes you select multiline text...

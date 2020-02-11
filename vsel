@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 input="$(du -a ~/Media/videos/ | cut -f2- | grep -vE "\.vtt$|\.srt$|\.jpg$|\.png$|\.txt$|\.aria2$|\.part$|\.log$" | cut -d '/' -f6- | rofi -dmenu -i -l 30 -p 'Select a video')"
 [ -n "$input" ] && mpvc add ~/Media/videos/"$input" -- --force-window #--input-file=/home/user/.config/mpv/fifo
 

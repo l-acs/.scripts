@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 #caps lock to escape
 setxkbmap -option caps:escape

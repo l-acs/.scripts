@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 cellwriter & #--dock-window=1 & 
 sleep 1
