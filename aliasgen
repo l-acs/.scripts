@@ -1,0 +1,7 @@
+#!/bin/zsh
+source $HOME/.zshrc
+while read i; do echo \"$i\"; done < <(find $HOME/* .scripts -type d) | xargs basename -a > $HOME/.scripts/output/dirnames.txt
+while read i; do type "$i" &>/dev/null || echo "alias \"$i\"=\"cl $i\""; done < $HOME/.scripts/output/dirnames.txt | sort -u > $HOME/.scripts/input/aliases.txt
+source $HOME/.scripts/output/aliases.txt
+while read i; do echo \"$i\"; done < <(find $HOME/* .scripts -type f | grep -v '`') | xargs basename -a > $HOME/.scripts/output/filenames.txt
+while read i; do type "$i" &>/dev/null || echo "alias \"$i\"=\"xdg-open $i\""; done < $HOME/.scripts/output/filenames.txt | sort -u >> $HOME/.scripts/input/aliases.txt
