@@ -1,0 +1,35 @@
+#!/bin/dash
+
+filebrowser="urxvt -cd"
+start="$PWD" #where should browsing begin
+[ "$#" -gt 0 ] && start="$@"
+
+#make sure start ends in a slash
+echo "$start" | grep -q "/$" || start="$(echo "$start" | sed 's|$|/|')"
+
+
+input="$(ls -p "$start" | dmenu -i | sed 's|\.$|&/|')" #special case: change . and .. to ./ and ../
+[ -z "$input" ] && exit 1
+
+
+if [ -d "$start$input" ]; then
+    if [ "$input" = './'  ]; then #special case: use this to open a directory
+	$filebrowser "$start" & 
+    else #normal case: if input is a directory, recurse by entering it
+	browse "$start$input"
+    fi
+fi
+    
+
+if [ -f "$start$input" ]; then
+    if [ -n "$(xdg-mime query default "$(xdg-mime query filetype "$start$input")")" ]; then
+	xdg-open "$start$input" 2>/dev/null & 
+ 
+    else #no default found: ask user for input from PATH
+	cmd="$(find $(echo $PATH | tr ':' ' ') -executable | xargs basename -a | dmenu -i)"
+	[ -z "$cmd" ] && exit 2
+	"$cmd" "$start$input" 2>/dev/null &
+
+    fi
+	
+fi
