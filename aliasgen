@@ -6,3 +6,4 @@ source $HOME/.scripts/input/aliases.txt
 while read i; do echo \"$i\"; done < <(find $HOME/* $HOME/.scripts -type f | grep -v '`') | xargs basename -a > $HOME/.scripts/output/filenames.txt
 while read i; do type "$i" &>/dev/null || echo "alias \"$i\"=\"xdg-open $i\""; done < $HOME/.scripts/output/filenames.txt | sort -u >> $HOME/.scripts/input/aliases.txt
 source $HOME/.scripts/input/aliases.txt
+
