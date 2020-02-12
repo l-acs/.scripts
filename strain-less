@@ -34,3 +34,4 @@ while [ "$current" -gt "$end" ]; do
     bright 0.$current
 
 done
+
