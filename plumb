@@ -40,7 +40,7 @@ fi
 #if the active window is urxvt and the script was called via a keybinding, try running plumb from the terminal (for local paths)
 [ "$(xdotool getactivewindow getwindowname)" = "urxvt" ] && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p Return && exit
 
-options='man search snarf feh clone locate td jot zathura vim vdl-sub mpv gvim surf firefox run'
+options='man emacs gvim feh clone locate run td jot zathura vdl-sub firefox mpv search snarf surf'
 dmenu_options=""
 
 #for i in $options; do echo $i; done
