@@ -10,6 +10,6 @@ loc=$(echo $input  | cut -f2- -d '+')
 if [ -n "$1" ]; then
 	arg="$1"
 else
-	arg="/home/user/.scripts/output/screenshot.png"
+	arg="~/.scripts/output/screenshot.png"
 fi
 ffmpeg -y -s $size -f x11grab -i :0.0+$newloc "$arg" 2> /dev/null

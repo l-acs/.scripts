@@ -1,4 +1,4 @@
 #!/bin/sh
 file="$(find Media/music/ -name "*$(mpc status | sed q | sed 's/[](\/)[]/\\&/g')*")"
 #file="$(locate "$(mpc status | sed q | sed 's|/||g' | sed 's/?//g')" )"
-[ -f "$file" ] && echo $file exsists! && ffmpeg -i "$file" /home/user/.scripts/output/cover.jpg -y 2>/dev/null
+[ -f "$file" ] && echo $file exsists! && ffmpeg -i "$file" ~/.scripts/output/cover.jpg -y 2>/dev/null

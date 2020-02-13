@@ -141,7 +141,7 @@ exec dmenumanpdf  \*-  dmenu for pdfs of man pages
 
 .B "$mod+Shift+p"
 .LP
-[title="/home/user/.scripts/output/man.pdf"] scratchpad show; [title="/home/user/.scripts/output/man.pdf"] move position center  \*-  pull up man page pdf 
+[title="~/.scripts/output/man.pdf"] scratchpad show; [title="~/.scripts/output/man.pdf"] move position center  \*-  pull up man page pdf 
 
 .B "$mod+Shift+q"
 .LP
@@ -157,7 +157,7 @@ restart; exec sudo killall compton && compton & disown  \*-   restart i3 inplace
 
 .B "$mod+Shift+u"
 .LP
-exec sudo pacman -Syuw --noconfirm >> /home/user/.scripts/output/pacman.log  \*-  download updates
+exec sudo pacman -Syuw --noconfirm >> ~/.scripts/output/pacman.log  \*-  download updates
 
 .B "$mod+s"
 .LP
@@ -193,7 +193,7 @@ exec xournalpp  \*-  open xournal:
 
 .B "$mod+Shift+x"
 .LP
-exec zathura /home/user/doc/ref/latex/latex_math.pdf  \*-  latex math manual
+exec zathura ~/doc/ref/latex/latex_math.pdf  \*-  latex math manual
 
 .B "$mod+z"
 .LP

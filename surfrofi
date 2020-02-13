@@ -1,7 +1,7 @@
 #!/bin/bash
 search="duckduckgo.com/?q="
-bookmarks="/home/user/.surf/bookmarks-nicknames.txt"
-engines="/home/user/.surf/engines-nicknames.txt"
+bookmarks="~/.surf/bookmarks-nicknames.txt"
+engines="~/.surf/engines-nicknames.txt"
 
 #so i think the way this works is that if it takes an argument to the script is should do the thing. rofi will then pass the argument to the script when it is selected.
 

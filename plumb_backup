@@ -28,11 +28,11 @@ then
 
 elif [ "$action" = 'man' ] 
 then 
-	man -Tpdf "$selection" | zathura - #> /home/user/.scripts/output/man.pdf
+	man -Tpdf "$selection" | zathura - #> ~/.scripts/output/man.pdf
 
 elif [ "$action" = 'clone' ]
 then
-	(cd /home/user/.programs/ ; git clone "$selection")
+	(cd ~/.programs/ ; git clone "$selection")
 
 else 
 	$action $selection & disown

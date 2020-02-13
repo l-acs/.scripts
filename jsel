@@ -1,5 +1,5 @@
 #!/bin/sh
-jot_dir=/home/user/doc/jot/
+jot_dir=~/doc/jot/
 rel_path=""
 flags=""
 dmenubrowse(){

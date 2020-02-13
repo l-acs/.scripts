@@ -1,10 +1,10 @@
 #!/bin/bash
 
 selection="$(xsel | grep -v '^\ No newline at end of selection')"
-logfile="/home/user/.scripts/output/primsel.log"
+logfile="~/.scripts/output/primsel.log"
 search="duckduckgo.com/?q="
-bookmarks="/home/user/.surf/bookmarks-nicknames.txt"
-engines="/home/user/.surf/engines-nicknames.txt"
+bookmarks="~/.surf/bookmarks-nicknames.txt"
+engines="~/.surf/engines-nicknames.txt"
 
 remove_duplicates(){
 	#deletes all but latest instance of duplicates in logfile
@@ -69,11 +69,11 @@ then
 
 elif [ "$action" = 'man' ] 
 then 
-	man -Tpdf "$selection" | zathura - #> /home/user/.scripts/output/man.pdf
+	man -Tpdf "$selection" | zathura - #> ~/.scripts/output/man.pdf
 
 elif [ "$action" = 'clone' ]
 then
-	(cd /home/user/.programs/ ; git clone "$selection")
+	(cd ~/.programs/ ; git clone "$selection")
 
 elif [ "$action" = 'vdl-sub' ]
 then

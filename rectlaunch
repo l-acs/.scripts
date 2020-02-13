@@ -1,6 +1,6 @@
 #!/bin/sh
 
-i3-msg "exec $(cat /home/user/.scripts/input/guisel.txt | rofi -dmenu); exec sleep 0.3 && rectmove"
+i3-msg "exec $(cat ~/.scripts/input/guisel.txt | rofi -dmenu); exec sleep 0.3 && rectmove"
 #sleep is a hacky solution because rofi was interpreting the second mandatory click when double clicking to select as the click for rectmove
 
 #todo: make rectmove more extensible with an option where it only returns coordinates etc so that this script can launch the desired program floating to begin with

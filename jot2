@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GTD_DIR='/home/user/doc/productivity/brainstorming/jot'
+GTD_DIR='~/doc/productivity/brainstorming/jot'
 
 if [ $# -gt 0 ]
 then

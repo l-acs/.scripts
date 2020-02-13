@@ -1,7 +1,7 @@
 #!/bin/sh
 search="duckduckgo.com/?q="
-bookmarks="/home/user/.surf/bookmarks-nicknames.txt"
-engines="/home/user/.surf/engines-nicknames.txt"
+bookmarks="~/.surf/bookmarks-nicknames.txt"
+engines="~/.surf/engines-nicknames.txt"
 
 #prompt user with dmenu for input, reading from a list of prefered sites and their nicknames
 selection=$(sed '/^#/d' "$bookmarks" | dmenu -i -p 'Enter a URL or a search term')

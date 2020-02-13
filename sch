@@ -1,8 +1,8 @@
 #!/bin/bash
 #source ~/.bashrc
-td='/home/user/.scripts/td'
-compiled_location='/home/user/.scripts'
-old_todos='/home/user/doc/productivity/days'
+td='~/.scripts/td'
+compiled_location='~/.scripts'
+old_todos='~/doc/productivity/days'
 date_flags=""
 
 #get all lines beginning with ">" from  old_todos txt files and add them to a file
