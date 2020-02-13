@@ -6,6 +6,7 @@
       	      Kill:'~/.scripts/cwm/winkill select' \
       	      Resize:~/.scripts/rectmove \
 	      Select:'rofi -show "combi" -switchers combi -combi-modi "window,drun,surf:~/.scripts/surfrofi" -show-icons'" \
+      Plumb:plumb \
       Editor:emacs \
       Programs:'9menu -popup -teleport \
       		        Browser:"surfdmenu" \
