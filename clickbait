@@ -1,11 +1,11 @@
 #!/bin/dash
-#problem!!!!! they appear under floating windows
+#problem!!!!! they appear under floating windows -- this is i3 particular
 9menu -popup -teleport \
       Terminal:urxvt \
       Window:"9menu -popup -teleport \
-      	      Kill:'.scripts/cwm/winkill select' \
-      	      Resize:.scripts/rectmove \
-	      Select:'rofi -show "combi" -switchers combi -combi-modi "window,drun,surf:/home/user/.scripts/surfrofi" -show-icons'" \
+      	      Kill:'~/.scripts/cwm/winkill select' \
+      	      Resize:~/.scripts/rectmove \
+	      Select:'rofi -show "combi" -switchers combi -combi-modi "window,drun,surf:~/.scripts/surfrofi" -show-icons'" \
       Editor:emacs \
       Programs:'9menu -popup -teleport \
       		        Browser:"surfdmenu" \
@@ -13,13 +13,13 @@
 			Email:"urxvt -e neomutt" \
 			Calculator:"env GTK_THEME=Adwaita:dark gnome-calculator"' \
       Tools:'9menu -popup -teleport \
-      	  Pomo:".scripts/cwm/pomolaunch" \
+      	  Pomo:"~/.scripts/cwm/pomolaunch" \
 	  To-do:"tdsel" \
 	  Browse:"browse" \
 	  Notes:"jsel" '  
-#      OCR:".scripts/cwm/ocr" 
+#      OCR:"~/.scripts/cwm/ocr" 
 
-#      Tile:'.scripts/cwm/tilesel' 
-#      Resize:".scripts/cwm/windraw select" \
-#Resize:".scripts/rectmove" \
+#      Tile:'~/.scripts/cwm/tilesel' 
+#      Resize:"~/.scripts/cwm/windraw select" \
+#Resize:"~/.scripts/rectmove" \
 #Kill:".scripts/cwm/winkill select" \
