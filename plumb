@@ -6,6 +6,8 @@ search="duckduckgo.com/?q="
 bookmarks="~/.surf/bookmarks-nicknames.txt"
 engines="~/.surf/engines-nicknames.txt"
 
+#touch "$logfile"
+
 remove_duplicates(){
 	#deletes all but latest instance of duplicates in logfile
 	cat -n "$logfile" | sort -rn | sort -uk2 | sort -nk1 | cut -f2- > tmpfile && mv tmpfile "$logfile"
@@ -38,7 +40,9 @@ fi
 
 
 #if the active window is urxvt and the script was called via a keybinding, try running plumb from the terminal (for local paths)
-[ "$(xdotool getactivewindow getwindowname)" = "urxvt" ] && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p Return && exit
+winname="$(xdotool getactivewindow getwindowname)"
+#echo $winname
+( [ "$winname" = "urxvt" ] || [ "$winname" = "tmux" ] ) && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p l u m b Return && exit
 
 options='man emacs gvim feh clone locate run td jot zathura vdl-sub firefox mpv search snarf surf'
 dmenu_options=""
