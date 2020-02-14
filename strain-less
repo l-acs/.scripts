@@ -13,7 +13,7 @@ usage(){
 }
 
 
-current="$(xrandr --verbose | grep Brightness | tail -n 1 | cut -f2 -d '.')"
+current="$(echo $(xrandr --verbose | grep Brightness | tail -n 1 | cut -f2 -d ' ') \* 100 | bc | cut -f1 -d '.')"
 #flaw: if multiple monitors, only works for external
 
 inc="$1"
