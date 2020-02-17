@@ -2,7 +2,7 @@
 
 #logs primary selection for retroactive plumbing
 #should the delimeter be something other than a newline? sometimes you select multiline text...
-logfile="~/.scripts/output/primsel.log"
+logfile="$HOME/.scripts/output/primsel.log"
 current_sel=""
 #prev_sel="$(tail -n 1 "$logfile)"
 log_time="1s"

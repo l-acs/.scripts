@@ -14,13 +14,13 @@
 			Email:"urxvt -e neomutt" \
 			Calculator:"env GTK_THEME=Adwaita:dark gnome-calculator"' \
       Tools:'9menu -popup -teleport \
-      	  Pomo:"~/.scripts/cwm/pomolaunch" \
+      	  Pomo:"$HOME/.scripts/cwm/pomolaunch" \
 	  To-do:"tdsel" \
 	  Browse:"browse" \
 	  Notes:"jsel" '  
-#      OCR:"~/.scripts/cwm/ocr" 
+#      OCR:"$HOME/.scripts/cwm/ocr" 
 
 #      Tile:'~/.scripts/cwm/tilesel' 
-#      Resize:"~/.scripts/cwm/windraw select" \
-#Resize:"~/.scripts/rectmove" \
+#      Resize:"$HOME/.scripts/cwm/windraw select" \
+#Resize:"$HOME/.scripts/rectmove" \
 #Kill:".scripts/cwm/winkill select" \

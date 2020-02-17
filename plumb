@@ -1,10 +1,10 @@
 #!/bin/bash
 
 selection="$(xsel | grep -v '^\ No newline at end of selection')"
-logfile="~/.scripts/output/primsel.log"
+logfile="$HOME/.scripts/output/primsel.log"
 search="duckduckgo.com/?q="
-bookmarks="~/.surf/bookmarks-nicknames.txt"
-engines="~/.surf/engines-nicknames.txt"
+bookmarks="$HOME/.surf/bookmarks-nicknames.txt"
+engines="$HOME/.surf/engines-nicknames.txt"
 
 #touch "$logfile"
 
