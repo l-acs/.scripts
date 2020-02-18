@@ -18,7 +18,7 @@
 
 #this script could be POSIX compliant, except the string indexing used to get all but the first argument
 
-loc=~/doc/jot
+loc=$JOT_DIR
 arguments="${*:2}"
 ed=xdg-open
 first_ed=emacs
