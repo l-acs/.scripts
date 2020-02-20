@@ -14,7 +14,7 @@ date -d $1 > /dev/null 2>/dev/null
 
 FILE_FORMAT=`$DATE_CMD +%Y-%m-%d` #date to call the file
 HEADER_FORMAT=`$DATE_CMD +%A\,\ %B\ %d` #date to write in the header
-FILEPATH=~/doc/productivity/days/"$FILE_FORMAT.txt" #file path with correct name
+FILEPATH="$TD_DIR/$FILE_FORMAT.txt" #file path with correct name
 
 #if the file does not exist, create it with the appropriate name and header
 [[ ! -f $FILEPATH ]] && echo -e "$HEADER_FORMAT - to do:\n\n\n\n\n###\nCalendar:\n" > "$FILEPATH"
