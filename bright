@@ -7,8 +7,12 @@ if [ $# = 0 ]; then
 	exit
 
 elif [  $# = 1 ]; then #no monitor argument
-	monitor=$(xrandr -q | grep " connected" | cut -f1 -d ' ')
-	arg=$1
+    if echo "$1" | grep -q -e "query" -e "q$"; then 
+	echo "Current b$(xrandr --verbose | grep Bright | cut -f2 -d B)"
+	exit 0
+    fi
+    monitor=$(xrandr -q | grep " connected" | cut -f1 -d ' ')
+    arg=$1
 
 else #care about monitor
 	monitor=$1
