@@ -1,22 +1,22 @@
 #!/bin/dash
-#problem!!!!! they appear under floating windows -- this is i3 particular
+. ~/.zshrc #dash does not support "source"
 9menu -popup -teleport \
-      Terminal:urxvt \
+      Terminal:"$TERMINAL" \
       Window:"9menu -popup -teleport \
       	      Kill:'~/.scripts/cwm/winkill select' \
       	      Resize:~/.scripts/cwm/windraw \
 	      Select:'rofi -show "combi" -switchers combi -combi-modi "window,drun,surf:~/.scripts/surfrofi" -show-icons'" \
       Plumb:"plumb --keybind" \
-      Editor:emacs \
+      Editor:"$VISUAL"\
       Programs:'9menu -popup -teleport \
-      		        Browser:"surfdmenu" \
+      		        Browser:"$WEB" \
      			Music:"urxvt -e ncmpcpp" \
-			Email:"urxvt -e neomutt" \
+			Email:"$EMAIL" \
 			Calculator:"env GTK_THEME=Adwaita:dark gnome-calculator"' \
       Tools:'9menu -popup -teleport \
       	  Pomo:"$HOME/.scripts/cwm/pomolaunch" \
 	  To-do:"tdsel" \
-	  Browse:"browse" \
+	  Browse:"$FILEBROWSER" \
 	  Notes:"jsel" '  
 #      OCR:"$HOME/.scripts/cwm/ocr" 
 
@@ -24,3 +24,7 @@
 #      Resize:"$HOME/.scripts/cwm/windraw select" \
 #Resize:"$HOME/.scripts/rectmove" \
 #Kill:".scripts/cwm/winkill select" \
+
+#urxvt -e neomutt
+#surfdmenu
+#urxvt
