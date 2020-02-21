@@ -1,29 +1,25 @@
 #!/bin/dash
+#the follow line has its flaws. A better solution would be ideal.
 . ~/.zshrc #dash does not support "source"
-9menu -popup -teleport \
-      Terminal:"$TERMINAL" \
-      Window:"9menu -popup -teleport \
-      	      Kill:'~/.scripts/cwm/winkill select' \
+9menu $NINEFLAGS \
+      Browse:"9browse.sh" \
+      Window:'9menu $NINEFLAGS \
+      	      Kill:~/.scripts/cwm/"winkill select" \
       	      Resize:~/.scripts/cwm/windraw \
-	      Select:'rofi -show "combi" -switchers combi -combi-modi "window,drun,surf:~/.scripts/surfrofi" -show-icons'" \
+	      Select:"rofi -show \"combi\" -switchers combi -combi-modi \"window,drun,surf:~/.scripts/surfrofi\" -show-icons"' \
       Plumb:"plumb --keybind" \
       Editor:"$VISUAL"\
-      Programs:'9menu -popup -teleport \
+      Programs:'9menu $NINEFLAGS \
       		        Browser:"$WEB" \
      			Music:"urxvt -e ncmpcpp" \
 			Email:"$EMAIL" \
 			Calculator:"env GTK_THEME=Adwaita:dark gnome-calculator"' \
-      Tools:'9menu -popup -teleport \
+      Tools:'9menu $NINEFLAGS \
       	  Pomo:"$HOME/.scripts/cwm/pomolaunch" \
 	  To-do:"tdsel" \
-	  Browse:"$FILEBROWSER" \
 	  Notes:"jsel" '  
-#      OCR:"$HOME/.scripts/cwm/ocr" 
-
-#      Tile:'~/.scripts/cwm/tilesel' 
-#      Resize:"$HOME/.scripts/cwm/windraw select" \
-#Resize:"$HOME/.scripts/rectmove" \
-#Kill:".scripts/cwm/winkill select" \
+#      OCR:"$HOME/.scripts/cwm/ocr"
+#      Terminal:"$TERMINAL" \
 
 #urxvt -e neomutt
 #surfdmenu
