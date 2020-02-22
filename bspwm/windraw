@@ -1,0 +1,16 @@
+#!/bin/sh
+#not adjusted since cwm!!!
+
+selection="$(xdotool getactivewindow)"
+[ "$1" = "select" ] && selection="$(xdotool selectwindow)" && shift 1
+[ -n "$*" ] && selection="$(xdotool search --pid "$*")"
+
+
+input="$(xrectsel)"
+position="$(echo "$input" | cut -d '+' -f2-3 | tr '+' ' ')"
+size="$(echo "$input" | cut -d '+' -f1 | tr 'x' ' ')"
+
+for i in $selection; do
+    bspc node -t floating
+    xdotool windowmove "$i"  $position windowsize "$i" $size
+done
