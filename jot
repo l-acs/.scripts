@@ -21,8 +21,8 @@
 loc=$JOT_DIR
 arguments="${*:2}"
 ed=xdg-open
-first_ed=emacs
-echo "$@" | grep -q '\-v' && ed=vim && arguments="$(echo "$arguments" | sed 's/-v //' | sed 's/-v//')" #if there's a -v flag, remove it from $arguments and set the editor to vim
+first_ed="$VISUAL"
+echo "$@" | grep -q '\-v' && ed="$EDITOR" && arguments="$(echo "$arguments" | sed 's/-v //' | sed 's/-v//')" #if there's a -v flag, remove it from $arguments and set the editor to vim
 [ "$1" = '\-v' ] && shift 1 && echo success #doesn't work
 #echo $1 $@ $#
 #echo $ed
