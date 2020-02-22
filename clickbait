@@ -5,7 +5,7 @@
       Browse:"9browse.sh" \
       Window:'9menu $NINEFLAGS \
       	      Kill:~/.scripts/cwm/"winkill select" \
-      	      Resize:~/.scripts/cwm/windraw \
+      	      Resize:~/.scripts/bspwm/windraw \
 	      Select:"rofi -show \"combi\" -switchers combi -combi-modi \"window,drun,surf:~/.scripts/surfrofi\" -show-icons"' \
       Plumb:"plumb --keybind" \
       Editor:"$VISUAL"\
