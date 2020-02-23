@@ -22,8 +22,8 @@ date_readable="$(echo "$arg" | sed 's/s/ seconds/' | sed 's/m/ minutes/' | sed '
 [ -z "$arg" ] && echo Starting timer from `date +%-I:%M\ %p` until "$(date -d "25 minutes" +%-I:%M\ %p)"
 
 #if there's an argument, pass it to sleep
-(set +m; [[ -n $arg ]] && sleep $arg && mpv --force-window --loop-playlist=inf ~/.scripts/input/ringtone.webm &>/dev/null &)
+(set +m; [[ -n $arg ]] && sleep $arg && notify-send -t 86400000 "Timer finished at $(date +%-I:%M\ %p)" && mpv --force-window --loop-playlist=inf ~/.scripts/input/ringtone.webm &>/dev/null &)
 
 #else use 25 minutes
-(set +m; [[ -z $arg ]] && sleep 25m && mpv --force-window --loop-playlist=inf ~/.scripts/input/ringtone.webm &>/dev/null &)
+(set +m; [[ -z $arg ]] && sleep 25m && notify-send -t 86400000 "Pomo finished at $(date +%-I:%M\ %p)" && mpv --force-window --loop-playlist=inf ~/.scripts/input/ringtone.webm &>/dev/null &)
 
