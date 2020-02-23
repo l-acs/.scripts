@@ -44,7 +44,7 @@ winname="$(xdotool getactivewindow getwindowname)"
 #echo $winname
 ( [ "$winname" = "urxvt" ] || [ "$winname" = "tmux" ] ) && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p l u m b Return && exit
 
-options='man emacs gvim feh clone locate run td jot zathura vdl-sub firefox mpv search snarf surf'
+options='man emacs feh clone locate run td jot surf vdl-sub firefox mpv search snarf'
 dmenu_options=""
 
 #for i in $options; do echo $i; done
