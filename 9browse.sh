@@ -20,7 +20,7 @@ echo "Open $(echo $filebrowser | cut -f1 -d ' ')":"$filebrowser $start" > $tmp_c
 find $start -mindepth 1 -maxdepth 1 -type d -not -path '*/\.*' | sort | sed -e "s|^$start||" -e "s|^.*|&:9browse.sh $start&|" >> $tmp_current
 
 #format files for 9menu
-find $start -mindepth 1 -maxdepth 1 -type f -not -path '*/\.*' -not -path '*~' | sort | sed -e "s|^$start||" -e "s|^.*|Open &:xdg-open $start& \&>/dev/null|" >> $tmp_current
+find $start -mindepth 1 -maxdepth 1 -type f -not -path '*/\.*' -not -path '*~' | sort | sed -e "s|^$start||" -e "s|^.*|Open &:xdg-open \"$start&\" \&>/dev/null|" >> $tmp_current
 
 
 #call 9menu
