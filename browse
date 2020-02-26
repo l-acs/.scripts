@@ -8,7 +8,7 @@ start="$PWD" #where should browsing begin
 echo "$start" | grep -q "/$" || start="$(echo "$start" | sed 's|$|/|')"
 
 
-input="$(ls -p "$start" | dmenu -i | sed 's|\.$|&/|')" #special case: change . and .. to ./ and ../
+input="$(ls -p "$start" | sed -e '/\~$/d' -e '/^#.*#$/d' | dmenu -i | sed 's|\.$|&/|')" #special case: change . and .. to ./ and ../
 [ -z "$input" ] && exit 1
 
 
