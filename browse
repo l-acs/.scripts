@@ -1,6 +1,10 @@
-#!/bin/dash
+#!/bin/bash
 
-filebrowser="urxvt -cd"
+filebrowser(){
+    urxvt -cd "${@}" -e tmux new "ls --color && zsh" 
+}
+
+
 start="$PWD" #where should browsing begin
 [ "$#" -gt 0 ] && start="$@"
 
@@ -14,7 +18,7 @@ input="$(ls -p "$start" | dmenu -i | sed 's|\.$|&/|')" #special case: change . a
 
 if [ -d "$start$input" ]; then
     if [ "$input" = './'  ]; then #special case: use this to open a directory
-	$filebrowser "$start" & 
+	filebrowser "$start" & 
     else #normal case: if input is a directory, recurse by entering it
 	browse "$start$input"
     fi
