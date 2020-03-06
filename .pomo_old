@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# if the args are cancel: killall sleep and exit (whether or not killall sleep succeeded)
+[[ $@ = "cancel" ]] && ( killall sleep || true ) &&  exit
+
+
+# if the args are stop: find and kill the process, and exit (whether or not there were any such processes)
+[[ $@ = "stop" ]] && ( kill "$(ps aux | grep mpv | grep ringtone | tr -s [:blank:] | cut -d " " -f2)" 2>/dev/null || true ) && exit
+
+#pomodoro method
+
+#if there's an argument and no letter (i.e. time unit) is specified, use minutes
+if [ -n "$1" -a -z "$(echo $1 | grep "[a-zA-Z]")" ]
+then arg="$1m"
+else arg="$1"
+fi
+
+date_readable="$(echo "$arg" | sed 's/s/ seconds/' | sed 's/m/ minutes/' | sed 's/h/ hours/')"
+
+[ -n "$arg" ] && echo Starting timer from `date +%-I:%M\ %p` until "$(date -d "$date_readable" +%-I:%M\ %p)"
+
+[ -z "$arg" ] && echo Starting timer from `date +%-I:%M\ %p` until "$(date -d "25 minutes" +%-I:%M\ %p)"
+
+#if there's an argument, pass it to sleep
+(set +m; [[ -n $arg ]] && sleep $arg && notify-send -t 86400000 "Timer finished at $(date +%-I:%M\ %p)" 2>/dev/null && mpv --force-window --loop-playlist=inf ~/.scripts/input/ringtone.webm &>/dev/null && pkill dunst && dunst &>/dev/null & disown) 
+
+#else use 25 minutes
+(set +m; [[ -z $arg ]] && sleep 25m && notify-send -t 86400000 "Pomo finished at $(date +%-I:%M\ %p)" 2>/dev/null && mpv --force-window --loop-playlist=inf ~/.scripts/input/ringtone.webm &>/dev/null && pkill dunst && dunst &>/dev/null & disown)
