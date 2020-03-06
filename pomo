@@ -11,7 +11,7 @@ pomo_time_msg (){
 
 }
 
-echo $#
+
 case "$#" in
     0)
 	pomo_time_msg 25m "Pomodoro done!" ;;
@@ -26,11 +26,11 @@ case "$#" in
 			    
 
 	    "cancel")
-	 	killall sleep ;;
+	 	killall sleep || exit 1;;
 	
 
 	    "stop")
-		kill "$(ps aux | grep mpv | grep ringtone | tr -s [:blank:] | cut -d " " -f2)" 2>/dev/null ;;
+		kill "$(ps aux | grep mpv | grep ringtone | tr -s [:blank:] | cut -d " " -f2)" 2>/dev/null || exit 1 ;;
 	    
 
 	    *)
