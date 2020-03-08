@@ -3,11 +3,17 @@
 shopt -s extglob
 
 pomo_time_msg (){
-	      sleep "${1}" &&
-	      notify-send "${*:2}" >/dev/null &&
-	      mpv --force-window --loop-playlist=inf --really-quiet ~/.scripts/input/ringtone.webm &&
-	      pkill dunst &&
-	      dunst &>/dev/null & disown
+    date_readable="$(echo "${1}" | sed 's/s/ seconds/' | sed 's/m/ minutes/' | sed 's/h/ hours/')"
+    name=Timer && [ "${1}"  = "25m" ] && name=Pomodoro
+    label="" && [ "${*:2}" != "$name done!" ] && label=" - ${*:2}"
+    echo "$name set from $(date +%-I:%M\ %p) until $(date -d "$date_readable" +%-I:%M\ %p)$label"
+    
+    
+    sleep "${1}" &&
+	notify-send "${*:2}" >/dev/null &&
+	mpv --force-window --loop-playlist=inf --really-quiet ~/.scripts/input/ringtone.webm &&
+	pkill dunst &&
+	dunst &>/dev/null & disown
 
 }
 
@@ -50,7 +56,7 @@ case "$#" in
 		pomo_time_msg "$1"  "${*:2}" ;;
 
 	    *)
-		pomo_time_msg "$*" 2>/dev/null || (echo "Timer length must precede message." && exit 1) ;;
+		pomo_time_msg 25m "$*" 2>/dev/null || (echo "Timer length must precede message." && exit 1) ;;
 
 	 esac
 
