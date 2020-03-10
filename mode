@@ -3,6 +3,7 @@
 #ASSUMES NO OTHER KEYS WILL SHARE THESE BINDINGS
 
 #binding_loc='^".scripts/clickbait"'
+
 xpp_binding="	Shift + b:2"
 normal_binding="	b:2"
 file="$HOME/.xbindkeysrc"
@@ -13,7 +14,7 @@ normal(){
 	killall xbindkeys &&
 	xbindkeys --poll-rc
 
-    
+    xinput set-button-map 13 1 3 2
 
 }
 
@@ -23,7 +24,7 @@ xpp(){
 	killall xbindkeys &&
 	xbindkeys --poll-rc
 
-
+    xinput set-button-map 13 1 2 3
 }
 
 
