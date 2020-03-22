@@ -1,7 +1,7 @@
 #!/bin/bash
 
 filebrowser(){
-    urxvt -cd "${@}" -e tmux new "ls --color && zsh" 
+    urxvt -cd "${@}" -e zsh -c "ls && zsh"
 }
 
 

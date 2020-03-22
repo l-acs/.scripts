@@ -42,7 +42,7 @@ fi
 #if the active window is urxvt and the script was called via a keybinding, try running plumb from the terminal (for local paths)
 winname="$(xdotool getactivewindow getwindowname)"
 #echo $winname
-( [ "$winname" = "urxvt" ] || [ "$winname" = "tmux" ] ) && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p l u m b Return && exit
+( [ "$winname" = "urxvt" ] || [ "$winname" = "tmux" ] || [ "$winname" = "zsh" ] ) && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p l u m b Return && exit
 
 options='man emacs feh clone locate run td jot surf vdl-sub firefox mpv search snarf'
 dmenu_options=""
@@ -55,7 +55,7 @@ dmenu_options=$dmenu_options$(cat "$engines" | cut -f1)
 if [ -f "$selection" ]; then xdg-open "$selection" &>/dev/null & disown && leave && exit; fi
 
 #if selection is a directory: open it in a terminal, log and clear prim sel, and exit
-if [ -d "$selection" ]; then urxvt -cd "$(cd "$selection" && pwd)" -e tmux & disown && leave && exit; fi
+if [ -d "$selection" ]; then urxvtcd "$selection" & disown && leave && exit; fi
 
 
 action="$(echo -e "$dmenu_options" | dmenu -i -p 'Choose an action')"
