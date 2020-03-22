@@ -1,6 +1,32 @@
 #!/bin/bash
-playlist=/home/user/.config/mpd/playlists/Shazam.m3u
 dir=/home/user/Media/music/Shazam
+playlist=/home/user/.config/mpd/playlists/Shazam.m3u
+
+case "$#" in
+    0)
+
+       ;;
+    2)
+	music_dir="$(dirname "$dir")"
+	playlist_dir="$(dirname "$playlist")"
+
+	dir="$1"
+	playlist="$2"
+	echo "$1" | grep -q "$music_dir" || dir="$music_dir/$1" #&& mkdir -p "$dest"
+	echo "$2" | grep -q "$music_dir" || playlist="$playlist_dir/$2.m3u" && echo -n >> "$playlist"
+
+
+	;;
+    *)
+	echo -e "Wrong number of arguments. Usage:\n  folder_playlist_diff.sh [dir list]"
+	exit 1
+	;;
+esac
+
+
+
+
+
 diff -u \
      <(sort "$playlist") \
      <(cat \
@@ -13,4 +39,7 @@ diff -u \
 
 #works. should this write to file or std out?
 
-#shouldn't I abstract this so it isn't specific to the playlist?
+
+
+
+#todo: prevent reordering
