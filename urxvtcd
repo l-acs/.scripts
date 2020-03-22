@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#open urxvt on a directory or the parent directory
+
+urxvt -cd "$*" -e zsh -c "ls && zsh" 2>/dev/null ||
+urxvt -cd "$PWD"/"$*" -e zsh -c "ls && zsh" 2>/dev/null
