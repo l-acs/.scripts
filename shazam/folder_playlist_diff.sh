@@ -1,6 +1,6 @@
 #!/bin/bash
-playlist=/home/user/.config/mpd/playlists/Shazam.m3u
-dir=/home/user/Media/music/Shazam
+playlist="$HOME/.config/mpd/playlists/Shazam.m3u"
+dir="$MUSIC/Shazam"
 diff -u \
      <(sort "$playlist") \
      <(cat \
