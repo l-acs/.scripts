@@ -1,6 +1,7 @@
 #!/bin/bash
-dir=/home/user/Media/music/Shazam
-playlist=/home/user/.config/mpd/playlists/Shazam.m3u
+
+playlist="$HOME/.config/mpd/playlists/Shazam.m3u"
+dir="$MUSIC/Shazam"
 
 case "$#" in
     0)
@@ -22,6 +23,9 @@ case "$#" in
 	exit 1
 	;;
 esac
+
+
+
 
 
 
