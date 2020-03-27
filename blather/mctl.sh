@@ -27,7 +27,7 @@ if [ "$1" = play ]; then
     shift 1
     args="$(echo "$*" | tr ' ' '*')"
     if [ -n "$*" ]; then
-	find "$MUSIC" -type f -iname "*$args*" | sed "s|$MUSIC/||" | sort -u | mpc insert &&
+	find "$MUSIC" -type f -iname "*$args*" | grep -v -e "\.log$" -v -e "\.jpg$" -v -e "\.png$" -v -e "\.jpeg$" -v -e "\.m3u$" -v -e "\.pdf$" | sed "s|$MUSIC/||" | sort -u | mpc insert &&
 	    (mpc next || mpc play) && echo success
     else
 	mpc play
