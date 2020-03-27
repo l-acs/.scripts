@@ -40,6 +40,8 @@ draw(){
 
 focus(){
     #show a desktop or window group
+    #todo: toggle visibility, rather than binary show
+    #todo: nogroup
     case "$WM" in
 	bspwm)
 	    wmctrl -s "$(($1 - 1))"
@@ -51,23 +53,13 @@ focus(){
 	    wmctrl -s $1
 	    ;;
     esac
-    
-
-
-
 }
 
-
-
-
-
-
-
-printhelp(){
+helpme(){
 
     echo "Usage: "
-    echo "act.sh [-s] -[cdk] "
-    echo "act.sh -f DESKTOP"
+    echo "act.sh [-p] -[cdk] "
+    echo "act.sh -[fs] DESKTOP"
     echo "act.sh [-h]"
 
 
@@ -88,17 +80,31 @@ kill(){
 
 }
 
-
-
-sel(){
+pick(){
 	  xdotool selectwindow
+}
+
+send(){
+    #send window to desktop
+    #todo: nogroup
+    case "$WM" in
+	bspwm)
+	    xdotool set_desktop_for_window "$window" $(($1 - 1))
+	    ;;
+	i3)
+	    #something
+	    ;;
+	*)
+	    xdotool set_desktop_for_window "$window" $1
+	    ;;
+    esac
+    
 }
 
 
 
-
-if [ "$1" = "-s" ] || [ "$1" = "--select" ]; then
-    window=$(sel)
+if [ "$1" = "-p" ] || [ "$1" = "--pick" ]; then
+    window=$(pick)
 fi
 
 case "$1" in
@@ -119,14 +125,19 @@ case "$1" in
     -r|--resize)
 	draw
 	;;
-    -s|--select)
-	sel
+    -p|--pick)
+	pick
     	;;
+
+    -s|--send)
+	send $2
+	;;
+    
     -h|--help)
-	printhelp
+	helpme
 	;;
     *)
-	printhelp
+	helpme
 	exit 1
 	;;
 esac
