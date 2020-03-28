@@ -21,4 +21,5 @@ output/man.ps
 output/primsel.log
 output/screenshot.png
 output/torrent.log
+window/.cache
 .testing

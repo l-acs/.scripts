@@ -3,6 +3,9 @@
 #perform actions on a window, according to the current WM
 WM="$($HOME/.scripts/window/getname.sh)"
 window="$(xdotool getactivewindow)"
+mkdir -p $HOME/.scripts/window/.cache/
+
+
 
 close(){
     case "$WM" in
@@ -11,7 +14,7 @@ close(){
 	    ;;
 
 	*)
-	    xdotool windowclose "$window"
+	    wmctrl -i -c "$window"
 
     esac
 }
@@ -38,16 +41,46 @@ draw(){
 }
 
 
+#idea: for cwm/tags mod4 when ws 4 is not active is the same thing as moving all windows in group 4 into the mega group. mod4 when ws 4 is active is the same thing as moving all windows in ws 4 out of the mega group
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 focus(){
     #show a desktop or window group
-    #todo: toggle visibility, rather than binary show
-    #todo: nogroup
+    #problem: this hides others as well. it should only toggle the visibility of the current group
     case "$WM" in
 	bspwm)
-	    wmctrl -s "$(($1 - 1))"
+	    case $1 in
+		[1-9])
+		    wmctrl -s "$(($1 - 1))"
+		    ;;
+		0|10)
+		    wmctrl -s 9
+		    ;;
+	    esac
+	    
 	    ;;
 	i3)
 	    #??
+	    ;;
+
+	
+	CWM|cwm)
+	    #sneakily implement tags
+	    $HOME/.scripts/window/jotted_workspace_toggle.sh $1 
 	    ;;
 	*)
 	    wmctrl -s $1
@@ -96,10 +129,22 @@ send(){
 	    ;;
 	*)
 	    xdotool set_desktop_for_window "$window" $1
+	    xdotool search --desktop $1 "" > $HOME/.scripts/window/.cache/desktop$1
+
 	    ;;
     esac
     
 }
+
+
+#maximizev()
+#log window id and current vertical geometry in a cache file
+#if a window doesn't match max vertical monitor size (minus gaps), maximize it vertically; otherwise, revert it to cached value (or if that value is not stored, do nothing)
+
+#maximizeh()
+#log window id and current horizontal geometry in a cache file
+#if a window doesn't match max horizontal monitor size (minus gaps), maximize it horizontally; otherwise, revert it to cached value (or if that value is not stored, do nothing)
+
 
 
 
@@ -125,7 +170,7 @@ case "$1" in
     -r|--resize)
 	draw
 	;;
-    -p|--pick)
+    -p|--pick|--select)
 	pick
     	;;
 
