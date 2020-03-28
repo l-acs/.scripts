@@ -1,4 +1,6 @@
 #!/bin/zsh
+
+#bronk as soon as -filename exists
 source $HOME/.zshrc
 while read i; do echo \"$i\"; done < <(find $HOME/* $HOME/.scripts -type d) | xargs basename -a > $HOME/.scripts/output/dirnames.txt
 while read i; do type "$i" &>/dev/null || echo "alias \"$i\"=\"cl $i\""; done < $HOME/.scripts/output/dirnames.txt | sort -u > $HOME/.scripts/input/aliases.txt

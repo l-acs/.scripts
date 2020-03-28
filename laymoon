@@ -1,12 +1,31 @@
 #!/bin/bash
 
+Workspaces() {
+    for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $9}' ); do echo -n "$i  "; done
+    echo
+
+}
+
+
 Date() {
 	echo -n "$(date "+%A, %B %-d, %Y - %I:%M%P")"
 }
 
-
+Music () {
+    text="$(mpc | head -n 1)"
+    echo "\uf26b" "$text"
+    # icon-prev = 
+    # icon-stop = 
+    # icon-play = 
+    # icon-pause = 
+    # icon-next = "  		
+}
 
 while true; do
-	echo "%{F#0000FF} %{B#242424} %{r} $(Date)       "
+    echo -e \
+	 "%{F#FFFFFF} %{B#222222} " \
+	 "%{l}     $(Workspaces) " \
+	 "%{c} $(Music) " \
+	 "%{r} $(Date)  "
 	sleep 1
 done
