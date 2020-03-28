@@ -10,6 +10,9 @@
 input/aliases.txt
 input/magnets.txt
 input/man.txt
+input/aliases.txt
+input/dirnames.txt
+input/filenames.txt
 .jot
 .jsel-backup
 man.pdf
