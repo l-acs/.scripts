@@ -13,6 +13,9 @@ input/man.txt
 .jot
 .jsel-backup
 man.pdf
+input/aliases.txt
+input/dirnames.txt
+input/filenames.txt
 output/cover.jpg
 output/dirnames.txt
 output/filenames.txt
