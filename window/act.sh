@@ -3,7 +3,10 @@
 #perform actions on a window, according to the current WM
 WM="$($HOME/.scripts/window/getname.sh)"
 window="$(xdotool getactivewindow)"
-mkdir -p $HOME/.scripts/window/.cache/
+tags="$HOME/.scripts/window/.cache/current"
+mkdir -p "$(dirname "$tags")"
+
+
 
 
 
@@ -128,13 +131,41 @@ send(){
 	    #something
 	    ;;
 	*)
-	    xdotool set_desktop_for_window "$window" $1
+	    grep -q $1 "$tags" || xdotool set_desktop_for_window "$window" $1 #either it's currently shown or move it
 	    xdotool search --desktop $1 "" > $HOME/.scripts/window/.cache/desktop$1
 
 	    ;;
     esac
     
 }
+
+
+
+getworkspaces(){
+    case "$WM" in
+	bspwm)
+	    var="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$9}' ); do echo -n "$i  "; done)"
+	    ;;
+
+	cwm|CWM)
+	    var="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do echo -n "$i  "; done)"
+	    
+
+	    ;;
+	*)
+	    #something
+
+    esac
+    echo $var
+}
+
+
+
+#todo: cwm focus $1 & hide other tags
+
+
+
+
 
 
 #maximizev()
@@ -180,6 +211,12 @@ case "$1" in
     
     -h|--help)
 	helpme
+	;;
+    --getworkspace*|--getdesktop*)
+	getworkspaces
+	;;
+    --*actived*|--*activew*)
+	getactiveworkspaces
 	;;
     *)
 	helpme
