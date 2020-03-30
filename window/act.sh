@@ -3,8 +3,9 @@
 #perform actions on a window, according to the current WM
 WM="$($HOME/.scripts/window/getname.sh)"
 window="$(xdotool getactivewindow)"
-tags="$HOME/.scripts/window/.cache/current"
-mkdir -p "$(dirname "$tags")"
+cache="$HOME/.scripts/window/.cache"
+tags="$cache/current"
+mkdir -p "$cache"
 
 
 
@@ -132,7 +133,9 @@ send(){
 	    ;;
 	*)
 	    grep -q $1 "$tags" || xdotool set_desktop_for_window "$window" $1 #either it's currently shown or move it
-	    xdotool search --desktop $1 "" > $HOME/.scripts/window/.cache/desktop$1
+	    sed -i "/$1/d" "$cache/desktop"* && echo success
+	    xdotool search --desktop $1 "" > "$cache/desktop$1"
+
 
 	    ;;
     esac
