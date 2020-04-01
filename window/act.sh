@@ -4,7 +4,7 @@
 WM="$($HOME/.scripts/window/getname.sh)"
 window="$(xdotool getactivewindow)"
 cache="$HOME/.scripts/window/.cache"
-tags="$cache/current"
+activetags="$cache/current"
 mkdir -p "$cache"
 
 
@@ -123,7 +123,7 @@ pick(){
 
 send(){
     #send window to desktop
-    #todo: nogroup
+
     case "$WM" in
 	bspwm)
 	    xdotool set_desktop_for_window "$window" $(($1 - 1))
@@ -132,7 +132,7 @@ send(){
 	    #something
 	    ;;
 	*)
-	    grep -q $1 "$tags" || xdotool set_desktop_for_window "$window" $1 #either it's currently shown or move it
+	    grep -q $1 "$activetags" || xdotool set_desktop_for_window "$window" $1 #either it's currently shown or move it
 	    sed -i "/$1/d" "$cache/desktop"* && echo success
 	    xdotool search --desktop $1 "" > "$cache/desktop$1"
 
@@ -143,11 +143,31 @@ send(){
 }
 
 
+getwindowsinworkspace(){ #start count at 0
+    case "$WM" in
+	bspwm)
+	    var="$(xdotool search --desktop "$1" "")"
+ #$(($1 - 1))" "")"
+	    ;;
+
+	cwm|CWM)
+	    var="$(cat "$cache/desktop$1")"
+	    
+
+	    ;;
+	*)
+	    #something
+
+    esac
+    echo $var
+}
+
+
 
 getworkspaces(){
     case "$WM" in
 	bspwm)
-	    var="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$9}' ); do echo -n "$i  "; done)"
+	    var="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do echo -n "$i  "; done)"
 	    ;;
 
 	cwm|CWM)
@@ -161,6 +181,8 @@ getworkspaces(){
     esac
     echo $var
 }
+
+
 
 
 
@@ -217,6 +239,9 @@ case "$1" in
 	;;
     --getworkspace*|--getdesktop*)
 	getworkspaces
+	;;
+    --getwindows*)
+	getwindowsinworkspace $2
 	;;
     --*actived*|--*activew*)
 	getactiveworkspaces
