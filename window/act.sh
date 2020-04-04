@@ -65,11 +65,26 @@ draw(){
 focus(){
     #show a desktop or window group
     #problem: this hides others as well. it should only toggle the visibility of the current group
+    case "$1" in
+	next|n)
+	    arg="$((1 + "$("$HOME/.scripts/window/act.sh" --getactivedesktop)"))"
+	    ;;
+	prev|p)
+	    arg="$(("$("$HOME/.scripts/window/act.sh" --getactivedesktop)" - 1))"
+	    ;;
+	
+	*)
+	    arg="$1"
+	    ;;
+
+    esac
+
+    
     case "$WM" in
 	bspwm)
-	    case $1 in
+	    case "$arg" in
 		[1-9])
-		    wmctrl -s "$(($1 - 1))"
+		    wmctrl -s "$(("$arg" - 1))"
 		    ;;
 		0|10)
 		    wmctrl -s 9
@@ -84,10 +99,10 @@ focus(){
 	
 	CWM|cwm)
 	    #sneakily implement tags
-	    $HOME/.scripts/window/jotted_workspace_toggle.sh $1 
+	    $HOME/.scripts/window/jotted_workspace_toggle.sh "$arg"
 	    ;;
 	*)
-	    wmctrl -s $1
+	    wmctrl -s "$arg"
 	    ;;
     esac
 }
@@ -184,7 +199,18 @@ getworkspaces(){
 
 
 
+getactiveworkspaces(){
+    case "$WM" in
+	bspwm)
+	    echo "$((1 + "$(wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ')"))"
+	    ;;
+	cwm|CWM|*)
+	    wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' '
+	    ;;
+	
 
+    esac
+}
 
 #todo: cwm focus $1 & hide other tags
 
