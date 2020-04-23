@@ -5,7 +5,7 @@
 #if there is no second argument, remove blank files
 
 folder="$1"
-[ -z $folder ] && folder=~/doc/productivity/days
+[ -z $folder ] && folder="$TD_DIR"
 
 pattern="$2"
 [ -z $pattern ] && pattern="to do|###|Calendar|got a sec?|^$"
