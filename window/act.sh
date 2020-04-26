@@ -18,7 +18,7 @@ close(){
 	    ;;
 
 	*)
-	    wmctrl -i -c "$window"
+	    xdotool windowclose "$window"
 
     esac
 }
