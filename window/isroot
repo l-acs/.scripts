@@ -1,0 +1,20 @@
+#!/bin/dash
+#get id of root window
+root=$(xdotool search --maxdepth 0 --class "") 
+
+
+
+#get coordinates, screen, and window id of what's under the mouse
+eval $(xdotool getmouselocation --shell)
+
+
+#compare
+
+if [ "$WINDOW" = "$root" ]; then
+    exit 0
+    
+else
+    exit 1
+
+fi
+
