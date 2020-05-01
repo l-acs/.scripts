@@ -67,10 +67,10 @@ focus(){
     #problem: this hides others as well. it should only toggle the visibility of the current group
     case "$1" in
 	next|n)
-	    arg="$((1 + "$("$HOME/.scripts/window/act.sh" --getactivedesktop)"))"
+	    arg="$(("$(getactiveworkspaces)" + 1))"
 	    ;;
 	prev|p)
-	    arg="$(("$("$HOME/.scripts/window/act.sh" --getactivedesktop)" - 1))"
+	    arg="$(("$(getactiveworkspaces)" - 1))"
 	    ;;
 	
 	*)
