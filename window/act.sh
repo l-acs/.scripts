@@ -255,7 +255,8 @@ showthumbnail(){
     eval $(xdotool getmouselocation --shell)
     
     
-    Y=$((Y+20)) #problematic: this assumes the bar is on the top
+    #Y=$((Y+20)) #problematic: this assumes the bar is on the top
+    Y=25
     X=$((X-thumbwidth/2)) #problematic: this assumes the workspaces are on the left
     #instead, checks should be done against the screen resolution
 
