@@ -1,0 +1,24 @@
+#!/bin/sh
+
+monitor=$(xrandr -q | grep " connected" | cut -f1 -d ' ')
+current=$(for i in $monitor; do xrandr --verbose | grep $i -A 5 | tail -n 1 | cut -f2 -d ' '; done)
+echo "$1"
+val="$1"
+case "$1" in
+    '+')
+	val="$(echo "$current + 0.1" | bc)"
+	;;
+
+    '-')
+	val="$(echo "$current - 0.1" | bc)"
+	;;
+esac
+     
+
+echo "$val"
+
+xrandr --output VGA-1 --brightness "$val"
+
+
+
+
