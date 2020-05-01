@@ -8,6 +8,19 @@ activetags="$cache/current"
 mkdir -p "$cache"
 
 
+capture(){
+    echo "Capturing..."
+    scrot -o "$cache"/thumbnails/"$(getactiveworkspaces)".png
+
+
+}
+
+
+capturefocuscapture(){
+    capture && focus "$1" && capture
+
+ }
+
 
 
 
@@ -212,6 +225,59 @@ getactiveworkspaces(){
     esac
 }
 
+
+showthumbnail(){
+    case "$WM" in
+	bspwm)
+	    bspc rule -a workspacethumbnail -o manage=off
+	    ;;
+
+    esac
+
+    file="$cache/thumbnails/$1.png" 
+
+
+    
+    #figure out window size
+    width="$(feh -L '%w' "$file")"
+    height="$(feh -L '%h' "$file")"
+    thumbwidth=250
+
+    #yuck math in the shell. there's _hopefully_ a better way to do this, but this was faster than continuing to dig for what that is.
+    scale="$(echo "scale=3;$width/$thumbwidth" | bc)"
+    thumbheight="$(echo "$height/$scale" | bc)"
+
+
+    #figure out window location
+    eval $(xdotool getmouselocation --shell)
+    
+    
+    Y=$((Y+20)) #problematic: this assumes the bar is on the top
+    X=$((X-thumbwidth/2)) #problematic: this assumes the workspaces are on the left
+    #instead, checks should be done against the screen resolution
+
+
+    [ "$X" -lt 10 ] && X=10    
+    
+
+    # is there a way to call feh so that any keypress will kill the window?
+    feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$X+$Y -.
+
+
+    
+    }
+
+
+hidethumbnail(){
+
+    pkill -f workspacethumbnail
+
+}
+
+
+
+
+
 #todo: cwm focus $1 & hide other tags
 
 
@@ -271,6 +337,18 @@ case "$1" in
 	;;
     --*actived*|--*activew*)
 	getactiveworkspaces
+	;;
+    --capture|--thumbnail)
+	capture
+	;;
+    --capturefocuscapture)
+	capturefocuscapture $2
+	;;
+    --showthumbnail)
+	showthumbnail $2
+	;;
+    --hidethumbnail)
+	hidethumbnail
 	;;
     *)
 	helpme
