@@ -17,6 +17,7 @@ capture(){
 
 
 capturefocuscapture(){
+    hidethumbnail
     capture && focus "$1" && capture
 
  }
@@ -227,6 +228,8 @@ getactiveworkspaces(){
 
 
 showthumbnail(){
+    hidethumbnail
+    
     case "$WM" in
 	bspwm)
 	    bspc rule -a workspacethumbnail -o manage=off
@@ -260,9 +263,9 @@ showthumbnail(){
     [ "$X" -lt 10 ] && X=10    
     
 
-    # is there a way to call feh so that any keypress will kill the window?
-    feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$X+$Y -.
-
+    # TODO: change feh call so any keypress will kill the window
+    feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$X+$Y -. &
+    sleep 2.5 && hidethumbnail &
 
     
     }
