@@ -1,5 +1,10 @@
 #!/bin/dash
-file="$(find $MUSIC -wholename "*$(mpc status | sed q | sed 's/[]()[]/\\&/g' | sed 's|/|*|g')*" | sed q)"
+
+# load the cover art of the currently playing song
+
+# the file currently playing
+file="$MUSIC/$( mpc current -f '%file%' )"
+
 if [ -f "$file" ]; then
     ffmpeg -i "$file" ~/.scripts/output/cover.jpg -y 2>/dev/null &&
 	notify-send --icon="$HOME/.scripts/output/cover.jpg" "$(mpc status | sed q | sed 's/ - /\n/')"
