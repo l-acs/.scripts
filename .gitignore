@@ -15,13 +15,8 @@ input/man.txt
 .jot
 .jsel-backup
 man.pdf
-output/cover.jpg
-output/dirnames.txt
-output/filenames.txt
-output/man.pdf
-output/man.ps
-output/primsel.log
-output/screenshot.png
-output/torrent.log
+output
+output/
+output/*
 window/.cache
 .testing
