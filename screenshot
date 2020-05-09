@@ -1,15 +1,19 @@
 #!/bin/sh
 
-input=$(xrectsel)
-size=$(echo $input  | cut -f1 -d '+')
-loc=$(echo $input  | cut -f2- -d '+')
-#echo $loc
+DATEFORMAT='%m-%d-%y_%H:%M:%S'
+PROMPT="Enter a name for your screenshot"
+tmp="$PICTURE/grab/tmp.png"
 
-#newloc="$(echo $loc | cut -f1 -d '+')+$(($(echo $loc | cut -f2 -d '+') + 50))"
-#echo $newloc
-if [ -n "$1" ]; then
-	arg="$1"
-else
-	arg="$HOME/.scripts/output/screenshot.png"
-fi
-ffmpeg -y -s $size -f x11grab -i :0.0+$newloc "$arg" 2> /dev/null
+promptname(){
+    input="$(echo "$(date +"$DATEFORMAT")" | rofi -dmenu -p "$PROMPT" | tr -s '[:blank:]' '_')"
+
+    echo $input | grep -E '\.(png|jpe?g)$' || echo $input.png
+
+}
+
+
+scrot "$tmp" --line style=dash $*
+ if [ -f "$tmp" ]; then
+     name=$(promptname)
+     mv "$tmp" "$PICTURE/grab/$name"
+ fi
