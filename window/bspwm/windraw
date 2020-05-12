@@ -1,5 +1,4 @@
 #!/bin/sh
-#not adjusted since cwm!!!
 
 selection="$(xdotool getactivewindow)"
 [ "$1" = "select" ] && selection="$(xdotool selectwindow)" && shift 1
