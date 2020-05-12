@@ -1,0 +1,8 @@
+#!/bin/dash
+
+
+if $(isroot); then
+    clickbait #context menu
+else
+    xdotool click 3
+fi
