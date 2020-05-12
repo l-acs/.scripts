@@ -1,0 +1,19 @@
+#!/bin/sh
+
+case "$*" in
+    "")
+	if $(bspc rule -l | grep -q '*:* => state=floating') ; then
+	    bspc rule -r ^$(bspc rule -l | wc -l)  #remove the rule
+	else
+	    bspc rule -a \*:\* state=floating 
+	fi
+	;;
+    "floating")
+	bspc rule -a \*:\* state=floating
+	;;
+    *)
+	if $(bspc rule -l | grep -q '*:* => state=floating') ; then
+	    bspc rule -r ^$(bspc rule -l | wc -l)  #remove the rule
+	fi
+
+esac
