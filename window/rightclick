@@ -1,8 +1,0 @@
-#!/bin/dash
-
-
-if $(isroot); then
-    clickbait #context menu
-else
-    sleep 0.15 && xdotool getwindowfocus click 3
-fi
