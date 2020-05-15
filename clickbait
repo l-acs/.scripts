@@ -6,7 +6,7 @@
       Window:'9menu $NINEFLAGS \
       	      Kill:~/.scripts/window/cwm/"winkill select" \
       	      Resize:~/.scripts/window/bspwm/windraw \
-	      Select:"rofi -show \"combi\" -switchers combi -combi-modi \"window,drun,surf:~/.scripts/surfrofi\" -show-icons"' \
+	      Select:"rofi -show \"combi\" -switchers combi -combi-modi \"window,drun,surf:surfrofi\" -show-icons"' \
       Plumb:"plumb --keybind" \
       Editor:"$VISUAL"\
       Programs:'9menu $NINEFLAGS \
@@ -18,9 +18,4 @@
       	  Pomo:"$HOME/.scripts/window/cwm/pomolaunch" \
 	  To-do:"tdsel" \
 	  Notes:"jsel" '  
-#      OCR:"$HOME/.scripts/cwm/ocr"
-#      Terminal:"$TERMINAL" \
 
-#urxvt -e neomutt
-#surfdmenu
-#urxvt
