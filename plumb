@@ -28,7 +28,7 @@ leave(){
 
 #if the argument is --dmenu, or if both primsel and and clipboard empty, pipe logged primary selections as input
 if echo "$@" | grep -q "dmenu" || [ -z "$selection" ]; then
-	selection="$(sort -r "$logfile" | dmenu -i -p "Select input")"
+	selection="$(sort -r "$logfile" | rofi -dmenu -i -p "Select input")"
 fi
 
 #if it's still empty, empty primary sel and exit with error
@@ -58,7 +58,7 @@ if [ -f "$selection" ]; then xdg-open "$selection" &>/dev/null & disown && leave
 if [ -d "$selection" ]; then urxvtcd "$selection" & disown && leave && exit; fi
 
 
-action="$(echo -e "$dmenu_options" | dmenu -i -p 'Choose an action')"
+action="$(echo -e "$dmenu_options" | rofi -dmenu -i -p 'Choose an action')"
 patternmatch="$(cat "$engines" | tr -s "[:blank:]" ' ' | grep "^$(echo "$action" | cut -f1 -d ' ') ")"
 
 #if nothing is selected, clear prim sel and exit
