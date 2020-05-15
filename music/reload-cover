@@ -7,6 +7,6 @@ file="$MUSIC/$( mpc current -f '%file%' )"
 
 if [ -f "$file" ]; then
     ffmpeg -i "$file" ~/.scripts/output/cover.jpg -y 2>/dev/null &&
-	notify-send --icon="$HOME/.scripts/output/cover.jpg" "$(mpc status | sed q | sed 's/ - /\n/')"
+	notify-send --icon="$HOME/.scripts/output/cover.jpg" "$(mpc current -f '%title%\n%artist%')"
     
 fi
