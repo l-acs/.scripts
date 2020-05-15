@@ -1,24 +1,25 @@
 #!/bin/bash
 
-selection="$(xsel | grep -v '^\ No newline at end of selection')"
+selection="$(xsel)"
 logfile="$HOME/.scripts/output/primsel.log"
 search="duckduckgo.com/?q="
-bookmarks="$HOME/.surf/bookmarks-nicknames.txt"
-engines="$HOME/.surf/engines-nicknames.txt"
+bookmarks="$HOME/.surf/bookmarks-nicknames.txt" # TODO: switch to env var
+engines="$HOME/.surf/engines-nicknames.txt" # TODO: switch to env
 
-#touch "$logfile"
+# this is a mess. it's decently commented though
 
-remove_duplicates(){
-	#deletes all but latest instance of duplicates in logfile
+remove_duplicates()
+{
+	# deletes all but latest instance of duplicates in logfile
 	cat -n "$logfile" | sort -rn | sort -uk2 | sort -nk1 | cut -f2- > tmpfile && mv tmpfile "$logfile"
 }
 
 
-leave(){
+leave()
+{
 	[ -n "$selection" ] && echo "$selection" >> "$logfile"
 	[ "$action" = 'snarf' ] || xsel -pc 
 	remove_duplicates
-
 }
 
 
@@ -26,7 +27,7 @@ leave(){
 #if prim sel empty, use the clipboard
 [ -z "$selection" ] && selection="$(xsel -b | grep -v '^\ No newline at end of selection')"
 
-#if the argument is --dmenu, or if both primsel and and clipboard empty, pipe logged primary selections as input
+#if the argument is --dmenu, or if both primsel and clipboard empty, pipe logged primary selections as input
 if echo "$@" | grep -q "dmenu" || [ -z "$selection" ]; then
 	selection="$(sort -r "$logfile" | rofi -dmenu -i -p "Select input")"
 fi
@@ -41,13 +42,12 @@ fi
 
 #if the active window is urxvt and the script was called via a keybinding, try running plumb from the terminal (for local paths)
 winname="$(xdotool getactivewindow getwindowname)"
-#echo $winname
+
 ( [ "$winname" = "urxvt" ] || [ "$winname" = "tmux" ] || [ "$winname" = "zsh" ] ) && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p l u m b Return && exit
 
 options='man emacs feh clone locate run td jot surf vdl-sub firefox mpv search snarf'
 dmenu_options=""
 
-#for i in $options; do echo $i; done
 for i in $options; do dmenu_options="$i\n$dmenu_options"; done
 dmenu_options=$dmenu_options$(cat "$engines" | cut -f1)
 
@@ -64,35 +64,34 @@ patternmatch="$(cat "$engines" | tr -s "[:blank:]" ' ' | grep "^$(echo "$action"
 #if nothing is selected, clear prim sel and exit
 [ -z "$action" ] && leave  && exit 1
 
-if [ "$action" = 'run' ]
-then 
-	$selection
-elif [ "$action" = 'snarf' ] 
-then 
-	echo "$selection" | xsel -bi
+#if action was found among search engines, set action to 'search'
+[ -n "$patternmatch" ] && action=search
 
-elif [ "$action" = 'man' ] 
-then 
-	man -Tpdf "$selection" | zathura - #> ~/.scripts/output/man.pdf
+case "$action" in
+    run)
+	$selection ;; 
 
-elif [ "$action" = 'clone' ]
-then
-	(cd ~/.programs/ ; git clone "$selection")
+    snarf)
+	echo "$selection" | xsel -bi ;;
 
-elif [ "$action" = 'vdl-sub' ]
-then
-	source ~/.bashrc
-	vdl-sub "$selection"
+    man)
+	man -Tpdf "$selection" | zathura - ;; #> ~/.scripts/output/man.pdf
 
-elif [ -n "$patternmatch" ] || [ "$action" = 'search' ]
-then
+    clone)
+	(cd ~/.programs/ ; git clone "$selection") ;;
+
+    vdl-sub)
+	source ~/.zshrc
+	vdl-sub "$selection" ;;
+
+    search)
 	#if the first word of the selection is among a user's listed search engines, use that URL for search
 	[ -n "$patternmatch" ] && search="$(echo "$patternmatch" | cut -f2 -d ' ')"
-	
-	surf "$search$selection" 2>/dev/null
+	surf "$search$selection" 2>/dev/null ;;
 
-else 
-	$action $selection & disown
-fi
+    *)
+	$action $selection & disown ;;
+    
+esac
 
 leave
