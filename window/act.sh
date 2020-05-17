@@ -20,7 +20,7 @@ capturefocuscapture(){
     hidethumbnail
     capture && focus "$1" && capture
 
- }
+}
 
 
 
@@ -147,7 +147,7 @@ kill(){
 }
 
 pick(){
-	  xdotool selectwindow
+    xdotool selectwindow
 }
 
 send(){
@@ -176,7 +176,7 @@ getwindowsinworkspace(){ #start count at 0
     case "$WM" in
 	bspwm)
 	    var="$(xdotool search --desktop "$1" "")"
- #$(($1 - 1))" "")"
+	    #$(($1 - 1))" "")"
 	    ;;
 
 	cwm|CWM)
@@ -244,32 +244,34 @@ showthumbnail(){
     #figure out window size
     width="$(feh -L '%w' "$file")"
     height="$(feh -L '%h' "$file")"
-    thumbwidth=250
+    thumbwidth=248
 
     #yuck math in the shell. there's _hopefully_ a better way to do this, but this was faster than continuing to dig for what that is.
     scale="$(echo "scale=3;$width/$thumbwidth" | bc)"
     thumbheight="$(echo "$height/$scale" | bc)"
 
-
-    #figure out window location
+ 
+    #figure out mouse location
     eval $(xdotool getmouselocation --shell)
     
     
-    #Y=$((Y+20)) #problematic: this assumes the bar is on the top
-    Y=25
-    X=$((X-thumbwidth/2)) #problematic: this assumes the workspaces are on the left
+    winX=$((X-thumbwidth/2)) #problematic: this assumes the workspaces are on the left #1100
+    winY=25
+    #winY=$((Y+20)) #problematic: this assumes the bar is on the top
+    
     #instead, checks should be done against the screen resolution
 
 
-    [ "$X" -lt 10 ] && X=10    
+    [ "$winX" -lt 10 ] && winX=10    
+    
     
 
     # TODO: change feh call so any keypress will kill the window
-    feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$X+$Y -. &
+    [ $Y -lt 25 ] && [ $X -lt 500 ] && feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$winX+$winY -. &
     sleep 2.5 && hidethumbnail &
 
     
-    }
+}
 
 
 hidethumbnail(){
@@ -361,4 +363,4 @@ case "$1" in
 esac
 
 exit 0
-       
+
