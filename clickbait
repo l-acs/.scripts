@@ -1,6 +1,5 @@
 #!/bin/dash
-#the follow line has its flaws. A better solution would be ideal.
-#. ~/.zshrc #dash does not support "source"
+
 9menu $NINEFLAGS \
       Browse:"9browse.sh" \
       Window:'9menu $NINEFLAGS \
