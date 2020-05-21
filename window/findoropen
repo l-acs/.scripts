@@ -1,9 +1,6 @@
 #!/bin/sh
 
-# Find open instances of a program, opening it if it does not exist. If there is more than one argument, all arguments are searched (in descending order of priority). If the last argument is also found, it is opened.
-
-
-alias recur='shift 1; $(basename $0) $*'
+# If there is more than one argument, all arguments are searched (stopping at the first found). If the last argument is also not found, it is opened.
 
 function wasRunFromTerminal(){
     # return successfully if run from terminal
