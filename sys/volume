@@ -25,10 +25,10 @@ case $1 in
 	echo $current
 	;;
     \+|up)
-	pacmd set-sink-volume $sink $(( current + factor * step))
+	"$(basename $0)" $(( current / factor + step))
 	;;
     -|down)
-	pacmd set-sink-volume $sink $(( current - factor * step))
+	"$(basename $0)" $(( current / factor - step))
 	;;
     mute|unmute|toggle)
 	arg=$(echo $1 | sed -e 's/unmute/0/' -e 's/mute/1/')
