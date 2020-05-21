@@ -267,7 +267,7 @@ showthumbnail(){
     
 
     # TODO: change feh call so any keypress will kill the window
-    [ $Y -lt 25 ] && [ $X -lt 500 ] && feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$winX+$winY -. &
+    [ $Y -lt 25 ] && [ $X -lt 350 ] && feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$winX+$winY -. &
     sleep 2.5 && hidethumbnail &
 
     
