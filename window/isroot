@@ -6,4 +6,4 @@ root=$(xdotool search --maxdepth 0 --class "")
 eval $(xdotool getmouselocation --shell)
 
 #compare
-[ "$WINDOW" = "$root" ]; exit $?
+[ "$WINDOW" = "$root" ]
