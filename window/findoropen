@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# Find open instances of a program, opening it if it does not exist. If there is more than one argument, all arguments are searched (in descending order of priority). If the last argument is also found, it is opened.
+
+
+alias recur='shift 1; $(basename $0) $*'
+
+function wasRunFromTerminal(){
+    # return successfully if run from terminal
+    [ -t 0 -o -p /dev/stdin ] # maybe omit pipe part?
+}
+
+
+function openInTerminal(){
+    if $(wasRunFromTerminal); then
+	$1
+    else
+	$1 &   # try opening it
+	if [ ! $(xdotool search $1) ]; then #&& pgrep -x $1; then
+	    # it exists but isn't a window
+	    pkill -x $1 
+	    urxvt -e $1 &
+	fi
+    fi
+    
+}
+
+
+
+function search(){
+    # imperfect: does not detect `ncmpcpp`s, `vim`s opened from the command line
+    case $# in
+	1)
+	    xdotool search "$1" windowactivate || openInTerminal $1
+	    ;;
+	*)
+	    xdotool search "$1" windowactivate ||
+		(shift 1 &&
+		     search $*)
+	    ;;
+    esac
+}
+
+
+
+search $*
+
+
+
+
