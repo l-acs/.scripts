@@ -5,12 +5,14 @@ WM="$($HOME/.scripts/window/getname.sh)"
 window="$(xdotool getactivewindow)"
 cache="$HOME/.scripts/window/.cache"
 activetags="$cache/current"
+thumbquality=100
 mkdir -p "$cache"
 
 
 capture(){
     echo "Capturing..."
-    scrot -o "$cache"/thumbnails/"$(getactiveworkspaces)".png
+    # higher quality makes this faster. It means less effort spent on compression, which means less time spent before scrot returns
+    scrot -q $thumbquality -o "$cache"/thumbnails/"$(getactiveworkspaces)".png
 
 
 }
