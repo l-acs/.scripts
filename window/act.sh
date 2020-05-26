@@ -6,13 +6,18 @@ window="$(xdotool getactivewindow)"
 cache="$HOME/.scripts/window/.cache"
 activetags="$cache/current"
 thumbquality=100
-mkdir -p "$cache"
+mkdir -p "$cache/thumbnails"
 
 
 capture(){
     echo "Capturing..."
     # higher quality makes this faster. It means less effort spent on compression, which means less time spent before scrot returns
-    scrot -q $thumbquality -o "$cache"/thumbnails/"$(getactiveworkspaces)".png
+    tmp="$cache"/thumbnails/temp.png
+    scrot -q $thumbquality -o "$tmp"
+    for i in $(getactiveworkspaces); do
+	cp "$tmp" "$cache/thumbnails/$i.png"
+    done
+    
 
 
 }
@@ -115,7 +120,8 @@ focus(){
 	
 	CWM|cwm)
 	    #sneakily implement tags
-	    $HOME/.scripts/window/jotted_workspace_toggle.sh "$arg"
+	    #$HOME/.scripts/window/jotted_workspace_toggle.sh "$arg"
+	    group --tog $arg
 	    ;;
 	*)
 	    wmctrl -s "$arg"
@@ -162,6 +168,10 @@ send(){
 	i3)
 	    #something
 	    ;;
+	cwm|CWM)
+	    group --add $1 $(pfw)
+	    ;;
+	
 	*)
 	    grep -q $1 "$activetags" || xdotool set_desktop_for_window "$window" $1 #either it's currently shown or move it
 	    sed -i "/$1/d" "$cache/desktop"* && echo success
@@ -220,7 +230,10 @@ getactiveworkspaces(){
 	bspwm)
 	    echo "$((1 + "$(wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ')"))"
 	    ;;
-	cwm|CWM|*)
+	cwm|CWM)
+	    group -l | tr '\t' ' ' | cut -f1 -d' ' | cut -f2 -d'_'
+	    ;;
+	*)
 	    wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' '
 	    ;;
 	
