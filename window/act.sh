@@ -38,6 +38,9 @@ close(){
 	    bspc node "$window" -c
 	    ;;
 
+	awesome|CWM)
+	    wmctrl -c :ACTIVE:
+	    ;;
 	*)
 	    xdotool windowclose "$window"
 
