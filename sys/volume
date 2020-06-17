@@ -10,10 +10,10 @@ fi
 
 
 
-MAX=65537
+MAX=150000
 MAX_PERCENT=150
 factor=$((MAX / MAX_PERCENT))
-step=5
+step=2
 current="$( pacmd list-sinks | grep 'volume' | tr -d '\t' | cut -f3 -d' ' | sed 1q )"
 
 sink='@DEFAULT_SINK@'
@@ -46,7 +46,7 @@ case $1 in
 		echo 'Percent must be greater than or equal to 0'
 	    fi
 	else
-	    echo 'Percent must be less than or equal to 150'
+	    echo "Percent must be less than or equal to $MAX_PERCENT"
 	    exit 2
 	fi	
 	;;
