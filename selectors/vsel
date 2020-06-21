@@ -1,6 +1,6 @@
 #!/bin/zsh
 source ~/.zshrc
-input="$(du -a "$VIDEO" | cut -f2- | grep -vE "\.vtt$|\.srt$|\.jpg$|\.png$|\.txt$|\.aria2$|\.part$|\.log$" | cut -d '/' -f6- | rofi -dmenu -i -l 30 -p 'Select a video')"
-#echo "$VIDEO/$input"
+input="$(du -a "$VIDEO" | cut -f2- | grep -vE "\.vtt$|\.srt$|\.jpg$|\.png$|\.txt$|\.aria2$|\.part$|\.log$" | sed "s|^$VIDEO/||" | rofi -dmenu -i -l 30 -p 'Select a video')"
+echo "$VIDEO/$input"
 [ -n "$input" ] && mpvc add "$VIDEO/$input" -- --force-window #--input-file=~/.config/mpv/fifo
 
