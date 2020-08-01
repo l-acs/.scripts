@@ -1,11 +1,12 @@
 #!/bin/bash
+connected="$(nordvpn status | grep -v Dis)"
 log="$HOME/.scripts/output/torrent.log"
-movies_dir="$HOME/Media/videos/movies"
+movies_dir="$HOME/Videos/movies"
 magnet_file="$HOME/.scripts/input/magnets.txt"
 mkdir -p "$movies_dir" "$(dirname "$log")"
 rm "$log"
 cd "$movies_dir"
-nordvpn connect >> "$log" && aria2c --seed-time=0 -i "$magnet_file" >> "$log"
+( [ -n "$connected" ]  || nordvpn connect >> "$log" ) && aria2c --seed-time=0 -i "$magnet_file" >> "$log"
 #add autocomment all lines at end
 sed -i 's/^[A-z]/#&/' "$magnet_file"
-nordvpn disconnect >> "$log"
+[ -n "$connected" ] || nordvpn disconnect >> "$log"
