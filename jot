@@ -4,17 +4,17 @@
 #a command line annotation system
 #usage:
 # 1: jot -n file.ext	#create file.ext in specified jot location
-# 2: jot -n file		#create file.txt in specified jot location
+# 2: jot -n file		#create file.md in specified jot location
 
-# 3: jot		#open location/jot.txt
+# 3: jot		#open location/jot.md
 # 4: jot list.ext	#if location/list.ext is a file, open it
-# 5: jot list		#if location/list.txt is a file, open it
+# 5: jot list		#if location/list.md is a file, open it
 
 
 
 # 6: jot list.ext text as arguments	#if location/list.ext is a file, add 'text as arguments' to it
-# 7: jot list text as arguments	#if location/list.txt is a file, add 'text as arguments' to it
-# 8: jot text as arguments		#if location/text and location/text.txt (i.e. $1 or $1.txt) are not files, add 'text as arguments' to location/jot.txt
+# 7: jot list text as arguments	#if location/list.md is a file, add 'text as arguments' to it
+# 8: jot text as arguments		#if location/text and location/text.md (i.e. $1 or $1.md) are not files, add 'text as arguments' to location/jot.md
 
 #this script could be POSIX compliant, except the string indexing used to get all but the first argument
 
@@ -23,7 +23,7 @@ arguments="${*:2}"
 ed=xdg-open
 first_ed="$VISUAL"
 echo "$@" | grep -q '\-v' && ed="$EDITOR" && arguments="$(echo "$arguments" | sed 's/-v //' | sed 's/-v//')" #if there's a -v flag, remove it from $arguments and set the editor to vim
-[ "$1" = '\-v' ] && shift 1 && echo success #doesn't work
+#[ "$1" = '\-v' ] && shift 1 && echo success #doesn't work
 #echo $1 $@ $#
 #echo $ed
 #echo $arguments
@@ -40,7 +40,7 @@ then
 		exit
 	else
 		#case 2: should this open it, too?
-		touch "$loc/$arguments.txt"; $first_ed "$loc/$arguments.txt" &>/dev/null & disown
+		$first_ed "$loc/$arguments.md" &>/dev/null & disown
 		 exit
 	fi
 
@@ -51,7 +51,7 @@ fi
 #case 3
 if [ $# -eq 0 ]
 then
-	$ed "$loc/jot.txt" &>/dev/null & disown
+	$first_ed "$loc/jot.md" &>/dev/null & disown
 	exit
 fi
 
@@ -63,9 +63,9 @@ fi
 
 
 #case 7: should this use the -e flag or a compliant equivalent thereof?
-if [ -e "$loc/$1.txt" -a -n "$arguments" ]	#shellcheck says to make this [ cond1 ] && [ cond2 ] because "-a is not well defined"
+if [ -e "$loc/$1.md" -a -n "$arguments" ]	#shellcheck says to make this [ cond1 ] && [ cond2 ] because "-a is not well defined"
 then
-	echo "$arguments" >> "$loc/$1.txt"; exit
+	echo "$arguments" >> "$loc/$1.md"; exit
 fi
 
 #case 4
@@ -76,9 +76,9 @@ then
 fi
 
 #case 5
-if [ -e "$loc/$1.txt" ]
+if [ -e "$loc/$1.md" ]
 then
-	$ed "$loc/$1.txt" &>/dev/null & disown
+	$first_ed "$loc/$1.md" &>/dev/null & disown
 	exit
 fi
 
@@ -86,7 +86,7 @@ fi
 
 
 #case 8
-echo "$@" | sed 's/-v //' | sed 's/-v//' >> "$loc/jot.txt"
+echo "$@" | sed 's/-v //' | sed 's/-v//' >> "$loc/jot.md"
 
 
 

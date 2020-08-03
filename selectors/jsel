@@ -4,7 +4,7 @@ rel_path=""
 flags=""
 dmenubrowse(){
 	input="$(cd "$jot_dir$rel_path" && ls -p \
-		| sed -e 's/.txt//' -e '/^\.$/d' -e '/#/d' -e '/~/d' -e 's|^\./||' | sort \
+		| sed -e 's/.md$//' -e '/^\.$/d' -e '/#/d' -e '/~/d' -e 's|^\./||' | sort \
 		| dmenu -p 'Enter a note')"
 
 	if [ -n "$input" ]; then 

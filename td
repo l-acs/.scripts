@@ -3,7 +3,7 @@ FLAGS=$(for arg; do echo $arg | grep "^-"; done)
 NONFLAGS=$(for arg; do echo $arg | grep "^-" -v; done)
 DATE_CMD="date"
 INPUT=$NONFLAGS
-ed="emacs +1000"
+ed="$VISUAL +1000"
 [ "$FLAGS" = "-v" ] && ed="vim"
 [ "$FLAGS" = "--vim" ] && ed="vim"
 
@@ -23,6 +23,5 @@ FILEPATH="$TD_DIR/$FILE_FORMAT.txt" #file path with correct name
 [[ $DATE_CMD != "date -d $INPUT" ]] && [[ -n $INPUT ]] && echo - $INPUT >> "$FILEPATH" && FLAGS="--novim"
 #the above is a quirk due to cut: `td yesterday` added "yesterday" to yesterday's to-do
 
-#if there is no "--novim" flag, open the file in vim with cursor on the last line
-#[[ $FLAGS != "--novim" ]] && vim "$FILEPATH" +
-[[ $FLAGS != "--novim" ]] && $ed "$FILEPATH" #+
+#if there is no "--novim" flag, open the file in $ed with the cursor on the last line
+[[ $FLAGS != "--novim" ]] && $ed "$FILEPATH" 
