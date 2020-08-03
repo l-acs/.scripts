@@ -20,8 +20,8 @@ FILEPATH="$TD_DIR/$FILE_FORMAT.txt" #file path with correct name
 [[ ! -f $FILEPATH ]] && echo -e "$HEADER_FORMAT - to do:\n\n\n\n\n###\nCalendar:\n" > "$FILEPATH"
 
 #if input is not simply the date (and there is an input), add input to the file as a todo and don't open in vim
-[[ $DATE_CMD != "date -d $INPUT" ]] && [[ -n $INPUT ]] && echo - $INPUT >> "$FILEPATH" && FLAGS="--novim"
+[[ $DATE_CMD != "date -d $INPUT" ]] && [[ -n $INPUT ]] && echo - $INPUT >> "$FILEPATH" && FLAGS="--noedit"
 #the above is a quirk due to cut: `td yesterday` added "yesterday" to yesterday's to-do
 
-#if there is no "--novim" flag, open the file in $ed with the cursor on the last line
-[[ $FLAGS != "--novim" ]] && $ed "$FILEPATH" 
+#if there is no "--noedit" flag, open the file in $ed with the cursor on the last line
+[[ $FLAGS != "--noedit" ]] && $ed "$FILEPATH" 
