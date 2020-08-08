@@ -2,9 +2,9 @@
 
 selection="$(xsel)"
 logfile="$HOME/.scripts/output/primsel.log"
-search="duckduckgo.com/?q="
-bookmarks="$HOME/.surf/bookmarks-nicknames.txt" # TODO: switch to env var
-engines="$HOME/.surf/engines-nicknames.txt" # TODO: switch to env
+engine="duckduckgo.com/?q="
+#bookmarks="$HOME/.surf/bookmarks-nicknames.txt" # TODO: switch to env var
+#engines="$HOME/.surf/engines-nicknames.txt" # TODO: switch to env
 
 # this is a mess. it's decently commented though
 
@@ -45,11 +45,11 @@ winname="$(xdotool getactivewindow getwindowname)"
 
 ( [ "$winname" = "urxvt" ] || [ "$winname" = "tmux" ] || [ "$winname" = "zsh" ] ) && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p l u m b Return && exit
 
-options='man emacs feh clone locate run td jot surf vdl-sub firefox mpv search snarf'
+options='man emacs feh clone locate run td jot vdl-sub firefox mpv search snarf'
 dmenu_options=""
 
 for i in $options; do dmenu_options="$i\n$dmenu_options"; done
-dmenu_options=$dmenu_options$(cat "$engines" | cut -f1)
+#dmenu_options=$dmenu_options$(cat "$engines" | cut -f1)
 
 #if selection is a file: open it in default application, log and clear prim sel, and exit
 if [ -f "$selection" ]; then xdg-open "$selection" &>/dev/null & disown && leave && exit; fi
@@ -86,8 +86,8 @@ case "$action" in
 
     search)
 	#if the first word of the selection is among a user's listed search engines, use that URL for search
-	[ -n "$patternmatch" ] && search="$(echo "$patternmatch" | cut -f2 -d ' ')"
-	surf "$search$selection" 2>/dev/null ;;
+	[ -n "$patternmatch" ] && engine="$(echo "$patternmatch" | cut -f2 -d ' ')"
+	firefox --new-tab "$engine$selection" 2>/dev/null & disown;;
 
     *)
 	$action $selection & disown ;;
