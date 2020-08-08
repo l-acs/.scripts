@@ -1,0 +1,11 @@
+#!/bin/dash
+#get id of matching windows
+for i in $*; do
+    apps=$apps$(xdotool search --maxdepth 1 --class "$i")
+done
+
+#get coordinates, screen, and window id of what's under the mouse
+eval $(xdotool getmouselocation --shell)
+
+#compare
+echo $apps | grep -q "$WINDOW"
