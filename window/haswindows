@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ "$(bspc query -d focused -N)" ]
