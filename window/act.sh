@@ -105,7 +105,7 @@ focus(){
 
     
     case "$WM" in
-	bspwm)
+	bspwm|awesome)
 	    case "$arg" in
 		[1-9])
 		    wmctrl -s "$(("$arg" - 1))"
@@ -251,12 +251,19 @@ showthumbnail(){
     case "$WM" in
 	bspwm)
 	    bspc rule -a workspacethumbnail -o manage=off
+	    file="$cache/thumbnails/$1.png"
+	    ;;
+	awesome)
+	    file="$cache/thumbnails/$(($1 - 1)).png"
+	    ;;
+	*)
+	    file="$cache/thumbnails/$1.png"
 	    ;;
 
     esac
 
-    file="$cache/thumbnails/$1.png" 
 
+    
 
     
     #figure out window size
