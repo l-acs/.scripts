@@ -1,6 +1,7 @@
 #!/bin/sh
 
-#perform actions on a window, according to the current WM
+# perform actions on a window, according to the current WM
+
 WM="$($HOME/.scripts/window/getname.sh)"
 window="$(xdotool getactivewindow)"
 cache="$HOME/.scripts/window/.cache"
@@ -13,10 +14,16 @@ capture(){
     echo "Capturing..."
     # higher quality makes this faster. It means less effort spent on compression, which means less time spent before scrot returns
     tmp="$cache"/thumbnails/temp.png
-    scrot -q $thumbquality -o "$tmp"
-    for i in $(getactiveworkspaces); do
-	cp "$tmp" "$cache/thumbnails/$i.png"
-    done
+    if bspc query -d focused -N; then
+	scrot -q $thumbquality -o "$tmp"
+	for i in $(getactiveworkspaces); do
+	    cp "$tmp" "$cache/thumbnails/$i.png"
+	done
+    else
+	for i in $(getactiveworkspaces); do
+	    rm "$cache/thumbnails/$i.png"
+	done
+    fi
     
 
 
@@ -25,7 +32,9 @@ capture(){
 
 capturefocuscapture(){
     hidethumbnail
-    capture && focus "$1" && capture
+    capture
+    focus "$1"
+    capture
 
 }
 
