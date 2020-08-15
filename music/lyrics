@@ -1,0 +1,17 @@
+#!/bin/sh
+
+title=$(mpc -f %title% current)
+artist=$(mpc -f %artist% current)
+album_artist=$(mpc -f %albumartist% current)
+[ -z "$album_artist" ] && album_artist=$artist
+file="$MUSIC/.lyrics/$artist - $title.txt"
+
+if [ -s "$file" ]; then
+    exit 0
+elif [ -f "$file" ]; then
+    echo Lyrics not found successfully on last run. && exit 1
+else
+    clyrics $album_artist $title > "$file" 
+fi
+
+[ -s "$file" ] || (echo Lyrics not found successfully. && exit 2)
