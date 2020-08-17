@@ -4,29 +4,27 @@
 #a command line annotation system
 #usage:
 # 1: jot -n file.ext	#create file.ext in specified jot location
-# 2: jot -n file		#create file.md in specified jot location
+# 2: jot -n file		#create file.$suffix in specified jot location
 
-# 3: jot		#open location/jot.md
+# 3: jot		#open location/jot.$suffix
 # 4: jot list.ext	#if location/list.ext is a file, open it
-# 5: jot list		#if location/list.md is a file, open it
+# 5: jot list		#if location/list.$suffix is a file, open it
 
 
 
 # 6: jot list.ext text as arguments	#if location/list.ext is a file, add 'text as arguments' to it
-# 7: jot list text as arguments	#if location/list.md is a file, add 'text as arguments' to it
-# 8: jot text as arguments		#if location/text and location/text.md (i.e. $1 or $1.md) are not files, add 'text as arguments' to location/jot.md
+# 7: jot list text as arguments	#if location/list.$suffix is a file, add 'text as arguments' to it
+# 8: jot text as arguments		#if location/text and location/text.$suffix (i.e. $1 or $1.$suffix) are not files, add 'text as arguments' to location/jot.$suffix
 
 #this script could be POSIX compliant, except the string indexing used to get all but the first argument
 
+suffix="md"
+textsuffixregex='\.(org|md|tex|txt|clj|kt|sh|c|cpp|conf|ini|html|css|ml|el|js|java|ms|edn|json|rb|log)$'
 loc=$JOT_DIR
 arguments="${*:2}"
 ed=xdg-open
 first_ed="$VISUAL"
-echo "$@" | grep -q '\-v' && ed="$EDITOR" && arguments="$(echo "$arguments" | sed 's/-v //' | sed 's/-v//')" #if there's a -v flag, remove it from $arguments and set the editor to vim
-#[ "$1" = '\-v' ] && shift 1 && echo success #doesn't work
-#echo $1 $@ $#
-#echo $ed
-#echo $arguments
+echo "$@" | grep -q '\-v' && ed="$EDITOR" && arguments="$(echo "$arguments" | sed 's/-v //' | sed 's/-v//')" #if there's a -v flag, remove it from $arguments and set the editor to $EDITOR
 
 
 #case 1 & 2:
@@ -36,11 +34,11 @@ then
 	if echo "$arguments" | grep -qE '\.|/'
 	then
 		#case 1: should this open it, too?
-		touch "$loc/$arguments"; $first_ed "$loc/$arguments" &>/dev/null & disown
+		$first_ed "$loc/$arguments" &>/dev/null & disown
 		exit
 	else
 		#case 2: should this open it, too?
-		$first_ed "$loc/$arguments.md" &>/dev/null & disown
+		$first_ed "$loc/$arguments.$suffix" &>/dev/null & disown
 		 exit
 	fi
 
@@ -51,7 +49,7 @@ fi
 #case 3
 if [ $# -eq 0 ]
 then
-	$first_ed "$loc/jot.md" &>/dev/null & disown
+	$first_ed "$loc/jot.$suffix" &>/dev/null & disown
 	exit
 fi
 
@@ -63,22 +61,29 @@ fi
 
 
 #case 7: should this use the -e flag or a compliant equivalent thereof?
-if [ -e "$loc/$1.md" -a -n "$arguments" ]	#shellcheck says to make this [ cond1 ] && [ cond2 ] because "-a is not well defined"
+if [ -e "$loc/$1.$suffix" -a -n "$arguments" ]	#shellcheck says to make this [ cond1 ] && [ cond2 ] because "-a is not well defined"
 then
-	echo "$arguments" >> "$loc/$1.md"; exit
+	echo "$arguments" >> "$loc/$1.$suffix"; exit
 fi
 
 #case 4
 if [ -e "$loc/$1" ]
 then
+    echo $1
+    if echo "$1" | grep -q -E -e "$textsuffixregex" ; then
+	echo yes
+	$first_ed "$loc/$1" &>/dev/null & disown
+    else
+	echo no
 	$ed "$loc/$1" &>/dev/null & disown
-	exit
+    fi
+    exit
 fi
 
 #case 5
-if [ -e "$loc/$1.md" ]
+if [ -e "$loc/$1.$suffix" ]
 then
-	$first_ed "$loc/$1.md" &>/dev/null & disown
+	$first_ed "$loc/$1.$suffix" &>/dev/null & disown
 	exit
 fi
 
@@ -86,17 +91,5 @@ fi
 
 
 #case 8
-echo "$@" | sed 's/-v //' | sed 's/-v//' >> "$loc/jot.md"
-
-
-
-
-
-
-
-
-
-
-
-
+echo "$@" | sed 's/-v //' | sed 's/-v//' >> "$loc/jot.$suffix"
 
