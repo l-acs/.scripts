@@ -1,0 +1,12 @@
+#!/bin/sh
+
+ref=~/.scripts/output/lastnewmusic.log
+temp=$(mktemp)
+echo '# The following songs have been added to your database since last run: ' >  $temp
+cd $MUSIC ; find -regextype posix-egrep -type f -regex '.*\.(flac|m4a|mp3)$' -newer $ref >> $temp
+eval $VISUAL $temp
+sed '/^#/d' $temp | cut -f2- -d/ >> ~/.config/mpd/playlists/new.m3u
+   
+
+rm $temp
+date >> $ref
