@@ -1,5 +1,6 @@
 #!/bin/sh
 
+date=$(date)
 ref=~/.scripts/output/lastnewmusic.log
 temp=$(mktemp)
 echo '# The following songs have been added to your database since last run: ' >  $temp
@@ -9,4 +10,4 @@ sed '/^#/d' $temp | cut -f2- -d/ >> ~/.config/mpd/playlists/new.m3u
    
 
 rm $temp
-date >> $ref
+echo "$date" >> $ref
