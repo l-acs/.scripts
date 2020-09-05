@@ -22,7 +22,6 @@ sink='@DEFAULT_SINK@'
 case $1 in
     query)
 	echo "$((current/factor))%"
-	echo $current
 	;;
     \+|up)
 	"$(basename $0)" $(( current / factor + step))
