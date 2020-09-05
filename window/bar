@@ -2,4 +2,4 @@
 
 source ~/.zshrc
 pkill lemonbar ; pkill -f lojbar
-$bar | lemon | bash &
+$bar | lemon -f 'Font Awesome 5 Free' -f 'Font Awesome 5 Brands' -f 'Font Awesome 5 Free Solid' | bash &
