@@ -3,6 +3,7 @@
 # perform actions on a window, according to the current WM
 
 WM="$($HOME/.scripts/window/getname.sh)"
+[ $WM = 'compiz' ] && WM=bspwm
 window="$(xdotool getactivewindow)"
 cache="$HOME/.scripts/window/.cache"
 activetags="$cache/current"
@@ -112,7 +113,7 @@ focus(){
 
     esac
 
-    
+
     case "$WM" in
 	bspwm|awesome)
 	    case "$arg" in
@@ -174,7 +175,7 @@ send(){
     #send window to desktop
 
     case "$WM" in
-	bspwm)
+	bspwm|awesome)
 	    xdotool set_desktop_for_window "$window" $(($1 - 1))
 	    ;;
 	i3)
@@ -239,7 +240,7 @@ getworkspaces(){
 
 getactiveworkspaces(){
     case "$WM" in
-	bspwm)
+	bspwm|awesome)
 	    echo "$((1 + "$(wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ')"))"
 	    ;;
 	cwm|CWM)
