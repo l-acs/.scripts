@@ -11,7 +11,7 @@ case "$active_win_class" in
 	key="ctrl+w"
 	;;
     URxvt) # works for tmux, etc; aligns with the intuition that 3 fingers is 'soft' close and 4 'hard'
-	key="ctrl+d"
+	key="ctrl+u ctrl+d"
 	;;
     Signal) # close media, etc
 	key="Escape"
