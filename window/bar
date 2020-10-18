@@ -1,1 +1,5 @@
-/home/l-acs/projects/code/bar2/lojbar/launch.sh
+#!/bin/zsh
+
+source ~/.zshrc
+pkill lemonbar ; pkill -f lojbar
+$bar | lemon -f 'Font Awesome 5 Free' -f 'Font Awesome 5 Brands' -f 'Font Awesome 5 Free Solid' | bash &

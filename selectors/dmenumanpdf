@@ -1,7 +1,9 @@
 #!/bin/sh
 
-man -Tpdf "$(cat ~/.scripts/input/man.txt | rofi -dmenu -l 20 | cut -d " " -f 1)" > ~/.scripts/output/man.pdf 
+man -Tpdf \
+    "$(cat ~/.scripts/input/man.txt | rofi -dmenu -l 20 | cut -d " " -f 1)" \
+    > ~/.scripts/output/man.pdf &&
+    (pgrep -f man.pdf ||
+    zathura ~/.scripts/output/man.pdf & disown )
 
-
-#&& zathura ~/.scripts/output/man.pdf
 #man -Tpdf "$(cat ~/.scripts/input/man.txt | dmenu -l 20 | cut -d " " -f 1)" | zathura - 

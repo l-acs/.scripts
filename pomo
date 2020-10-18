@@ -2,7 +2,7 @@
 
 shopt -s extglob
 
-pomo_time_msg (){
+pomodoro (){
     date_readable="$(echo "${1}" | sed 's/s/ seconds/' | sed 's/m/ minutes/' | sed 's/h/ hours/')"
     name=Timer && [ "${1}"  = "25m" ] && name=Pomodoro && killall dunst #silence notifications
     label="" && [ "${*:2}" != "$name done!" ] && label=" - ${*:2}"
@@ -13,35 +13,34 @@ pomo_time_msg (){
 	{ pgrep -xU "$UID" dunst || dunst & disown ; } &>/dev/null &&
 	notify-send "${*:2}" >/dev/null &&
 	mpv --force-window --loop-playlist=inf --really-quiet ~/.scripts/input/ringtone.webm &&
-	pkill dunst && #kill the notification when mpv is closed
-	dunst &>/dev/null & disown
+	dunstctl close-all & disown
 
 }
 
 
 case "$#" in
     0)
-	pomo_time_msg 25m "Pomodoro done!" ;;
+	pomodoro 25m "Pomodoro done!" ;;
 
     1)
 	case "$*" in
 	    +([0-9]))
-		pomo_time_msg "$*m" "Timer done!" ;;
+		pomodoro "$*m" "Timer done!" ;;
 
 	    +([0-9])[h,s,m])
-		pomo_time_msg "$*" "Timer done!" ;;
+		pomodoro "$*" "Timer done!" ;;
 			    
 
 	    "cancel")
-	 	killall sleep || exit 1;;
+	 	killall sleep ;;
 	
 
 	    "stop")
-		kill "$(ps aux | grep mpv | grep ringtone | tr -s [:blank:] | cut -d " " -f2)" 2>/dev/null || exit 1 ;;
+		pkill -f 'mpv.*ringtone' 1;;
 	    
 
 	    *)
-		pomo_time_msg 25m "$*" ;;
+		pomodoro 25m "$*" ;;
 
 	 esac
 	
@@ -51,13 +50,13 @@ case "$#" in
     *)
 	case "$1" in
 	    +([0-9]))
-		pomo_time_msg "$1m" "${*:2}" ;;
+		pomodoro "$1m" "${*:2}" ;;
 
 	    +([0-9])[h,s,m])
-		pomo_time_msg "$1"  "${*:2}" ;;
+		pomodoro "$1"  "${*:2}" ;;
 
 	    *)
-		pomo_time_msg 25m "$*" 2>/dev/null || (echo "Timer length must precede message." && exit 1) ;;
+		pomodoro 25m "$*" 2>/dev/null || (echo "Timer length must precede message." && exit 1) ;;
 
 	 esac
 

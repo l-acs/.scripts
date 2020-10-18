@@ -1,11 +1,23 @@
 #!/bin/dash
 #get id of matching windows
+# and, separately, ids of windows matching classes after the invert flag
 for i in $*; do
-    apps=$apps$(xdotool search --maxdepth 1 --class "$i")
+    case "$i" in
+	-v|--invert)
+	    invert=true
+	    ;;
+	*)
+	    if [ -n "$invert" ] ; then
+		not=$not$(xdotool search --name --classname --classname "$i")
+	    else
+		apps=$apps$(xdotool search --maxdepth 1 --class "$i")
+	    fi
+	    ;;
+    esac
 done
-
 #get coordinates, screen, and window id of what's under the mouse
 eval $(xdotool getmouselocation --shell)
 
 #compare
-echo $apps | grep -q "$WINDOW"
+( [ -z "$apps" ] || echo $apps | grep -q "$WINDOW" ) &&
+    ( [ -z "$not" ] || echo $not | grep -v -q "$WINDOW" )

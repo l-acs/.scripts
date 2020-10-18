@@ -16,7 +16,11 @@ capture(){
     # higher quality makes this faster. It means less effort spent on compression, which means less time spent before scrot returns
     tmp="$cache"/thumbnails/temp.png
     if bspc query -d focused -N; then
-	scrot -q $thumbquality -o "$tmp"
+	# screenshot, overwriting, at quality, the autoselected region encompassing the primary monitor
+	scrot -o \
+	      -q $thumbquality \
+	      -a $(xrandr -q | grep primary | grep -E '[0-9]+x[0-9]+\+[0-9]+\+[0-9]+' -o | tr + x | awk -F x '{print $3","$4","$1","$2}') \
+	      "$tmp" 
 	for i in $(getactiveworkspaces); do
 	    cp "$tmp" "$cache/thumbnails/$i.png"
 	done
