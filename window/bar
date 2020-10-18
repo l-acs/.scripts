@@ -1,5 +1,1 @@
-#!/bin/zsh
-
-source ~/.zshrc
-pkill lemonbar ; pkill -f lojbar
-$bar | lemon | bash &
+/home/l-acs/projects/code/bar2/lojbar/launch.sh
