@@ -36,9 +36,9 @@ capture(){
 
 capturefocuscapture(){
     hidethumbnail
-    capture
+#    capture    # commenting this and making the last capture run in bg makes this _way_ faster
     focus "$1"
-    capture
+    capture &
 
 }
 
@@ -282,7 +282,7 @@ showthumbnail(){
     #figure out window size
     width="$(feh -L '%w' "$file")"
     height="$(feh -L '%h' "$file")"
-    thumbwidth=248
+    thumbwidth=241
 
     #yuck math in the shell. there's _hopefully_ a better way to do this, but this was faster than continuing to dig for what that is.
     scale="$(echo "scale=3;$width/$thumbwidth" | bc)"

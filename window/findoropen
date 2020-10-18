@@ -8,39 +8,42 @@ function wasRunFromTerminal(){
 }
 
 
-function openInTerminal(){
-    if $(wasRunFromTerminal); then
-	$1
-    else
-	$1 &   # try opening it
-	if [ ! $(xdotool search $1) ]; then #&& pgrep -x $1; then
-	    # it exists but isn't a window
-	    pkill -x $1 
-	    urxvt -e $1 &
-	fi
-    fi
-    
-}
-
+openInTerminal="$(echo $TERMINAL -c)"
 
 
 function search(){
+    xdotool search "$1" windowactivate
+    }
+
+
+
+function searchOrOpen(){
     # imperfect: does not detect `ncmpcpp`s, `vim`s opened from the command line
     case $# in
 	1)
-	    xdotool search "$1" windowactivate || openInTerminal $1
+	    search "$1" ||  eval $1 &
 	    ;;
 	*)
-	    xdotool search "$1" windowactivate ||
-		(shift 1 &&
-		     search $*)
-	    ;;
+	    case $1 in
+		"-t")
+		    shift 1
+		    tui="$1"
+		    shift 1
+		    search "$tui" ||  searchOrOpen "$openInTerminal $tui" $*
+		    ;;
+		*)
+
+		    search "$1" ||
+			(shift 1 &&
+			     searchOrOpen $*)
+		    ;;
+	    esac
     esac
 }
 
 
 
-search $*
+searchOrOpen $*
 
 
 

@@ -1,4 +1,4 @@
 #!/bin/sh
 
 #urxvt -e bash -c ".scripts/pomo" 
-urxvt & disown ; sleep 0.2 && xdotool getactivewindow key p o m o Return
+urxvt & disown ; sleep 0.2 && xdotool getactivewindow type pomo && xdotool key Return

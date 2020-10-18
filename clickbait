@@ -10,7 +10,7 @@
       Editor:"$VISUAL"\
       Programs:'9menu $NINEFLAGS \
       		        Browser:"$WEB" \
-     			Music:"urxvt -e ncmpcpp" \
+     			Music:"urxvt -fn xft:ubuntumono:size=14 -e ncmpcpp" \
 			Email:"$EMAIL" \
 			Calculator:"env GTK_THEME=Adwaita:dark gnome-calculator"' \
       Tools:'9menu $NINEFLAGS \
