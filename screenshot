@@ -1,19 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
-DATEFORMAT='%m-%d-%y_%H:%M:%S'
-PROMPT="Enter a name for your screenshot"
-tmp="$PICTURE/grab/tmp.png"
+shopt -s extglob
+dateformat='%m-%d-%y_%H:%M:%S'
+prompt="Enter a name for your screenshot"
 
-promptname(){
-    input="$(echo "$(date +"$DATEFORMAT")" | rofi -dmenu -p "$PROMPT" | tr -s '[:blank:]' '_')"
-
+function promptname(){
+    input="$(date +"$dateformat" | rofi -dmenu -p "$prompt" | tr -s '[:blank:]' '-')"
     echo $input | grep -E '\.(png|jpe?g)$' || echo $input.png
-
 }
 
+[[ "$1" = ?(-)?(-)@(clip?(board)|c?(opy)|y?(ank)) ]] && shift 1 &&
+    result='| xclip -selection clipboard -t image/png' ||
+	result="/tmp/screenshot.png"
 
-scrot "$tmp" --line style=dash $*
- if [ -f "$tmp" ]; then
-     name=$(promptname)
-     mv "$tmp" "$PICTURE/grab/$name"
- fi
+eval maim  $* $result
+[ -f "$result" ] && name=$(promptname) && mv "$result" "$PICTURE/grab/$name"
