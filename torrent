@@ -1,7 +1,7 @@
 #!/bin/bash
 connected="$(nordvpn status | grep -v Dis)"
 log="$HOME/.scripts/output/torrent.log"
-movies_dir="$HOME/Videos/movies"
+movies_dir="$VIDEO/movies"
 magnet_file="$HOME/.scripts/input/magnets.txt"
 mkdir -p "$movies_dir" "$(dirname "$log")"
 rm "$log"
