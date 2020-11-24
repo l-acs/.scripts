@@ -1,64 +1,72 @@
-#!/bin/bash
+#!/bin/python
+# Make pomo script more sane
+# todo: run in bg?
+# todo: say time starting and ending
 
-shopt -s extglob
+import re
+from time import sleep
+from sys import argv
+from os import system as sh
 
-pomodoro (){
-    date_readable="$(echo "${1}" | sed 's/s/ seconds/' | sed 's/m/ minutes/' | sed 's/h/ hours/')"
-    name=Timer && [ "${1}"  = "25m" ] && name=Pomodoro && killall dunst #silence notifications
-    label="" && [ "${*:2}" != "$name done!" ] && label=" - ${*:2}"
-    echo "$name set from $(date +%-I:%M\ %p) until $(date -d "$date_readable" +%-I:%M\ %p)$label"
+timer_cmd="mpv --force-window --loop-playlist=inf --really-quiet ~/.scripts/input/ringtone.webm && dunstctl close-all"
+
+
+def is_pomo (time):
+    return time == 25 * 60
+
+def pomo_or_timer (b):
+    return "Pomodoro" if b else "Timer"    
+
+def notify_done (time):
+    sh("notify-send '" + pomo_or_timer(time) + " done!' &")
+
+def set_timer (time, msg):
+    print(msg if msg else "\0")
+
+    if is_pomo(time):
+        sh("pkill dunst")
+        sleep(time)
+        sh("dunst & disown")
+    else:
+        sleep(time)
+        
+    notify_done(time)
+    sh(timer_cmd)
     
-    
-    sleep "${1}" &&
-	{ pgrep -xU "$UID" dunst || dunst & disown ; } &>/dev/null &&
-	notify-send "${*:2}" >/dev/null &&
-	mpv --force-window --loop-playlist=inf --really-quiet ~/.scripts/input/ringtone.webm &&
-	dunstctl close-all & disown
+def parse_time (arg):
+    regex = r"(\d+)([smh])([eior]?[cnu]?[sr]?[s]?)?(.*)?" #jank
+    try:  # fixme: this still matches 20j20s, somehow
+        match = re.search (regex, arg)
+        if match:
+            num = int(match.group(1))
+            suffix = match.group(2)
+            result = num if (suffix == 's') \
+                else 60 * num if suffix == 'm' \
+                     else 60 * 60 * num
+            
+            rest = match.group(4)
+            return result if not rest else result + parse_time (rest)
 
-}
+        else:
+            return 60 * int(arg) # it's just a number, interpret that
+                                 # as minutes
+    except:
+      # invalid time
+        return None
+      
 
+def parse_arguments ():
+     arg1 = parse_time(argv[1]) if len(argv) > 1 else None
 
-case "$#" in
-    0)
-	pomodoro 25m "Pomodoro done!" ;;
+     # if the first argument is a time, don't include it in the label
+     label = " ".join([argv[i] for i in range ((2 if arg1 else 1), len(argv))])
 
-    1)
-	case "$*" in
-	    +([0-9]))
-		pomodoro "$*m" "Timer done!" ;;
+     time = arg1 if arg1 else 25 * 60
+     msg = pomo_or_timer(is_pomo(time)) + " set" + (": " + label if label else "")
+         
+     return [time, msg]
 
-	    +([0-9])[h,s,m])
-		pomodoro "$*" "Timer done!" ;;
-			    
-
-	    "cancel")
-	 	killall sleep ;;
-	
-
-	    "stop")
-		pkill -f 'mpv.*ringtone' 1;;
-	    
-
-	    *)
-		pomodoro 25m "$*" ;;
-
-	 esac
-	
-	;;
+[time, msg] = parse_arguments()
+set_timer(time, msg)
 
 
-    *)
-	case "$1" in
-	    +([0-9]))
-		pomodoro "$1m" "${*:2}" ;;
-
-	    +([0-9])[h,s,m])
-		pomodoro "$1"  "${*:2}" ;;
-
-	    *)
-		pomodoro 25m "$*" 2>/dev/null || (echo "Timer length must precede message." && exit 1) ;;
-
-	 esac
-
-	;;
-esac
