@@ -90,6 +90,7 @@ case "$action" in
 	firefox --new-tab "$engine$selection" 2>/dev/null & disown;;
 
     *)
+	action="$(echo "$action" | sed 's/^-t /urxvt -e /')"
 	$action $selection & disown ;;
     
 esac
