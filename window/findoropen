@@ -12,7 +12,7 @@ openInTerminal="$(echo $TERMINAL -c)"
 
 
 function search(){
-    xdotool search "$1" windowactivate
+    xdotool search "$1" windowactivate %@
     }
 
 
