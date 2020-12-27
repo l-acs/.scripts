@@ -8,30 +8,33 @@ if [ $# -ne $argcount ]; then
     help && exit 1
 fi
 
-
-
-MAX=150000
-MAX_PERCENT=150
-factor=$((MAX / MAX_PERCENT))
+MAX_PERCENT=150 # currently unimplemented
 step=2
-current="$( pacmd list-sinks | grep 'volume' | tr -d '\t' | cut -f3 -d' ' | sed 1q )"
+sinks="$(pactl list sinks short | tr '[:blank:]' ' ' | cut -f2 -d' ')" # omit?
 
-sink='@DEFAULT_SINK@'
+if [ $( echo "$sinks" | wc -l ) -gt 1 ]; then
+    sink="$( echo "$sinks" | tail -n 1 )"
+else
+    sink='@DEFAULT_SINK@'
+fi
+
 
 
 case $1 in
     query)
-	echo "$((current/factor))%"
+	echo "$(( $(pamixer --get-volume) * 3 / 2 ))%$(pamixer --get-mute >/dev/null && echo ' (muted)')"
 	;;
     \+|up)
-	"$(basename $0)" $(( current / factor + step))
+	# "$(basename $0)" $(( current / factor + step))
+	pamixer -i $step
 	;;
     -|down)
-	"$(basename $0)" $(( current / factor - step))
+	# "$(basename $0)" $(( current / factor - step))
+	pamixer -d $step
 	;;
     mute|unmute|toggle)
 	arg=$(echo $1 | sed -e 's/unmute/0/' -e 's/mute/1/')
-	pactl set-sink-mute $sink $arg
+	pactl set-sink-mute $sink $arg # change to pamixer?
 	;;
     help|--help|-h)
 	help
@@ -40,7 +43,8 @@ case $1 in
 	arg="$(echo "$1" | tr -d '%')"
 	if [ $arg -le $MAX_PERCENT ]; then
 	    if [ $arg -ge 0 ]; then
-		pacmd set-sink-volume $sink $(( factor * arg ))
+		# pacmd set-sink-volume $sink $(( factor * arg ))
+		pamixer --set-volume $arg
 	    else
 		echo 'Percent must be greater than or equal to 0'
 	    fi
