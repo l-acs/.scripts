@@ -1,32 +1,30 @@
-#!/bin/bash
-#source ~/.bashrc
-td='~/.scripts/td'
-compiled_location='~/.scripts'
-old_todos='~/doc/productivity/days'
-date_flags=""
+#!/bin/sh
 
-#get all lines beginning with ">" from  old_todos txt files and add them to a file
-ls $old_todos/*.txt | while read file; do echo -e "`grep -e "^>" -e "^\?" $file`\n" >> $compiled_location/compiled_tasks.txt; done
+compiled_location="$(mktemp)"
 
-#remove blank lines (lines containing start_of_lineend_of_line) and switch > to -
-sed '/^$/d' "$compiled_location/compiled_tasks.txt" | sed '/^> /d' > "$compiled_location/formatted_tasks.txt"
+# get all lines beginning with > or ? from  old_todos txt files and add them to a file
+grep  -e "^>" -e "^\?" "$TD_DIR"/*.txt > "$compiled_location"
 
-#if the arguments are simply "ls", output aforementioned todos and quit
-[[ $@ = "ls" ]] && cat "$compiled_location/formatted_tasks.txt" && rm "$compiled_location/formatted_tasks.txt" "$compiled_location/compiled_tasks.txt" && exit
+# remove blank lines and switch > to -
+sed -e '/^$/d' -e 's/^> /- /' "$compiled_location" -i
 
+# if the arguments are simply "ls", output aforementioned todos and quit
+[ $@ = "ls" ] && cat "$compiled_location" && rm "$compiled_location" && exit
+
+# create (read: format) the file for the chosen day
 # if there's no arguments, use normal td (today)
-[[ $# -eq 0 ]] && bash $td --novim 
-#if there's an argument, use that day as td input
-[[ ! $# -eq 0 ]] && bash $td $1 --novim 
+[ $# -eq 0 ] && td --noedit
+# if there's an argument, use that day as td input
+[ ! $# -eq 0 ] && td $1 --noedit
 
-#if the first argument is nonzero, set appropriate flags for the date command
-[[ -n $1 ]] && date_flags="-d $1"
+# if the first argument is nonzero, set appropriate flags for the date command
+[ -n $1 ] && date_flags="-d $1"
 
-#add gathered tasks to the desired to-do list
-cat "$compiled_location/formatted_tasks.txt" >> "$old_todos/`date $date_flags +%Y-%m-%d`.txt"
+# add gathered tasks to the desired to-do list
+cat "$compiled_location" >> "$TD_DIR/$(date $date_flags +%Y-%m-%d).txt"
 
-#remove unnecessary files created
-rm "$compiled_location/formatted_tasks.txt" "$compiled_location/compiled_tasks.txt"
+# remove unnecessary files created
+rm "$compiled_location"
 
-#remove the original > lines from the original .txt to-do lists
-sed -i '/^>/d' $old_todos/*.txt && sed -i '/^\?/d' $old_todos/*.txt
+# remove the > / ? lines from to-do lists
+sed -e '/^>/d' -e '/^\?/d' "$TD_DIR"/*.txt -i

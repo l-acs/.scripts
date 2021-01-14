@@ -2,19 +2,20 @@
 
 9menu $NINEFLAGS \
       Browse:"9browse.sh" \
-      Window:'9menu $NINEFLAGS \
-      	      Kill:~/.scripts/window/cwm/"winkill select" \
-      	      Resize:~/.scripts/window/bspwm/windraw \
-	      Select:"rofi -show \"combi\" -switchers combi -combi-modi \"window,drun,surf:surfrofi\" -show-icons"' \
-      Plumb:"plumb --keybind" \
-      Editor:"$VISUAL"\
       Programs:'9menu $NINEFLAGS \
-      		        Browser:"$WEB" \
      			Music:"urxvt -fn xft:ubuntumono:size=14 -e ncmpcpp" \
 			Email:"$EMAIL" \
-			Calculator:"env GTK_THEME=Adwaita:dark gnome-calculator"' \
+			Calculator:"env GTK_THEME=Adwaita:dark gnome-calculator" \
+                        Select:"rofi -show \"combi\" -switchers combi -combi-modi \"window,drun,surf:surfrofi\" -show-icons"' \
       Tools:'9menu $NINEFLAGS \
       	  Pomo:"$HOME/.scripts/window/cwm/pomolaunch" \
 	  To-do:"tdsel" \
 	  Notes:"jsel" '  
 
+      # Window:'9menu $NINEFLAGS \
+      # 	      Kill:~/.scripts/window/cwm/"winkill select" \
+      # 	      Resize:~/.scripts/window/bspwm/windraw \
+
+      # Plumb:"plumb --keybind" \
+      # Editor:"$VISUAL"\
+      # Browser:"$WEB" \

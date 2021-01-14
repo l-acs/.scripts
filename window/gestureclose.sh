@@ -19,6 +19,9 @@ case "$active_win_class" in
     Zathura)
 	key="q"
 	;;
+    *)
+	key=F4
+	;;
 esac
 
 xdotool key $key

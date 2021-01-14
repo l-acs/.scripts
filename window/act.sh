@@ -119,7 +119,7 @@ focus(){
 
 
     case "$WM" in
-	bspwm|awesome)
+	awesome)
 	    case "$arg" in
 		[1-9])
 		    wmctrl -s "$(("$arg" - 1))"
@@ -130,6 +130,11 @@ focus(){
 	    esac
 	    
 	    ;;
+
+	bspwm)
+	    bspc desktop --focus "$arg"
+	    ;;
+
 	i3)
 	    #??
 	    ;;
@@ -179,9 +184,14 @@ send(){
     #send window to desktop
 
     case "$WM" in
-	bspwm|awesome)
+	awesome)
 	    xdotool set_desktop_for_window "$window" $(($1 - 1))
 	    ;;
+
+	bspwm)
+	    bspc node "$window" --to-desktop "$1"
+	    ;;
+
 	i3)
 	    #something
 	    ;;

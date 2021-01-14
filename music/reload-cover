@@ -4,9 +4,17 @@
 
 # the file currently playing
 file="$MUSIC/$( mpc current -f '%file%' )"
+covers="$HOME/.scripts/output/covers/"
+mkdir -p "$covers"
+album_cover="$covers/$(mpc current -f '%artist% - %album%').png"
+cover="$HOME/.scripts/output/cover.png"
 
 if [ -f "$file" ]; then
-    ffmpeg -i "$file" ~/.scripts/output/cover.jpg -y 2>/dev/null &&
-	( pgrep dunst && notify-send --icon="$HOME/.scripts/output/cover.jpg" "$(mpc current -f '%title%\n%artist%')")
+    ffmpeg -i "$file" "$album_cover" -n 2>/dev/null
+    cp "$album_cover" "$cover"
+    pgrep dunst && notify-send --icon="$cover" "$(mpc current -f '%title%\n%artist%')"
     
 fi
+
+
+
