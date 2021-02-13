@@ -1,6 +1,13 @@
 #!/bin/dash
 #get id of matching windows
 # and, separately, ids of windows matching classes after the invert flag
+
+# problem: invert only works if there are non-inverted options
+#    maybe: check if the first argument is
+
+[ -z "$*" ] && echo "Usage: isapplication [itmust beone ofthese etc] [-v it mustnot beany ofthese etc]" && exit 0 # there's nothing it has to be or not be
+
+
 for i in $*; do
     case "$i" in
 	-v|--invert)
@@ -15,9 +22,48 @@ for i in $*; do
 	    ;;
     esac
 done
-#get coordinates, screen, and window id of what's under the mouse
+
+# check whether things are at least running / not as appropriate
+if [ -z "$invert" ]; then # no inverted options
+    [ -z "$apps" ] && exit 1 # if nothing it has to be is running, the window under mouse obviously can't be one of them
+fi
+
+# get coordinates, screen, and window id of what's under the mouse
 eval $(xdotool getmouselocation --shell)
 
 #compare
-( [ -z "$apps" ] || echo $apps | grep -q "$WINDOW" ) &&
-    ( [ -z "$not" ] || echo $not | grep -v -q "$WINDOW" )
+
+if echo $apps | grep -q "$WINDOW" # if true, the window under the mouse is one of the  things it has to be
+then # proceed i.e. check it isn't one of the things it can't be
+
+    if echo $not | grep -q "$WINDOW"  # it's among the things it has to not be
+    then
+	exit 2 # it's among the things it has to be but is among the things it has to not be
+    else
+	exit 0 	# it's among the things it has to be and is not among the things it has to not be, i.e. it's a-ok
+    fi
+
+else # it's not among the things it has to be
+
+    if echo "$1" | grep -qE '(-v|--invert)' # (but there's nothing it has to be, only things it has to not be)
+    then
+	if echo $not | grep -q "$WINDOW" # but it's one of the things it shouldn't be
+	then
+	    exit 3 # there's nothing it has to be but it's one of the things it has to not be
+	else
+	    exit 0 # there's nothing it has to be and it's not among the things it has to not be
+	fi
+
+    else # nope, there are indeed things it must be
+	exit 1 # there are things it has to be and it is not among them: fail
+    fi
+
+fi
+
+
+
+fi
+
+
+
+

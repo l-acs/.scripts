@@ -4,7 +4,24 @@
 
 WM="$($HOME/.scripts/window/getname.sh)"
 [ $WM = 'compiz' ] && WM=bspwm
-window="$(xdotool getactivewindow)"
+pick(){
+    xdotool selectwindow
+}
+
+
+case "$1" in
+    -p|--pick|--select)
+	window=$(pick)
+	shift 1
+	echo $window
+	;;
+    *)
+	window="$(xdotool getactivewindow)"
+	;;
+esac
+
+echo $window
+
 cache="$HOME/.scripts/window/.cache"
 activetags="$cache/current"
 thumbquality=100
@@ -67,9 +84,10 @@ draw(){
     input="$(xrectsel)"
     position="$(echo "$input" | cut -d '+' -f2-3 | tr '+' ' ')"
     size="$(echo "$input" | cut -d '+' -f1 | tr 'x' ' ')"
+    echo $window
     case "$WM" in
 	bspwm)
-	    bspc node -t floating "$window"
+	    bspc node "$window" -t floating
 	    ;;
 	i3)
 	    #something
@@ -176,9 +194,6 @@ kill(){
 
 }
 
-pick(){
-    xdotool selectwindow
-}
 
 send(){
     #send window to desktop
