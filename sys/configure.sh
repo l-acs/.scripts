@@ -6,9 +6,9 @@
 #trackpoint sensitivity
 
 
-echo -n 160 > /sys/devices/platform/i8042/serio1/sensitivity
+echo -n 142 > /sys/devices/platform/i8042/serio1/sensitivity
 
 
 
 #trackpoint speed
-echo -n 120 > /sys/devices/platform/i8042/serio1/speed 
+echo -n 115 > /sys/devices/platform/i8042/serio1/speed
