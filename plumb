@@ -1,10 +1,9 @@
-#!/bin/bash
+#!/bin/zsh
 
+source ~/.zshrc
 selection="$(xsel)"
 logfile="$HOME/.scripts/output/primsel.log"
 engine="duckduckgo.com/?q="
-#bookmarks="$HOME/.surf/bookmarks-nicknames.txt" # TODO: switch to env var
-#engines="$HOME/.surf/engines-nicknames.txt" # TODO: switch to env
 
 # this is a mess. it's decently commented though
 
@@ -25,7 +24,7 @@ leave()
 
 
 #if prim sel empty, use the clipboard
-[ -z "$selection" ] && selection="$(xsel -b | grep -v '^\ No newline at end of selection')"
+[ -z "$selection" ] && selection="$(xsel -b)"
 
 #if the argument is --dmenu, or if both primsel and clipboard empty, pipe logged primary selections as input
 if echo "$@" | grep -q "dmenu" || [ -z "$selection" ]; then
@@ -43,16 +42,20 @@ fi
 #if the active window is urxvt and the script was called via a keybinding, try running plumb from the terminal (for local paths)
 winname="$(xdotool getactivewindow getwindowname)"
 
-( [ "$winname" = "urxvt" ] || [ "$winname" = "tmux" ] || [ "$winname" = "zsh" ] ) && echo "$@" | grep -q 'keybind' && sleep 0.1 && echo "$selection" | xsel -pi && xdotool getactivewindow key p l u m b Return && exit
 
-options='man emacs feh clone locate run td jot vdl-sub firefox mpv search snarf'
-dmenu_options=""
 
-for i in $options; do dmenu_options="$i\n$dmenu_options"; done
-#dmenu_options=$dmenu_options$(cat "$engines" | cut -f1)
+( [ "$winname" = "urxvt" ] || [ "$winname" = "tmux" ] || [ "$winname" = "zsh" ] ) &&
+    echo "$*" | grep -q 'keybind' && sleep 0.1 &&
+    echo "$selection" | xsel -pi &&
+    xdotool getactivewindow type plumb Return &&
+    exit
+
+selections="man emacs feh clone locate run td jot vdl-sub firefox mpv search snarf"
+
+dmenu_options="$(echo "$selections" | tr ' ' '\n')"
 
 #if selection is a file: open it in default application, log and clear prim sel, and exit
-if [ -f "$selection" ]; then xdg-open "$selection" &>/dev/null & disown && leave && exit; fi
+if [ -f "$selection" ]; then xdg-open "$selection" >/dev/null 2>/dev/null & disown && leave && exit; fi
 
 #if selection is a directory: open it in a terminal, log and clear prim sel, and exit
 if [ -d "$selection" ]; then urxvtcd "$selection" & disown && leave && exit; fi
