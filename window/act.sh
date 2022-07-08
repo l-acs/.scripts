@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # perform actions on a window, according to the current WM
 
@@ -107,17 +107,6 @@ draw(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 focus(){
     #show a desktop or window group
     #problem: this hides others as well. it should only toggle the visibility of the current group
@@ -163,9 +152,16 @@ focus(){
 	    #$HOME/.scripts/window/jotted_workspace_toggle.sh "$arg"
 	    group --tog $arg
 	    ;;
+
+	GNOME)
+	    wmctrl -s $(($arg - 1))
+	    ;;
+
 	*)
 	    wmctrl -s "$arg"
 	    ;;
+
+
     esac
 }
 
@@ -182,7 +178,7 @@ helpme(){
 
 
 
-kill(){
+act-kill(){
     case "$WM" in
 	bspwm)
 	    bspc node "$window" -k
@@ -213,7 +209,10 @@ send(){
 	cwm|CWM)
 	    group --add $1 $(pfw)
 	    ;;
-	
+
+	GNOME)
+	    wmctrl -r :ACTIVE: -t $(($1 - 1))
+	    ;;
 	*)
 	    grep -q $1 "$activetags" || xdotool set_desktop_for_window "$window" $1 #either it's currently shown or move it
 	    sed -i "/$1/d" "$cache/desktop"* && echo success
@@ -224,7 +223,6 @@ send(){
     esac
     
 }
-
 
 getwindowsinworkspace(){ #start count at 0
     case "$WM" in
@@ -301,7 +299,6 @@ showthumbnail(){
 
     esac
 
-
     
 
     
@@ -355,15 +352,23 @@ hidethumbnail(){
 
 
 
-#maximizev()
-#log window id and current vertical geometry in a cache file
-#if a window doesn't match max vertical monitor size (minus gaps), maximize it vertically; otherwise, revert it to cached value (or if that value is not stored, do nothing)
+maximizev() {
+    # $1 is toggle, add, or remove
+    [ $# -gt 0 ] && arg="$1" || arg="toggle"
+    wmctrl -r :ACTIVE: -b $arg,maximized_vert
+}
 
-#maximizeh()
-#log window id and current horizontal geometry in a cache file
-#if a window doesn't match max horizontal monitor size (minus gaps), maximize it horizontally; otherwise, revert it to cached value (or if that value is not stored, do nothing)
+maximizeh() {
+    # $1 is toggle, add, or remove
+    [ $# -gt 0 ] && arg="$1" || arg="toggle"
+    wmctrl -r :ACTIVE: -b $arg,maximized_horz
+}
 
-
+maximize() {
+    # $1 is toggle, add, or remove
+    [ $# -gt 0 ] && arg="$1" || arg="toggle"
+    wmctrl -r :ACTIVE: -b $arg,maximized_vert,maximized_horz
+}
 
 
 if [ "$1" = "-p" ] || [ "$1" = "--pick" ]; then
@@ -371,6 +376,10 @@ if [ "$1" = "-p" ] || [ "$1" = "--pick" ]; then
 fi
 
 case "$1" in
+    --carry)
+	send $2 && focus $2
+	;;
+
     -c|--close)
 	close
 	;;
@@ -383,7 +392,10 @@ case "$1" in
 	;;
     
     -k|--kill)
-	kill
+	act-kill
+	;;
+    -m|--max|--maximize|--fullscreen)
+	maximize $2
 	;;
     -r|--resize)
 	draw
@@ -394,6 +406,12 @@ case "$1" in
 
     -s|--send)
 	send $2
+	;;
+    -X|--max-horizontal|--max-h|--horizontal)
+	maximizeh $2
+	;;
+    -Y|--max-vertical|--max-v|--vertical)
+	maximizev $2
 	;;
     
     -h|--help)
