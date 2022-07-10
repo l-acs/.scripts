@@ -2,25 +2,22 @@
 
 # perform actions on a window, according to the current WM
 
-WM="$($HOME/.scripts/window/getname.sh)"
+WM="$(getname.sh)"
 [ $WM = 'compiz' ] && WM=bspwm
+
 pick(){
     xdotool selectwindow
 }
-
 
 case "$1" in
     -p|--pick|--select)
 	window=$(pick)
 	shift 1
-	echo $window
 	;;
     *)
 	window="$(xdotool getactivewindow)"
 	;;
 esac
-
-echo $window
 
 cache="$HOME/.scripts/window/.cache"
 activetags="$cache/current"
@@ -29,14 +26,17 @@ mkdir -p "$cache/thumbnails"
 
 
 capture(){
+    # todo: only have there be *one* file; just have it autoreload and have a window that feh is watching there
+
     echo "Capturing..."
     # higher quality makes this faster. It means less effort spent on compression, which means less time spent before scrot returns
     tmp="$cache"/thumbnails/temp.png
-    if bspc query -d focused -N; then
+    pgrep -f workspacethumbnail || if bspc query -d focused -N; then
 	# screenshot, overwriting, at quality, the autoselected region encompassing the primary monitor
 	scrot -o \
 	      -q $thumbquality \
-	      -a $(xrandr -q | grep primary | grep -E '[0-9]+x[0-9]+\+[0-9]+\+[0-9]+' -o | tr + x | awk -F x '{print $3","$4","$1","$2}') \
+	      -a $(xrandr -q | # grep primary
+		       grep default | grep -E '[0-9]+x[0-9]+\+[0-9]+\+[0-9]+' -o | tr + x | awk -F x '{print $3","$4","$1","$2}') \
 	      "$tmp" 
 	for i in $(getactiveworkspaces); do
 	    cp "$tmp" "$cache/thumbnails/$i.png"
@@ -47,33 +47,23 @@ capture(){
 	done
     fi
     
-
-
 }
 
 
 capturefocuscapture(){
-    hidethumbnail
-#    capture    # commenting this and making the last capture run in bg makes this _way_ faster
     focus "$1"
-    capture &
-
+    (sleep 5 && capture) &
 }
-
 
 
 
 close(){
     case "$WM" in
-	bspwm)
-	    bspc node "$window" -c
-	    ;;
+	bspwm) bspc node "$window" -c ;;
 
-	awesome|CWM)
-	    wmctrl -c :ACTIVE:
-	    ;;
-	*)
-	    xdotool windowclose "$window"
+	awesome|CWM) wmctrl -c :ACTIVE: ;;
+
+	*) xdotool windowclose "$window" ;;
 
     esac
 }
@@ -84,84 +74,54 @@ draw(){
     input="$(xrectsel)"
     position="$(echo "$input" | cut -d '+' -f2-3 | tr '+' ' ')"
     size="$(echo "$input" | cut -d '+' -f1 | tr 'x' ' ')"
-    echo $window
+
     case "$WM" in
-	bspwm)
-	    bspc node "$window" -t floating
-	    ;;
-	i3)
-	    #something
-	    ;;
-	*)
-	    #nothing?
-	    ;;
+	bspwm) bspc node "$window" -t floating ;;
+	*) ;; # nothing?
     esac
+
     xdotool windowmove "$window"  $position windowsize "$window" $size
 
 }
 
 
-#idea: for cwm/tags mod4 when ws 4 is not active is the same thing as moving all windows in group 4 into the mega group. mod4 when ws 4 is active is the same thing as moving all windows in ws 4 out of the mega group
 
+identifydesktop() {
+    case "$1" in
+	next|n) echo "$(("$(getactiveworkspaces)" + 1))" ;;
+	prev|p) echo "$(("$(getactiveworkspaces)" - 1))" ;;
+	*) echo "$1" ;;
+    esac
+}
 
+wmdesktopmatch() {
+   id="$(identifydesktop "$1")"
 
+   case "$WM" in
+	awesome) case "$id" in
+		    [1-9]) echo "$(("$id" - 1))" ;;
+		    0|10)  echo 9 ;;
+	         esac ;;
 
+	GNOME) echo "$(($id - 1))" ;;
+
+	bspwm|i3|cwm|CWM|*) echo "$id" ;;
+   esac
+
+}
 
 focus(){
-    #show a desktop or window group
-    #problem: this hides others as well. it should only toggle the visibility of the current group
-    case "$1" in
-	next|n)
-	    arg="$(("$(getactiveworkspaces)" + 1))"
-	    ;;
-	prev|p)
-	    arg="$(("$(getactiveworkspaces)" - 1))"
-	    ;;
-	
-	*)
-	    arg="$1"
-	    ;;
-
-    esac
-
+    # show a desktop or window group
+    desktop="$(wmdesktopmatch "$1")"
 
     case "$WM" in
-	awesome)
-	    case "$arg" in
-		[1-9])
-		    wmctrl -s "$(("$arg" - 1))"
-		    ;;
-		0|10)
-		    wmctrl -s 9
-		    ;;
-	    esac
-	    
-	    ;;
+	awesome|GNOME) wmctrl -s "$desktop" ;;
 
-	bspwm)
-	    bspc desktop --focus "$arg"
-	    ;;
+	bspwm) bspc desktop --focus "$desktop" ;;
 
-	i3)
-	    #??
-	    ;;
+	CWM|cwm) group --tog "$desktop" ;;
 
-	
-	CWM|cwm)
-	    #sneakily implement tags
-	    #$HOME/.scripts/window/jotted_workspace_toggle.sh "$arg"
-	    group --tog $arg
-	    ;;
-
-	GNOME)
-	    wmctrl -s $(($arg - 1))
-	    ;;
-
-	*)
-	    wmctrl -s "$arg"
-	    ;;
-
-
+	*) wmctrl -s "$desktop" ;;
     esac
 }
 
@@ -172,75 +132,49 @@ helpme(){
     echo "act.sh -[fs] DESKTOP"
     echo "act.sh [-h]"
 
-
-
 }
 
 
 
 act-kill(){
     case "$WM" in
-	bspwm)
-	    bspc node "$window" -k
-	    ;;
-
-	*)
-	    xdotool windowkill "$window"
+	bspwm) bspc node "$window" -k ;;
+	*) xdotool windowkill "$window" ;;
     esac
-
 }
 
 
 send(){
-    #send window to desktop
+    # send window to desktop
+    desktop="$(wmdesktopmatch "$1")"
 
     case "$WM" in
-	awesome)
-	    xdotool set_desktop_for_window "$window" $(($1 - 1))
-	    ;;
+	awesome) xdotool set_desktop_for_window "$window" "$desktop" ;;
 
-	bspwm)
-	    bspc node "$window" --to-desktop "$1"
-	    ;;
+	bspwm)   bspc node "$window" --to-desktop "$desktop" ;;
 
-	i3)
-	    #something
-	    ;;
-	cwm|CWM)
-	    group --add $1 $(pfw)
-	    ;;
+	cwm|CWM) group --add $1 $(pfw) ;;
 
-	GNOME)
-	    wmctrl -r :ACTIVE: -t $(($1 - 1))
-	    ;;
-	*)
-	    grep -q $1 "$activetags" || xdotool set_desktop_for_window "$window" $1 #either it's currently shown or move it
-	    sed -i "/$1/d" "$cache/desktop"* && echo success
-	    xdotool search --desktop $1 "" > "$cache/desktop$1"
+	GNOME)   wmctrl -r :ACTIVE: -t "$desktop" ;;
 
-
-	    ;;
+	*) grep -q $dekstop "$activetags" || xdotool set_desktop_for_window "$window" "$desktop" # either it's currently shown or move it
+	   sed -i "/$desktop/d" "$cache/desktop"* && echo success
+	   xdotool search --desktop "$desktop" "" > "$cache/desktop$desktop" ;;
     esac
     
 }
 
 getwindowsinworkspace(){ #start count at 0
     case "$WM" in
-	bspwm)
-	    var="$(xdotool search --desktop "$1" "")"
-	    #$(($1 - 1))" "")"
-	    ;;
+	bspwm) windows="$(xdotool search --desktop "$1" "")" ;;
 
-	cwm|CWM)
-	    var="$(cat "$cache/desktop$1")"
-	    
+	cwm|CWM) windows="$(cat "$cache/desktop$1")" ;;
 
-	    ;;
-	*)
-	    #something
+	*) ;; #something
 
     esac
-    echo $var
+
+    echo $windows
 }
 
 
@@ -248,11 +182,11 @@ getwindowsinworkspace(){ #start count at 0
 getworkspaces(){
     case "$WM" in
 	bspwm)
-	    var="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do echo -n "$i  "; done)"
+	    workspaces="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do echo -n "$i  "; done)"
 	    ;;
 
 	cwm|CWM)
-	    var="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do echo -n "$i  "; done)"
+	    workspaces="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do echo -n "$i  "; done)"
 	    
 
 	    ;;
@@ -260,22 +194,19 @@ getworkspaces(){
 	    #something
 
     esac
-    echo $var
+    echo $workspaces
 }
 
 
 
 getactiveworkspaces(){
     case "$WM" in
-	bspwm|awesome)
-	    echo "$((1 + "$(wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ')"))"
-	    ;;
-	cwm|CWM)
-	    group -l | tr '\t' ' ' | cut -f1 -d' ' | cut -f2 -d'_'
-	    ;;
-	*)
-	    wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' '
-	    ;;
+	awesome|bspwm|GNOME) parsed="$(wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ')"
+			     echo "$((1 + parsed))" ;;
+
+	cwm|CWM) group -l | tr '\t' ' ' | cut -f1 -d' ' | cut -f2 -d'_' ;;
+
+	*) wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ' ;;
 	
 
     esac
@@ -283,29 +214,21 @@ getactiveworkspaces(){
 
 
 showthumbnail(){
-    hidethumbnail
-    
     case "$WM" in
-	bspwm)
-	    bspc rule -a workspacethumbnail -o manage=off
-	    file="$cache/thumbnails/$1.png"
-	    ;;
-	awesome)
-	    file="$cache/thumbnails/$(($1 - 1)).png"
-	    ;;
-	*)
-	    file="$cache/thumbnails/$1.png"
-	    ;;
+	bspwm)   bspc rule -a workspacethumbnail -o manage=off
+		 file="$cache/thumbnails/$1.png" ;;
+
+	awesome) file="$cache/thumbnails/$(($1 - 1)).png" ;;
+
+	*)       file="$cache/thumbnails/$1.png" ;;
 
     esac
-
-    
 
     
     #figure out window size
     width="$(feh -L '%w' "$file")"
     height="$(feh -L '%h' "$file")"
-    thumbwidth=241
+    thumbwidth=600
 
     #yuck math in the shell. there's _hopefully_ a better way to do this, but this was faster than continuing to dig for what that is.
     scale="$(echo "scale=3;$width/$thumbwidth" | bc)"
@@ -317,39 +240,42 @@ showthumbnail(){
     
     
     winX=$((X-thumbwidth/2)) #problematic: this assumes the workspaces are on the left #1100
-    winY=25
+    winY=25 # maybe should be 30
     #winY=$((Y+20)) #problematic: this assumes the bar is on the top
     
     #instead, checks should be done against the screen resolution
 
 
+    fixedX=30
+    fixedY=50
+
+
     [ "$winX" -lt 10 ] && winX=10    
     
+    echo $winX $winY $X $Y
     
-
     # TODO: change feh call so any keypress will kill the window
-    [ $Y -lt 25 ] && [ $X -lt 350 ] && feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$winX+$winY -. &
-    sleep 2.5 && hidethumbnail &
+    if [ $Y -lt 25 -a $X -lt 800 ]; then #	[ $X -lt 350 ] &&
+#	echo yes &&
+	thumbnails=$(pgrep -f workspacethumbnail)
 
+	feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$fixedX+$fixedY -. &
+	kill $thumbnails
+	ours=$(pgrep -f workspacethumbnail)
+	(sleep 5 && kill $ours) &
+
+    fi
+    
     
 }
-
 
 hidethumbnail(){
-
     pkill -f workspacethumbnail
-
 }
-
-
 
 
 
 #todo: cwm focus $1 & hide other tags
-
-
-
-
 
 
 maximizev() {
@@ -376,72 +302,46 @@ if [ "$1" = "-p" ] || [ "$1" = "--pick" ]; then
 fi
 
 case "$1" in
-    --carry)
-	send $2 && focus $2
-	;;
+    --carry) send $2 && focus $2 ;;
 
-    -c|--close)
-	close
-	;;
-    -d|--draw)
-	draw
-	;;
+    -c|--close) close ;;
 
-    -f|--focus)
-	focus $2
-	;;
+    -d|--draw) draw ;;
+
+    -f|--focus) focus $2 ;;
     
-    -k|--kill)
-	act-kill
-	;;
-    -m|--max|--maximize|--fullscreen)
-	maximize $2
-	;;
-    -r|--resize)
-	draw
-	;;
-    -p|--pick|--select)
-	pick
-    	;;
+    -k|--kill) act-kill ;;
 
-    -s|--send)
-	send $2
-	;;
-    -X|--max-horizontal|--max-h|--horizontal)
-	maximizeh $2
-	;;
-    -Y|--max-vertical|--max-v|--vertical)
-	maximizev $2
-	;;
+    -m|--max|--maximize|--fullscreen) maximize $2 ;;
+
+    -r|--resize) draw ;;
+
+    -p|--pick|--select) pick ;;
+
+    -s|--send) send $2 ;;
+
+    -X|--max-horizontal|--max-h|--horizontal) maximizeh $2 ;;
+
+    -Y|--max-vertical|--max-v|--vertical) maximizev $2 ;;
     
-    -h|--help)
-	helpme
-	;;
-    --getworkspace*|--getdesktop*)
-	getworkspaces
-	;;
-    --getwindows*)
-	getwindowsinworkspace $2
-	;;
-    --*actived*|--*activew*)
-	getactiveworkspaces
-	;;
-    --capture|--thumbnail)
-	capture
-	;;
-    --capturefocuscapture)
-	capturefocuscapture $2
-	;;
-    --showthumbnail)
-	showthumbnail $2
-	;;
-    --hidethumbnail)
-	hidethumbnail
-	;;
-    *)
-	helpme
-	exit 1
-	;;
+    --getworkspace*|--getdesktop*) getworkspaces ;;
+
+    --getwindows*) getwindowsinworkspace $2 ;;
+
+    --*actived*|--*activew*) getactiveworkspaces ;;
+
+    --capture|--thumbnail) capture ;;
+
+    --capturefocuscapture) capturefocuscapture $2 ;;
+
+    --showthumbnail) showthumbnail $2 ;;
+
+    --hidethumbnail) hidethumbnail ;;
+
+    -h|--help) helpme ;;
+
+    *) helpme
+       exit 1 ;;
 esac
 
 exit 0
