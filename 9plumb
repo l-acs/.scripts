@@ -1,9 +1,0 @@
-#!/bin/dash
-
-#if there's something in the primary selection, run plumb. otherwise open clickbait
-
-if [ -n "$(xsel -o)" ]; then
-    plumb --keybind
-else
-    clickbait
-fi

@@ -1,4 +1,0 @@
-#!/bin/bash
-
- #--input-file=~/.config/mpv/fifo
-grep -v -e ">" -e "^$" "$(du -a ~/Media/videos/ | cut -f2- | grep -E "\.vtt" | rofi -dmenu -i -l 46)" | sed -n 5~3p

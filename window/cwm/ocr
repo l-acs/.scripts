@@ -1,5 +1,0 @@
-#!/bin/dash
-
-cellwriter & #--dock-window=1 & 
-sleep 1
-~/.scripts/cwm/windraw "$(pgrep cellwriter)"

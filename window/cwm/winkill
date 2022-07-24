@@ -1,6 +1,0 @@
-#!/bin/dash
-
-selection="$(xdotool getactivewindow)"
-[ "$*" = "select" ] && selection="$(xdotool selectwindow)"
-
-xdotool windowkill "$selection"  
