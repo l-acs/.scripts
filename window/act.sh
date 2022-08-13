@@ -88,7 +88,7 @@ draw(){
 
 identifydesktop() {
     case "$1" in
-	next|n) echo "$(("$(getactiveworkspaces)" + 1))" ;;
+	next|n) echo "$(("$(getactiveworkspaces)" + 1))" ;; # todo: make these cycle
 	prev|p) echo "$(("$(getactiveworkspaces)" - 1))" ;;
 	*) echo "$1" ;;
     esac
@@ -99,11 +99,11 @@ wmdesktopmatch() {
 
    case "$WM" in
 	awesome) case "$id" in
-		    [1-9]) echo "$(("$id" - 1))" ;;
+		    [1-9]) echo "$((id - 1))" ;;
 		    0|10)  echo 9 ;;
 	         esac ;;
 
-	GNOME) echo "$(($id - 1))" ;;
+	GNOME) echo "$((id - 1))" ;;
 
 	bspwm|i3|cwm|CWM|*) echo "$id" ;;
    esac
@@ -119,19 +119,18 @@ focus(){
 
 	bspwm) bspc desktop --focus "$desktop" ;;
 
-	CWM|cwm) group --tog "$desktop" ;;
+	CWM|cwm) wmctrl -s "$desktop" ;;
 
 	*) wmctrl -s "$desktop" ;;
     esac
 }
 
 helpme(){
-
-    echo "Usage: "
-    echo "act.sh [-p] -[cdk] "
-    echo "act.sh -[fs] DESKTOP"
-    echo "act.sh [-h]"
-
+    name="$(basename "$0")"
+    echo "Usage:
+    $name -p -[cdk]
+    $name -[fs] DESKTOP
+    $name -h"
 }
 
 
@@ -153,11 +152,11 @@ send(){
 
 	bspwm)   bspc node "$window" --to-desktop "$desktop" ;;
 
-	cwm|CWM) group --add $1 $(pfw) ;;
+	cwm|CWM) wmctrl -r :ACTIVE: -t "$desktop" ;; # group --add $1 $(pfw) ;;
 
 	GNOME)   wmctrl -r :ACTIVE: -t "$desktop" ;;
 
-	*) grep -q $dekstop "$activetags" || xdotool set_desktop_for_window "$window" "$desktop" # either it's currently shown or move it
+	*) grep -q $desktop "$activetags" || xdotool set_desktop_for_window "$window" "$desktop" # either it's currently shown or move it
 	   sed -i "/$desktop/d" "$cache/desktop"* && echo success
 	   xdotool search --desktop "$desktop" "" > "$cache/desktop$desktop" ;;
     esac
@@ -197,18 +196,13 @@ getworkspaces(){
     echo $workspaces
 }
 
-
-
 getactiveworkspaces(){
+    parsed="$(wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ')"
+
     case "$WM" in
-	awesome|bspwm|GNOME) parsed="$(wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ')"
-			     echo "$((1 + parsed))" ;;
-
-	cwm|CWM) group -l | tr '\t' ' ' | cut -f1 -d' ' | cut -f2 -d'_' ;;
-
-	*) wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ' ;;
-	
-
+	awesome|bspwm|cwm|GNOME) echo "$((1 + parsed))" ;;
+	# cwm|CWM) group -l | tr '\t' ' ' | cut -f1 -d' ' | cut -f2 -d'_' ;;
+	*) echo "$parsed" ;;
     esac
 }
 
@@ -254,9 +248,7 @@ showthumbnail(){
     
     echo $winX $winY $X $Y
     
-    # TODO: change feh call so any keypress will kill the window
-    if [ $Y -lt 25 -a $X -lt 800 ]; then #	[ $X -lt 350 ] &&
-#	echo yes &&
+    if [ $Y -lt 25 -a $X -lt 800 ]; then
 	thumbnails=$(pgrep -f workspacethumbnail)
 
 	feh "$file" --class workspacethumbnail  -g "$thumbwidth"x"$thumbheight"+$fixedX+$fixedY -. &
