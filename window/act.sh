@@ -90,6 +90,7 @@ identifydesktop() {
     case "$1" in
 	next|n) echo "$(("$(getactiveworkspaces)" + 1))" ;; # todo: make these cycle
 	prev|p) echo "$(("$(getactiveworkspaces)" - 1))" ;;
+	empty)  getnextempty ;;
 	*) echo "$1" ;;
     esac
 }
@@ -113,6 +114,7 @@ wmdesktopmatch() {
 focus(){
     # show a desktop or window group
     desktop="$(wmdesktopmatch "$1")"
+    echo $desktop
 
     case "$WM" in
 	awesome|GNOME) wmctrl -s "$desktop" ;;
@@ -177,35 +179,58 @@ getwindowsinworkspace(){ #start count at 0
 }
 
 
+complement(){
+    diff --unchanged-group-format="" --changed-group-format="%<" $*
+}
+
 
 getworkspaces(){
     case "$WM" in
-	bspwm)
-	    workspaces="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do echo -n "$i  "; done)"
-	    ;;
+	bspwm) for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do
+		   echo -n "$i  "
+	       done ;;
 
-	cwm|CWM)
-	    workspaces="$(for i in $(wmctrl -d | tr -s '[:blank:]' | awk '{print $2$10}' ); do echo -n "$i  "; done)"
-	    
+	cwm|CWM) wmctrl -d | cut -f1 -d' ' ;;
 
-	    ;;
-	*)
-	    #something
+	*) ;; #something
 
     esac
-    echo $workspaces
 }
 
 getactiveworkspaces(){
     parsed="$(wmctrl -d | grep '*' | tr -s '[:blank:]' | cut -f1 -d ' ')"
 
     case "$WM" in
-	awesome|bspwm|cwm|GNOME) echo "$((1 + parsed))" ;;
+	awesome|bspwm|GNOME) echo "$((1 + parsed))" ;;
 	# cwm|CWM) group -l | tr '\t' ' ' | cut -f1 -d' ' | cut -f2 -d'_' ;;
-	*) echo "$parsed" ;;
+	cwm|CWM|*) echo "$parsed" ;;
     esac
 }
 
+getfilledworkspaces(){
+    case "$WM" in
+	bspwm) ;; # something
+	cwm|CWM|*) wmctrl -l | tr -s '[:blank:]' | cut -f2 -d' ' | sed 's/-1/0/'  | sort -u ;;
+    esac
+}
+
+getemptyworkspaces(){
+    complement <(getworkspaces) <(getfilledworkspaces)
+}
+
+getfirstempty(){
+    getemptyworkspaces | head -n 1
+}
+
+getnextempty(){
+    active="$(getactiveworkspaces)"
+    getemptyworkspaces | grep -q $active && exit # if we're already in an empty desktop, quit
+
+    next="$(cat <(getemptyworkspaces) <(echo $active) | sort -u | grep $active -A1 | tail -n 1)"
+
+    ([ "$next" != "$active" ] &&
+	 echo $next | grep '[[:digit:]]') || getfirstempty
+}
 
 showthumbnail(){
     case "$WM" in
@@ -294,7 +319,7 @@ if [ "$1" = "-p" ] || [ "$1" = "--pick" ]; then
 fi
 
 case "$1" in
-    --carry) send $2 && focus $2 ;;
+    --carry) desktop="$(identifydesktop)"; send $desktop && focus $desktop ;;
 
     -c|--close) close ;;
 
@@ -316,6 +341,14 @@ case "$1" in
 
     -Y|--max-vertical|--max-v|--vertical) maximizev $2 ;;
     
+    --getempty*|--empty*) getemptyworkspaces ;;
+
+    --getfirstempty*|--firstempty*) getfirstempty ;;
+
+    --getnextempty*|--nextempty*) getnextempty ;;
+
+    --getfilled*|--filled*) getfilledworkspaces ;;
+
     --getworkspace*|--getdesktop*) getworkspaces ;;
 
     --getwindows*) getwindowsinworkspace $2 ;;
