@@ -113,17 +113,15 @@ wmdesktopmatch() {
 
 focus(){
     # show a desktop or window group
-    desktop="$(wmdesktopmatch "$1")"
-    echo $desktop
 
     case "$WM" in
-	awesome|GNOME) wmctrl -s "$desktop" ;;
+	awesome|GNOME) wmctrl -s "$1" ;;
 
-	bspwm) bspc desktop --focus "$desktop" ;;
+	bspwm) bspc desktop --focus "$1" ;;
 
-	CWM|cwm) wmctrl -s "$desktop" ;;
+	CWM|cwm) wmctrl -s "$1" ;;
 
-	*) wmctrl -s "$desktop" ;;
+	*) wmctrl -s "$1" ;;
     esac
 }
 
@@ -147,20 +145,19 @@ act-kill(){
 
 send(){
     # send window to desktop
-    desktop="$(wmdesktopmatch "$1")"
 
     case "$WM" in
-	awesome) xdotool set_desktop_for_window "$window" "$desktop" ;;
+	awesome) xdotool set_desktop_for_window "$window" "$1" ;;
 
-	bspwm)   bspc node "$window" --to-desktop "$desktop" ;;
+	bspwm)   bspc node "$window" --to-desktop "$1" ;;
 
-	cwm|CWM) wmctrl -r :ACTIVE: -t "$desktop" ;; # group --add $1 $(pfw) ;;
+	cwm|CWM) wmctrl -r :ACTIVE: -t "$1" ;; # group --add $1 $(pfw) ;;
 
-	GNOME)   wmctrl -r :ACTIVE: -t "$desktop" ;;
+	GNOME)   wmctrl -r :ACTIVE: -t "$1" ;;
 
-	*) grep -q $desktop "$activetags" || xdotool set_desktop_for_window "$window" "$desktop" # either it's currently shown or move it
-	   sed -i "/$desktop/d" "$cache/desktop"* && echo success
-	   xdotool search --desktop "$desktop" "" > "$cache/desktop$desktop" ;;
+	*) grep -q $desktop "$activetags" || xdotool set_desktop_for_window "$window" "$1" # either it's currently shown or move it
+	   sed -i "/$1/d" "$cache/desktop"* && echo success
+	   xdotool search --desktop "$1" "" > "$cache/desktop$1" ;;
     esac
     
 }
@@ -316,16 +313,19 @@ maximize() {
 
 if [ "$1" = "-p" ] || [ "$1" = "--pick" ]; then
     window=$(pick)
+    shift 1
 fi
 
 case "$1" in
-    --carry) desktop="$(identifydesktop)"; send $desktop && focus $desktop ;;
+    --carry) desktop="$(wmdesktopmatch "$2")"
+	     send $desktop && focus $desktop ;;
 
     -c|--close) close ;;
 
     -d|--draw) draw ;;
 
-    -f|--focus) focus $2 ;;
+    -f|--focus) desktop="$(wmdesktopmatch "$2")"
+	        focus $desktop ;;
     
     -k|--kill) act-kill ;;
 
@@ -335,7 +335,8 @@ case "$1" in
 
     -p|--pick|--select) pick ;;
 
-    -s|--send) send $2 ;;
+    -s|--send) desktop="$(wmdesktopmatch "$2")"
+	       send $desktop ;;
 
     -X|--max-horizontal|--max-h|--horizontal) maximizeh $2 ;;
 
