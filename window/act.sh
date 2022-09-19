@@ -88,9 +88,11 @@ draw(){
 
 identifydesktop() {
     case "$1" in
-	next|n) echo "$(("$(getactiveworkspaces)" + 1))" ;; # todo: make these cycle
-	prev|p) echo "$(("$(getactiveworkspaces)" - 1))" ;;
-	empty)  getnextempty ;;
+	next|n)     echo "$(("$(getactiveworkspaces)" + 1))" ;; # todo: make these cycle
+	prev|p)     echo "$(("$(getactiveworkspaces)" - 1))" ;;
+	empty)      getnextempty ;;
+	nextfilled) getnextfilled ;;
+	prevfilled) getprevfilled ;;
 	*) echo "$1" ;;
     esac
 }
@@ -187,7 +189,7 @@ getworkspaces(){
 		   echo -n "$i  "
 	       done ;;
 
-	cwm|CWM) wmctrl -d | cut -f1 -d' ' ;;
+	cwm|CWM) wmctrl -d | grep -v nogroup | cut -f1 -d' ' ;;
 
 	*) ;; #something
 
@@ -199,7 +201,6 @@ getactiveworkspaces(){
 
     case "$WM" in
 	awesome|bspwm|GNOME) echo "$((1 + parsed))" ;;
-	# cwm|CWM) group -l | tr '\t' ' ' | cut -f1 -d' ' | cut -f2 -d'_' ;;
 	cwm|CWM|*) echo "$parsed" ;;
     esac
 }
@@ -207,7 +208,7 @@ getactiveworkspaces(){
 getfilledworkspaces(){
     case "$WM" in
 	bspwm) ;; # something
-	cwm|CWM|*) wmctrl -l | tr -s '[:blank:]' | cut -f2 -d' ' | sed 's/-1/0/'  | sort -u ;;
+	cwm|CWM|*) wmctrl -l | tr -s '[:blank:]' | cut -f2 -d' ' | sed '/-1/d'  | sort -u ;;
     esac
 }
 
@@ -227,6 +228,42 @@ getnextempty(){
 
     ([ "$next" != "$active" ] &&
 	 echo $next | grep '[[:digit:]]') || getfirstempty
+}
+
+getfirstfilled(){
+    getfilledworkspaces | head -n 1
+}
+
+getlastfilled(){
+    getfilledworkspaces | tail -n 1
+}
+
+getnextfilled(){
+    active="$(getactiveworkspaces)"
+
+    filledplusactive=$(cat <(getfilledworkspaces) <(echo $active) | sort -u)
+
+    next="$(echo "$filledplusactive" | grep $active -A1 | tail -n 1)"
+
+    # if the result is the same as the active desktop, it means we're at the rightmost filled desktop
+    # therefore we wrap around
+    ([ "$next" != "$active" ] &&
+	 echo $next | grep '[[:digit:]]') || getfirstfilled
+
+}
+
+getprevfilled(){
+    active="$(getactiveworkspaces)"
+
+    filledplusactive=$(cat <(getfilledworkspaces) <(echo $active) | sort -u)
+
+    prev="$(echo "$filledplusactive" | grep $active -B1 | head -n 1)"
+
+    # if the result is the same as the active desktop, it means we're at the leftmost filled desktop
+    # therefore we wrap around
+    ([ "$prev" != "$active" ] &&
+	 echo $prev | grep '[[:digit:]]') || getlastfilled
+
 }
 
 showthumbnail(){
@@ -349,6 +386,10 @@ case "$1" in
     --getnextempty*|--nextempty*) getnextempty ;;
 
     --getfilled*|--filled*) getfilledworkspaces ;;
+
+    --getnextfilled*|--nextfilled*) getnextfilled ;;
+
+    --getprevfilled*|--prevfilled*) getprevfilled ;;
 
     --getworkspace*|--getdesktop*) getworkspaces ;;
 
