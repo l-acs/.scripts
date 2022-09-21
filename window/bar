@@ -1,5 +1,8 @@
-#!/bin/zsh
+#!/bin/sh
 
-source ~/.zshrc
-pkill lemonbar ; pkill -f lojbar
-$bar | lemon -f 'Font Awesome 5 Free' -f 'Font Awesome 5 Brands' -f 'Font Awesome 5 Free Solid' | bash &
+size='size=24'
+alias lemon="lemonbar -p -a 50 -f \"Ubuntu Mono:$size\" -f \"Symbola:style=Regular:$size\" -f \"Noto Color Emoji:style=Regular:$size\" -f \"FontAwesome:style=Regular:$size\" -f \"Font AwesomeBrands:$size\" -f \"Font Awesome 5 Free Solid:$size\" -f \"forkawesome:style=Regular:$size\" -f \"Emoji One:style=Regular:$size\""
+
+pkill lemonbar ; pkill -f 'java.*lojbar'
+
+( cd "$HOME/projects/lojbar" ; java -jar target/uberjar/lojbar-0.1.0-SNAPSHOT-standalone.jar ) | lemon | bash

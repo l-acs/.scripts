@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+input="$(du -a "$PODCAST" | cut -f2- | grep -vE "\.vtt$|\.srt$|\.jpg$|\.png$|\.txt$|\.aria2$|\.part$|\.log$" | sed "s|^$PODCAST/||" | rofi -dmenu -i -l 30 -p 'Select a podcast')"
+
+echo "$PODCAST/$input"
+
+[ -n "$input" ] &&
+  mpvc add "$PODCAST/$input" -- --force-window
+  #--input-file=~/.config/mpv/fifo
+
